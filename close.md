@@ -5,5 +5,5 @@
 3. create pull request with start with issue number `{issue number}{title}`
 4. gh pr merge {pull reuquest number} --merge --delete-branch=true
 5. git worktree list 
-6. cd worktree main directory
-7. git pull origin main
+6. cd worktree dev directory
+7. git pull origin dev
