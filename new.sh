@@ -111,10 +111,16 @@ WORKTREE_PATH="${WORKTREE_BASE}/${NEW_VERSION}"
 # Create worktree base directory if it doesn't exist
 mkdir -p "${WORKTREE_BASE}"
 
-# Remove existing worktree if it exists
+# Remove existing worktree if it exists (this also removes the branch if it only exists in worktree)
 if [ -d "${WORKTREE_PATH}" ]; then
     log_warn "Removing existing worktree at ${WORKTREE_PATH}"
     git worktree remove "${WORKTREE_PATH}" --force || true
+fi
+
+# Also remove the branch if it exists (since we're creating a fresh development cycle)
+if git show-ref --verify --quiet refs/heads/"${NEW_VERSION}"; then
+    log_warn "Removing existing branch ${NEW_VERSION}"
+    git branch -D "${NEW_VERSION}" || true
 fi
 
 # Create new worktree
