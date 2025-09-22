@@ -158,45 +158,8 @@ cat > "${DOC_FILE}" << EOF
 [이 버전에서 구현할 기능 요약]
 
 ## 구현 상세
+[TODO]
 
-### 새로운 파일
-\`\`\`
-[새로 생성된 파일 목록]
-\`\`\`
-
-### 수정된 파일
-\`\`\`
-[수정된 파일 목록]
-\`\`\`
-
-
-## 변경사항
-[이전 버전 대비 추가/수정/삭제된 내용]
-
-## Development TODO
-- [ ] [Add your tasks here]
-
-## 구현 단계
-
-### 1단계: [이름]
-- [ ] 예정된 작업
-
-## 테스트 결과
-[테스트 결과를 기록]
-
-## 벤치 결과(중요한 함수만 벤치 진행)
-[벤치 결과를 기록]
-
-## 코드 예제
-\`\`\`go
-// 주요 구현 예제
-\`\`\`
-
-## 이슈 & 해결
-[발견된 문제와 해결 방법]
-
-## 다음 버전 계획
-[다음에 구현할 기능]
 
 # Design Rule
 KISS, DRY, YAGNI
@@ -217,6 +180,15 @@ KISS, DRY, YAGNI
 - **Branch**: ${NEW_VERSION}
 - **Description**: ${DESCRIPTION}
 EOF
+
+
+DOC_DIR="versions/history"
+mkdir -p "${DOC_DIR}"
+
+# Create HeadVer documentation file (simple version naming)
+mkdir -p versions/todo
+touch "versions/todo/${NEW_VERSION}.md"
+
 
 # Copy previous version tests and update current link
 log_info "Setting up test environment"
