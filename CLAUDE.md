@@ -1,5 +1,5 @@
 # CLAUDE.md
-
+IMPORTANT: UTF8
 IMPORTANT: read first => current version = versions/headver.txt, versions/history/{current version}.md, versions/todo/{current version}.md
 
 # KTA Portal Project - Architecture Overview
