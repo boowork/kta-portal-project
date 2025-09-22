@@ -42,11 +42,11 @@ else
 fi
 
 WORKTREE_BASE="${HOME}/.claude/prompt_helper/worktree/${PROJECT_NAME}"
-MAIN_BRANCH="main"
+MAIN_BRANCH="dev"
 
 log_info "Starting progressive development initialization..."
 
-# Step 1: Git stash and checkout main
+# Step 1: Git stash and checkout dev
 log_info "Step 1: Preparing git workspace"
 if git diff --quiet && git diff --staged --quiet; then
     log_info "Working directory is clean"
@@ -55,7 +55,7 @@ else
     git stash push -m "Auto-stash before new development cycle $(date)"
 fi
 
-# Checkout main branch
+# Checkout dev branch
 log_info "Checking out ${MAIN_BRANCH} branch"
 if git show-ref --verify --quiet refs/heads/${MAIN_BRANCH}; then
     git checkout ${MAIN_BRANCH}
@@ -66,7 +66,7 @@ if git show-ref --verify --quiet refs/heads/${MAIN_BRANCH}; then
         log_info "No remote origin configured, skipping pull"
     fi
 else
-    log_error "Main branch '${MAIN_BRANCH}' does not exist"
+    log_error "Dev branch '${MAIN_BRANCH}' does not exist"
     exit 1
 fi
 
@@ -88,7 +88,7 @@ fi
 
 log_info "New version: ${NEW_VERSION}"
 
-# Commit the headver.txt changes to main branch
+# Commit the headver.txt changes to dev branch
 log_info "Committing HeadVer changes"
 git add headver.txt
 if ! git diff --staged --quiet; then
@@ -98,6 +98,13 @@ if ! git diff --staged --quiet; then
 - Description: ${DESCRIPTION}
 - Previous version: ${CURRENT_HEADVER}
 "
+    # Push to origin to prevent version conflicts with other developers
+    log_info "Pushing HeadVer changes to origin"
+    if git remote get-url origin > /dev/null 2>&1; then
+        git push origin ${MAIN_BRANCH} || log_warn "Could not push to origin"
+    else
+        log_warn "No remote origin configured, skipping push"
+    fi
 else
     log_info "No HeadVer changes to commit"
 fi
