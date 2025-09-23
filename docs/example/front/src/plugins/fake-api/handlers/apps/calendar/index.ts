@@ -6,7 +6,7 @@ import { genId } from '@api-utils/genId'
 
 export const handlerAppsCalendar = [
 
-  // 👉 Get Calendar Events
+  //  Get Calendar Events
   http.get(('/api/apps/calendar'), ({ request }) => {
     const url = new URL(request.url)
 
@@ -21,7 +21,7 @@ export const handlerAppsCalendar = [
     return HttpResponse.json(events, { status: 200 })
   }),
 
-  // 👉 Add Calendar Event
+  //  Add Calendar Event
   http.post(('/api/apps/calendar'), async ({ request }) => {
     const event = await request.json() as typeof db.events[0]
 
@@ -33,7 +33,7 @@ export const handlerAppsCalendar = [
     return HttpResponse.json(event, { status: 201 })
   }),
 
-  // 👉 Update Calendar Event
+  //  Update Calendar Event
   http.put(('/api/apps/calendar/:id'), async ({ request, params }) => {
     const updatedEvent = await request.json() as typeof db.events[0]
 
@@ -59,7 +59,7 @@ export const handlerAppsCalendar = [
     )
   }),
 
-  // 👉 Delete Calendar Event
+  //  Delete Calendar Event
   http.delete(('/api/apps/calendar/:id'), ({ params }) => {
     const eventId = Number(params.id)
 

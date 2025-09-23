@@ -11,7 +11,7 @@ const checkbox = ref(false)
 <template>
   <VForm @submit.prevent="() => {}">
     <VRow>
-      <!-- 👉 First Name -->
+      <!--  First Name -->
       <VCol
         cols="12"
         md="6"
@@ -23,7 +23,7 @@ const checkbox = ref(false)
         />
       </VCol>
 
-      <!-- 👉 Last Name -->
+      <!--  Last Name -->
       <VCol
         cols="12"
         md="6"
@@ -35,7 +35,7 @@ const checkbox = ref(false)
         />
       </VCol>
 
-      <!-- 👉 Email -->
+      <!--  Email -->
       <VCol
         cols="12"
         md="6"
@@ -47,7 +47,7 @@ const checkbox = ref(false)
         />
       </VCol>
 
-      <!-- 👉 City -->
+      <!--  City -->
       <VCol
         cols="12"
         md="6"
@@ -59,7 +59,7 @@ const checkbox = ref(false)
         />
       </VCol>
 
-      <!-- 👉 Country -->
+      <!--  Country -->
       <VCol
         cols="12"
         md="6"
@@ -71,7 +71,7 @@ const checkbox = ref(false)
         />
       </VCol>
 
-      <!-- 👉 Company -->
+      <!--  Company -->
       <VCol
         cols="12"
         md="6"
@@ -83,7 +83,7 @@ const checkbox = ref(false)
         />
       </VCol>
 
-      <!-- 👉 Remember me -->
+      <!--  Remember me -->
       <VCol cols="12">
         <VCheckbox
           v-model="checkbox"

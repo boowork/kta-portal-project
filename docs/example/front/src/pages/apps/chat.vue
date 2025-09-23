@@ -100,7 +100,7 @@ const refInputEl = ref<HTMLElement>()
     class="chat-app-layout"
     style="z-index: 0"
   >
-    <!-- 👉 user profile sidebar -->
+    <!--  user profile sidebar -->
     <VNavigationDrawer
       v-model="isUserProfileSidebarOpen"
       data-allow-mismatch
@@ -115,7 +115,7 @@ const refInputEl = ref<HTMLElement>()
       <ChatUserProfileSidebarContent @close="isUserProfileSidebarOpen = false" />
     </VNavigationDrawer>
 
-    <!-- 👉 Active Chat sidebar -->
+    <!--  Active Chat sidebar -->
     <VNavigationDrawer
       v-model="isActiveChatUserProfileSidebarOpen"
       data-allow-mismatch
@@ -130,7 +130,7 @@ const refInputEl = ref<HTMLElement>()
       <ChatActiveChatUserProfileSidebarContent @close="isActiveChatUserProfileSidebarOpen = false" />
     </VNavigationDrawer>
 
-    <!-- 👉 Left sidebar   -->
+    <!--  Left sidebar   -->
     <VNavigationDrawer
       v-model="isLeftSidebarOpen"
       data-allow-mismatch
@@ -151,14 +151,14 @@ const refInputEl = ref<HTMLElement>()
       />
     </VNavigationDrawer>
 
-    <!-- 👉 Chat content -->
+    <!--  Chat content -->
     <VMain class="chat-content-container">
-      <!-- 👉 Right content: Active Chat -->
+      <!--  Right content: Active Chat -->
       <div
         v-if="store.activeChat"
         class="d-flex flex-column h-100"
       >
-        <!-- 👉 Active chat header -->
+        <!--  Active chat header -->
         <div class="active-chat-header d-flex align-center text-medium-emphasis bg-surface">
           <!-- Sidebar toggler -->
           <IconBtn
@@ -297,7 +297,7 @@ const refInputEl = ref<HTMLElement>()
         </VForm>
       </div>
 
-      <!-- 👉 Start conversation -->
+      <!--  Start conversation -->
       <div
         v-else
         class="d-flex h-100 align-center justify-center flex-column"

@@ -52,7 +52,7 @@ watch(() => prop.currentStep, updateCartData)
       cols="12"
       md="8"
     >
-      <!-- 👉 Offers alert -->
+      <!--  Offers alert -->
       <VAlert
         type="success"
         class="mb-6"

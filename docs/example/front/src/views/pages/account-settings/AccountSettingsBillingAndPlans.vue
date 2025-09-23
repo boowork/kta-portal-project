@@ -68,7 +68,7 @@ const resetPaymentForm = () => {
 
 <template>
   <VRow>
-    <!-- 👉 Current Plan -->
+    <!--  Current Plan -->
     <VCol cols="12">
       <VCard title="Current Plan">
         <VCardText>
@@ -165,7 +165,7 @@ const resetPaymentForm = () => {
             </VCol>
           </VRow>
 
-          <!-- 👉 Confirm Dialog -->
+          <!--  Confirm Dialog -->
           <ConfirmDialog
             v-model:is-dialog-visible="isConfirmDialogVisible"
             confirmation-question="Are you sure to cancel your subscription?"
@@ -175,13 +175,13 @@ const resetPaymentForm = () => {
             confirm-title="Unsubscribed!"
           />
 
-          <!-- 👉 plan and pricing dialog -->
+          <!--  plan and pricing dialog -->
           <PricingPlanDialog v-model:is-dialog-visible="isPricingPlanDialogVisible" />
         </VCardText>
       </VCard>
     </VCol>
 
-    <!-- 👉 Payment Methods -->
+    <!--  Payment Methods -->
     <VCol cols="12">
       <VCard title="Payment Methods">
         <VCardText>
@@ -192,7 +192,7 @@ const resetPaymentForm = () => {
                 md="6"
               >
                 <VRow>
-                  <!-- 👉 card type switch -->
+                  <!--  card type switch -->
                   <VCol cols="12">
                     <VRadioGroup
                       v-model="selectedPaymentMethod"
@@ -214,7 +214,7 @@ const resetPaymentForm = () => {
 
                   <VCol cols="12">
                     <VRow>
-                      <!-- 👉 Card Number -->
+                      <!--  Card Number -->
                       <VCol cols="12">
                         <AppTextField
                           v-model="cardNumber"
@@ -224,7 +224,7 @@ const resetPaymentForm = () => {
                         />
                       </VCol>
 
-                      <!-- 👉 Name -->
+                      <!--  Name -->
                       <VCol
                         cols="12"
                         md="6"
@@ -236,7 +236,7 @@ const resetPaymentForm = () => {
                         />
                       </VCol>
 
-                      <!-- 👉 Expiry date -->
+                      <!--  Expiry date -->
                       <VCol
                         cols="6"
                         md="3"
@@ -248,7 +248,7 @@ const resetPaymentForm = () => {
                         />
                       </VCol>
 
-                      <!-- 👉 Cvv code -->
+                      <!--  Cvv code -->
                       <VCol
                         cols="6"
                         md="3"
@@ -261,7 +261,7 @@ const resetPaymentForm = () => {
                         />
                       </VCol>
 
-                      <!-- 👉 Future Billing switch -->
+                      <!--  Future Billing switch -->
                       <VCol cols="12">
                         <VSwitch
                           v-model="isCardDetailSaveBilling"
@@ -289,7 +289,7 @@ const resetPaymentForm = () => {
                 </VRow>
               </VCol>
 
-              <!-- 👉 Saved Cards -->
+              <!--  Saved Cards -->
               <VCol
                 cols="12"
                 md="6"
@@ -355,7 +355,7 @@ const resetPaymentForm = () => {
                   </VCard>
                 </div>
 
-                <!-- 👉 Add Edit Card Dialog -->
+                <!--  Add Edit Card Dialog -->
                 <CardAddEditDialog
                   v-model:is-dialog-visible="isCardEditDialogVisible"
                   :card-details="currentCardDetails"
@@ -367,13 +367,13 @@ const resetPaymentForm = () => {
       </VCard>
     </VCol>
 
-    <!-- 👉 Billing Address -->
+    <!--  Billing Address -->
     <VCol cols="12">
       <VCard title="Billing Address">
         <VCardText>
           <VForm @submit.prevent="() => {}">
             <VRow>
-              <!-- 👉 Company name -->
+              <!--  Company name -->
               <VCol
                 cols="12"
                 md="6"
@@ -384,7 +384,7 @@ const resetPaymentForm = () => {
                 />
               </VCol>
 
-              <!-- 👉 Billing Email -->
+              <!--  Billing Email -->
               <VCol
                 cols="12"
                 md="6"
@@ -395,7 +395,7 @@ const resetPaymentForm = () => {
                 />
               </VCol>
 
-              <!-- 👉 Tax ID -->
+              <!--  Tax ID -->
               <VCol
                 cols="12"
                 md="6"
@@ -406,7 +406,7 @@ const resetPaymentForm = () => {
                 />
               </VCol>
 
-              <!-- 👉 Vat Number -->
+              <!--  Vat Number -->
               <VCol
                 cols="12"
                 md="6"
@@ -417,7 +417,7 @@ const resetPaymentForm = () => {
                 />
               </VCol>
 
-              <!-- 👉 Mobile -->
+              <!--  Mobile -->
               <VCol
                 cols="12"
                 md="6"
@@ -431,7 +431,7 @@ const resetPaymentForm = () => {
                 />
               </VCol>
 
-              <!-- 👉 Country -->
+              <!--  Country -->
               <VCol
                 cols="12"
                 md="6"
@@ -443,7 +443,7 @@ const resetPaymentForm = () => {
                 />
               </VCol>
 
-              <!-- 👉 Billing Address -->
+              <!--  Billing Address -->
               <VCol cols="12">
                 <AppTextField
                   label="Billing Address"
@@ -451,7 +451,7 @@ const resetPaymentForm = () => {
                 />
               </VCol>
 
-              <!-- 👉 State -->
+              <!--  State -->
               <VCol
                 cols="12"
                 md="6"
@@ -462,7 +462,7 @@ const resetPaymentForm = () => {
                 />
               </VCol>
 
-              <!-- 👉 Zip Code -->
+              <!--  Zip Code -->
               <VCol
                 cols="12"
                 md="6"
@@ -474,7 +474,7 @@ const resetPaymentForm = () => {
                 />
               </VCol>
 
-              <!-- 👉 Actions Button -->
+              <!--  Actions Button -->
               <VCol
                 cols="12"
                 class="d-flex flex-wrap gap-4"
@@ -496,7 +496,7 @@ const resetPaymentForm = () => {
       </VCard>
     </VCol>
 
-    <!-- 👉 Billing History -->
+    <!--  Billing History -->
     <VCol cols="12">
       <BillingHistoryTable />
     </VCol>

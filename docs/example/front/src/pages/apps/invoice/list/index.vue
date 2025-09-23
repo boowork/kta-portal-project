@@ -26,7 +26,7 @@ const widgetData = ref([
   { title: 'Unpaid', value: '$876', icon: 'bx-error-circle' },
 ])
 
-// 👉 headers
+//  headers
 const headers = [
   { title: '#', key: 'id' },
   { title: 'Status', key: 'status', sortable: false },
@@ -37,7 +37,7 @@ const headers = [
   { title: 'Actions', key: 'actions', sortable: false },
 ]
 
-// 👉 Fetch Invoices
+//  Fetch Invoices
 const { data: invoiceData, execute: fetchInvoices } = await useApi<any>(createUrl('/apps/invoice', {
   query: {
     q: searchQuery,
@@ -52,7 +52,7 @@ const { data: invoiceData, execute: fetchInvoices } = await useApi<any>(createUr
 const invoices = computed((): Invoice[] => invoiceData.value.invoices)
 const totalInvoices = computed(() => invoiceData.value.totalInvoices)
 
-// 👉 Invoice balance variant resolver
+//  Invoice balance variant resolver
 const resolveInvoiceBalanceVariant = (balance: string | number, total: number) => {
   if (balance === total)
     return { status: 'Unpaid', chip: { color: 'error' } }
@@ -63,7 +63,7 @@ const resolveInvoiceBalanceVariant = (balance: string | number, total: number) =
   return { status: balance, chip: { variant: 'text' } }
 }
 
-// 👉 Invoice status variant resolver
+//  Invoice status variant resolver
 const resolveInvoiceStatusVariantAndIcon = (status: string) => {
   if (status === 'Partial Payment')
     return { variant: 'warning', icon: 'bx-pie-chart-alt' }
@@ -94,7 +94,7 @@ const computedMoreList = computed(() => {
   ])
 })
 
-// 👉 Delete Invoice
+//  Delete Invoice
 const deleteInvoice = async (id: number) => {
   await $api(`/apps/invoice/${id}`, { method: 'DELETE' })
 
@@ -110,7 +110,7 @@ const deleteInvoice = async (id: number) => {
 
 <template>
   <section v-if="invoices">
-    <!-- 👉 Invoice Widgets -->
+    <!--  Invoice Widgets -->
     <VCard class="mb-6">
       <VCardText class="px-3">
         <VRow>
@@ -183,7 +183,7 @@ const deleteInvoice = async (id: number) => {
               @update:model-value="itemsPerPage = parseInt($event, 10)"
             />
           </div>
-          <!-- 👉 Create invoice -->
+          <!--  Create invoice -->
           <VBtn
             prepend-icon="bx-plus"
             :to="{ name: 'apps-invoice-add' }"
@@ -193,7 +193,7 @@ const deleteInvoice = async (id: number) => {
         </div>
 
         <div class="d-flex align-center flex-wrap gap-4">
-          <!-- 👉 Search  -->
+          <!--  Search  -->
           <div
             class="invoice-list-filter"
             style="inline-size: 12.5rem;"
@@ -204,7 +204,7 @@ const deleteInvoice = async (id: number) => {
             />
           </div>
 
-          <!-- 👉 Select status -->
+          <!--  Select status -->
           <div
             class="invoice-list-filter"
             style="inline-size: 10rem;"

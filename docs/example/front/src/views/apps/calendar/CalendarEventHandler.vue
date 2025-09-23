@@ -26,11 +26,11 @@ interface Props {
   event: Event | NewEvent
 }
 
-// 👉 store
+//  store
 const store = useCalendarStore()
 const refForm = ref<VForm>()
 
-// 👉 Event
+//  Event
 const event = ref<Event>(JSON.parse(JSON.stringify(props.event)))
 
 const resetEvent = () => {
@@ -74,7 +74,7 @@ const guestsOptions = [
   { avatar: avatar2, name: 'Cheryl May' },
 ]
 
-// 👉 Form
+//  Form
 
 const onCancel = () => {
   emit('update:isDrawerOpen', false)
@@ -126,7 +126,7 @@ const dialogModelValueUpdate = (val: boolean) => {
     class="scrollable-content"
     @update:model-value="dialogModelValueUpdate"
   >
-    <!-- 👉 Header -->
+    <!--  Header -->
     <AppDrawerHeaderSection
       :title="event.id ? 'Update Event' : 'Add Event'"
       @cancel="$emit('update:isDrawerOpen', false)"
@@ -155,7 +155,7 @@ const dialogModelValueUpdate = (val: boolean) => {
             @submit.prevent="handleSubmit"
           >
             <VRow>
-              <!-- 👉 Title -->
+              <!--  Title -->
               <VCol cols="12">
                 <AppTextField
                   id="event-title"
@@ -166,7 +166,7 @@ const dialogModelValueUpdate = (val: boolean) => {
                 />
               </VCol>
 
-              <!-- 👉 Calendar -->
+              <!--  Calendar -->
               <VCol cols="12">
                 <AppSelect
                   id="event-label"
@@ -208,7 +208,7 @@ const dialogModelValueUpdate = (val: boolean) => {
                 </AppSelect>
               </VCol>
 
-              <!-- 👉 Start date -->
+              <!--  Start date -->
               <VCol cols="12">
                 <AppDateTimePicker
                   id="event-start-date"
@@ -221,7 +221,7 @@ const dialogModelValueUpdate = (val: boolean) => {
                 />
               </VCol>
 
-              <!-- 👉 End date -->
+              <!--  End date -->
               <VCol cols="12">
                 <AppDateTimePicker
                   id="event-end-date"
@@ -234,7 +234,7 @@ const dialogModelValueUpdate = (val: boolean) => {
                 />
               </VCol>
 
-              <!-- 👉 All day -->
+              <!--  All day -->
               <VCol cols="12">
                 <VSwitch
                   id="event-all-day"
@@ -243,7 +243,7 @@ const dialogModelValueUpdate = (val: boolean) => {
                 />
               </VCol>
 
-              <!-- 👉 Event URL -->
+              <!--  Event URL -->
               <VCol cols="12">
                 <AppTextField
                   id="event-url"
@@ -255,7 +255,7 @@ const dialogModelValueUpdate = (val: boolean) => {
                 />
               </VCol>
 
-              <!-- 👉 Guests -->
+              <!--  Guests -->
               <VCol cols="12">
                 <AppSelect
                   id="event-guests"
@@ -271,7 +271,7 @@ const dialogModelValueUpdate = (val: boolean) => {
                 />
               </VCol>
 
-              <!-- 👉 Location -->
+              <!--  Location -->
               <VCol cols="12">
                 <AppTextField
                   id="event-location"
@@ -281,7 +281,7 @@ const dialogModelValueUpdate = (val: boolean) => {
                 />
               </VCol>
 
-              <!-- 👉 Description -->
+              <!--  Description -->
               <VCol cols="12">
                 <AppTextarea
                   id="event-description"
@@ -291,7 +291,7 @@ const dialogModelValueUpdate = (val: boolean) => {
                 />
               </VCol>
 
-              <!-- 👉 Form buttons -->
+              <!--  Form buttons -->
               <VCol cols="12">
                 <VBtn
                   type="submit"

@@ -135,7 +135,7 @@ const moreList = [
           </div>
         </VCardItem>
         <VDivider />
-        <!-- 👉 User Project List Table -->
+        <!--  User Project List Table -->
 
         <!-- SECTION Datatable -->
 
@@ -237,7 +237,7 @@ const moreList = [
     </VCol>
 
     <VCol cols="12">
-      <!-- 👉 User Activity timeline -->
+      <!--  User Activity timeline -->
       <VCard title="User Activity Timeline">
         <VCardText>
           <VTimeline
@@ -252,7 +252,7 @@ const moreList = [
               dot-color="primary"
               size="x-small"
             >
-              <!-- 👉 Header -->
+              <!--  Header -->
               <div class="d-flex justify-space-between align-center gap-2 flex-wrap mb-3">
                 <span class="app-timeline-title">
                   12 Invoices have been paid
@@ -260,7 +260,7 @@ const moreList = [
                 <span class="app-timeline-meta">12 min ago</span>
               </div>
 
-              <!-- 👉 Content -->
+              <!--  Content -->
               <div class="app-timeline-text">
                 Invoices have been paid to the company
               </div>
@@ -284,7 +284,7 @@ const moreList = [
               size="x-small"
               dot-color="success"
             >
-              <!-- 👉 Header -->
+              <!--  Header -->
               <div class="d-flex justify-space-between align-center flex-wrap mb-3">
                 <div class="app-timeline-title">
                   Client Meeting
@@ -296,9 +296,9 @@ const moreList = [
                 Project meeting with john @10:15am
               </div>
 
-              <!-- 👉 Person -->
+              <!--  Person -->
               <div class="d-flex justify-space-between align-center flex-wrap">
-                <!-- 👉 Avatar & Personal Info -->
+                <!--  Avatar & Personal Info -->
                 <div class="d-flex align-center mt-2">
                   <VAvatar
                     size="32"
@@ -321,7 +321,7 @@ const moreList = [
               size="x-small"
               dot-color="info"
             >
-              <!-- 👉 Header -->
+              <!--  Header -->
               <div class="d-flex justify-space-between align-center flex-wrap mb-3">
                 <span class="app-timeline-title">
                   Create a new project for client
@@ -329,7 +329,7 @@ const moreList = [
                 <span class="app-timeline-meta">2 Day Ago</span>
               </div>
 
-              <!-- 👉 Content -->
+              <!--  Content -->
               <p class="app-timeline-text mb-2">
                 6 team members in a project
               </p>

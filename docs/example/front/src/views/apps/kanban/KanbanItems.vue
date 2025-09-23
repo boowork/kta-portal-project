@@ -39,7 +39,7 @@ const refForm = ref<VForm>()
 const newTaskTitle = ref<string>('')
 const refKanbanBoardTitle = ref<VForm>()
 
-// 👉 required validator
+//  required validator
 const boardActions = [
   {
     title: 'Rename',
@@ -55,7 +55,7 @@ const boardActions = [
   },
 ]
 
-// 👉 emit rename board event
+//  emit rename board event
 const renameBoard = () => {
   refKanbanBoardTitle.value?.validate().then(valid => {
     if (valid.valid) {
@@ -69,7 +69,7 @@ const renameBoard = () => {
   })
 }
 
-// 👉 emit add new item event
+//  emit add new item event
 const addNewItem = () => {
   refForm.value?.validate().then(valid => {
     if (valid.valid) {
@@ -84,7 +84,7 @@ const addNewItem = () => {
   })
 }
 
-// 👉 initialize draggable
+//  initialize draggable
 dragAndDrop({
   parent: refKanbanBoard,
   values: localIds,
@@ -94,18 +94,18 @@ dragAndDrop({
   performTransfer: (state, data) => {
     performTransfer(state, data)
 
-    // 👉 update items state after transfer perform
+    //  update items state after transfer perform
     emit('updateItemsState', { boardId: props.boardId, ids: localIds.value })
   },
   handleEnd: data => {
     handleEnd(data)
 
-    // 👉 update items state after sorting perform
+    //  update items state after sorting perform
     emit('updateItemsState', { boardId: props.boardId, ids: localIds.value })
   },
 })
 
-// 👉 watch kanbanIds its is useful when you add new task
+//  watch kanbanIds its is useful when you add new task
 watch(
   () => props,
   () => {
@@ -114,7 +114,7 @@ watch(
   { immediate: true, deep: true },
 )
 
-// 👉 resolve item using id
+//  resolve item using id
 const resolveItemUsingId = (id: number) =>
   props.kanbanData.items.find(item => item.id === id)
 
@@ -122,7 +122,7 @@ const deleteItem = (item: EditKanbanItem) => {
   emit('deleteItem', item)
 }
 
-// 👉 reset add new item form when esc or close
+//  reset add new item form when esc or close
 const hideAddNewForm = () => {
   isAddNewFormVisible.value = false
   refForm.value?.reset()
@@ -136,13 +136,13 @@ onClickOutside(refKanbanBoardTitle, () => {
   isBoardNameEditing.value = false
 })
 
-// 👉 reset board rename form when esc or close
+//  reset board rename form when esc or close
 const hideResetBoardNameForm = () => {
   isBoardNameEditing.value = false
   localBoardName.value = props.boardName
 }
 
-// 👉 submit form on enter and new line on shift-enter
+//  submit form on enter and new line on shift-enter
 const handleEnterKeydown = (event: { key: string; shiftKey: any }) => {
   if (event.key === 'Enter' && !event.shiftKey)
     addNewItem()
@@ -151,7 +151,7 @@ const handleEnterKeydown = (event: { key: string; shiftKey: any }) => {
 
 <template>
   <div class="kanban-board">
-    <!-- 👉 board heading and title -->
+    <!--  board heading and title -->
     <div class="kanban-board-header pb-4">
       <VForm
         v-if="isBoardNameEditing"
@@ -214,7 +214,7 @@ const handleEnterKeydown = (event: { key: string; shiftKey: any }) => {
       </div>
     </div>
 
-    <!-- 👉 draggable task start here -->
+    <!--  draggable task start here -->
     <div
       v-if="localIds"
       ref="refKanbanBoard"
@@ -240,7 +240,7 @@ const handleEnterKeydown = (event: { key: string; shiftKey: any }) => {
         />
       </template>
 
-      <!-- 👉 Add new Form -->
+      <!--  Add new Form -->
       <div class="add-new-form">
         <div
           class="text-body-1 text-high-emphasis cursor-pointer d-flex align-center gap-1 ms-4"

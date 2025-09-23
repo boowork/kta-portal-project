@@ -5,7 +5,7 @@ import { themeConfig } from '@themeConfig'
 
 // SECTION Store
 export const useConfigStore = defineStore('config', () => {
-  // 👉 Theme
+  //  Theme
   const userPreferredColorScheme = usePreferredColorScheme()
   const cookieColorScheme = cookieRef<'light' | 'dark'>('color-scheme', 'light')
 
@@ -20,10 +20,10 @@ export const useConfigStore = defineStore('config', () => {
 
   const theme = cookieRef('theme', themeConfig.app.theme)
 
-  // 👉 isVerticalNavSemiDark
+  //  isVerticalNavSemiDark
   const isVerticalNavSemiDark = cookieRef('isVerticalNavSemiDark', themeConfig.verticalNav.isVerticalNavSemiDark)
 
-  // 👉 isVerticalNavSemiDark
+  //  isVerticalNavSemiDark
   const skin = cookieRef('skin', themeConfig.app.skin)
 
   // ℹ️ We need to use `storeToRefs` to forward the state

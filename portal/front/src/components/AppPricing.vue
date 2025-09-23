@@ -70,7 +70,7 @@ const pricingPlans = [
 </script>
 
 <template>
-  <!-- 👉 Title and subtitle -->
+  <!--  Title and subtitle -->
   <div class="text-center">
     <slot name="heading">
       <h3 class="text-h3 mb-2">
@@ -86,7 +86,7 @@ const pricingPlans = [
     </slot>
   </div>
 
-  <!-- 👉 Annual and monthly price toggler -->
+  <!--  Annual and monthly price toggler -->
 
   <div class="d-flex font-weight-medium text-body-1 align-center justify-center mx-auto mt-14 mb-6">
     <VLabel
@@ -133,7 +133,7 @@ const pricingPlans = [
       v-bind="props"
       cols="12"
     >
-      <!-- 👉  Card -->
+      <!--   Card -->
       <VCard
         flat
         border
@@ -143,7 +143,7 @@ const pricingPlans = [
           style="block-size: 3.75rem;"
           class="text-end"
         >
-          <!-- 👉 Popular -->
+          <!--  Popular -->
           <VChip
             v-show="plan.isPopular"
             label
@@ -154,7 +154,7 @@ const pricingPlans = [
           </VChip>
         </VCardText>
 
-        <!-- 👉 Plan logo -->
+        <!--  Plan logo -->
         <VCardText>
           <VImg
             :height="120"
@@ -163,7 +163,7 @@ const pricingPlans = [
             class="mx-auto mb-5"
           />
 
-          <!-- 👉 Plan name -->
+          <!--  Plan name -->
           <h4 class="text-h4 mb-1 text-center">
             {{ plan.name }}
           </h4>
@@ -171,7 +171,7 @@ const pricingPlans = [
             {{ plan.tagLine }}
           </p>
 
-          <!-- 👉 Plan price  -->
+          <!--  Plan price  -->
 
           <div class="position-relative">
             <div class="d-flex justify-center pt-5 pb-10">
@@ -186,7 +186,7 @@ const pricingPlans = [
               </div>
             </div>
 
-            <!-- 👉 Annual Price -->
+            <!--  Annual Price -->
             <span
               v-show="annualMonthlyPlanPriceToggler"
               class="annual-price-text position-absolute text-caption text-disabled pb-4"
@@ -195,7 +195,7 @@ const pricingPlans = [
             </span>
           </div>
 
-          <!-- 👉 Plan features -->
+          <!--  Plan features -->
 
           <VList class="card-list mb-5">
             <VListItem
@@ -222,7 +222,7 @@ const pricingPlans = [
             </VListItem>
           </VList>
 
-          <!-- 👉 Plan actions -->
+          <!--  Plan actions -->
           <VBtn
             block
             :color="plan.current ? 'success' : 'primary'"

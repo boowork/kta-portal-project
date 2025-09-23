@@ -56,7 +56,7 @@ nextTick(async () => {
         </template>
       </AppSearchHeader>
 
-      <!-- 👉 Popular Articles -->
+      <!--  Popular Articles -->
       <div class="help-center-section bg-surface">
         <VContainer>
           <h4 class="text-h4 text-center mb-6">
@@ -66,7 +66,7 @@ nextTick(async () => {
         </VContainer>
       </div>
 
-      <!-- 👉 Knowledge Base -->
+      <!--  Knowledge Base -->
       <div class="help-center-section">
         <VContainer>
           <h4 class="text-h4 text-center mb-6">
@@ -76,7 +76,7 @@ nextTick(async () => {
         </VContainer>
       </div>
 
-      <!-- 👉 Keep Learning -->
+      <!--  Keep Learning -->
       <div class="help-center-section bg-surface">
         <VContainer>
           <h4 class="text-h4 text-center mb-6">
@@ -86,7 +86,7 @@ nextTick(async () => {
         </VContainer>
       </div>
 
-      <!-- 👉 Still need help? -->
+      <!--  Still need help? -->
       <div class="help-center-section">
         <HelpCenterLandingFooter />
       </div>

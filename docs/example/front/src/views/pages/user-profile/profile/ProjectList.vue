@@ -125,7 +125,7 @@ const options = ref({ page: 1, itemsPerPage: 5 })
     </VCardText>
 
     <VDivider />
-    <!-- 👉 User Project List Table -->
+    <!--  User Project List Table -->
 
     <!-- SECTION Datatable -->
     <VDataTable

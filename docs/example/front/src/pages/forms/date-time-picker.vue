@@ -4,7 +4,7 @@ import { basic, dateAndTime, disabledRange, humanFriendly, inline, multipleDates
 
 <template>
   <VRow>
-    <!-- 👉 Basic -->
+    <!--  Basic -->
     <VCol
       cols="12"
       md="6"
@@ -17,7 +17,7 @@ import { basic, dateAndTime, disabledRange, humanFriendly, inline, multipleDates
       </AppCardCode>
     </VCol>
 
-    <!-- 👉 Time Picker -->
+    <!--  Time Picker -->
     <VCol
       cols="12"
       md="6"
@@ -30,7 +30,7 @@ import { basic, dateAndTime, disabledRange, humanFriendly, inline, multipleDates
       </AppCardCode>
     </VCol>
 
-    <!-- 👉 Date & TIme -->
+    <!--  Date & TIme -->
     <VCol
       cols="12"
       md="6"
@@ -43,7 +43,7 @@ import { basic, dateAndTime, disabledRange, humanFriendly, inline, multipleDates
       </AppCardCode>
     </VCol>
 
-    <!-- 👉 Multiple Dates -->
+    <!--  Multiple Dates -->
     <VCol
       cols="12"
       md="6"
@@ -56,7 +56,7 @@ import { basic, dateAndTime, disabledRange, humanFriendly, inline, multipleDates
       </AppCardCode>
     </VCol>
 
-    <!-- 👉 Range -->
+    <!--  Range -->
     <VCol
       cols="12"
       md="6"
@@ -69,7 +69,7 @@ import { basic, dateAndTime, disabledRange, humanFriendly, inline, multipleDates
       </AppCardCode>
     </VCol>
 
-    <!-- 👉 Human Friendly -->
+    <!--  Human Friendly -->
     <VCol
       cols="12"
       md="6"
@@ -82,7 +82,7 @@ import { basic, dateAndTime, disabledRange, humanFriendly, inline, multipleDates
       </AppCardCode>
     </VCol>
 
-    <!-- 👉 Disabled Range -->
+    <!--  Disabled Range -->
     <VCol
       cols="12"
       md="6"
@@ -95,7 +95,7 @@ import { basic, dateAndTime, disabledRange, humanFriendly, inline, multipleDates
       </AppCardCode>
     </VCol>
 
-    <!-- 👉 Inline -->
+    <!--  Inline -->
     <VCol
       cols="12"
       md="6"

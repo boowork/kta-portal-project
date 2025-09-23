@@ -34,7 +34,7 @@ const boardTitle = ref<string>('')
 
 const editKanbanItem = ref<EditKanbanItem>()
 
-// 👉 Add new board function that emit the name and id of new board
+//  Add new board function that emit the name and id of new board
 const addNewBoard = () => {
   refAddNewBoard.value?.validate().then(valid => {
     if (valid.valid) {
@@ -45,22 +45,22 @@ const addNewBoard = () => {
   })
 }
 
-// 👉 emit delete board event
+//  emit delete board event
 const deleteBoard = (boardId: number) => {
   emit('deleteBoard', boardId)
 }
 
-// 👉 emit rename board event
+//  emit rename board event
 const renameBoard = (boardName: RenameKanbanBoard) => {
   emit('renameBoard', boardName)
 }
 
-// 👉 emit add new task event
+//  emit add new task event
 const addNewItem = (item: AddNewKanbanItem) => {
   emit('addNewItem', item)
 }
 
-// 👉 edit kanban item
+//  edit kanban item
 const editKanbanItemFn = (item: EditKanbanItem | undefined) => {
   if (item) {
     editKanbanItem.value = item
@@ -68,12 +68,12 @@ const editKanbanItemFn = (item: EditKanbanItem | undefined) => {
   }
 }
 
-// 👉 update kanban ids
+//  update kanban ids
 const updateStateFn = (kanbanState: KanbanState) => {
   emit('updateItemsState', kanbanState)
 }
 
-// 👉 initialize the drag and drop
+//  initialize the drag and drop
 dragAndDrop({
   parent: kanbanWrapper,
   values: localKanbanData,
@@ -85,28 +85,28 @@ dragAndDrop({
 watch(props, () => {
   localKanbanData.value = props.kanbanData.boards
 
-  // 👉 remap the nodes when we rename the board: https://github.com/formkit/drag-and-drop/discussions/52#discussioncomment-8995203
+  //  remap the nodes when we rename the board: https://github.com/formkit/drag-and-drop/discussions/52#discussioncomment-8995203
   remapNodes(kanbanWrapper.value as any)
 }, { deep: true })
 
-// 👉 emit updated task to parent
+//  emit updated task to parent
 const emitUpdatedTaskFn = (item: EditKanbanItem) => {
   emit('editItem', item)
 }
 
-// 👉  delete kanban item
+//   delete kanban item
 const deleteKanbanItemFn = (item: EditKanbanItem) => {
   emit('deleteItem', item)
 }
 
-// 👉 update boards data when it sort
+//  update boards data when it sort
 watch(localKanbanData, () => {
   const getIds = localKanbanData.value.map(board => board.id)
 
   emit('updateBoardState', getIds)
 }, { deep: true })
 
-// 👉 validators for add new board
+//  validators for add new board
 const validateBoardTitle = () => {
   return props.kanbanData.boards.some(board => boardTitle.value && board.title.toLowerCase() === boardTitle.value.toLowerCase()) ? 'Board title already exists' : true
 }
@@ -122,7 +122,7 @@ onClickOutside(refAddNewBoard, hideAddNewForm)
 
 <template>
   <div class="kanban-main-wrapper d-flex gap-4 h-100">
-    <!-- 👉 kanban render  -->
+    <!--  kanban render  -->
     <div
       ref="kanbanWrapper"
       class="d-flex ga-6 pt-1"
@@ -131,7 +131,7 @@ onClickOutside(refAddNewBoard, hideAddNewForm)
         v-for="kb in localKanbanData"
         :key="kb.id"
       >
-        <!-- 👉 kanban task render -->
+        <!--  kanban task render -->
         <KanbanItems
           :group-name="groupName"
           :kanban-ids="kb.itemsIds"
@@ -149,7 +149,7 @@ onClickOutside(refAddNewBoard, hideAddNewForm)
       </template>
     </div>
 
-    <!-- 👉 add new form  -->
+    <!--  add new form  -->
     <div
       class="add-new-form text-no-wrap"
       style="inline-size: 10rem;"
@@ -165,7 +165,7 @@ onClickOutside(refAddNewBoard, hideAddNewForm)
         <span>Add New</span>
       </h5>
 
-      <!-- 👉 Form -->
+      <!--  Form -->
       <VForm
         v-if="isAddNewFormVisible"
         ref="refAddNewBoard"

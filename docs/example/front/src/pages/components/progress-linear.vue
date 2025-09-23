@@ -4,7 +4,7 @@ import { buffering, color, indeterminate, reversed, rounded, slots, striped } fr
 
 <template>
   <VRow class="match-height">
-    <!-- 👉 Progress linear color -->
+    <!--  Progress linear color -->
     <VCol
       cols="12"
       md="6"
@@ -19,7 +19,7 @@ import { buffering, color, indeterminate, reversed, rounded, slots, striped } fr
       </AppCardCode>
     </VCol>
 
-    <!-- 👉 Progress linear Buffering -->
+    <!--  Progress linear Buffering -->
     <VCol
       cols="12"
       md="6"
@@ -34,7 +34,7 @@ import { buffering, color, indeterminate, reversed, rounded, slots, striped } fr
       </AppCardCode>
     </VCol>
 
-    <!-- 👉 Progress linear indeterminate -->
+    <!--  Progress linear indeterminate -->
     <VCol
       cols="12"
       md="6"
@@ -49,7 +49,7 @@ import { buffering, color, indeterminate, reversed, rounded, slots, striped } fr
       </AppCardCode>
     </VCol>
 
-    <!-- 👉 Progress linear Reversed -->
+    <!--  Progress linear Reversed -->
     <VCol
       cols="12"
       md="6"
@@ -64,7 +64,7 @@ import { buffering, color, indeterminate, reversed, rounded, slots, striped } fr
       </AppCardCode>
     </VCol>
 
-    <!-- 👉 Progress linear Rounded -->
+    <!--  Progress linear Rounded -->
     <VCol
       cols="12"
       md="6"
@@ -81,7 +81,7 @@ import { buffering, color, indeterminate, reversed, rounded, slots, striped } fr
       </AppCardCode>
     </VCol>
 
-    <!-- 👉 Progress linear Slot -->
+    <!--  Progress linear Slot -->
     <VCol
       cols="12"
       md="6"
@@ -96,7 +96,7 @@ import { buffering, color, indeterminate, reversed, rounded, slots, striped } fr
       </AppCardCode>
     </VCol>
 
-    <!-- 👉 Progress Linear Striped -->
+    <!--  Progress Linear Striped -->
     <VCol
       cols="12"
       md="6"

@@ -90,7 +90,7 @@ const dialogModelValueUpdate = (val: boolean) => {
 
     <VCard class="pa-sm-10 pa-2">
       <VCardText>
-        <!-- 👉 Title -->
+        <!--  Title -->
         <h4 class="text-h4 text-center mb-2">
           Edit User Information
         </h4>
@@ -98,13 +98,13 @@ const dialogModelValueUpdate = (val: boolean) => {
           Updating user details will receive a privacy audit.
         </p>
 
-        <!-- 👉 Form -->
+        <!--  Form -->
         <VForm
           class="mt-6"
           @submit.prevent="onFormSubmit"
         >
           <VRow>
-            <!-- 👉 First Name -->
+            <!--  First Name -->
             <VCol
               cols="12"
               md="6"
@@ -116,7 +116,7 @@ const dialogModelValueUpdate = (val: boolean) => {
               />
             </VCol>
 
-            <!-- 👉 Last Name -->
+            <!--  Last Name -->
             <VCol
               cols="12"
               md="6"
@@ -128,7 +128,7 @@ const dialogModelValueUpdate = (val: boolean) => {
               />
             </VCol>
 
-            <!-- 👉 Username -->
+            <!--  Username -->
             <VCol cols="12">
               <AppTextField
                 v-model="userData.username"
@@ -137,7 +137,7 @@ const dialogModelValueUpdate = (val: boolean) => {
               />
             </VCol>
 
-            <!-- 👉 Billing Email -->
+            <!--  Billing Email -->
             <VCol
               cols="12"
               md="6"
@@ -149,7 +149,7 @@ const dialogModelValueUpdate = (val: boolean) => {
               />
             </VCol>
 
-            <!-- 👉 Status -->
+            <!--  Status -->
             <VCol
               cols="12"
               md="6"
@@ -162,7 +162,7 @@ const dialogModelValueUpdate = (val: boolean) => {
               />
             </VCol>
 
-            <!-- 👉 Tax Id -->
+            <!--  Tax Id -->
             <VCol
               cols="12"
               md="6"
@@ -174,7 +174,7 @@ const dialogModelValueUpdate = (val: boolean) => {
               />
             </VCol>
 
-            <!-- 👉 Contact -->
+            <!--  Contact -->
             <VCol
               cols="12"
               md="6"
@@ -186,7 +186,7 @@ const dialogModelValueUpdate = (val: boolean) => {
               />
             </VCol>
 
-            <!-- 👉 Language -->
+            <!--  Language -->
             <VCol
               cols="12"
               md="6"
@@ -202,7 +202,7 @@ const dialogModelValueUpdate = (val: boolean) => {
               />
             </VCol>
 
-            <!-- 👉 Country -->
+            <!--  Country -->
             <VCol
               cols="12"
               md="6"
@@ -215,7 +215,7 @@ const dialogModelValueUpdate = (val: boolean) => {
               />
             </VCol>
 
-            <!-- 👉 Switch -->
+            <!--  Switch -->
             <VCol cols="12">
               <VSwitch
                 v-model="isUseAsBillingAddress"
@@ -224,7 +224,7 @@ const dialogModelValueUpdate = (val: boolean) => {
               />
             </VCol>
 
-            <!-- 👉 Submit and Cancel -->
+            <!--  Submit and Cancel -->
             <VCol
               cols="12"
               class="d-flex flex-wrap justify-center gap-4"

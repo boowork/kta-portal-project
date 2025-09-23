@@ -69,9 +69,9 @@ const resolveStatus = (status: string) => {
 
 <template>
   <div>
-    <!-- 👉 Header -->
+    <!--  Header -->
     <VRow class="match-height">
-      <!-- 👉 Widgets -->
+      <!--  Widgets -->
       <VCol
         v-for="(data, index) in widgetData"
         :key="index"
@@ -102,7 +102,7 @@ const resolveStatus = (status: string) => {
         </VCard>
       </VCol>
 
-      <!-- 👉 Icon Steps -->
+      <!--  Icon Steps -->
       <VCol
         cols="12"
         md="6"
@@ -143,7 +143,7 @@ const resolveStatus = (status: string) => {
         </VCard>
       </VCol>
 
-      <!-- 👉 Invite -->
+      <!--  Invite -->
       <VCol
         cols="12"
         md="6"
@@ -203,7 +203,7 @@ const resolveStatus = (status: string) => {
         </VCard>
       </VCol>
 
-      <!-- 👉 Referral Table -->
+      <!--  Referral Table -->
 
       <VCol cols="12">
         <VCard>

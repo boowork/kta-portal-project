@@ -8,7 +8,7 @@ import { avatarStatus, color, dynamicNotifications, icon, maximumValue, position
       cols="12"
       md="6"
     >
-      <!-- 👉 Style -->
+      <!--  Style -->
       <AppCardCode
         title="Style"
         :code="style"
@@ -23,7 +23,7 @@ import { avatarStatus, color, dynamicNotifications, icon, maximumValue, position
       cols="12"
       md="6"
     >
-      <!-- 👉 Color -->
+      <!--  Color -->
       <AppCardCode
         title="Color"
         :code="color"
@@ -38,7 +38,7 @@ import { avatarStatus, color, dynamicNotifications, icon, maximumValue, position
       cols="12"
       md="6"
     >
-      <!-- 👉 Position -->
+      <!--  Position -->
       <AppCardCode
         title="Position"
         :code="position"
@@ -53,7 +53,7 @@ import { avatarStatus, color, dynamicNotifications, icon, maximumValue, position
       cols="12"
       md="6"
     >
-      <!-- 👉 Icon -->
+      <!--  Icon -->
       <AppCardCode
         title="Icon"
         :code="icon"
@@ -68,7 +68,7 @@ import { avatarStatus, color, dynamicNotifications, icon, maximumValue, position
       cols="12"
       md="6"
     >
-      <!-- 👉 Avatar Status -->
+      <!--  Avatar Status -->
       <AppCardCode
         title="Avatar Status"
         :code="avatarStatus"
@@ -83,7 +83,7 @@ import { avatarStatus, color, dynamicNotifications, icon, maximumValue, position
       cols="12"
       md="6"
     >
-      <!-- 👉 Dynamic notifications -->
+      <!--  Dynamic notifications -->
       <AppCardCode
         title="Dynamic notifications"
         :code="dynamicNotifications"
@@ -98,7 +98,7 @@ import { avatarStatus, color, dynamicNotifications, icon, maximumValue, position
       cols="12"
       md="6"
     >
-      <!-- 👉 Show on hover -->
+      <!--  Show on hover -->
       <AppCardCode
         title="Show on hover"
         :code="showOnHover"
@@ -113,7 +113,7 @@ import { avatarStatus, color, dynamicNotifications, icon, maximumValue, position
       cols="12"
       md="6"
     >
-      <!-- 👉 Tabs -->
+      <!--  Tabs -->
       <AppCardCode
         title="Tabs"
         :code="tabs"
@@ -128,7 +128,7 @@ import { avatarStatus, color, dynamicNotifications, icon, maximumValue, position
       cols="12"
       md="6"
     >
-      <!-- 👉 Maximum value content -->
+      <!--  Maximum value content -->
       <AppCardCode
         title="Maximum Value"
         :code="maximumValue"
@@ -143,7 +143,7 @@ import { avatarStatus, color, dynamicNotifications, icon, maximumValue, position
       cols="12"
       md="6"
     >
-      <!-- 👉 Tonal Badge -->
+      <!--  Tonal Badge -->
       <AppCardCode
         title="Tonal"
         :code="tonal"

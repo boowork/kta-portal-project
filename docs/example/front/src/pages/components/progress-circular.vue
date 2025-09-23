@@ -4,7 +4,7 @@ import { color, indeterminate, rotate, size } from '@/views/demos/components/pro
 
 <template>
   <VRow class="match-height">
-    <!-- 👉 Progress circular color -->
+    <!--  Progress circular color -->
     <VCol
       cols="12"
       md="6"
@@ -19,7 +19,7 @@ import { color, indeterminate, rotate, size } from '@/views/demos/components/pro
       </AppCardCode>
     </VCol>
 
-    <!-- 👉 Progress circular Indeterminate -->
+    <!--  Progress circular Indeterminate -->
     <VCol
       cols="12"
       md="6"
@@ -34,7 +34,7 @@ import { color, indeterminate, rotate, size } from '@/views/demos/components/pro
       </AppCardCode>
     </VCol>
 
-    <!-- 👉 Progress circular Rotate -->
+    <!--  Progress circular Rotate -->
     <VCol
       cols="12"
       md="6"
@@ -49,7 +49,7 @@ import { color, indeterminate, rotate, size } from '@/views/demos/components/pro
       </AppCardCode>
     </VCol>
 
-    <!-- 👉 Progress circular Size and Width -->
+    <!--  Progress circular Size and Width -->
     <VCol
       cols="12"
       md="6"

@@ -10,7 +10,7 @@ import AnalyticsSystemTabs from '@/views/dashboards/analytics/AnalyticsSystemTab
 import AnalyticsTotalRevenue from '@/views/dashboards/analytics/AnalyticsTotalRevenue.vue'
 import AnalyticsTransactions from '@/views/dashboards/analytics/AnalyticsTransactions.vue'
 
-// 👉 Images
+//  Images
 import paypal from '@images/cards/paypal-error.png'
 import wallet from '@images/cards/wallet-info.png'
 
@@ -34,7 +34,7 @@ const statisticsVertical = [
 
 <template>
   <VRow class="match-height">
-    <!-- 👉 congratulations -->
+    <!--  congratulations -->
     <VCol
       cols="12"
       md="8"
@@ -47,7 +47,7 @@ const statisticsVertical = [
       sm="4"
     >
       <VRow>
-        <!-- 👉 Sales -->
+        <!--  Sales -->
         <VCol
           cols="12"
           md="6"
@@ -55,7 +55,7 @@ const statisticsVertical = [
           <AnalyticsOrder />
         </VCol>
 
-        <!-- 👉 Orders -->
+        <!--  Orders -->
         <VCol
           cols="12"
           md="6"
@@ -65,7 +65,7 @@ const statisticsVertical = [
       </VRow>
     </VCol>
 
-    <!-- 👉 Total Revenue -->
+    <!--  Total Revenue -->
     <VCol
       cols="12"
       md="8"
@@ -83,7 +83,7 @@ const statisticsVertical = [
       order-md="2"
     >
       <VRow>
-        <!-- 👉 Payments -->
+        <!--  Payments -->
         <VCol
           cols="12"
           sm="6"
@@ -91,7 +91,7 @@ const statisticsVertical = [
           <CardStatisticsVertical v-bind="statisticsVertical[1]" />
         </VCol>
 
-        <!-- 👉 Revenue -->
+        <!--  Revenue -->
         <VCol
           cols="12"
           sm="6"
@@ -101,7 +101,7 @@ const statisticsVertical = [
       </VRow>
 
       <VRow>
-        <!-- 👉 Profit Report -->
+        <!--  Profit Report -->
         <VCol
           cols="12"
           sm="12"
@@ -111,7 +111,7 @@ const statisticsVertical = [
       </VRow>
     </VCol>
 
-    <!-- 👉 Order Statistics -->
+    <!--  Order Statistics -->
     <VCol
       cols="12"
       md="4"
@@ -121,7 +121,7 @@ const statisticsVertical = [
       <AnalyticsOrderStatistics />
     </VCol>
 
-    <!-- 👉 Tabs chart -->
+    <!--  Tabs chart -->
     <VCol
       cols="12"
       md="4"
@@ -131,7 +131,7 @@ const statisticsVertical = [
       <AnalyticsFinanceTabs />
     </VCol>
 
-    <!-- 👉 Transactions -->
+    <!--  Transactions -->
     <VCol
       cols="12"
       md="4"
@@ -141,7 +141,7 @@ const statisticsVertical = [
       <AnalyticsTransactions />
     </VCol>
 
-    <!-- 👉 Activity Timeline -->
+    <!--  Activity Timeline -->
     <VCol
       cols="12"
       order-md="3"
@@ -151,7 +151,7 @@ const statisticsVertical = [
       <AnalyticsActivityTimeline />
     </VCol>
 
-    <!-- 👉 Tabs -->
+    <!--  Tabs -->
     <VCol
       cols="12"
       order="3"

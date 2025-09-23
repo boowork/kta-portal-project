@@ -41,7 +41,7 @@ const isCardSaved = ref(true)
           Choose payment method:
         </p>
         <VRow>
-          <!-- 👉 Radio Group -->
+          <!--  Radio Group -->
           <VCol cols="12">
             <VRadioGroup v-model="selectedPaymentMethod">
               <VRow>

@@ -64,14 +64,14 @@ Content-Type: application/json
 }
 ```
 
-#### 200 OK - Invalid Credentials
+#### 400 Bad Request - Invalid Credentials
 ```json
 {
   "success": false,
   "errors": [
     {
-      "field": "password",
-      "message": "Invalid credentials",
+      "field": "",
+      "message": "ID 또는 password가 틀립니다",
       "code": "INVALID_CREDENTIALS"
     }
   ],

@@ -7,7 +7,7 @@ import { paginateArray } from '@api-utils/paginateArray'
 
 export const handlerAppsInvoice = [
 
-  // 👉 Client
+  //  Client
   // Get Clients
   http.get(('/api/apps/invoice/clients'), () => {
     const clients = database.map(invoice => invoice.client)
@@ -15,7 +15,7 @@ export const handlerAppsInvoice = [
     return HttpResponse.json(clients.splice(0, 5), { status: 200 })
   }),
 
-  // 👉 Invoice
+  //  Invoice
   // Get Invoice List
   http.get(('/api/apps/invoice'), ({ request }) => {
     const url = new URL(request.url)

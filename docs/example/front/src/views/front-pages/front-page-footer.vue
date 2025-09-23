@@ -40,7 +40,7 @@ const productList = [
     >
       <VContainer>
         <VRow>
-          <!-- 👉 Footer  -->
+          <!--  Footer  -->
           <VCol
             cols="12"
             md="5"
@@ -71,7 +71,7 @@ const productList = [
             </div>
           </VCol>
 
-          <!-- 👉 Pages  -->
+          <!--  Pages  -->
           <VCol
             md="2"
             sm="4"
@@ -108,7 +108,7 @@ const productList = [
             </div>
           </VCol>
 
-          <!-- 👉 Products -->
+          <!--  Products -->
           <VCol
             md="2"
             sm="4"
@@ -137,7 +137,7 @@ const productList = [
             </div>
           </VCol>
 
-          <!-- 👉 Download App -->
+          <!--  Download App -->
           <VCol
             cols="12"
             md="3"
@@ -184,7 +184,7 @@ const productList = [
       </VContainer>
     </div>
 
-    <!-- 👉 Footer Line -->
+    <!--  Footer Line -->
     <div class="footer-line w-100">
       <VContainer>
         <div class="d-flex justify-space-between flex-wrap gap-y-5 align-center">

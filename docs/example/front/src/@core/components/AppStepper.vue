@@ -88,7 +88,7 @@ watchEffect(() => {
         <!-- SECTION stepper step with icon -->
         <template v-if="item.icon">
           <div class="stepper-icon-step text-medium-emphasis d-flex align-center ">
-            <!-- 👉 icon and title -->
+            <!--  icon and title -->
             <div
               class="d-flex align-center gap-x-3 step-wrapper"
               :class="[props.direction === 'horizontal' && 'flex-column']"
@@ -118,7 +118,7 @@ watchEffect(() => {
               </div>
             </div>
 
-            <!-- 👉 append chevron -->
+            <!--  append chevron -->
             <VIcon
               v-if="isHorizontalAndNotLastStep(index)"
               class="flip-in-rtl stepper-chevron-indicator mx-6"
@@ -133,7 +133,7 @@ watchEffect(() => {
         <template v-else>
           <div class="d-flex align-center gap-x-3">
             <div>
-              <!-- 👉 custom circle icon -->
+              <!--  custom circle icon -->
               <template v-if="index >= currentStep">
                 <VAvatar
                   v-if="(!isValidationEnabled || props.isActiveStepValid || index !== currentStep)"
@@ -164,7 +164,7 @@ watchEffect(() => {
                 </VAvatar>
               </template>
 
-              <!-- 👉 step completed icon -->
+              <!--  step completed icon -->
 
               <VAvatar
                 v-else
@@ -183,7 +183,7 @@ watchEffect(() => {
               </VAvatar>
             </div>
 
-            <!-- 👉 title and subtitle -->
+            <!--  title and subtitle -->
             <div class="d-flex flex-column justify-center">
               <div class="stepper-title font-weight-medium">
                 {{ item.title }}
@@ -197,7 +197,7 @@ watchEffect(() => {
               </div>
             </div>
 
-            <!-- 👉 stepper step icon -->
+            <!--  stepper step icon -->
             <div
               v-if="isHorizontalAndNotLastStep(index)"
               class="stepper-step-line stepper-chevron-indicator mx-6"
@@ -220,7 +220,7 @@ watchEffect(() => {
 @use "@core/scss/template/mixins" as templateMixins;
 
 .app-stepper {
-  // 👉 stepper step with bg color
+  //  stepper step with bg color
   &.stepper-icon-step-bg {
     .stepper-icon-step {
       .step-wrapper {
@@ -288,7 +288,7 @@ watchEffect(() => {
     }
   }
 
-  // 👉 stepper step with icon and  default
+  //  stepper step with icon and  default
   .v-slide-group__content {
     row-gap: 1rem;
 
@@ -361,7 +361,7 @@ watchEffect(() => {
     }
   }
 
-  // 👉 stepper alignment
+  //  stepper alignment
   &.app-stepper-center {
     .v-slide-group__content {
       justify-content: center;

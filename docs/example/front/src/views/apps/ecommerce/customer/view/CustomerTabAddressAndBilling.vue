@@ -127,7 +127,7 @@ const paymentData = [
 <template>
   <!-- eslint-disable vue/no-v-html -->
 
-  <!-- 👉 Address Book -->
+  <!--  Address Book -->
   <VCard class="mb-6">
     <VCardText>
       <div class="d-flex justify-space-between mb-6 flex-wrap align-center gap-y-4 gap-x-6">
@@ -216,7 +216,7 @@ const paymentData = [
     </VCardText>
   </VCard>
 
-  <!-- 👉 Payment Methods -->
+  <!--  Payment Methods -->
   <VCard>
     <VCardText>
       <div class="d-flex justify-space-between mb-6 flex-wrap align-center gap-y-4 gap-x-6">

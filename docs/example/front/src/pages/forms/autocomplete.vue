@@ -8,7 +8,7 @@ import { asyncItems, basic, chips, clearable, customFilter, density, multiple, s
       cols="12"
       md="6"
     >
-      <!-- 👉 Basic -->
+      <!--  Basic -->
       <AppCardCode
         title="Basic"
         :code="basic"
@@ -25,7 +25,7 @@ import { asyncItems, basic, chips, clearable, customFilter, density, multiple, s
       cols="12"
       md="6"
     >
-      <!-- 👉 Density -->
+      <!--  Density -->
       <AppCardCode
         title="Density"
         :code="density"
@@ -42,7 +42,7 @@ import { asyncItems, basic, chips, clearable, customFilter, density, multiple, s
       cols="12"
       md="12"
     >
-      <!-- 👉 Variant -->
+      <!--  Variant -->
       <AppCardCode
         title="Variant"
         :code="variant"
@@ -57,7 +57,7 @@ import { asyncItems, basic, chips, clearable, customFilter, density, multiple, s
       cols="12"
       md="6"
     >
-      <!-- 👉 Multiple Select -->
+      <!--  Multiple Select -->
       <AppCardCode
         title="Multiple"
         :code="multiple"
@@ -72,7 +72,7 @@ import { asyncItems, basic, chips, clearable, customFilter, density, multiple, s
       cols="12"
       md="6"
     >
-      <!-- 👉 Clearable input -->
+      <!--  Clearable input -->
       <AppCardCode
         title="Clearable"
         :code="clearable"
@@ -87,7 +87,7 @@ import { asyncItems, basic, chips, clearable, customFilter, density, multiple, s
       cols="12"
       md="6"
     >
-      <!-- 👉 Chips -->
+      <!--  Chips -->
       <AppCardCode
         title="Chips"
         :code="chips"
@@ -102,7 +102,7 @@ import { asyncItems, basic, chips, clearable, customFilter, density, multiple, s
       cols="12"
       md="6"
     >
-      <!-- 👉 Custom Filter -->
+      <!--  Custom Filter -->
       <AppCardCode
         title="Custom-Filter"
         :code="customFilter"
@@ -117,7 +117,7 @@ import { asyncItems, basic, chips, clearable, customFilter, density, multiple, s
       cols="12"
       md="6"
     >
-      <!-- 👉 With slots -->
+      <!--  With slots -->
       <AppCardCode
         title="Slots"
         :code="slots"
@@ -132,7 +132,7 @@ import { asyncItems, basic, chips, clearable, customFilter, density, multiple, s
       cols="12"
       md="6"
     >
-      <!-- 👉 Asynchronous Items -->
+      <!--  Asynchronous Items -->
       <AppCardCode
         title="Async items"
         :code="asyncItems"
@@ -147,7 +147,7 @@ import { asyncItems, basic, chips, clearable, customFilter, density, multiple, s
       cols="12"
       md="6"
     >
-      <!-- 👉 State Selector -->
+      <!--  State Selector -->
       <AppCardCode
         title="State Selector"
         :code="stateSelector"
@@ -162,7 +162,7 @@ import { asyncItems, basic, chips, clearable, customFilter, density, multiple, s
       cols="12"
       md="6"
     >
-      <!-- 👉 Validation -->
+      <!--  Validation -->
       <AppCardCode
         title="validation"
         :code="validation"

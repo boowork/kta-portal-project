@@ -29,7 +29,7 @@ interface Roles {
   details: RoleDetails
 }
 
-// 👉 Roles List
+//  Roles List
 const roles = ref<Roles[]>([
   {
     role: 'Administrator',
@@ -194,7 +194,7 @@ const editPermission = (value: RoleDetails) => {
 
 <template>
   <VRow>
-    <!-- 👉 Roles -->
+    <!--  Roles -->
     <VCol
       v-for="item in roles"
       :key="item.role"
@@ -262,7 +262,7 @@ const editPermission = (value: RoleDetails) => {
       </VCard>
     </VCol>
 
-    <!-- 👉 Add New Role -->
+    <!--  Add New Role -->
     <VCol
       cols="12"
       sm="6"

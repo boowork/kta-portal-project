@@ -5,7 +5,7 @@ import InvoiceSendInvoiceDrawer from '@/views/apps/invoice/InvoiceSendInvoiceDra
 // Type: Invoice data
 import type { InvoiceData, PurchasedProduct } from '@/views/apps/invoice/types'
 
-// 👉 Default Blank Data
+//  Default Blank Data
 const invoiceData = ref<InvoiceData>({
   invoice: {
     id: 5037,
@@ -65,7 +65,7 @@ const removeProduct = (id: number) => {
 
 <template>
   <VRow>
-    <!-- 👉 InvoiceEditable -->
+    <!--  InvoiceEditable -->
     <VCol
       cols="12"
       md="9"
@@ -77,14 +77,14 @@ const removeProduct = (id: number) => {
       />
     </VCol>
 
-    <!-- 👉 Right Column: Invoice Action -->
+    <!--  Right Column: Invoice Action -->
     <VCol
       cols="12"
       md="3"
     >
       <VCard class="mb-6">
         <VCardText>
-          <!-- 👉 Send Invoice -->
+          <!--  Send Invoice -->
           <VBtn
             block
             prepend-icon="bx-paper-plane"
@@ -94,7 +94,7 @@ const removeProduct = (id: number) => {
             Send Invoice
           </VBtn>
 
-          <!-- 👉 Preview -->
+          <!--  Preview -->
           <VBtn
             block
             color="secondary"
@@ -105,7 +105,7 @@ const removeProduct = (id: number) => {
             Preview
           </VBtn>
 
-          <!-- 👉 Save -->
+          <!--  Save -->
           <VBtn
             block
             color="secondary"
@@ -116,7 +116,7 @@ const removeProduct = (id: number) => {
         </VCardText>
       </VCard>
 
-      <!-- 👉 Select payment method -->
+      <!--  Select payment method -->
       <AppSelect
         id="payment-method"
         v-model="selectedPaymentMethod"
@@ -125,7 +125,7 @@ const removeProduct = (id: number) => {
         class="mb-4"
       />
 
-      <!-- 👉 Payment Terms -->
+      <!--  Payment Terms -->
       <div class="d-flex align-center justify-space-between">
         <VLabel
           for="payment-terms"
@@ -141,7 +141,7 @@ const removeProduct = (id: number) => {
         </div>
       </div>
 
-      <!-- 👉  Client Notes -->
+      <!--   Client Notes -->
       <div class="d-flex align-center justify-space-between">
         <VLabel
           for="client-notes"
@@ -157,7 +157,7 @@ const removeProduct = (id: number) => {
         </div>
       </div>
 
-      <!-- 👉  Payment Stub -->
+      <!--   Payment Stub -->
       <div class="d-flex align-center justify-space-between">
         <VLabel
           for="payment-stub"
@@ -175,9 +175,9 @@ const removeProduct = (id: number) => {
     </VCol>
   </VRow>
 
-  <!-- 👉 Send Invoice Sidebar -->
+  <!--  Send Invoice Sidebar -->
   <InvoiceSendInvoiceDrawer v-model:is-drawer-open="isSendPaymentSidebarVisible" />
 
-  <!-- 👉 Send Invoice Sidebar -->
+  <!--  Send Invoice Sidebar -->
   <InvoiceSendInvoiceDrawer v-model:is-drawer-open="isSendPaymentSidebarVisible" />
 </template>

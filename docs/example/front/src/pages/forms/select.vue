@@ -8,7 +8,7 @@ import { basic, chips, customTextAndValue, density, icons, menuProps, multiple, 
       cols="12"
       md="6"
     >
-      <!-- 👉 Basic -->
+      <!--  Basic -->
       <AppCardCode
         title="Basic"
         :code="basic"
@@ -22,7 +22,7 @@ import { basic, chips, customTextAndValue, density, icons, menuProps, multiple, 
       cols="12"
       md="6"
     >
-      <!-- 👉 Density -->
+      <!--  Density -->
       <AppCardCode
         title="Density"
         :code="density"
@@ -33,7 +33,7 @@ import { basic, chips, customTextAndValue, density, icons, menuProps, multiple, 
     </VCol>
 
     <VCol cols="12">
-      <!-- 👉 Variant -->
+      <!--  Variant -->
       <AppCardCode
         title="Variant"
         :code="variant"
@@ -50,7 +50,7 @@ import { basic, chips, customTextAndValue, density, icons, menuProps, multiple, 
       cols="12"
       md="6"
     >
-      <!-- 👉 Custom text and value -->
+      <!--  Custom text and value -->
       <AppCardCode
         title="Custom text and value"
         :code="customTextAndValue"
@@ -65,7 +65,7 @@ import { basic, chips, customTextAndValue, density, icons, menuProps, multiple, 
       cols="12"
       md="6"
     >
-      <!-- 👉 Icons -->
+      <!--  Icons -->
       <AppCardCode
         title="Icons"
         :code="icons"
@@ -80,7 +80,7 @@ import { basic, chips, customTextAndValue, density, icons, menuProps, multiple, 
       cols="12"
       md="6"
     >
-      <!-- 👉 Chips -->
+      <!--  Chips -->
       <AppCardCode
         title="Chips"
         :code="chips"
@@ -95,7 +95,7 @@ import { basic, chips, customTextAndValue, density, icons, menuProps, multiple, 
       cols="12"
       md="6"
     >
-      <!-- 👉 Menu Props -->
+      <!--  Menu Props -->
       <AppCardCode
         title="Menu Props"
         :code="menuProps"
@@ -110,7 +110,7 @@ import { basic, chips, customTextAndValue, density, icons, menuProps, multiple, 
       cols="12"
       md="6"
     >
-      <!-- 👉 Multiple -->
+      <!--  Multiple -->
       <AppCardCode
         title="Multiple"
         :code="multiple"
@@ -125,7 +125,7 @@ import { basic, chips, customTextAndValue, density, icons, menuProps, multiple, 
       cols="12"
       md="6"
     >
-      <!-- 👉 Selection slot -->
+      <!--  Selection slot -->
       <AppCardCode
         title="Selection slot"
         :code="selectionSlot"

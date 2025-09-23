@@ -8,7 +8,7 @@ import { appendAndPrepend, appendTextField, basic, colors, disabledAndReadonly, 
       cols="12"
       md="6"
     >
-      <!-- 👉 Basic -->
+      <!--  Basic -->
       <AppCardCode
         title="Basic"
         :code="basic"
@@ -23,7 +23,7 @@ import { appendAndPrepend, appendTextField, basic, colors, disabledAndReadonly, 
       cols="12"
       md="6"
     >
-      <!-- 👉 Disabled and Readonly -->
+      <!--  Disabled and Readonly -->
       <AppCardCode
         title="Disabled and Readonly"
         :code="disabledAndReadonly"
@@ -38,7 +38,7 @@ import { appendAndPrepend, appendTextField, basic, colors, disabledAndReadonly, 
       cols="12"
       md="6"
     >
-      <!-- 👉 Colors -->
+      <!--  Colors -->
       <AppCardCode
         title="Colors"
         :code="colors"
@@ -53,7 +53,7 @@ import { appendAndPrepend, appendTextField, basic, colors, disabledAndReadonly, 
       cols="12"
       md="6"
     >
-      <!-- 👉 Icons -->
+      <!--  Icons -->
       <AppCardCode
         title="Icons"
         :code="icons"
@@ -68,7 +68,7 @@ import { appendAndPrepend, appendTextField, basic, colors, disabledAndReadonly, 
       cols="12"
       md="6"
     >
-      <!-- 👉 Step -->
+      <!--  Step -->
       <AppCardCode
         title="Step"
         :code="step"
@@ -83,7 +83,7 @@ import { appendAndPrepend, appendTextField, basic, colors, disabledAndReadonly, 
       cols="12"
       md="6"
     >
-      <!-- 👉 Validation -->
+      <!--  Validation -->
       <AppCardCode
         title="Validation"
         :code="validation"
@@ -98,7 +98,7 @@ import { appendAndPrepend, appendTextField, basic, colors, disabledAndReadonly, 
       cols="12"
       md="6"
     >
-      <!-- 👉 Min and Max -->
+      <!--  Min and Max -->
       <AppCardCode
         title="Min and Max"
         :code="minAndMax"
@@ -113,7 +113,7 @@ import { appendAndPrepend, appendTextField, basic, colors, disabledAndReadonly, 
       cols="12"
       md="6"
     >
-      <!-- 👉 Size -->
+      <!--  Size -->
       <AppCardCode
         title="Size"
         :code="size"
@@ -128,7 +128,7 @@ import { appendAndPrepend, appendTextField, basic, colors, disabledAndReadonly, 
       cols="12"
       md="6"
     >
-      <!-- 👉 Thumb -->
+      <!--  Thumb -->
       <AppCardCode
         title="Thumb"
         :code="thumb"
@@ -143,7 +143,7 @@ import { appendAndPrepend, appendTextField, basic, colors, disabledAndReadonly, 
       cols="12"
       md="6"
     >
-      <!-- 👉 Ticks -->
+      <!--  Ticks -->
       <AppCardCode
         title="Ticks"
         :code="ticks"
@@ -158,7 +158,7 @@ import { appendAndPrepend, appendTextField, basic, colors, disabledAndReadonly, 
       cols="12"
       md="6"
     >
-      <!-- 👉 Vertical -->
+      <!--  Vertical -->
       <AppCardCode
         title="Vertical"
         :code="vertical"
@@ -175,7 +175,7 @@ import { appendAndPrepend, appendTextField, basic, colors, disabledAndReadonly, 
       cols="12"
       md="6"
     >
-      <!-- 👉 Append text field -->
+      <!--  Append text field -->
       <AppCardCode
         title="Append text field"
         :code="appendTextField"
@@ -190,7 +190,7 @@ import { appendAndPrepend, appendTextField, basic, colors, disabledAndReadonly, 
       cols="12"
       md="6"
     >
-      <!-- 👉 Append and prepend -->
+      <!--  Append and prepend -->
       <AppCardCode
         title="Append and prepend"
         :code="appendAndPrepend"

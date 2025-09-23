@@ -103,7 +103,7 @@ const currentStep = ref(0)
       <div class="checkout-card">
         <VCard>
           <VCardText>
-            <!-- 👉 Stepper -->
+            <!--  Stepper -->
             <AppStepper
               v-model:current-step="currentStep"
               class="checkout-stepper"
@@ -114,7 +114,7 @@ const currentStep = ref(0)
           </VCardText>
           <VDivider />
           <VCardText>
-            <!-- 👉 stepper content -->
+            <!--  stepper content -->
             <VWindow
               v-model="currentStep"
               class="disable-tab-transition"

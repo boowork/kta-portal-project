@@ -8,7 +8,7 @@ import { basic, form, fullscreen, loader, nesting, overflowed, persistent, scrol
       cols="12"
       md="6"
     >
-      <!-- 👉 Basic -->
+      <!--  Basic -->
       <AppCardCode
         title="Basic"
         :code="basic"
@@ -23,7 +23,7 @@ import { basic, form, fullscreen, loader, nesting, overflowed, persistent, scrol
       cols="12"
       md="6"
     >
-      <!-- 👉 Persistent -->
+      <!--  Persistent -->
       <AppCardCode
         title="Persistent"
         :code="persistent"
@@ -38,7 +38,7 @@ import { basic, form, fullscreen, loader, nesting, overflowed, persistent, scrol
       cols="12"
       md="6"
     >
-      <!-- 👉 Scrollable -->
+      <!--  Scrollable -->
       <AppCardCode
         title="Scrollable"
         :code="scrollable"
@@ -53,7 +53,7 @@ import { basic, form, fullscreen, loader, nesting, overflowed, persistent, scrol
       cols="12"
       md="6"
     >
-      <!-- 👉 Loader -->
+      <!--  Loader -->
       <AppCardCode
         title="Loader"
         :code="loader"
@@ -68,7 +68,7 @@ import { basic, form, fullscreen, loader, nesting, overflowed, persistent, scrol
       col="12"
       md="6"
     >
-      <!-- 👉 Nesting -->
+      <!--  Nesting -->
       <AppCardCode
         title="Nesting"
         :code="nesting"
@@ -83,7 +83,7 @@ import { basic, form, fullscreen, loader, nesting, overflowed, persistent, scrol
       cols="12"
       md="6"
     >
-      <!-- 👉 Overflowed -->
+      <!--  Overflowed -->
       <AppCardCode
         title="Overflowed"
         :code="overflowed"
@@ -98,7 +98,7 @@ import { basic, form, fullscreen, loader, nesting, overflowed, persistent, scrol
       cols="12"
       md="6"
     >
-      <!-- 👉 Fullscreen -->
+      <!--  Fullscreen -->
       <AppCardCode
         title="Fullscreen"
         :code="fullscreen"
@@ -113,7 +113,7 @@ import { basic, form, fullscreen, loader, nesting, overflowed, persistent, scrol
       cols="12"
       md="6"
     >
-      <!-- 👉 Form -->
+      <!--  Form -->
       <AppCardCode
         title="Form"
         :code="form"

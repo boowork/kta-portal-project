@@ -6,7 +6,7 @@ import { paginateArray } from '@api-utils/paginateArray'
 
 export const handlerAppsAcademy = [
 
-  // 👉 Course
+  //  Course
   http.get(('/api/apps/academy/courses'), ({ request }) => {
     const url = new URL(request.url)
 
@@ -74,7 +74,7 @@ export const handlerAppsAcademy = [
     { status: 200 })
   }),
 
-  // 👉 Course Details
+  //  Course Details
   http.get(('/api/apps/academy/course-details'), () => {
     return HttpResponse.json(db.courseDetails, { status: 200 })
   }),

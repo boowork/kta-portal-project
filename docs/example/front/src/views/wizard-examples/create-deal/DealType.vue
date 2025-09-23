@@ -42,7 +42,7 @@ watch(formData, () => {
 <template>
   <VForm>
     <VRow>
-      <!-- 👉 Shopping girl image -->
+      <!--  Shopping girl image -->
       <VCol cols="12">
         <VImg
           :src="ShoppingGirl"

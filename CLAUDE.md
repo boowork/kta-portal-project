@@ -10,12 +10,12 @@ IMPORTANT: admin backend project: follow workflow.md
 ```
 kta-portal-project/
 ├── admin/
-│   ├── front/     # Vue.js + Vuetify admin interface
+│   ├── front/     # Vue.js + Sneat Vuetify admin interface
 │   └── backend/   # Spring Boot REST API
 ├── school/
-│   └── front/     # Vue.js + Vuetify school interface
+│   └── front/     # Vue.js + Sneat Vuetify school interface
 ├── portal/
-│   └── front/     # Vue.js + Vuetify portal interface
+│   └── front/     # Vue.js + Sneat Vuetify portal interface
 └── versions/      # Version management system
 ```
 
@@ -84,4 +84,9 @@ All frontend components support:
 - **KISS**: Keep It Simple, Stupid
 - **DRY**: Don't Repeat Yourself  
 - **YAGNI**: You Aren't Gonna Need It
+
+## Version File Naming Convention
+- History files: `versions/history/{version}-{description}.md`
+- Todo files: `versions/todo/{version}-{description}.md`
+- Example: `0.2539.10-admin-frontend-api-integration.md`
 

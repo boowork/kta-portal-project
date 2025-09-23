@@ -8,7 +8,7 @@ import { basic, multiLine, position, timeout, transition, variants, vertical, wi
       cols="12"
       md="6"
     >
-      <!-- 👉 Basic -->
+      <!--  Basic -->
       <AppCardCode
         title="Basic"
         :code="basic"
@@ -23,7 +23,7 @@ import { basic, multiLine, position, timeout, transition, variants, vertical, wi
       cols="12"
       md="6"
     >
-      <!-- 👉 With Action -->
+      <!--  With Action -->
       <AppCardCode
         title="With Action"
         :code="withAction"
@@ -38,7 +38,7 @@ import { basic, multiLine, position, timeout, transition, variants, vertical, wi
       cols="12"
       md="6"
     >
-      <!-- 👉 Multi line -->
+      <!--  Multi line -->
       <AppCardCode
         title="Multi Line"
         :code="multiLine"
@@ -53,7 +53,7 @@ import { basic, multiLine, position, timeout, transition, variants, vertical, wi
       cols="12"
       md="6"
     >
-      <!-- 👉 Timeout -->
+      <!--  Timeout -->
       <AppCardCode
         title="Timeout"
         :code="timeout"
@@ -68,7 +68,7 @@ import { basic, multiLine, position, timeout, transition, variants, vertical, wi
       cols="12"
       md="6"
     >
-      <!-- 👉 Vertical -->
+      <!--  Vertical -->
       <AppCardCode
         title="Vertical"
         :code="vertical"
@@ -83,7 +83,7 @@ import { basic, multiLine, position, timeout, transition, variants, vertical, wi
       cols="12"
       md="6"
     >
-      <!-- 👉 Position -->
+      <!--  Position -->
       <AppCardCode
         title="Position"
         :code="position"
@@ -98,7 +98,7 @@ import { basic, multiLine, position, timeout, transition, variants, vertical, wi
       cols="12"
       md="6"
     >
-      <!-- 👉 Variants -->
+      <!--  Variants -->
       <AppCardCode
         title="Variants"
         :code="variants"
@@ -112,7 +112,7 @@ import { basic, multiLine, position, timeout, transition, variants, vertical, wi
       cols="12"
       md="6"
     >
-      <!-- 👉 Transition -->
+      <!--  Transition -->
       <AppCardCode
         title="Transition"
         :code="transition"

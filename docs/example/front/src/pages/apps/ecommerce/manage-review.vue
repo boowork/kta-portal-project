@@ -294,7 +294,7 @@ const reviewStatChartConfig = {
       cols="12"
       md="6"
     >
-      <!-- 👉 Total Review Card  -->
+      <!--  Total Review Card  -->
       <VCard>
         <VCardText>
           <div class="d-flex gap-6 flex-column flex-sm-row">

@@ -27,10 +27,10 @@ const moreList = [
   <VCard>
     <!-- SECTION Card Header and Menu -->
     <VCardItem>
-      <!-- 👉 Title -->
+      <!--  Title -->
       <VCardTitle>Upgrade Your Plan</VCardTitle>
 
-      <!-- 👉 menu -->
+      <!--  menu -->
       <template #append>
         <MoreBtn :menu-list="moreList" />
       </template>
@@ -87,7 +87,7 @@ const moreList = [
           v-for="card in savedCards"
           :key="card.logo"
         >
-          <!-- 👉 Avatar -->
+          <!--  Avatar -->
           <template #prepend>
             <VImg
               rounded
@@ -99,7 +99,7 @@ const moreList = [
             />
           </template>
 
-          <!-- 👉 Title and Subtitle -->
+          <!--  Title and Subtitle -->
 
           <VListItemTitle class="text-h6">
             {{ card.type }}
@@ -108,7 +108,7 @@ const moreList = [
             {{ card.number }}
           </VListItemSubtitle>
 
-          <!-- 👉 Action -->
+          <!--  Action -->
           <template #append>
             <VListItemAction>
               <AppTextField
@@ -119,7 +119,7 @@ const moreList = [
           </template>
         </VListItem>
 
-        <!-- 👉 Add Payment  -->
+        <!--  Add Payment  -->
         <VListItem class="mb-5">
           <a
             href="javascript:void(0)"
@@ -129,7 +129,7 @@ const moreList = [
       </VList>
       <!-- !SECTION -->
 
-      <!-- 👉 Email -->
+      <!--  Email -->
       <VForm>
         <VRow>
           <VCol cols="12">

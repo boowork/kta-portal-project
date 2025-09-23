@@ -8,7 +8,7 @@ import { actionAndItemGroup, basic, density, nav, progressList, rounded, shaped,
       cols="12"
       md="6"
     >
-      <!-- 👉 Basic -->
+      <!--  Basic -->
       <AppCardCode
         title="Basic"
         no-padding
@@ -26,7 +26,7 @@ import { actionAndItemGroup, basic, density, nav, progressList, rounded, shaped,
       cols="12"
       md="6"
     >
-      <!-- 👉 Rounded -->
+      <!--  Rounded -->
       <AppCardCode
         title="Rounded"
         no-padding
@@ -44,7 +44,7 @@ import { actionAndItemGroup, basic, density, nav, progressList, rounded, shaped,
       cols="12"
       md="6"
     >
-      <!-- 👉 Density  -->
+      <!--  Density  -->
       <AppCardCode
         title="Density"
         :code="density"
@@ -62,7 +62,7 @@ import { actionAndItemGroup, basic, density, nav, progressList, rounded, shaped,
       cols="12"
       md="6"
     >
-      <!-- 👉 Nav -->
+      <!--  Nav -->
       <AppCardCode
         title="Nav"
         no-padding
@@ -80,7 +80,7 @@ import { actionAndItemGroup, basic, density, nav, progressList, rounded, shaped,
       cols="12"
       md="6"
     >
-      <!-- 👉 Action and item group -->
+      <!--  Action and item group -->
       <AppCardCode
         title="Action and item group"
         no-padding
@@ -98,7 +98,7 @@ import { actionAndItemGroup, basic, density, nav, progressList, rounded, shaped,
       cols="12"
       md="6"
     >
-      <!-- 👉 Sub Group -->
+      <!--  Sub Group -->
       <AppCardCode
         title="Sub Group"
         no-padding
@@ -118,7 +118,7 @@ import { actionAndItemGroup, basic, density, nav, progressList, rounded, shaped,
       cols="12"
       md="6"
     >
-      <!-- 👉 Two lines and Subheader -->
+      <!--  Two lines and Subheader -->
       <AppCardCode
         title="Two lines and subheader"
         no-padding
@@ -136,7 +136,7 @@ import { actionAndItemGroup, basic, density, nav, progressList, rounded, shaped,
       cols="12"
       md="6"
     >
-      <!-- 👉 Three Line -->
+      <!--  Three Line -->
       <AppCardCode
         title="Three Line"
         no-padding
@@ -154,7 +154,7 @@ import { actionAndItemGroup, basic, density, nav, progressList, rounded, shaped,
       cols="12"
       md="6"
     >
-      <!-- 👉 Users List -->
+      <!--  Users List -->
       <AppCardCode
         title="User List"
         no-padding
@@ -170,7 +170,7 @@ import { actionAndItemGroup, basic, density, nav, progressList, rounded, shaped,
       cols="12"
       md="6"
     >
-      <!-- 👉 Progress List -->
+      <!--  Progress List -->
       <AppCardCode
         title="Progress List"
         no-padding
@@ -186,7 +186,7 @@ import { actionAndItemGroup, basic, density, nav, progressList, rounded, shaped,
       cols="12"
       md="6"
     >
-      <!-- 👉 Shaped -->
+      <!--  Shaped -->
       <AppCardCode
         title="Shaped"
         no-padding

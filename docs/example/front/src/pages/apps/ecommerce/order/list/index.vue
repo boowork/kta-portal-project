@@ -98,7 +98,7 @@ const deleteOrder = async (id: number) => {
 <template>
   <div>
     <VCard class="mb-6">
-      <!-- 👉 Widgets  -->
+      <!--  Widgets  -->
       <VCardText class="px-3">
         <VRow>
           <template
@@ -156,7 +156,7 @@ const deleteOrder = async (id: number) => {
     </VCard>
 
     <VCard>
-      <!-- 👉 Filters -->
+      <!--  Filters -->
       <VCardText>
         <div class="d-flex justify-sm-space-between justify-start flex-wrap gap-4">
           <AppTextField
@@ -183,7 +183,7 @@ const deleteOrder = async (id: number) => {
 
       <VDivider />
 
-      <!-- 👉 Order Table -->
+      <!--  Order Table -->
       <VDataTableServer
         v-model:items-per-page="itemsPerPage"
         v-model:model-value="selectedRows"

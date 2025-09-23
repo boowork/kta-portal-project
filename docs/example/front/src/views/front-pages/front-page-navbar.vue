@@ -137,7 +137,7 @@ const isPageActive = computed(() =>
 </script>
 
 <template>
-  <!-- 👉 Navigation drawer for mobile devices  -->
+  <!--  Navigation drawer for mobile devices  -->
   <VNavigationDrawer
     v-model="sidebar"
     data-allow-mismatch
@@ -258,7 +258,7 @@ const isPageActive = computed(() =>
     </PerfectScrollbar>
   </VNavigationDrawer>
 
-  <!-- 👉 Navbar for desktop devices  -->
+  <!--  Navbar for desktop devices  -->
   <div class="front-page-navbar">
     <div class="front-page-navbar">
       <VAppBar

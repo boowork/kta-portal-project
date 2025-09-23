@@ -25,7 +25,7 @@ definePage({
       Back To Home
     </VBtn>
 
-    <!-- 👉 Image -->
+    <!--  Image -->
     <div class="misc-avatar w-100 text-center">
       <VImg
         :src="notAuthorizedIllustration"

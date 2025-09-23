@@ -8,7 +8,7 @@ import { basic, clearable, density, multiple, noDataWithChips, variant } from '@
       cols="12"
       md="6"
     >
-      <!-- 👉 Basic -->
+      <!--  Basic -->
       <AppCardCode
         title="Basic"
         :code="basic"
@@ -23,7 +23,7 @@ import { basic, clearable, density, multiple, noDataWithChips, variant } from '@
       cols="12"
       md="6"
     >
-      <!-- 👉 Density -->
+      <!--  Density -->
       <AppCardCode
         title="Density"
         :code="density"
@@ -40,7 +40,7 @@ import { basic, clearable, density, multiple, noDataWithChips, variant } from '@
       cols="12"
       md="6"
     >
-      <!-- 👉 Variant -->
+      <!--  Variant -->
       <AppCardCode
         title="Variant"
         :code="variant"
@@ -55,7 +55,7 @@ import { basic, clearable, density, multiple, noDataWithChips, variant } from '@
       cols="12"
       md="6"
     >
-      <!-- 👉 Multiple -->
+      <!--  Multiple -->
       <AppCardCode
         title="Multiple"
         :code="multiple"
@@ -70,7 +70,7 @@ import { basic, clearable, density, multiple, noDataWithChips, variant } from '@
       cols="12"
       md="6"
     >
-      <!-- 👉 No data with chips -->
+      <!--  No data with chips -->
       <AppCardCode
         title="No data with chips"
         :code="noDataWithChips"
@@ -85,7 +85,7 @@ import { basic, clearable, density, multiple, noDataWithChips, variant } from '@
       cols="12"
       md="6"
     >
-      <!-- 👉 Clearable -->
+      <!--  Clearable -->
 
       <AppCardCode
         title="Clearable"

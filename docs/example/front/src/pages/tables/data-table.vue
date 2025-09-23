@@ -5,7 +5,7 @@ import { basic, cellSlot, dense, expandableRows, externalPagination, fixedHeader
 <template>
   <VRow>
     <VCol cols="12">
-      <!-- 👉 Basic -->
+      <!--  Basic -->
       <AppCardCode
         title="Basic"
         :code="basic"
@@ -16,7 +16,7 @@ import { basic, cellSlot, dense, expandableRows, externalPagination, fixedHeader
     </VCol>
 
     <VCol>
-      <!-- 👉 Dense  -->
+      <!--  Dense  -->
       <AppCardCode
         title="Dense"
         :code="dense"
@@ -26,7 +26,7 @@ import { basic, cellSlot, dense, expandableRows, externalPagination, fixedHeader
       </AppCardCode>
     </VCol>
 
-    <!-- 👉 Table Cell Slot  -->
+    <!--  Table Cell Slot  -->
     <VCol cols="12">
       <AppCardCode
         title="Cell Slot"
@@ -37,7 +37,7 @@ import { basic, cellSlot, dense, expandableRows, externalPagination, fixedHeader
       </AppCardCode>
     </VCol>
 
-    <!-- 👉 Table Row selection  -->
+    <!--  Table Row selection  -->
     <VCol cols="12">
       <AppCardCode
         title="Row Selection"
@@ -48,7 +48,7 @@ import { basic, cellSlot, dense, expandableRows, externalPagination, fixedHeader
       </AppCardCode>
     </VCol>
 
-    <!-- 👉 Fixed Header  -->
+    <!--  Fixed Header  -->
     <VCol cols="12">
       <AppCardCode
         title="Fixed Header"
@@ -59,7 +59,7 @@ import { basic, cellSlot, dense, expandableRows, externalPagination, fixedHeader
       </AppCardCode>
     </VCol>
 
-    <!-- 👉 Expandable rows -->
+    <!--  Expandable rows -->
     <VCol cols="12">
       <AppCardCode
         title="Expandable Rows"
@@ -69,7 +69,7 @@ import { basic, cellSlot, dense, expandableRows, externalPagination, fixedHeader
         <DemoDataTableExpandableRows />
       </AppCardCode>
     </VCol>
-    <!-- 👉 Grouping Rows -->
+    <!--  Grouping Rows -->
     <VCol cols="12">
       <AppCardCode
         title="Grouping Rows"
@@ -80,7 +80,7 @@ import { basic, cellSlot, dense, expandableRows, externalPagination, fixedHeader
       </AppCardCode>
     </VCol>
 
-    <!-- 👉 Row Editing via Dialog -->
+    <!--  Row Editing via Dialog -->
     <VCol cols="12">
       <AppCardCode
         title="Row Editing via Dialog"
@@ -91,7 +91,7 @@ import { basic, cellSlot, dense, expandableRows, externalPagination, fixedHeader
       </AppCardCode>
     </VCol>
 
-    <!-- 👉 External Pagination  -->
+    <!--  External Pagination  -->
     <VCol cols="12">
       <AppCardCode
         title="External Pagination"
@@ -102,7 +102,7 @@ import { basic, cellSlot, dense, expandableRows, externalPagination, fixedHeader
       </AppCardCode>
     </VCol>
 
-    <!-- 👉 Kitchen Sink  -->
+    <!--  Kitchen Sink  -->
     <VCol cols="12">
       <AppCardCode
         title="Kitchen Sink"

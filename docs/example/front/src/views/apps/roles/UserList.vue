@@ -2,7 +2,7 @@
 import AddNewUserDrawer from '@/views/apps/user/list/AddNewUserDrawer.vue'
 import type { UserProperties } from '@db/apps/users/types'
 
-// 👉 Store
+//  Store
 const searchQuery = ref('')
 const selectedRole = ref()
 const selectedPlan = ref()
@@ -31,7 +31,7 @@ const headers = [
   { title: 'Actions', key: 'actions', sortable: false },
 ]
 
-// 👉 Fetching users
+//  Fetching users
 const { data: usersData, execute: fetchUsers } = await useApi<any>(createUrl('/apps/users', {
   query: {
     q: searchQuery,
@@ -48,7 +48,7 @@ const { data: usersData, execute: fetchUsers } = await useApi<any>(createUrl('/a
 const users = computed((): UserProperties[] => usersData.value?.users || [])
 const totalUsers = computed(() => usersData.value?.totalUsers || 0)
 
-// 👉 search filters for roles
+//  search filters for roles
 const roles = [
   { title: 'Admin', value: 'admin' },
   { title: 'Author', value: 'author' },
@@ -57,7 +57,7 @@ const roles = [
   { title: 'Subscriber', value: 'subscriber' },
 ]
 
-// 👉 search filters for plans
+//  search filters for plans
 const plans = [
   { title: 'Company', value: 'company' },
   { title: 'Team', value: 'team' },
@@ -96,7 +96,7 @@ const resolveUserStatusVariant = (stat: string) => {
 
 const isAddNewUserDrawerVisible = ref(false)
 
-// 👉 Add new user
+//  Add new user
 const addNewUser = async (userData: UserProperties) => {
   await $api('/apps/users', {
     method: 'POST',
@@ -107,7 +107,7 @@ const addNewUser = async (userData: UserProperties) => {
   fetchUsers()
 }
 
-// 👉 Delete user
+//  Delete user
 const deleteUser = async (id: number) => {
   await $api(`/apps/users/${id}`, {
     method: 'DELETE',
@@ -142,7 +142,7 @@ const deleteUser = async (id: number) => {
         />
 
         <div class="d-flex align-start flex-column flex-sm-row flex-wrap gap-4">
-          <!-- 👉 Search  -->
+          <!--  Search  -->
           <div style="inline-size: 15.625rem;">
             <AppTextField
               v-model="searchQuery"
@@ -150,7 +150,7 @@ const deleteUser = async (id: number) => {
             />
           </div>
 
-          <!-- 👉 Select role -->
+          <!--  Select role -->
           <div style="inline-size: 9.375rem;">
             <AppSelect
               v-model="selectedRole"
@@ -161,7 +161,7 @@ const deleteUser = async (id: number) => {
             />
           </div>
 
-          <!-- 👉 Select Plan -->
+          <!--  Select Plan -->
           <div style="inline-size: 9.375rem;">
             <AppSelect
               v-model="selectedPlan"
@@ -224,7 +224,7 @@ const deleteUser = async (id: number) => {
           </div>
         </template>
 
-        <!-- 👉 Role -->
+        <!--  Role -->
         <template #item.role="{ item }">
           <div class="d-flex align-center gap-x-2">
             <VIcon
@@ -306,7 +306,7 @@ const deleteUser = async (id: number) => {
       <!-- SECTION -->
     </VCard>
 
-    <!-- 👉 Add New User -->
+    <!--  Add New User -->
     <AddNewUserDrawer
       v-model:is-drawer-open="isAddNewUserDrawerVisible"
       @user-data="addNewUser"

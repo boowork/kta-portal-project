@@ -8,7 +8,7 @@ import { basic, colors, inset, labelSlot, modelAsArray, states, trueAndFalseValu
       cols="12"
       md="6"
     >
-      <!-- 👉 Basic -->
+      <!--  Basic -->
       <AppCardCode
         title="Basic"
         :code="basic"
@@ -23,7 +23,7 @@ import { basic, colors, inset, labelSlot, modelAsArray, states, trueAndFalseValu
       cols="12"
       md="6"
     >
-      <!-- 👉 Inset -->
+      <!--  Inset -->
       <AppCardCode
         title="Inset"
         :code="inset"
@@ -38,7 +38,7 @@ import { basic, colors, inset, labelSlot, modelAsArray, states, trueAndFalseValu
       cols="12"
       md="6"
     >
-      <!-- 👉 Colors -->
+      <!--  Colors -->
       <AppCardCode
         title="Colors"
         :code="colors"
@@ -53,7 +53,7 @@ import { basic, colors, inset, labelSlot, modelAsArray, states, trueAndFalseValu
       cols="12"
       md="6"
     >
-      <!-- 👉 Model as array -->
+      <!--  Model as array -->
       <AppCardCode
         title="Model as array"
         :code="modelAsArray"
@@ -68,7 +68,7 @@ import { basic, colors, inset, labelSlot, modelAsArray, states, trueAndFalseValu
       cols="12"
       md="6"
     >
-      <!-- 👉 Label slot -->
+      <!--  Label slot -->
       <AppCardCode
         title="Label slot"
         :code="labelSlot"
@@ -83,7 +83,7 @@ import { basic, colors, inset, labelSlot, modelAsArray, states, trueAndFalseValu
       cols="12"
       md="6"
     >
-      <!-- 👉 True and False Value -->
+      <!--  True and False Value -->
       <AppCardCode
         title="True and False Value"
         :code="trueAndFalseValue"
@@ -100,7 +100,7 @@ import { basic, colors, inset, labelSlot, modelAsArray, states, trueAndFalseValu
       cols="12"
       md="6"
     >
-      <!-- 👉 States -->
+      <!--  States -->
       <AppCardCode
         title="States"
         :code="states"

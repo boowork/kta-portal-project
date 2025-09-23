@@ -23,13 +23,13 @@ const configStore = useLayoutConfigStore()
       class="layout-navbar-and-nav-container"
       :class="configStore.isNavbarBlurEnabled && 'header-blur'"
     >
-      <!-- 👉 Navbar -->
+      <!--  Navbar -->
       <div class="layout-navbar">
         <div class="navbar-content-container">
           <slot name="navbar" />
         </div>
       </div>
-      <!-- 👉 Navigation -->
+      <!--  Navigation -->
       <div class="layout-horizontal-nav">
         <div class="horizontal-nav-content-container">
           <HorizontalNav :nav-items="navItems" />
@@ -41,7 +41,7 @@ const configStore = useLayoutConfigStore()
       <slot />
     </main>
 
-    <!-- 👉 Footer -->
+    <!--  Footer -->
     <footer class="layout-footer">
       <div class="footer-content-container">
         <slot name="footer" />
@@ -85,12 +85,12 @@ const configStore = useLayoutConfigStore()
       // }
     }
 
-    // 👉 Navbar
+    //  Navbar
     .navbar-content-container {
       @include mixins.boxed-content;
     }
 
-    // 👉   Content height fixed
+    //    Content height fixed
     &.layout-content-height-fixed {
       max-block-size: 100dvh;
 
@@ -104,7 +104,7 @@ const configStore = useLayoutConfigStore()
       }
     }
 
-    // 👉 Footer
+    //  Footer
     // Boxed content
     .layout-footer {
       .footer-content-container {
@@ -129,7 +129,7 @@ const configStore = useLayoutConfigStore()
   }
 }
 
-// 👉 Horizontal nav nav
+//  Horizontal nav nav
 .layout-horizontal-nav {
   z-index: variables.$layout-horizontal-nav-z-index;
 

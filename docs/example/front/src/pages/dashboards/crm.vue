@@ -15,7 +15,7 @@ import cube from '@images/cards/cube-secondary.png'
 
 <template>
   <VRow class="match-height">
-    <!-- 👉 Customer Ratings -->
+    <!--  Customer Ratings -->
     <VCol
       cols="12"
       sm="6"
@@ -24,7 +24,7 @@ import cube from '@images/cards/cube-secondary.png'
       <CrmCustomerRatings />
     </VCol>
 
-    <!-- 👉 Sales Activity -->
+    <!--  Sales Activity -->
     <VCol
       cols="12"
       sm="6"
@@ -38,7 +38,7 @@ import cube from '@images/cards/cube-secondary.png'
       lg="4"
     >
       <VRow class="match-height">
-        <!-- 👉 Session chart -->
+        <!--  Session chart -->
         <VCol
           cols="12"
           sm="6"
@@ -48,7 +48,7 @@ import cube from '@images/cards/cube-secondary.png'
           <CrmSession />
         </VCol>
 
-        <!-- 👉 Statistics Vertical card -->
+        <!--  Statistics Vertical card -->
         <VCol
           cols="12"
           sm="6"
@@ -64,7 +64,7 @@ import cube from '@images/cards/cube-secondary.png'
           />
         </VCol>
 
-        <!-- 👉 Generated Leads card -->
+        <!--  Generated Leads card -->
         <VCol
           cols="12"
           md="6"
@@ -75,7 +75,7 @@ import cube from '@images/cards/cube-secondary.png'
       </VRow>
     </VCol>
 
-    <!-- 👉 Top Products -->
+    <!--  Top Products -->
     <VCol
       cols="12"
       lg="8"
@@ -83,7 +83,7 @@ import cube from '@images/cards/cube-secondary.png'
       <CrmTopProducts />
     </VCol>
 
-    <!-- 👉 Earning Report -->
+    <!--  Earning Report -->
     <VCol
       cols="12"
       sm="6"
@@ -92,7 +92,7 @@ import cube from '@images/cards/cube-secondary.png'
       <CrmEarningReport />
     </VCol>
 
-    <!-- 👉 Sales Analytics -->
+    <!--  Sales Analytics -->
     <VCol
       cols="12"
       sm="6"
@@ -101,7 +101,7 @@ import cube from '@images/cards/cube-secondary.png'
       <CrmSalesAnalytics />
     </VCol>
 
-    <!-- 👉 Sales By Countries -->
+    <!--  Sales By Countries -->
     <VCol
       cols="12"
       sm="6"
@@ -110,7 +110,7 @@ import cube from '@images/cards/cube-secondary.png'
       <CardAdvanceSalesByCountries />
     </VCol>
 
-    <!-- 👉 Sales Stats -->
+    <!--  Sales Stats -->
     <VCol
       cols="12"
       sm="6"
@@ -119,7 +119,7 @@ import cube from '@images/cards/cube-secondary.png'
       <CrmSalesStats />
     </VCol>
 
-    <!-- 👉 Team Members -->
+    <!--  Team Members -->
     <VCol
       cols="12"
       md="5"
@@ -127,7 +127,7 @@ import cube from '@images/cards/cube-secondary.png'
       <CrmTeamMembers />
     </VCol>
 
-    <!-- 👉 Customer Table -->
+    <!--  Customer Table -->
     <VCol
       cols="12"
       md="7"

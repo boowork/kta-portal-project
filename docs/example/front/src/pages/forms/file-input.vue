@@ -8,7 +8,7 @@ import { accept, basic, chips, counter, density, loading, multiple, prependIcon,
       cols="12"
       md="6"
     >
-      <!-- 👉 Basic -->
+      <!--  Basic -->
       <AppCardCode
         title="Basic"
         :code="basic"
@@ -23,7 +23,7 @@ import { accept, basic, chips, counter, density, loading, multiple, prependIcon,
       cols="12"
       md="6"
     >
-      <!-- 👉 Density -->
+      <!--  Density -->
       <AppCardCode
         title="Density"
         :code="density"
@@ -35,7 +35,7 @@ import { accept, basic, chips, counter, density, loading, multiple, prependIcon,
     </VCol>
 
     <VCol cols="12">
-      <!-- 👉 Variant -->
+      <!--  Variant -->
       <AppCardCode
         title="Variant"
         :code="variant"
@@ -50,7 +50,7 @@ import { accept, basic, chips, counter, density, loading, multiple, prependIcon,
       cols="12"
       md="6"
     >
-      <!-- 👉 Accept -->
+      <!--  Accept -->
       <AppCardCode
         title="Accept"
         :code="accept"
@@ -65,7 +65,7 @@ import { accept, basic, chips, counter, density, loading, multiple, prependIcon,
       cols="12"
       md="6"
     >
-      <!-- 👉 Chips -->
+      <!--  Chips -->
       <AppCardCode
         title="Chips"
         :code="chips"
@@ -80,7 +80,7 @@ import { accept, basic, chips, counter, density, loading, multiple, prependIcon,
       cols="12"
       md="6"
     >
-      <!-- 👉 Counter -->
+      <!--  Counter -->
       <AppCardCode
         title="Counter"
         :code="counter"
@@ -95,7 +95,7 @@ import { accept, basic, chips, counter, density, loading, multiple, prependIcon,
       cols="12"
       md="6"
     >
-      <!-- 👉 Multiple -->
+      <!--  Multiple -->
       <AppCardCode
         title="Multiple"
         :code="multiple"
@@ -112,7 +112,7 @@ import { accept, basic, chips, counter, density, loading, multiple, prependIcon,
       cols="12"
       md="6"
     >
-      <!-- 👉 Prepend icon -->
+      <!--  Prepend icon -->
       <AppCardCode
         title="Prepend icon"
         :code="prependIcon"
@@ -129,7 +129,7 @@ import { accept, basic, chips, counter, density, loading, multiple, prependIcon,
       cols="12"
       md="6"
     >
-      <!-- 👉 Show size -->
+      <!--  Show size -->
       <AppCardCode
         title="Show size"
         :code="showSize"
@@ -144,7 +144,7 @@ import { accept, basic, chips, counter, density, loading, multiple, prependIcon,
       cols="12"
       md="6"
     >
-      <!-- 👉 Validation -->
+      <!--  Validation -->
       <AppCardCode
         title="Validation"
         :code="validation"
@@ -159,7 +159,7 @@ import { accept, basic, chips, counter, density, loading, multiple, prependIcon,
       cols="12"
       md="6"
     >
-      <!-- 👉 Selection slot -->
+      <!--  Selection slot -->
       <AppCardCode
         title="Selection slot"
         :code="selectionSlot"
@@ -174,7 +174,7 @@ import { accept, basic, chips, counter, density, loading, multiple, prependIcon,
       cols="12"
       md="6"
     >
-      <!-- 👉 Loading -->
+      <!--  Loading -->
       <AppCardCode
         title="Loading"
         :code="loading"

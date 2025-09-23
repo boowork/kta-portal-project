@@ -68,7 +68,7 @@ const recentDevices = [
 <template>
   <VRow>
     <VCol cols="12">
-      <!-- 👉 Change password -->
+      <!--  Change password -->
       <VCard title="Change Password">
         <VCardText>
           <VAlert
@@ -120,7 +120,7 @@ const recentDevices = [
     </VCol>
 
     <VCol cols="12">
-      <!-- 👉 Two step verification -->
+      <!--  Two step verification -->
       <VCard
         title="Two-steps verification"
         subtitle="Keep your account secure with authentication step."
@@ -157,7 +157,7 @@ const recentDevices = [
     </VCol>
 
     <VCol cols="12">
-      <!-- 👉 Recent devices -->
+      <!--  Recent devices -->
       <VCard title="Recent devices">
         <VDivider />
         <VDataTable
@@ -185,7 +185,7 @@ const recentDevices = [
     </VCol>
   </VRow>
 
-  <!-- 👉 Enable One Time Password Dialog -->
+  <!--  Enable One Time Password Dialog -->
   <TwoFactorAuthDialog
     v-model:is-dialog-visible="isTwoFactorDialogOpen"
     :sms-code="smsVerificationNumber"

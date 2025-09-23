@@ -2,10 +2,10 @@
 import KanbanBoardComp from '@/views/apps/kanban/KanbanBoard.vue'
 import type { AddNewKanbanItem, EditKanbanItem, KanbanState, RenameKanbanBoard } from '@db/apps/kanban/types'
 
-// 👉 initial kanban data fetch
+//  initial kanban data fetch
 const { data: kanban, execute: refetchKanban } = await useApi<any>('/apps/kanban')
 
-// 👉 adding new board and refetch the data
+//  adding new board and refetch the data
 const addNewBoard = async (newBoardName: string) => {
   await $api('/apps/kanban/board/add', {
     method: 'POST',
@@ -15,13 +15,13 @@ const addNewBoard = async (newBoardName: string) => {
   refetchKanban()
 }
 
-// 👉 delete board and refetch data
+//  delete board and refetch data
 const deleteBoard = async (boardId: number) => {
   await $api(`/apps/kanban/board/${boardId}`, { method: 'DELETE' })
   refetchKanban()
 }
 
-// 👉 rename board and refetch data
+//  rename board and refetch data
 const renameTheBoard = async (kanbanBoard: RenameKanbanBoard) => {
   await $api('/apps/kanban/board/rename', {
     method: 'PUT',
@@ -31,7 +31,7 @@ const renameTheBoard = async (kanbanBoard: RenameKanbanBoard) => {
   refetchKanban()
 }
 
-// 👉 add new item and refetch data
+//  add new item and refetch data
 const addNewItem = async (newItem: AddNewKanbanItem) => {
   await $api('/apps/kanban/item/add', {
     method: 'POST',
@@ -50,7 +50,7 @@ const editItemFn = async (editItem: EditKanbanItem) => {
   refetchKanban()
 }
 
-// 👉 delete item and refetch data
+//  delete item and refetch data
 const deleteItemFn = async (deleteItem: EditKanbanItem) => {
   if (deleteItem.item && deleteItem.item.id) {
     await $api(`/apps/kanban/item/${deleteItem.item.id}`, {
@@ -62,7 +62,7 @@ const deleteItemFn = async (deleteItem: EditKanbanItem) => {
   }
 }
 
-// 👉 update item state
+//  update item state
 const updateItemState = async (kanbanState: KanbanState) => {
   await $api('/apps/kanban/item/state-update', {
     method: 'PUT',
@@ -70,7 +70,7 @@ const updateItemState = async (kanbanState: KanbanState) => {
   })
 }
 
-// 👉 update board state
+//  update board state
 const updateBoardState = async (kanbanBoardIds: number[]) => {
   await $api('/apps/kanban/board/state-update', {
     method: 'PUT',

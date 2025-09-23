@@ -16,7 +16,7 @@ const headers = [
   { title: 'DELETE', key: 'delete', sortable: false },
 ]
 
-// 👉 methods
+//  methods
 const deleteItem = (itemId: number) => {
   if (!productList.value)
     return
@@ -97,7 +97,7 @@ if (error.value)
       </VRow>
     </VCardText>
 
-    <!-- 👉 Data Table  -->
+    <!--  Data Table  -->
     <VDataTable
       :headers="headers"
       :items="productList || []"

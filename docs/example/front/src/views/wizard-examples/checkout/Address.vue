@@ -79,12 +79,12 @@ watch(() => props.currentStep, updateAddressData)
       cols="12"
       md="8"
     >
-      <!-- 👉 Address options -->
+      <!--  Address options -->
       <h6 class="text-h6 mb-4">
         Select your preferable address
       </h6>
 
-      <!-- 👉 Address custom input -->
+      <!--  Address custom input -->
       <CustomRadios
         v-model:selected-radio="checkoutAddressDataLocal.deliveryAddress"
         :radio-content="checkoutAddressDataLocal.addresses"
@@ -128,7 +128,7 @@ watch(() => props.currentStep, updateAddressData)
         </template>
       </CustomRadios>
 
-      <!-- 👉 Add New Address -->
+      <!--  Add New Address -->
       <VBtn
         variant="tonal"
         class="mt-4 mb-6"
@@ -137,12 +137,12 @@ watch(() => props.currentStep, updateAddressData)
         Add New Address
       </VBtn>
 
-      <!-- 👉 Delivery options -->
+      <!--  Delivery options -->
       <h6 class="text-h6 mb-4">
         Choose Delivery Speed
       </h6>
 
-      <!-- 👉 Delivery options custom input -->
+      <!--  Delivery options custom input -->
       <CustomRadiosWithIcon
         v-model:selected-radio="checkoutAddressDataLocal.deliverySpeed"
         :radio-content="deliveryOptions"
@@ -185,7 +185,7 @@ watch(() => props.currentStep, updateAddressData)
         flat
         variant="outlined"
       >
-        <!-- 👉 Delivery estimate date -->
+        <!--  Delivery estimate date -->
         <VCardText>
           <h6 class="text-h6 mb-4">
             Estimated Delivery Date
@@ -217,7 +217,7 @@ watch(() => props.currentStep, updateAddressData)
 
         <VDivider />
 
-        <!-- 👉 Price details -->
+        <!--  Price details -->
         <VCardText>
           <h6 class="text-h6 mb-4">
             Price Details

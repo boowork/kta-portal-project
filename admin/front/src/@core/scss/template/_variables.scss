@@ -13,10 +13,10 @@ $vertical-nav-horizontal-padding-margin-custom: 1.91rem;
 $vertical-nav-horizontal-padding-start: utils.get-first-value($vertical-nav-horizontal-padding-margin-custom) !default;
 
 @forward "@core/scss/base/variables" with (
-  // 👉 Default layout with vertical nav
+  //  Default layout with vertical nav
   $default-layout-with-vertical-nav-navbar-footer-roundness: 6px !default,
 
-  // 👉 Vertical nav
+  //  Vertical nav
   $layout-vertical-nav-collapsed-width: 84px !default,
   $layout-vertical-nav-navbar-height: 64px !default,
   $layout-vertical-nav-footer-height: 56px !default,
@@ -36,7 +36,7 @@ $vertical-nav-horizontal-padding-start: utils.get-first-value($vertical-nav-hori
   $vertical-nav-items-icon-size: 1.375rem !default,
   $vertical-nav-navbar-style: "floating" !default, // options: elevated, floating
 
-  // 👉 Horizontal nav
+  //  Horizontal nav
   /*
     ❗ Heads up
     ==================

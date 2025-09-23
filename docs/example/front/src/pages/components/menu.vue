@@ -8,7 +8,7 @@ import { activatorAndTooltip, basic, customTransitions, location, openOnHover, p
       cols="12"
       md="6"
     >
-      <!-- 👉 Basic -->
+      <!--  Basic -->
       <AppCardCode
         title="Basic"
         :code="basic"
@@ -25,7 +25,7 @@ import { activatorAndTooltip, basic, customTransitions, location, openOnHover, p
       cols="12"
       md="6"
     >
-      <!-- 👉 Custom transitions -->
+      <!--  Custom transitions -->
       <AppCardCode
         title="Custom transitions"
         :code="customTransitions"
@@ -40,7 +40,7 @@ import { activatorAndTooltip, basic, customTransitions, location, openOnHover, p
       cols="12"
       md="6"
     >
-      <!-- 👉 Location -->
+      <!--  Location -->
       <AppCardCode
         title="Location"
         :code="location"
@@ -55,7 +55,7 @@ import { activatorAndTooltip, basic, customTransitions, location, openOnHover, p
       cols="12"
       md="6"
     >
-      <!-- 👉 Open on hover -->
+      <!--  Open on hover -->
       <AppCardCode
         title="Open on hover"
         :code="openOnHover"
@@ -70,7 +70,7 @@ import { activatorAndTooltip, basic, customTransitions, location, openOnHover, p
       cols="12"
       md="6"
     >
-      <!-- 👉 Popover -->
+      <!--  Popover -->
       <AppCardCode
         title="Popover"
         :code="popover"
@@ -85,7 +85,7 @@ import { activatorAndTooltip, basic, customTransitions, location, openOnHover, p
       cols="12"
       md="6"
     >
-      <!-- 👉 Activator and tooltip -->
+      <!--  Activator and tooltip -->
       <AppCardCode
         title="Activator and tooltip"
         :code="activatorAndTooltip"

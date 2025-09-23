@@ -60,7 +60,7 @@ const inventoryTabsData = [
 
     <VRow>
       <VCol md="8">
-        <!-- 👉 Product Information -->
+        <!--  Product Information -->
         <VCard
           class="mb-6"
           title="Product Information"
@@ -103,7 +103,7 @@ const inventoryTabsData = [
           </VCardText>
         </VCard>
 
-        <!-- 👉 Media -->
+        <!--  Media -->
         <VCard class="mb-6">
           <VCardItem>
             <template #title>
@@ -119,7 +119,7 @@ const inventoryTabsData = [
           </VCardText>
         </VCard>
 
-        <!-- 👉 Variants -->
+        <!--  Variants -->
         <VCard
           title="Variants"
           class="mb-6"
@@ -163,7 +163,7 @@ const inventoryTabsData = [
           </VCardText>
         </VCard>
 
-        <!-- 👉 Inventory -->
+        <!--  Inventory -->
         <VCard
           title="Inventory"
           class="inventory-card"
@@ -407,7 +407,7 @@ const inventoryTabsData = [
         md="4"
         cols="12"
       >
-        <!-- 👉 Pricing -->
+        <!--  Pricing -->
         <VCard
           title="Pricing"
           class="mb-6"
@@ -438,7 +438,7 @@ const inventoryTabsData = [
           </VCardText>
         </VCard>
 
-        <!-- 👉 Organize -->
+        <!--  Organize -->
         <VCard title="Organize">
           <VCardText>
             <div class="d-flex flex-column gap-y-6">

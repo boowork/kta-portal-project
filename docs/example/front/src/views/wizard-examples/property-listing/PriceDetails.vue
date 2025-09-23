@@ -23,7 +23,7 @@ watch(formData, () => {
         cols="12"
         sm="6"
       >
-        <!-- 👉 Expected Price  -->
+        <!--  Expected Price  -->
         <AppTextField
           v-model="formData.expectedPrice"
           label="Expected Price"
@@ -36,7 +36,7 @@ watch(formData, () => {
         cols="12"
         sm="6"
       >
-        <!-- 👉 Price Per SQFT  -->
+        <!--  Price Per SQFT  -->
         <AppTextField
           v-model="formData.pricePerSqft"
           label="Price Per SQFT"
@@ -49,7 +49,7 @@ watch(formData, () => {
         cols="12"
         sm="6"
       >
-        <!-- 👉 Maintenance Charge  -->
+        <!--  Maintenance Charge  -->
         <AppTextField
           v-model="formData.maintenanceCharge"
           label="Maintenance Charge"
@@ -62,7 +62,7 @@ watch(formData, () => {
         cols="12"
         sm="6"
       >
-        <!-- 👉 Maintenance Period  -->
+        <!--  Maintenance Period  -->
         <AppSelect
           v-model="formData.maintenancePeriod"
           label="Maintenance"
@@ -74,7 +74,7 @@ watch(formData, () => {
         cols="12"
         sm="6"
       >
-        <!-- 👉 Booking/Token Amount  -->
+        <!--  Booking/Token Amount  -->
         <AppTextField
           v-model="formData.bookingAmount"
           label="Booking/Token Amount"
@@ -87,7 +87,7 @@ watch(formData, () => {
         cols="12"
         sm="6"
       >
-        <!-- 👉 Other Amount  -->
+        <!--  Other Amount  -->
         <AppTextField
           v-model="formData.otherAmount"
           label="Other Amount"
@@ -100,7 +100,7 @@ watch(formData, () => {
         cols="12"
         sm="6"
       >
-        <!-- 👉 Show Price As  -->
+        <!--  Show Price As  -->
         <VRadioGroup v-model="formData.priceDisplayType">
           <template #label>
             <div class="text-body-1">
@@ -121,7 +121,7 @@ watch(formData, () => {
         cols="12"
         sm="6"
       >
-        <!-- 👉 Price Includes  -->
+        <!--  Price Includes  -->
         <div class="text-body-1 mb-2">
           Price Includes
         </div>
@@ -137,7 +137,7 @@ watch(formData, () => {
         />
       </VCol>
       <VCol cols="12">
-        <!-- 👉 Registration Charges -->
+        <!--  Registration Charges -->
         <VCheckbox label="Stamp Duty & Registration charges excluded." />
       </VCol>
     </VRow>

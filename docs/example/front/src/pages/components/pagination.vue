@@ -8,7 +8,7 @@ import { basic, circle, color, disabled, icons, length, outline, outlineCircle, 
       cols="12"
       md="6"
     >
-      <!-- 👉 Basic -->
+      <!--  Basic -->
       <AppCardCode
         title="Basic"
         :code="basic"
@@ -23,7 +23,7 @@ import { basic, circle, color, disabled, icons, length, outline, outlineCircle, 
       cols="12"
       md="6"
     >
-      <!-- 👉 outline basic variant -->
+      <!--  outline basic variant -->
       <AppCardCode
         title="Outline"
         :code="outline"
@@ -38,7 +38,7 @@ import { basic, circle, color, disabled, icons, length, outline, outlineCircle, 
       cols="12"
       md="6"
     >
-      <!-- 👉 Circle -->
+      <!--  Circle -->
       <AppCardCode
         title="Circle"
         :code="circle"
@@ -53,7 +53,7 @@ import { basic, circle, color, disabled, icons, length, outline, outlineCircle, 
       cols="12"
       md="6"
     >
-      <!-- 👉 outline circle variant -->
+      <!--  outline circle variant -->
       <AppCardCode
         title="Outline Circle"
         :code="outlineCircle"
@@ -68,7 +68,7 @@ import { basic, circle, color, disabled, icons, length, outline, outlineCircle, 
       cols="12"
       md="6"
     >
-      <!-- 👉 Disabled -->
+      <!--  Disabled -->
       <AppCardCode
         title="Disabled"
         :code="disabled"
@@ -83,7 +83,7 @@ import { basic, circle, color, disabled, icons, length, outline, outlineCircle, 
       cols="12"
       md="6"
     >
-      <!-- 👉 Icons -->
+      <!--  Icons -->
       <AppCardCode
         title="Icons"
         :code="icons"
@@ -98,7 +98,7 @@ import { basic, circle, color, disabled, icons, length, outline, outlineCircle, 
       cols="12"
       md="6"
     >
-      <!-- 👉 Length -->
+      <!--  Length -->
       <AppCardCode
         title="Length"
         :code="length"
@@ -113,7 +113,7 @@ import { basic, circle, color, disabled, icons, length, outline, outlineCircle, 
       cols="12"
       md="6"
     >
-      <!-- 👉 Total visible -->
+      <!--  Total visible -->
       <AppCardCode
         title="Total visible"
         :code="totalVisible"
@@ -128,7 +128,7 @@ import { basic, circle, color, disabled, icons, length, outline, outlineCircle, 
       cols="12"
       md="6"
     >
-      <!-- 👉 Color -->
+      <!--  Color -->
       <AppCardCode
         title="Color"
         :code="color"
@@ -143,7 +143,7 @@ import { basic, circle, color, disabled, icons, length, outline, outlineCircle, 
       cols="12"
       md="6"
     >
-      <!-- 👉 Size -->
+      <!--  Size -->
       <AppCardCode
         title="Size"
         :code="size"

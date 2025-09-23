@@ -17,7 +17,7 @@ const updateOptions = (options: any) => {
   orderBy.value = options.sortBy[0]?.order
 }
 
-// 👉 headers
+//  headers
 const headers = [
   { title: '#', key: 'id' },
   { title: 'Status', key: 'status', sortable: false },
@@ -28,7 +28,7 @@ const headers = [
   { title: 'Actions', key: 'actions', sortable: false },
 ]
 
-// 👉 Fetch Invoices
+//  Fetch Invoices
 const { data: invoiceData, execute: fetchInvoices } = await useApi<any>(createUrl('/apps/invoice', {
   query: {
     q: searchQuery,
@@ -43,7 +43,7 @@ const { data: invoiceData, execute: fetchInvoices } = await useApi<any>(createUr
 const invoices = computed((): Invoice[] => invoiceData.value?.invoices)
 const totalInvoices = computed(() => invoiceData.value?.totalInvoices)
 
-// 👉 Invoice balance variant resolver
+//  Invoice balance variant resolver
 const resolveInvoiceBalanceVariant = (balance: string | number, total: number) => {
   if (balance === total)
     return { status: 'Unpaid', chip: { color: 'error' } }
@@ -54,7 +54,7 @@ const resolveInvoiceBalanceVariant = (balance: string | number, total: number) =
   return { status: balance, chip: { variant: 'text' } }
 }
 
-// 👉 Invoice status variant resolver
+//  Invoice status variant resolver
 const resolveInvoiceStatusVariantAndIcon = (status: string) => {
   if (status === 'Partial Payment')
     return { variant: 'warning', icon: 'bx-pie-chart-alt' }
@@ -72,7 +72,7 @@ const resolveInvoiceStatusVariantAndIcon = (status: string) => {
   return { variant: 'secondary', icon: 'bx-x' }
 }
 
-// 👉 Delete Invoice
+//  Delete Invoice
 const deleteInvoice = async (id: number) => {
   await $api(`/apps/invoice/${id}`, { method: 'DELETE' })
   fetchInvoices()
@@ -91,7 +91,7 @@ const deleteInvoice = async (id: number) => {
     </VCardItem>
 
     <VCardText class="d-flex align-center flex-wrap gap-4 pt-6">
-      <!-- 👉 Create invoice -->
+      <!--  Create invoice -->
 
       <div class="d-flex gap-2">
         <VLabel>Show</VLabel>
@@ -111,7 +111,7 @@ const deleteInvoice = async (id: number) => {
       <VSpacer />
 
       <div class="d-flex align-end flex-wrap gap-4">
-        <!-- 👉 Search  -->
+        <!--  Search  -->
         <div class="invoice-list-search">
           <AppTextField
             v-model="searchQuery"

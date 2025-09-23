@@ -8,7 +8,7 @@ import { colors, group, icons, images, rounded, sizes, tonal } from '@/views/dem
       cols="12"
       md="6"
     >
-      <!-- 👉 Colors -->
+      <!--  Colors -->
       <AppCardCode
         title="Colors"
         :code="colors"
@@ -23,7 +23,7 @@ import { colors, group, icons, images, rounded, sizes, tonal } from '@/views/dem
       cols="12"
       md="6"
     >
-      <!-- 👉 Initials -->
+      <!--  Initials -->
       <AppCardCode
         title="Tonal"
         :code="tonal"
@@ -38,7 +38,7 @@ import { colors, group, icons, images, rounded, sizes, tonal } from '@/views/dem
       md="6"
       cols="12"
     >
-      <!-- 👉 Sizes -->
+      <!--  Sizes -->
       <AppCardCode
         title="Sizes"
         :code="sizes"
@@ -53,7 +53,7 @@ import { colors, group, icons, images, rounded, sizes, tonal } from '@/views/dem
       cols="12"
       md="6"
     >
-      <!-- 👉 Icons -->
+      <!--  Icons -->
       <AppCardCode
         title="Icons"
         :code="icons"
@@ -68,7 +68,7 @@ import { colors, group, icons, images, rounded, sizes, tonal } from '@/views/dem
       cols="12"
       md="6"
     >
-      <!-- 👉 Rounded -->
+      <!--  Rounded -->
       <AppCardCode
         title="Rounded"
         :code="rounded"
@@ -83,7 +83,7 @@ import { colors, group, icons, images, rounded, sizes, tonal } from '@/views/dem
       cols="12"
       md="6"
     >
-      <!-- 👉 Images -->
+      <!--  Images -->
       <AppCardCode
         title="Images"
         :code="images"
@@ -98,7 +98,7 @@ import { colors, group, icons, images, rounded, sizes, tonal } from '@/views/dem
       cols="12"
       md="6"
     >
-      <!-- 👉 Group -->
+      <!--  Group -->
       <AppCardCode
         title="Group"
         :code="group"

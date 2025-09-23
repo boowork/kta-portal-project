@@ -28,7 +28,7 @@ const faqData = [
 <template>
   <div id="faq">
     <VContainer>
-      <!-- 👉 Header  -->
+      <!--  Header  -->
       <div class="faq-section">
         <div class="headers d-flex justify-center flex-column align-center">
           <VChip

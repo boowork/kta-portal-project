@@ -2,7 +2,7 @@
 import AddNewUserDrawer from '@/views/apps/user/list/AddNewUserDrawer.vue'
 import type { UserProperties } from '@db/apps/users/types'
 
-// 👉 Store
+//  Store
 const searchQuery = ref('')
 const selectedRole = ref()
 const selectedPlan = ref()
@@ -31,7 +31,7 @@ const headers = [
   { title: 'Actions', key: 'actions', sortable: false },
 ]
 
-// 👉 Fetching users
+//  Fetching users
 const { data: usersData, execute: fetchUsers } = await useApi<any>(createUrl('/apps/users', {
   query: {
     q: searchQuery,
@@ -48,7 +48,7 @@ const { data: usersData, execute: fetchUsers } = await useApi<any>(createUrl('/a
 const users = computed((): UserProperties[] => usersData.value?.users || [])
 const totalUsers = computed(() => usersData.value?.totalUsers || 0)
 
-// 👉 search filters
+//  search filters
 const roles = [
   { title: 'Admin', value: 'admin' },
   { title: 'Author', value: 'author' },
@@ -101,7 +101,7 @@ const resolveUserStatusVariant = (stat: string) => {
 
 const isAddNewUserDrawerVisible = ref(false)
 
-// 👉 Add new user
+//  Add new user
 const addNewUser = async (userData: UserProperties) => {
   await $api('/apps/users', {
     method: 'POST',
@@ -112,7 +112,7 @@ const addNewUser = async (userData: UserProperties) => {
   fetchUsers()
 }
 
-// 👉 Delete user
+//  Delete user
 const deleteUser = async (id: number) => {
   await $api(`/apps/users/${id}`, {
     method: 'DELETE',
@@ -138,7 +138,7 @@ const widgetData = ref([
 
 <template>
   <section>
-    <!-- 👉 Widgets -->
+    <!--  Widgets -->
     <div class="d-flex mb-6">
       <VRow>
         <template
@@ -198,7 +198,7 @@ const widgetData = ref([
 
       <VCardText>
         <VRow>
-          <!-- 👉 Select Role -->
+          <!--  Select Role -->
           <VCol
             cols="12"
             sm="4"
@@ -211,7 +211,7 @@ const widgetData = ref([
               clear-icon="bx-x"
             />
           </VCol>
-          <!-- 👉 Select Plan -->
+          <!--  Select Plan -->
           <VCol
             cols="12"
             sm="4"
@@ -224,7 +224,7 @@ const widgetData = ref([
               clear-icon="bx-x"
             />
           </VCol>
-          <!-- 👉 Select Status -->
+          <!--  Select Status -->
           <VCol
             cols="12"
             sm="4"
@@ -260,7 +260,7 @@ const widgetData = ref([
         <VSpacer />
 
         <div class="app-user-search-filter d-flex align-center flex-wrap gap-4">
-          <!-- 👉 Search  -->
+          <!--  Search  -->
           <div style="inline-size: 15.625rem;">
             <AppTextField
               v-model="searchQuery"
@@ -268,7 +268,7 @@ const widgetData = ref([
             />
           </div>
 
-          <!-- 👉 Export button -->
+          <!--  Export button -->
           <VBtn
             variant="tonal"
             color="secondary"
@@ -277,7 +277,7 @@ const widgetData = ref([
             Export
           </VBtn>
 
-          <!-- 👉 Add user button -->
+          <!--  Add user button -->
           <VBtn
             prepend-icon="bx-plus"
             @click="isAddNewUserDrawerVisible = true"
@@ -331,7 +331,7 @@ const widgetData = ref([
           </div>
         </template>
 
-        <!-- 👉 Role -->
+        <!--  Role -->
         <template #item.role="{ item }">
           <div class="d-flex align-center gap-x-2">
             <VIcon
@@ -413,7 +413,7 @@ const widgetData = ref([
       </VDataTableServer>
       <!-- SECTION -->
     </VCard>
-    <!-- 👉 Add New User -->
+    <!--  Add New User -->
     <AddNewUserDrawer
       v-model:is-drawer-open="isAddNewUserDrawerVisible"
       @user-data="addNewUser"

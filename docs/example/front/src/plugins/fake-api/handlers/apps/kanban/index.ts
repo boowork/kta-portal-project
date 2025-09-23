@@ -4,12 +4,12 @@ import type { AddNewKanbanItem, EditKanbanItem, KanbanBoard, KanbanState, Rename
 
 export const handlerAppsKanban = [
 
-  // 👉 get all kanban data
+  //  get all kanban data
   http.get('/api/apps/kanban', () => {
     return HttpResponse.json(database, { status: 200 })
   }),
 
-  // 👉 rename board
+  //  rename board
   http.put('/api/apps/kanban/board/rename', async ({ request }) => {
     const boardData = await request.json() as RenameKanbanBoard
 
@@ -23,7 +23,7 @@ export const handlerAppsKanban = [
     return new HttpResponse(null, { status: 201 })
   }),
 
-  // 👉 delete board
+  //  delete board
   http.delete('/api/apps/kanban/board/:id', async ({ params }) => {
     const boardId = Number(params.id)
 
@@ -32,7 +32,7 @@ export const handlerAppsKanban = [
     return new HttpResponse(null, { status: 204 })
   }),
 
-  // 👉 add new board
+  //  add new board
   http.post('/api/apps/kanban/board/add', async ({ request }) => {
     const boardName = await request.json() as { title: string }
 
@@ -59,7 +59,7 @@ export const handlerAppsKanban = [
     }
   }),
 
-  // 👉 add new item
+  //  add new item
   http.post('/api/apps/kanban/item/add', async ({ request }) => {
     const newItem = await request.json() as AddNewKanbanItem
 
@@ -91,7 +91,7 @@ export const handlerAppsKanban = [
     return new HttpResponse(null, { status: 201 })
   }),
 
-  // 👉 update item
+  //  update item
   http.put('/api/apps/kanban/item/update', async ({ request }) => {
     const itemData = await request.json() as EditKanbanItem
 
@@ -110,7 +110,7 @@ export const handlerAppsKanban = [
     return new HttpResponse(null, { status: 201 })
   }),
 
-  // 👉 delete item
+  //  delete item
   http.delete('/api/apps/kanban/item/:id', async ({ params }) => {
     const itemId = Number(params.id)
 
@@ -123,7 +123,7 @@ export const handlerAppsKanban = [
     return new HttpResponse(null, { status: 204 })
   }),
 
-  // 👉 update item state
+  //  update item state
   http.put('/api/apps/kanban/item/state-update', async ({ request }) => {
     const stateData = await request.json() as KanbanState
 
@@ -135,7 +135,7 @@ export const handlerAppsKanban = [
     return new HttpResponse(null, { status: 201 })
   }),
 
-  // 👉 update board state
+  //  update board state
   http.put('/api/apps/kanban/board/state-update', async ({ request }) => {
     const boardState = await request.json() as number[]
 

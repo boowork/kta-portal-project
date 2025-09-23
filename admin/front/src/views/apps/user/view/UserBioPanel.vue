@@ -32,7 +32,7 @@ const standardPlan = {
 const isUserInfoEditDialogVisible = ref(false)
 const isUpgradePlanDialogVisible = ref(false)
 
-// 👉 Role variant resolver
+//  Role variant resolver
 const resolveUserRoleVariant = (role: string) => {
   if (role === 'subscriber')
     return { color: 'warning', icon: 'bx-user' }
@@ -55,7 +55,7 @@ const resolveUserRoleVariant = (role: string) => {
     <VCol cols="12">
       <VCard v-if="props.userData">
         <VCardText class="text-center pt-12">
-          <!-- 👉 Avatar -->
+          <!--  Avatar -->
           <VAvatar
             rounded
             :size="120"
@@ -74,12 +74,12 @@ const resolveUserRoleVariant = (role: string) => {
             </span>
           </VAvatar>
 
-          <!-- 👉 User fullName -->
+          <!--  User fullName -->
           <h5 class="text-h5 mt-4">
             {{ props.userData.fullName }}
           </h5>
 
-          <!-- 👉 Role chip -->
+          <!--  Role chip -->
           <VChip
             label
             :color="resolveUserRoleVariant(props.userData.role).color"
@@ -92,7 +92,7 @@ const resolveUserRoleVariant = (role: string) => {
 
         <VCardText>
           <div class="d-flex justify-space-around gap-x-6 gap-y-2 flex-wrap mb-6">
-            <!-- 👉 Done task -->
+            <!--  Done task -->
             <div class="d-flex align-center me-8">
               <VAvatar
                 :size="40"
@@ -115,7 +115,7 @@ const resolveUserRoleVariant = (role: string) => {
               </div>
             </div>
 
-            <!-- 👉 Done Project -->
+            <!--  Done Project -->
             <div class="d-flex align-center me-4">
               <VAvatar
                 :size="38"
@@ -138,14 +138,14 @@ const resolveUserRoleVariant = (role: string) => {
             </div>
           </div>
 
-          <!-- 👉 Details -->
+          <!--  Details -->
           <h5 class="text-h5">
             Details
           </h5>
 
           <VDivider class="my-4" />
 
-          <!-- 👉 User Details list -->
+          <!--  User Details list -->
           <VList class="card-list mt-2">
             <VListItem>
               <VListItemTitle>
@@ -237,7 +237,7 @@ const resolveUserRoleVariant = (role: string) => {
           </VList>
         </VCardText>
 
-        <!-- 👉 Edit and Suspend button -->
+        <!--  Edit and Suspend button -->
         <VCardText class="d-flex justify-center gap-x-4">
           <VBtn
             variant="elevated"
@@ -261,7 +261,7 @@ const resolveUserRoleVariant = (role: string) => {
     <VCol cols="12">
       <VCard class="current-plan">
         <VCardText class="d-flex">
-          <!-- 👉 Standard Chip -->
+          <!--  Standard Chip -->
           <VChip
             label
             color="primary"
@@ -273,7 +273,7 @@ const resolveUserRoleVariant = (role: string) => {
 
           <VSpacer />
 
-          <!-- 👉 Current Price  -->
+          <!--  Current Price  -->
           <div class="d-flex align-center">
             <sup class="text-h5 text-primary mt-1">$</sup>
             <h1 class="text-h1 text-primary">
@@ -284,7 +284,7 @@ const resolveUserRoleVariant = (role: string) => {
         </VCardText>
 
         <VCardText>
-          <!-- 👉 Price Benefits -->
+          <!--  Price Benefits -->
           <VList class="card-list">
             <VListItem
               v-for="benefit in standardPlan.benefits"
@@ -303,7 +303,7 @@ const resolveUserRoleVariant = (role: string) => {
             </VListItem>
           </VList>
 
-          <!-- 👉 Days -->
+          <!--  Days -->
           <div class="my-6">
             <div class="d-flex justify-space-between mb-1">
               <h6 class="text-h6">
@@ -314,7 +314,7 @@ const resolveUserRoleVariant = (role: string) => {
               </h6>
             </div>
 
-            <!-- 👉 Progress -->
+            <!--  Progress -->
             <VProgressLinear
               rounded
               rounded-bar
@@ -327,7 +327,7 @@ const resolveUserRoleVariant = (role: string) => {
             </p>
           </div>
 
-          <!-- 👉 Upgrade Plan -->
+          <!--  Upgrade Plan -->
           <div class="d-flex gap-4">
             <VBtn
               block
@@ -342,13 +342,13 @@ const resolveUserRoleVariant = (role: string) => {
     <!-- !SECTION -->
   </VRow>
 
-  <!-- 👉 Edit user info dialog -->
+  <!--  Edit user info dialog -->
   <UserInfoEditDialog
     v-model:is-dialog-visible="isUserInfoEditDialogVisible"
     :user-data="props.userData"
   />
 
-  <!-- 👉 Upgrade plan dialog -->
+  <!--  Upgrade plan dialog -->
   <UserUpgradePlanDialog v-model:is-dialog-visible="isUpgradePlanDialogVisible" />
 </template>
 

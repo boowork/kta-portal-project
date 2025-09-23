@@ -7,6 +7,7 @@ import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -35,6 +36,7 @@ public class PutUserController {
 class PutUserService {
     
     private final PutUserDao putUserDao;
+    private final PasswordEncoder passwordEncoder;
     
     @Transactional
     public PutUserHttpResponseDto updateUser(Long id, PutUserHttpRequestDto requestDto) {
@@ -47,6 +49,10 @@ class PutUserService {
         PutUserDaoRequestDto dto = new PutUserDaoRequestDto();
         dto.setId(id);
         dto.setName(requestDto.getName());
+        // 비밀번호가 제공된 경우에만 인코딩
+        if (requestDto.getPassword() != null && !requestDto.getPassword().trim().isEmpty()) {
+            dto.setPassword(passwordEncoder.encode(requestDto.getPassword()));
+        }
         dto.setRole(requestDto.getRole());
         return dto;
     }
@@ -79,6 +85,9 @@ class PutUserDao {
         if (requestDto.getName() != null) {
             user.setName(requestDto.getName());
         }
+        if (requestDto.getPassword() != null) {
+            user.setPassword(requestDto.getPassword());
+        }
         if (requestDto.getRole() != null) {
             user.setRole(requestDto.getRole());
         }
@@ -105,10 +114,13 @@ interface PutUserRepository extends CrudRepository<User, Long> {
 
 class PutUserHttpRequestDto {
     private String name;
+    private String password;
     private String role;
     
     public String getName() { return name; }
     public void setName(String name) { this.name = name; }
+    public String getPassword() { return password; }
+    public void setPassword(String password) { this.password = password; }
     public String getRole() { return role; }
     public void setRole(String role) { this.role = role; }
 }
@@ -138,12 +150,15 @@ class PutUserHttpResponseDto {
 class PutUserDaoRequestDto {
     private Long id;
     private String name;
+    private String password;
     private String role;
     
     public Long getId() { return id; }
     public void setId(Long id) { this.id = id; }
     public String getName() { return name; }
     public void setName(String name) { this.name = name; }
+    public String getPassword() { return password; }
+    public void setPassword(String password) { this.password = password; }
     public String getRole() { return role; }
     public void setRole(String role) { this.role = role; }
 }

@@ -4,7 +4,7 @@ import { customCheckboxes, customCheckboxesWithIcon, customCheckboxesWithImage, 
 
 <template>
   <VRow>
-    <!-- 👉 Custom Radios -->
+    <!--  Custom Radios -->
     <VCol
       cols="12"
       md="6"
@@ -17,7 +17,7 @@ import { customCheckboxes, customCheckboxesWithIcon, customCheckboxesWithImage, 
       </AppCardCode>
     </VCol>
 
-    <!-- 👉 Custom Checkboxes -->
+    <!--  Custom Checkboxes -->
     <VCol
       cols="12"
       md="6"
@@ -30,7 +30,7 @@ import { customCheckboxes, customCheckboxesWithIcon, customCheckboxesWithImage, 
       </AppCardCode>
     </VCol>
 
-    <!-- 👉 Custom Radios With Icon -->
+    <!--  Custom Radios With Icon -->
     <VCol
       cols="12"
       md="6"
@@ -43,7 +43,7 @@ import { customCheckboxes, customCheckboxesWithIcon, customCheckboxesWithImage, 
       </AppCardCode>
     </VCol>
 
-    <!-- 👉 Custom Checkboxes with icon -->
+    <!--  Custom Checkboxes with icon -->
     <VCol
       cols="12"
       md="6"
@@ -56,7 +56,7 @@ import { customCheckboxes, customCheckboxesWithIcon, customCheckboxesWithImage, 
       </AppCardCode>
     </VCol>
 
-    <!-- 👉 Custom Radios with image -->
+    <!--  Custom Radios with image -->
     <VCol
       cols="12"
       md="6"
@@ -69,7 +69,7 @@ import { customCheckboxes, customCheckboxesWithIcon, customCheckboxesWithImage, 
       </AppCardCode>
     </VCol>
 
-    <!-- 👉 Custom Checkboxes with Image -->
+    <!--  Custom Checkboxes with Image -->
     <VCol
       cols="12"
       md="6"

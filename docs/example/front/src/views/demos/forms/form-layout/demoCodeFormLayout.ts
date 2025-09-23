@@ -45,7 +45,7 @@ const paymentMethods = [
           @submit.prevent="() => {}"
         >
           <VRow>
-            <!-- 👉 Full Name -->
+            <!--  Full Name -->
             <VCol
               cols="12"
               md="6"
@@ -55,7 +55,7 @@ const paymentMethods = [
                 placeholder="John Doe"
               />
             </VCol>
-            <!-- 👉 Phone No -->
+            <!--  Phone No -->
             <VCol
               cols="12"
               md="6"
@@ -66,7 +66,7 @@ const paymentMethods = [
                 placeholder="+1 123 456 7890"
               />
             </VCol>
-            <!-- 👉 Address -->
+            <!--  Address -->
             <VCol cols="12">
               <AppTextarea
                 label="Address"
@@ -74,7 +74,7 @@ const paymentMethods = [
                 rows="3"
               />
             </VCol>
-            <!-- 👉 Pincode -->
+            <!--  Pincode -->
             <VCol
               cols="12"
               md="6"
@@ -85,7 +85,7 @@ const paymentMethods = [
                 type="number"
               />
             </VCol>
-            <!-- 👉 Landmark -->
+            <!--  Landmark -->
             <VCol
               cols="12"
               md="6"
@@ -95,7 +95,7 @@ const paymentMethods = [
                 placeholder="Near City Mall"
               />
             </VCol>
-            <!-- 👉 City -->
+            <!--  City -->
             <VCol
               cols="12"
               md="6"
@@ -105,7 +105,7 @@ const paymentMethods = [
                 placeholder="New York"
               />
             </VCol>
-            <!-- 👉 State -->
+            <!--  State -->
             <VCol
               cols="12"
               md="6"
@@ -116,7 +116,7 @@ const paymentMethods = [
                 placeholder="Select State"
               />
             </VCol>
-            <!-- 👉 Address Type  -->
+            <!--  Address Type  -->
             <VCol cols="12">
               <VLabel class="mb-3">
                 Address Type
@@ -149,7 +149,7 @@ const paymentMethods = [
       <VExpansionPanelTitle>Delivery Options</VExpansionPanelTitle>
 
       <VExpansionPanelText>
-        <!-- 👉 Radio Group -->
+        <!--  Radio Group -->
         <VRadioGroup
           v-model="deliveryOption"
           class="delivery-options pt-4 pb-2"
@@ -236,7 +236,7 @@ const paymentMethods = [
             cols="12"
           >
             <VForm class="pt-4 pb-2">
-              <!-- 👉 Payment Method -->
+              <!--  Payment Method -->
               <VRow>
                 <VCol cols="12">
                   <div>
@@ -266,7 +266,7 @@ const paymentMethods = [
               </VRow>
 
               <VRow v-if="paymentMethod === 'credit-debit-card'">
-                <!-- 👉 Card Number -->
+                <!--  Card Number -->
                 <VCol cols="12">
                   <AppTextField
                     label="Card Number"
@@ -275,7 +275,7 @@ const paymentMethods = [
                   />
                 </VCol>
 
-                <!-- 👉 Name -->
+                <!--  Name -->
                 <VCol
                   cols="12"
                   md="6"
@@ -286,7 +286,7 @@ const paymentMethods = [
                   />
                 </VCol>
 
-                <!-- 👉 Expire Date -->
+                <!--  Expire Date -->
                 <VCol
                   cols="6"
                   md="3"
@@ -297,7 +297,7 @@ const paymentMethods = [
                   />
                 </VCol>
 
-                <!-- 👉 CVV Code -->
+                <!--  CVV Code -->
                 <VCol
                   cols="6"
                   md="3"
@@ -407,7 +407,7 @@ const paymentMethods = [
           @submit.prevent="() => {}"
         >
           <VRow>
-            <!-- 👉 Full Name -->
+            <!--  Full Name -->
             <VCol
               cols="12"
               md="6"
@@ -417,7 +417,7 @@ const paymentMethods = [
                 placeholder="John Doe"
               />
             </VCol>
-            <!-- 👉 Phone No -->
+            <!--  Phone No -->
             <VCol
               cols="12"
               md="6"
@@ -428,7 +428,7 @@ const paymentMethods = [
                 placeholder="+1 123 456 7890"
               />
             </VCol>
-            <!-- 👉 Address -->
+            <!--  Address -->
             <VCol cols="12">
               <AppTextarea
                 label="Address"
@@ -436,7 +436,7 @@ const paymentMethods = [
                 rows="3"
               />
             </VCol>
-            <!-- 👉 Pincode -->
+            <!--  Pincode -->
             <VCol
               cols="12"
               md="6"
@@ -447,7 +447,7 @@ const paymentMethods = [
                 type="number"
               />
             </VCol>
-            <!-- 👉 Landmark -->
+            <!--  Landmark -->
             <VCol
               cols="12"
               md="6"
@@ -457,7 +457,7 @@ const paymentMethods = [
                 placeholder="Near City Mall"
               />
             </VCol>
-            <!-- 👉 City -->
+            <!--  City -->
             <VCol
               cols="12"
               md="6"
@@ -467,7 +467,7 @@ const paymentMethods = [
                 placeholder="New York"
               />
             </VCol>
-            <!-- 👉 State -->
+            <!--  State -->
             <VCol
               cols="12"
               md="6"
@@ -478,7 +478,7 @@ const paymentMethods = [
                 placeholder="Select State"
               />
             </VCol>
-            <!-- 👉 Address Type  -->
+            <!--  Address Type  -->
             <VCol cols="12">
               <VLabel class="mb-3">
                 Address Type
@@ -511,7 +511,7 @@ const paymentMethods = [
       <VExpansionPanelTitle>Delivery Options</VExpansionPanelTitle>
 
       <VExpansionPanelText>
-        <!-- 👉 Radio Group -->
+        <!--  Radio Group -->
         <VRadioGroup
           v-model="deliveryOption"
           class="delivery-options pt-4 pb-2"
@@ -598,7 +598,7 @@ const paymentMethods = [
             cols="12"
           >
             <VForm class="pt-4 pb-2">
-              <!-- 👉 Payment Method -->
+              <!--  Payment Method -->
               <VRow>
                 <VCol cols="12">
                   <div>
@@ -628,7 +628,7 @@ const paymentMethods = [
               </VRow>
 
               <VRow v-if="paymentMethod === 'credit-debit-card'">
-                <!-- 👉 Card Number -->
+                <!--  Card Number -->
                 <VCol cols="12">
                   <AppTextField
                     label="Card Number"
@@ -637,7 +637,7 @@ const paymentMethods = [
                   />
                 </VCol>
 
-                <!-- 👉 Name -->
+                <!--  Name -->
                 <VCol
                   cols="12"
                   md="6"
@@ -648,7 +648,7 @@ const paymentMethods = [
                   />
                 </VCol>
 
-                <!-- 👉 Expire Date -->
+                <!--  Expire Date -->
                 <VCol
                   cols="6"
                   md="3"
@@ -659,7 +659,7 @@ const paymentMethods = [
                   />
                 </VCol>
 
-                <!-- 👉 CVV Code -->
+                <!--  CVV Code -->
                 <VCol
                   cols="6"
                   md="3"
@@ -739,7 +739,7 @@ const values = ref<typeof items[number][]>([])
   <VForm @submit.prevent="() => {}">
     <VRow>
       <VCol cols="12">
-        <!-- 👉 Username -->
+        <!--  Username -->
         <AppTextField
           v-model="username"
           label="Username"
@@ -748,7 +748,7 @@ const values = ref<typeof items[number][]>([])
       </VCol>
 
       <VCol cols="12">
-        <!-- 👉 Email -->
+        <!--  Email -->
         <AppTextField
           v-model="email"
           label="Email"
@@ -758,7 +758,7 @@ const values = ref<typeof items[number][]>([])
       </VCol>
 
       <VCol cols="12">
-        <!-- 👉 Password -->
+        <!--  Password -->
         <AppTextField
           v-model="password"
           label="Password"
@@ -771,7 +771,7 @@ const values = ref<typeof items[number][]>([])
       </VCol>
 
       <VCol cols="12">
-        <!-- 👉 Autocomplete -->
+        <!--  Autocomplete -->
         <AppAutocomplete
           v-model="values"
           :items="items"
@@ -783,7 +783,7 @@ const values = ref<typeof items[number][]>([])
       </VCol>
 
       <VCol cols="12">
-        <!-- 👉 Checkbox -->
+        <!--  Checkbox -->
         <VCheckbox
           v-model="checkbox"
           label="Remember me"
@@ -794,7 +794,7 @@ const values = ref<typeof items[number][]>([])
         cols="12"
         class="d-flex gap-4"
       >
-        <!-- 👉 submit and reset button -->
+        <!--  submit and reset button -->
         <VBtn type="submit">
           Submit
         </VBtn>
@@ -831,7 +831,7 @@ const values = ref([])
   <VForm @submit.prevent="() => {}">
     <VRow>
       <VCol cols="12">
-        <!-- 👉 Username -->
+        <!--  Username -->
         <AppTextField
           v-model="username"
           label="Username"
@@ -840,7 +840,7 @@ const values = ref([])
       </VCol>
 
       <VCol cols="12">
-        <!-- 👉 Email -->
+        <!--  Email -->
         <AppTextField
           v-model="email"
           label="Email"
@@ -850,7 +850,7 @@ const values = ref([])
       </VCol>
 
       <VCol cols="12">
-        <!-- 👉 Password -->
+        <!--  Password -->
         <AppTextField
           v-model="password"
           label="Password"
@@ -863,7 +863,7 @@ const values = ref([])
       </VCol>
 
       <VCol cols="12">
-        <!-- 👉 Autocomplete -->
+        <!--  Autocomplete -->
         <AppAutocomplete
           v-model="values"
           :items="items"
@@ -875,7 +875,7 @@ const values = ref([])
       </VCol>
 
       <VCol cols="12">
-        <!-- 👉 Checkbox -->
+        <!--  Checkbox -->
         <VCheckbox
           v-model="checkbox"
           label="Remember me"
@@ -886,7 +886,7 @@ const values = ref([])
         cols="12"
         class="d-flex gap-4"
       >
-        <!-- 👉 submit and reset button -->
+        <!--  submit and reset button -->
         <VBtn type="submit">
           Submit
         </VBtn>
@@ -2431,7 +2431,7 @@ const checkbox = ref(false)
     <VRow>
       <VCol cols="12">
         <VRow no-gutters>
-          <!-- 👉 First Name -->
+          <!--  First Name -->
           <VCol
             cols="12"
             md="3"
@@ -2459,7 +2459,7 @@ const checkbox = ref(false)
 
       <VCol cols="12">
         <VRow no-gutters>
-          <!-- 👉 Email -->
+          <!--  Email -->
           <VCol
             cols="12"
             md="3"
@@ -2487,7 +2487,7 @@ const checkbox = ref(false)
 
       <VCol cols="12">
         <VRow no-gutters>
-          <!-- 👉 Mobile -->
+          <!--  Mobile -->
           <VCol
             cols="12"
             md="3"
@@ -2516,7 +2516,7 @@ const checkbox = ref(false)
 
       <VCol cols="12">
         <VRow no-gutters>
-          <!-- 👉 Password -->
+          <!--  Password -->
           <VCol
             cols="12"
             md="3"
@@ -2544,7 +2544,7 @@ const checkbox = ref(false)
         </VRow>
       </VCol>
 
-      <!-- 👉 Remember me -->
+      <!--  Remember me -->
       <VCol cols="12">
         <VRow no-gutters>
           <VCol
@@ -2563,7 +2563,7 @@ const checkbox = ref(false)
         </VRow>
       </VCol>
 
-      <!-- 👉 submit and reset button -->
+      <!--  submit and reset button -->
       <VCol cols="12">
         <VRow no-gutters>
           <VCol
@@ -2607,7 +2607,7 @@ const checkbox = ref(false)
     <VRow>
       <VCol cols="12">
         <VRow no-gutters>
-          <!-- 👉 First Name -->
+          <!--  First Name -->
           <VCol
             cols="12"
             md="3"
@@ -2635,7 +2635,7 @@ const checkbox = ref(false)
 
       <VCol cols="12">
         <VRow no-gutters>
-          <!-- 👉 Email -->
+          <!--  Email -->
           <VCol
             cols="12"
             md="3"
@@ -2663,7 +2663,7 @@ const checkbox = ref(false)
 
       <VCol cols="12">
         <VRow no-gutters>
-          <!-- 👉 Mobile -->
+          <!--  Mobile -->
           <VCol
             cols="12"
             md="3"
@@ -2692,7 +2692,7 @@ const checkbox = ref(false)
 
       <VCol cols="12">
         <VRow no-gutters>
-          <!-- 👉 Password -->
+          <!--  Password -->
           <VCol
             cols="12"
             md="3"
@@ -2720,7 +2720,7 @@ const checkbox = ref(false)
         </VRow>
       </VCol>
 
-      <!-- 👉 Remember me -->
+      <!--  Remember me -->
       <VCol cols="12">
         <VRow no-gutters>
           <VCol
@@ -2739,7 +2739,7 @@ const checkbox = ref(false)
         </VRow>
       </VCol>
 
-      <!-- 👉 submit and reset button -->
+      <!--  submit and reset button -->
       <VCol cols="12">
         <VRow no-gutters>
           <VCol
@@ -2784,7 +2784,7 @@ const checkbox = ref(false)
 <template>
   <VForm @submit.prevent="() => {}">
     <VRow>
-      <!-- 👉 First Name -->
+      <!--  First Name -->
       <VCol cols="12">
         <VRow no-gutters>
           <VCol
@@ -2813,7 +2813,7 @@ const checkbox = ref(false)
         </VRow>
       </VCol>
 
-      <!-- 👉 Email -->
+      <!--  Email -->
       <VCol cols="12">
         <VRow no-gutters>
           <VCol
@@ -2842,7 +2842,7 @@ const checkbox = ref(false)
         </VRow>
       </VCol>
 
-      <!-- 👉 Mobile -->
+      <!--  Mobile -->
       <VCol cols="12">
         <VRow no-gutters>
           <VCol
@@ -2872,7 +2872,7 @@ const checkbox = ref(false)
         </VRow>
       </VCol>
 
-      <!-- 👉 Password -->
+      <!--  Password -->
       <VCol cols="12">
         <VRow no-gutters>
           <VCol
@@ -2903,7 +2903,7 @@ const checkbox = ref(false)
         </VRow>
       </VCol>
 
-      <!-- 👉 Checkbox -->
+      <!--  Checkbox -->
       <VCol cols="12">
         <VRow no-gutters>
           <VCol
@@ -2922,7 +2922,7 @@ const checkbox = ref(false)
         </VRow>
       </VCol>
 
-      <!-- 👉 submit and reset button -->
+      <!--  submit and reset button -->
       <VCol cols="12">
         <VRow no-gutters>
           <VCol
@@ -2964,7 +2964,7 @@ const checkbox = ref(false)
 <template>
   <VForm @submit.prevent="() => {}">
     <VRow>
-      <!-- 👉 First Name -->
+      <!--  First Name -->
       <VCol cols="12">
         <VRow no-gutters>
           <VCol
@@ -2993,7 +2993,7 @@ const checkbox = ref(false)
         </VRow>
       </VCol>
 
-      <!-- 👉 Email -->
+      <!--  Email -->
       <VCol cols="12">
         <VRow no-gutters>
           <VCol
@@ -3022,7 +3022,7 @@ const checkbox = ref(false)
         </VRow>
       </VCol>
 
-      <!-- 👉 Mobile -->
+      <!--  Mobile -->
       <VCol cols="12">
         <VRow no-gutters>
           <VCol
@@ -3052,7 +3052,7 @@ const checkbox = ref(false)
         </VRow>
       </VCol>
 
-      <!-- 👉 Password -->
+      <!--  Password -->
       <VCol cols="12">
         <VRow no-gutters>
           <VCol
@@ -3083,7 +3083,7 @@ const checkbox = ref(false)
         </VRow>
       </VCol>
 
-      <!-- 👉 Checkbox -->
+      <!--  Checkbox -->
       <VCol cols="12">
         <VRow no-gutters>
           <VCol
@@ -3102,7 +3102,7 @@ const checkbox = ref(false)
         </VRow>
       </VCol>
 
-      <!-- 👉 submit and reset button -->
+      <!--  submit and reset button -->
       <VCol cols="12">
         <VRow no-gutters>
           <VCol
@@ -3149,7 +3149,7 @@ const checkbox = ref(false)
 <template>
   <VForm @submit.prevent="() => {}">
     <VRow>
-      <!-- 👉 First Name -->
+      <!--  First Name -->
       <VCol
         cols="12"
         md="6"
@@ -3161,7 +3161,7 @@ const checkbox = ref(false)
         />
       </VCol>
 
-      <!-- 👉 Last Name -->
+      <!--  Last Name -->
       <VCol
         cols="12"
         md="6"
@@ -3173,7 +3173,7 @@ const checkbox = ref(false)
         />
       </VCol>
 
-      <!-- 👉 Email -->
+      <!--  Email -->
       <VCol
         cols="12"
         md="6"
@@ -3185,7 +3185,7 @@ const checkbox = ref(false)
         />
       </VCol>
 
-      <!-- 👉 City -->
+      <!--  City -->
       <VCol
         cols="12"
         md="6"
@@ -3197,7 +3197,7 @@ const checkbox = ref(false)
         />
       </VCol>
 
-      <!-- 👉 Country -->
+      <!--  Country -->
       <VCol
         cols="12"
         md="6"
@@ -3209,7 +3209,7 @@ const checkbox = ref(false)
         />
       </VCol>
 
-      <!-- 👉 Company -->
+      <!--  Company -->
       <VCol
         cols="12"
         md="6"
@@ -3221,7 +3221,7 @@ const checkbox = ref(false)
         />
       </VCol>
 
-      <!-- 👉 Remember me -->
+      <!--  Remember me -->
       <VCol cols="12">
         <VCheckbox
           v-model="checkbox"
@@ -3262,7 +3262,7 @@ const checkbox = ref(false)
 <template>
   <VForm @submit.prevent="() => {}">
     <VRow>
-      <!-- 👉 First Name -->
+      <!--  First Name -->
       <VCol
         cols="12"
         md="6"
@@ -3274,7 +3274,7 @@ const checkbox = ref(false)
         />
       </VCol>
 
-      <!-- 👉 Last Name -->
+      <!--  Last Name -->
       <VCol
         cols="12"
         md="6"
@@ -3286,7 +3286,7 @@ const checkbox = ref(false)
         />
       </VCol>
 
-      <!-- 👉 Email -->
+      <!--  Email -->
       <VCol
         cols="12"
         md="6"
@@ -3298,7 +3298,7 @@ const checkbox = ref(false)
         />
       </VCol>
 
-      <!-- 👉 City -->
+      <!--  City -->
       <VCol
         cols="12"
         md="6"
@@ -3310,7 +3310,7 @@ const checkbox = ref(false)
         />
       </VCol>
 
-      <!-- 👉 Country -->
+      <!--  Country -->
       <VCol
         cols="12"
         md="6"
@@ -3322,7 +3322,7 @@ const checkbox = ref(false)
         />
       </VCol>
 
-      <!-- 👉 Company -->
+      <!--  Company -->
       <VCol
         cols="12"
         md="6"
@@ -3334,7 +3334,7 @@ const checkbox = ref(false)
         />
       </VCol>
 
-      <!-- 👉 Remember me -->
+      <!--  Remember me -->
       <VCol cols="12">
         <VCheckbox
           v-model="checkbox"

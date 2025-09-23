@@ -32,7 +32,7 @@ const actionArrowInitialRotation = configStore.isVerticalNavCollapsed ? '180deg'
 
 <template>
   <VerticalNavLayout :nav-items="navItems">
-    <!-- 👉 navbar -->
+    <!--  navbar -->
     <template #navbar="{ toggleVerticalOverlayNavActive }">
       <div class="d-flex h-100 align-center">
         <IconBtn
@@ -58,15 +58,15 @@ const actionArrowInitialRotation = configStore.isVerticalNavCollapsed ? '180deg'
       </div>
     </template>
 
-    <!-- 👉 Pages -->
+    <!--  Pages -->
     <slot />
 
-    <!-- 👉 Footer -->
+    <!--  Footer -->
     <template #footer>
       <Footer />
     </template>
 
-    <!-- 👉 Customizer -->
+    <!--  Customizer -->
     <!-- <TheCustomizer /> -->
   </VerticalNavLayout>
 </template>

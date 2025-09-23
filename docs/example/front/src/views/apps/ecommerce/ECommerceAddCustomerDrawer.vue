@@ -34,7 +34,7 @@ const resetForm = () => {
   emit('update:isDrawerOpen', false)
 }
 
-// 👉 drawer close
+//  drawer close
 const closeNavigationDrawer = () => {
   emit('update:isDrawerOpen', false)
 
@@ -55,7 +55,7 @@ const closeNavigationDrawer = () => {
     border="none"
     @update:model-value="handleDrawerModelValueUpdate"
   >
-    <!-- 👉 Header -->
+    <!--  Header -->
     <AppDrawerHeaderSection
       title="Add a Customer"
       @cancel="closeNavigationDrawer"

@@ -65,10 +65,10 @@ const moreList = [
   <VCard>
     <!-- SECTION Card Header and Menu -->
     <VCardItem>
-      <!-- 👉 Title -->
+      <!--  Title -->
       <VCardTitle>Team Members</VCardTitle>
 
-      <!-- 👉 menu -->
+      <!--  menu -->
       <template #append>
         <MoreBtn :menu-list="moreList" />
       </template>

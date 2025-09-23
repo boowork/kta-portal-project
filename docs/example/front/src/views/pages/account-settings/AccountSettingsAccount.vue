@@ -112,14 +112,14 @@ const currencies = [
       <VCard>
         <VCardText class="pb-md-10">
           <div class="d-flex mb-4">
-            <!-- 👉 Avatar -->
+            <!--  Avatar -->
             <VAvatar
               rounded
               size="100"
               class="me-6"
               :image="accountDataLocal.avatarImg"
             />
-            <!-- 👉 Upload Photo -->
+            <!--  Upload Photo -->
             <form class="d-flex flex-column justify-center gap-4">
               <div class="d-flex flex-wrap gap-4">
                 <VBtn
@@ -162,10 +162,10 @@ const currencies = [
         </VCardText>
 
         <VCardText>
-          <!-- 👉 Form -->
+          <!--  Form -->
           <VForm>
             <VRow>
-              <!-- 👉 First Name -->
+              <!--  First Name -->
               <VCol
                 md="6"
                 cols="12"
@@ -177,7 +177,7 @@ const currencies = [
                 />
               </VCol>
 
-              <!-- 👉 Last Name -->
+              <!--  Last Name -->
               <VCol
                 md="6"
                 cols="12"
@@ -189,7 +189,7 @@ const currencies = [
                 />
               </VCol>
 
-              <!-- 👉 Email -->
+              <!--  Email -->
               <VCol
                 cols="12"
                 md="6"
@@ -202,7 +202,7 @@ const currencies = [
                 />
               </VCol>
 
-              <!-- 👉 Organization -->
+              <!--  Organization -->
               <VCol
                 cols="12"
                 md="6"
@@ -214,7 +214,7 @@ const currencies = [
                 />
               </VCol>
 
-              <!-- 👉 Phone -->
+              <!--  Phone -->
               <VCol
                 cols="12"
                 md="6"
@@ -226,7 +226,7 @@ const currencies = [
                 />
               </VCol>
 
-              <!-- 👉 Address -->
+              <!--  Address -->
               <VCol
                 cols="12"
                 md="6"
@@ -238,7 +238,7 @@ const currencies = [
                 />
               </VCol>
 
-              <!-- 👉 State -->
+              <!--  State -->
               <VCol
                 cols="12"
                 md="6"
@@ -250,7 +250,7 @@ const currencies = [
                 />
               </VCol>
 
-              <!-- 👉 Zip Code -->
+              <!--  Zip Code -->
               <VCol
                 cols="12"
                 md="6"
@@ -262,7 +262,7 @@ const currencies = [
                 />
               </VCol>
 
-              <!-- 👉 Country -->
+              <!--  Country -->
               <VCol
                 cols="12"
                 md="6"
@@ -275,7 +275,7 @@ const currencies = [
                 />
               </VCol>
 
-              <!-- 👉 Language -->
+              <!--  Language -->
               <VCol
                 cols="12"
                 md="6"
@@ -288,7 +288,7 @@ const currencies = [
                 />
               </VCol>
 
-              <!-- 👉 Timezone -->
+              <!--  Timezone -->
               <VCol
                 cols="12"
                 md="6"
@@ -302,7 +302,7 @@ const currencies = [
                 />
               </VCol>
 
-              <!-- 👉 Currency -->
+              <!--  Currency -->
               <VCol
                 cols="12"
                 md="6"
@@ -316,7 +316,7 @@ const currencies = [
                 />
               </VCol>
 
-              <!-- 👉 Form Actions -->
+              <!--  Form Actions -->
               <VCol
                 cols="12"
                 class="d-flex flex-wrap gap-4"
@@ -339,10 +339,10 @@ const currencies = [
     </VCol>
 
     <VCol cols="12">
-      <!-- 👉 Delete Account -->
+      <!--  Delete Account -->
       <VCard title="Delete Account">
         <VCardText>
-          <!-- 👉 Checkbox and Button  -->
+          <!--  Checkbox and Button  -->
           <div>
             <VCheckbox
               v-model="isAccountDeactivated"

@@ -14,7 +14,7 @@ import UserList from '@/views/apps/roles/UserList.vue'
       </p>
     </VCol>
 
-    <!-- 👉 Roles Cards -->
+    <!--  Roles Cards -->
     <VCol cols="12">
       <RoleCards />
     </VCol>
@@ -29,7 +29,7 @@ import UserList from '@/views/apps/roles/UserList.vue'
     </VCol>
 
     <VCol cols="12">
-      <!-- 👉 User List  -->
+      <!--  User List  -->
       <UserList />
     </VCol>
   </VRow>

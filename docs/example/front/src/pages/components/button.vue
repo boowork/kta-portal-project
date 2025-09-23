@@ -5,7 +5,7 @@ import { block, colors, flat, group, icon, iconOnly, link, loaders, outlined, pl
 <template>
   <VRow>
     <VCol cols="12">
-      <!-- 👉 Colors -->
+      <!--  Colors -->
       <AppCardCode
         title="Colors"
         :code="colors"
@@ -16,7 +16,7 @@ import { block, colors, flat, group, icon, iconOnly, link, loaders, outlined, pl
     </VCol>
 
     <VCol cols="12">
-      <!-- 👉 Outlined -->
+      <!--  Outlined -->
       <AppCardCode
         title="Outlined"
         :code="outlined"
@@ -27,7 +27,7 @@ import { block, colors, flat, group, icon, iconOnly, link, loaders, outlined, pl
     </VCol>
 
     <VCol cols="12">
-      <!-- 👉 Flat -->
+      <!--  Flat -->
       <AppCardCode
         title="Flat"
         :code="flat"
@@ -38,7 +38,7 @@ import { block, colors, flat, group, icon, iconOnly, link, loaders, outlined, pl
     </VCol>
 
     <VCol cols="12">
-      <!-- 👉 Rounded -->
+      <!--  Rounded -->
       <AppCardCode
         title="Rounded"
         :code="rounded"
@@ -49,7 +49,7 @@ import { block, colors, flat, group, icon, iconOnly, link, loaders, outlined, pl
     </VCol>
 
     <VCol cols="12">
-      <!-- 👉 Text -->
+      <!--  Text -->
       <AppCardCode
         title="Text"
         :code="text"
@@ -60,7 +60,7 @@ import { block, colors, flat, group, icon, iconOnly, link, loaders, outlined, pl
     </VCol>
 
     <VCol cols="12">
-      <!-- 👉 Plain -->
+      <!--  Plain -->
       <AppCardCode
         title="Plain"
         :code="plain"
@@ -71,7 +71,7 @@ import { block, colors, flat, group, icon, iconOnly, link, loaders, outlined, pl
     </VCol>
 
     <VCol cols="12">
-      <!-- 👉 Tonal -->
+      <!--  Tonal -->
       <AppCardCode
         title="Tonal"
         :code="tonal"
@@ -82,7 +82,7 @@ import { block, colors, flat, group, icon, iconOnly, link, loaders, outlined, pl
     </VCol>
 
     <VCol cols="12">
-      <!-- 👉 Icon -->
+      <!--  Icon -->
       <AppCardCode
         title="Icon"
         :code="icon"
@@ -93,7 +93,7 @@ import { block, colors, flat, group, icon, iconOnly, link, loaders, outlined, pl
     </VCol>
 
     <VCol cols="12">
-      <!-- 👉 Icon Only -->
+      <!--  Icon Only -->
       <AppCardCode
         title="Icon Only"
         :code="iconOnly"
@@ -104,7 +104,7 @@ import { block, colors, flat, group, icon, iconOnly, link, loaders, outlined, pl
     </VCol>
 
     <VCol cols="12">
-      <!-- 👉 Sizing -->
+      <!--  Sizing -->
       <AppCardCode
         title="Sizing"
         :code="sizing"
@@ -115,7 +115,7 @@ import { block, colors, flat, group, icon, iconOnly, link, loaders, outlined, pl
     </VCol>
 
     <VCol cols="12">
-      <!-- 👉 Block  -->
+      <!--  Block  -->
       <AppCardCode
         title="Block"
         :code="block"
@@ -126,7 +126,7 @@ import { block, colors, flat, group, icon, iconOnly, link, loaders, outlined, pl
     </VCol>
 
     <VCol cols="12">
-      <!-- 👉 Loaders -->
+      <!--  Loaders -->
       <AppCardCode
         title="Loaders"
         :code="loaders"
@@ -138,7 +138,7 @@ import { block, colors, flat, group, icon, iconOnly, link, loaders, outlined, pl
     </VCol>
 
     <VCol cols="12">
-      <!-- 👉 Router -->
+      <!--  Router -->
       <AppCardCode
         title="Router"
         :code="router"
@@ -156,7 +156,7 @@ import { block, colors, flat, group, icon, iconOnly, link, loaders, outlined, pl
     </VCol>
 
     <VCol cols="12">
-      <!-- 👉 Link -->
+      <!--  Link -->
       <AppCardCode
         title="Link"
         :code="link"
@@ -174,7 +174,7 @@ import { block, colors, flat, group, icon, iconOnly, link, loaders, outlined, pl
     </VCol>
 
     <VCol cols="12">
-      <!-- 👉 Button Group -->
+      <!--  Button Group -->
       <AppCardCode
         title="Group"
         :code="group"

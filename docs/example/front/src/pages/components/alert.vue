@@ -5,7 +5,7 @@ import { basic, border, closable, coloredBorder, colors, density, elevation, ico
 <template>
   <VRow>
     <VCol cols="12">
-      <!-- 👉 Basic -->
+      <!--  Basic -->
       <AppCardCode
         title="Basic"
         :code="basic"
@@ -15,7 +15,7 @@ import { basic, border, closable, coloredBorder, colors, density, elevation, ico
     </VCol>
 
     <VCol cols="12">
-      <!-- 👉 Colors -->
+      <!--  Colors -->
       <AppCardCode
         title="Colors"
         :code="colors"
@@ -27,7 +27,7 @@ import { basic, border, closable, coloredBorder, colors, density, elevation, ico
     </VCol>
 
     <VCol cols="12">
-      <!-- 👉 Icons -->
+      <!--  Icons -->
       <AppCardCode
         title="Icons"
         :code="icons"
@@ -39,7 +39,7 @@ import { basic, border, closable, coloredBorder, colors, density, elevation, ico
     </VCol>
 
     <VCol cols="12">
-      <!-- 👉 Border -->
+      <!--  Border -->
       <AppCardCode
         title="Border"
         :code="border"
@@ -51,7 +51,7 @@ import { basic, border, closable, coloredBorder, colors, density, elevation, ico
     </VCol>
 
     <VCol cols="12">
-      <!-- 👉 Colored Border -->
+      <!--  Colored Border -->
       <AppCardCode
         title="Colored Border"
         :code="coloredBorder"
@@ -63,7 +63,7 @@ import { basic, border, closable, coloredBorder, colors, density, elevation, ico
     </VCol>
 
     <VCol cols="12">
-      <!-- 👉 Density -->
+      <!--  Density -->
       <AppCardCode
         title="Density"
         :code="density"
@@ -75,7 +75,7 @@ import { basic, border, closable, coloredBorder, colors, density, elevation, ico
     </VCol>
 
     <VCol cols="12">
-      <!-- 👉 Type -->
+      <!--  Type -->
       <AppCardCode
         title="Type"
         :code="type"
@@ -87,7 +87,7 @@ import { basic, border, closable, coloredBorder, colors, density, elevation, ico
     </VCol>
 
     <VCol cols="12">
-      <!-- 👉 Closable  -->
+      <!--  Closable  -->
       <AppCardCode
         title="Closable"
         :code="closable"
@@ -99,7 +99,7 @@ import { basic, border, closable, coloredBorder, colors, density, elevation, ico
     </VCol>
 
     <VCol cols="12">
-      <!-- 👉 V-model support -->
+      <!--  V-model support -->
       <AppCardCode
         title="v-model support"
         :code="vModelSupport"
@@ -111,7 +111,7 @@ import { basic, border, closable, coloredBorder, colors, density, elevation, ico
     </VCol>
 
     <VCol cols="12">
-      <!-- 👉 Outlined -->
+      <!--  Outlined -->
       <AppCardCode
         title="Outlined"
         :code="outlined"
@@ -123,7 +123,7 @@ import { basic, border, closable, coloredBorder, colors, density, elevation, ico
     </VCol>
 
     <VCol cols="12">
-      <!-- 👉 Tonal -->
+      <!--  Tonal -->
       <AppCardCode
         title="Tonal"
         :code="tonal"
@@ -135,7 +135,7 @@ import { basic, border, closable, coloredBorder, colors, density, elevation, ico
     </VCol>
 
     <VCol cols="12">
-      <!-- 👉 Elevation -->
+      <!--  Elevation -->
       <AppCardCode
         title="Elevation"
         :code="elevation"
@@ -147,7 +147,7 @@ import { basic, border, closable, coloredBorder, colors, density, elevation, ico
     </VCol>
 
     <VCol cols="12">
-      <!-- 👉 Prominent -->
+      <!--  Prominent -->
       <AppCardCode
         title="Prominent"
         :code="prominent"

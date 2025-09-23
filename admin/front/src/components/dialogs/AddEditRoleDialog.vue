@@ -31,7 +31,7 @@ const props = withDefaults(defineProps<Props>(), {
 
 const emit = defineEmits<Emit>()
 
-// 👉 Permission List
+//  Permission List
 const permissions = ref<Permission[]>([
   {
     name: 'User Management',
@@ -174,12 +174,12 @@ const onReset = () => {
     :model-value="props.isDialogVisible"
     @update:model-value="onReset"
   >
-    <!-- 👉 Dialog close btn -->
+    <!--  Dialog close btn -->
     <DialogCloseBtn @click="onReset" />
 
     <VCard class="pa-sm-10 pa-2">
       <VCardText>
-        <!-- 👉 Title -->
+        <!--  Title -->
         <h4 class="text-h4 text-center mb-2">
           {{ props.rolePermissions.name ? 'Edit' : 'Add New' }} Role
         </h4>
@@ -187,9 +187,9 @@ const onReset = () => {
           Set Role Permissions
         </p>
 
-        <!-- 👉 Form -->
+        <!--  Form -->
         <VForm ref="refPermissionForm">
-          <!-- 👉 Role name -->
+          <!--  Role name -->
           <AppTextField
             v-model="role"
             label="Role Name"
@@ -200,10 +200,10 @@ const onReset = () => {
             Role Permissions
           </h5>
 
-          <!-- 👉 Role Permissions -->
+          <!--  Role Permissions -->
 
           <VTable class="permission-table text-no-wrap mb-6">
-            <!-- 👉 Admin  -->
+            <!--  Admin  -->
             <tr>
               <td>
                 <h6 class="text-h6">
@@ -221,7 +221,7 @@ const onReset = () => {
               </td>
             </tr>
 
-            <!-- 👉 Other permission loop -->
+            <!--  Other permission loop -->
             <template
               v-for="permission in permissions"
               :key="permission.name"
@@ -260,7 +260,7 @@ const onReset = () => {
             </template>
           </VTable>
 
-          <!-- 👉 Actions button -->
+          <!--  Actions button -->
           <div class="d-flex align-center justify-center gap-4">
             <VBtn @click="onSubmit">
               Submit

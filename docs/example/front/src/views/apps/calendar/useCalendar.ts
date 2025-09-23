@@ -28,13 +28,13 @@ export const blankEvent: Event | NewEvent = {
 export const useCalendar = (event: Ref<Event | NewEvent>, isEventHandlerSidebarActive: Ref<boolean>, isLeftSidebarOpen: Ref<boolean>) => {
   const configStore = useConfigStore()
 
-  // 👉 Store
+  //  Store
   const store = useCalendarStore()
 
-  // 👉 Calendar template ref
+  //  Calendar template ref
   const refCalendar = ref()
 
-  // 👉 Calendar colors
+  //  Calendar colors
   const calendarsColor = {
     Business: 'primary',
     Holiday: 'success',
@@ -76,7 +76,7 @@ export const useCalendar = (event: Ref<Event | NewEvent>, isEventHandlerSidebarA
   if (typeof process !== 'undefined' && process.server)
     store.fetchEvents()
 
-  // 👉 Fetch events
+  //  Fetch events
   const fetchEvents: EventSourceFunc = (info, successCallback) => {
   // If there's no info => Don't make useless API call
     if (!info)
@@ -97,10 +97,10 @@ export const useCalendar = (event: Ref<Event | NewEvent>, isEventHandlerSidebarA
       })
   }
 
-  // 👉 Calendar API
+  //  Calendar API
   const calendarApi = ref<null | CalendarApi>(null)
 
-  // 👉 Update event in calendar [UI]
+  //  Update event in calendar [UI]
   const updateEventInCalendar = (updatedEventData: Event, propsToUpdate: (keyof Event)[], extendedPropsToUpdate: (keyof Event['extendedProps'])[]) => {
     calendarApi.value = refCalendar.value.getApi()
 
@@ -134,7 +134,7 @@ export const useCalendar = (event: Ref<Event | NewEvent>, isEventHandlerSidebarA
     }
   }
 
-  // 👉 Remove event in calendar [UI]
+  //  Remove event in calendar [UI]
   const removeEventInCalendar = (eventId: string) => {
     const _event = calendarApi.value?.getEventById(eventId)
 
@@ -142,14 +142,14 @@ export const useCalendar = (event: Ref<Event | NewEvent>, isEventHandlerSidebarA
       _event.remove()
   }
 
-  // 👉 refetch events
+  //  refetch events
   const refetchEvents = () => {
     calendarApi.value?.refetchEvents()
   }
 
   watch(() => store.selectedCalendars, refetchEvents)
 
-  // 👉 Add event
+  //  Add event
   const addEvent = (_event: NewEvent) => {
     store.addEvent(_event)
       .then(() => {
@@ -157,7 +157,7 @@ export const useCalendar = (event: Ref<Event | NewEvent>, isEventHandlerSidebarA
       })
   }
 
-  // 👉 Update event
+  //  Update event
   const updateEvent = (_event: Event) => {
     // ℹ️ Making API call using $api('', { method: ... })
     store.updateEvent(_event)
@@ -170,14 +170,14 @@ export const useCalendar = (event: Ref<Event | NewEvent>, isEventHandlerSidebarA
     refetchEvents()
   }
 
-  // 👉 Remove event
+  //  Remove event
   const removeEvent = (eventId: string) => {
     store.removeEvent(eventId).then(() => {
       removeEventInCalendar(eventId)
     })
   }
 
-  // 👉 Calendar options
+  //  Calendar options
   const calendarOptions = {
     plugins: [dayGridPlugin, interactionPlugin, timeGridPlugin, listPlugin],
     initialView: 'dayGridMonth',
@@ -280,7 +280,7 @@ export const useCalendar = (event: Ref<Event | NewEvent>, isEventHandlerSidebarA
     },
   } as CalendarOptions
 
-  // 👉 onMounted
+  //  onMounted
   onMounted(() => {
     nextTick(() => {
       if (refCalendar.value)
@@ -288,7 +288,7 @@ export const useCalendar = (event: Ref<Event | NewEvent>, isEventHandlerSidebarA
     })
   })
 
-  // 👉 Jump to date on sidebar(inline) calendar change
+  //  Jump to date on sidebar(inline) calendar change
   const jumpToDate = (currentDate: string) => {
     calendarApi.value?.gotoDate(new Date(currentDate))
   }

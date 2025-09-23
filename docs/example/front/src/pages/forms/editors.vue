@@ -4,7 +4,7 @@ import { basicEditor, customEditor } from '@/views/demos/forms/form-elements/edi
 
 <template>
   <VRow>
-    <!-- 👉 Basic Editor  -->
+    <!--  Basic Editor  -->
     <VCol cols="12">
       <AppCardCode
         title="Basic Editor"

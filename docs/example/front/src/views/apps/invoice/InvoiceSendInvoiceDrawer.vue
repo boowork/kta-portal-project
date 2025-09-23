@@ -58,7 +58,7 @@ const handleDrawerModelValueUpdate = (val: boolean) => {
     class="scrollable-content"
     @update:model-value="handleDrawerModelValueUpdate"
   >
-    <!-- 👉 Header -->
+    <!--  Header -->
     <AppDrawerHeaderSection
       title="Send Invoice"
       @cancel="$emit('update:isDrawerOpen', false)"

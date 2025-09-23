@@ -9,7 +9,7 @@ $divider-gap: 0.75rem;
   .layout-vertical-nav {
     @include elevation.elevation(4);
 
-    // 👉 Nav header
+    //  Nav header
     .nav-header {
       margin-block-start: variables.$vertical-nav-header-margin-top;
 
@@ -75,7 +75,7 @@ $divider-gap: 0.75rem;
       }
     }
 
-    // 👉 Vertical nav link
+    //  Vertical nav link
     .nav-group {
       .nav-link {
         > .router-link-exact-active {

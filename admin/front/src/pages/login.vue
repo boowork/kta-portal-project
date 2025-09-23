@@ -1,5 +1,7 @@
 <script setup lang="ts">
 import { useAuthStore } from '@/stores/auth'
+import { useErrorHandler } from '@/composables/useErrorHandler'
+import ToastContainer from '@/components/ToastContainer.vue'
 import AuthProvider from '@/views/pages/authentication/AuthProvider.vue'
 import { VNodeRenderer } from '@layouts/components/VNodeRenderer'
 import { themeConfig } from '@themeConfig'
@@ -15,44 +17,32 @@ definePage({
 
 const router = useRouter()
 const authStore = useAuthStore()
+const { errorState, getFieldError, clearErrors } = useErrorHandler()
 
 const form = ref({
-  email: '',
+  userid: '',
   password: '',
   remember: false,
 })
 
 const isPasswordVisible = ref(false)
-const isLoading = ref(false)
-const errorMessage = ref('')
 
 // Handle login
 const handleLogin = async () => {
-  if (!form.value.email || !form.value.password) {
-    errorMessage.value = 'Please enter both email and password'
-
+  if (!form.value.userid || !form.value.password) {
     return
   }
 
-  isLoading.value = true
-  errorMessage.value = ''
+  clearErrors()
 
-  try {
-    const success = await authStore.login(form.value.email, form.value.password)
+  const success = await authStore.login({
+    userid: form.value.userid,
+    password: form.value.password,
+  })
 
-    if (success) {
-      // Redirect to dashboard
-      router.push('/dashboards/analytics')
-    }
-    else {
-      errorMessage.value = 'Login failed. Please try again.'
-    }
-  }
-  catch (error) {
-    errorMessage.value = 'An error occurred. Please try again.'
-  }
-  finally {
-    isLoading.value = false
+  if (success) {
+    // Redirect to dashboard
+    router.push('/dashboards/analytics')
   }
 }
 </script>
@@ -109,14 +99,15 @@ const handleLogin = async () => {
         <VCardText>
           <VForm @submit.prevent="handleLogin">
             <VRow>
-              <!-- email -->
+              <!-- userid -->
               <VCol cols="12">
                 <AppTextField
-                  v-model="form.email"
+                  v-model="form.userid"
                   autofocus
-                  label="Email or Username"
-                  type="email"
-                  placeholder="johndoe@email.com"
+                  label="User ID"
+                  type="text"
+                  placeholder="admin"
+                  :error-messages="getFieldError('userid')"
                 />
               </VCol>
 
@@ -127,8 +118,9 @@ const handleLogin = async () => {
                   label="Password"
                   placeholder="············"
                   :type="isPasswordVisible ? 'text' : 'password'"
-                  autocomplete="password"
+                  autocomplete="current-password"
                   :append-inner-icon="isPasswordVisible ? 'bx-hide' : 'bx-show'"
+                  :error-messages="getFieldError('password')"
                   @click:append-inner="isPasswordVisible = !isPasswordVisible"
                 />
 
@@ -145,21 +137,23 @@ const handleLogin = async () => {
                   </a>
                 </div>
 
-                <!-- Error Message -->
+                <!-- Login Error Message -->
                 <VAlert
-                  v-if="errorMessage"
+                  v-if="errorState.hasError && errorState.message"
                   type="error"
                   variant="tonal"
                   class="mb-4"
+                  closable
+                  @click:close="clearErrors"
                 >
-                  {{ errorMessage }}
+                  {{ errorState.message }}
                 </VAlert>
 
                 <VBtn
                   block
                   type="submit"
-                  :loading="isLoading"
-                  :disabled="isLoading"
+                  :loading="authStore.isLoading"
+                  :disabled="authStore.isLoading"
                 >
                   Login
                 </VBtn>
@@ -201,6 +195,9 @@ const handleLogin = async () => {
       </VCard>
     </VCol>
   </VRow>
+
+  <!--  Toast Container -->
+  <ToastContainer />
 </template>
 
 <style lang="scss">

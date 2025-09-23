@@ -97,7 +97,7 @@ const config = ref({
   dateFormat: 'Y-m-d',
 })
 
-// 👉 label/chip color
+//  label/chip color
 const resolveLabelColor: any = {
   'UX': 'success',
   'Image': 'warning',
@@ -129,7 +129,7 @@ const fileAttached = ref()
     class="kanban-navigation-drawer"
     @update:model-value="handleDrawerModelValueUpdate"
   >
-    <!-- 👉 Header -->
+    <!--  Header -->
     <AppDrawerHeaderSection
       title="Edit Task"
       @cancel="$emit('update:isDrawerOpen', false)"

@@ -8,7 +8,7 @@ import { closable, color, elevated, expandable, inSelects, outlined, rounded, si
       cols="12"
       md="6"
     >
-      <!-- 👉 Color -->
+      <!--  Color -->
       <AppCardCode
         title="Color"
         :code="color"
@@ -23,7 +23,7 @@ import { closable, color, elevated, expandable, inSelects, outlined, rounded, si
       cols="12"
       md="6"
     >
-      <!-- 👉 Elevated -->
+      <!--  Elevated -->
       <AppCardCode
         title="Elevated"
         :code="elevated"
@@ -38,7 +38,7 @@ import { closable, color, elevated, expandable, inSelects, outlined, rounded, si
       cols="12"
       md="6"
     >
-      <!-- 👉 Outlined -->
+      <!--  Outlined -->
       <AppCardCode
         title="Outlined"
         :code="outlined"
@@ -53,7 +53,7 @@ import { closable, color, elevated, expandable, inSelects, outlined, rounded, si
       cols="12"
       md="6"
     >
-      <!-- 👉 Label -->
+      <!--  Label -->
       <AppCardCode
         title="Rounded"
         :code="rounded"
@@ -68,7 +68,7 @@ import { closable, color, elevated, expandable, inSelects, outlined, rounded, si
       cols="12"
       md="6"
     >
-      <!-- 👉 Closable -->
+      <!--  Closable -->
       <AppCardCode
         title="Closable"
         :code="closable"
@@ -83,7 +83,7 @@ import { closable, color, elevated, expandable, inSelects, outlined, rounded, si
       cols="12"
       md="6"
     >
-      <!-- 👉 Chip With Icon -->
+      <!--  Chip With Icon -->
       <AppCardCode
         title="With Icon"
         :code="withIcon"
@@ -98,7 +98,7 @@ import { closable, color, elevated, expandable, inSelects, outlined, rounded, si
       cols="12"
       md="6"
     >
-      <!-- 👉 Avatar -->
+      <!--  Avatar -->
       <AppCardCode
         title="With Avatar"
         :code="withAvatar"
@@ -113,7 +113,7 @@ import { closable, color, elevated, expandable, inSelects, outlined, rounded, si
       cols="12"
       md="6"
     >
-      <!-- 👉 Sizes -->
+      <!--  Sizes -->
       <AppCardCode
         title="Sizes"
         :code="sizes"
@@ -128,7 +128,7 @@ import { closable, color, elevated, expandable, inSelects, outlined, rounded, si
       cols="12"
       md="6"
     >
-      <!-- 👉 In Selects -->
+      <!--  In Selects -->
       <AppCardCode
         title="In Selects"
         :code="inSelects"
@@ -143,7 +143,7 @@ import { closable, color, elevated, expandable, inSelects, outlined, rounded, si
       cols="12"
       md="6"
     >
-      <!-- 👉 Expandable -->
+      <!--  Expandable -->
       <AppCardCode
         title="Expandable"
         :code="expandable"

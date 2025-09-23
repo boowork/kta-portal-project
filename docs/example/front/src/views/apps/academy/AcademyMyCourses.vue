@@ -51,7 +51,7 @@ const resolveChipColor = (tags: string) => {
 <template>
   <VCard class="mb-6">
     <VCardText>
-      <!-- 👉 Header -->
+      <!--  Header -->
       <div class="d-flex justify-space-between align-center flex-wrap gap-4 mb-6">
         <div>
           <h5 class="text-h5">
@@ -82,7 +82,7 @@ const resolveChipColor = (tags: string) => {
         </div>
       </div>
 
-      <!-- 👉 Course List -->
+      <!--  Course List -->
       <div
         v-if="courses.length"
         class="mb-6"
