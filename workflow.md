@@ -25,30 +25,56 @@ cd dev_worktree && git pull origin dev
 ```
 feature/{domain}/
 ├── model/                            # 공유 모델
-├── {Method}{Path}Controller.java     # Controller + Service + DAO + DTOs
+├── {Method}{Path}Controller.java     # Controller + Service + Repository/DAO + DTOs
 └── {Method}{Path}ControllerTest.java # 1:1 대응 테스트
 ```
 
 ### 패턴
 ```java
-// GetUsersController.java
 @RestController
 public class GetUsersController { /* Controller 구현 */ }
 
 @Service  
-class GetUsersService { /* Service 구현 */ }
+class GetUsersService { 
+    private final GetUsersRepository repository;  // 정적 쿼리
+    private final GetUsersDao dao;                 // 동적 쿼리
+}
 
+// Repository - 정적 SQL (Spring Data JDBC)
+interface GetUsersRepository extends CrudRepository<User, Long> {
+    List<User> findByStatus(String status);
+    
+    @Query("""
+        SELECT u.*, r.role_name FROM users u 
+        JOIN roles r ON u.role_id = r.id 
+        WHERE u.department = :dept
+        """)
+    List<UserWithRole> findUsersWithRole(@Param("dept") String department);
+}
+
+// DAO - 동적 SQL (JdbcTemplate)
 @Repository
-class GetUsersDao { /* DAO 구현 */ }
+class GetUsersDao {
+    private final JdbcTemplate jdbcTemplate;
+    
+    public List<UserReportDto> getDynamicReport(FilterDto filter) {
+        // Text Blocks + StringBuilder로 동적 쿼리 구성
+    }
+}
 
-// 고유 DTO 명명으로 중복 방지
-class GetUsersHttpRequestDto { }
-class GetUsersHttpResponseDto { }
-class GetUsersDaoRequestDto { }
-class GetUsersDaoResponseDto { }
+// DTOs
+class HttpRequestDto { }  // Controller inner class
+class HttpResponseDto { }  // Controller inner class
+class FilterDto { }        // DAO parameter
+class UserReportDto { }    // DAO result
 ```
 
 ## 핵심 개발 규칙
+
+### 쿼리 작성 가이드
+- **Repository (정적 SQL)**: Spring Data JDBC, `@Query` 어노테이션
+- **DAO (동적 SQL)**: JdbcTemplate, Text Blocks (`"""`), StringBuilder
+- **SQL 포맷팅**: 키워드 대문자, 구조적 들여쓰기
 
 ### 테스트 철학
 - **테스트 코드는 스펙** - 기존 테스트 수정 절대 금지
