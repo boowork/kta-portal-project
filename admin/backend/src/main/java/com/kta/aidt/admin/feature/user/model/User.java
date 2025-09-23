@@ -1,4 +1,4 @@
-package com.kta.aidt.admin.entity;
+package com.kta.aidt.admin.feature.user.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
