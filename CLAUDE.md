@@ -1,7 +1,7 @@
 # CLAUDE.md
 IMPORTANT: UTF8
 IMPORTANT: read first => current version = versions/headver.txt, versions/history/{current version}.md, versions/todo/{current version}.md
-IMPORTANT: don't write bot/anthoropic information in commit message .
+IMPORTANT: you do not write like this "🤖 Generated with Claude Code".
 
 # KTA Portal Project - Architecture Overview
 

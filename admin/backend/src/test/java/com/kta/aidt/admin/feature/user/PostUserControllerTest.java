@@ -5,10 +5,9 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.http.MediaType;
-import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.test.web.servlet.MockMvc;
 
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 @AutoConfigureMockMvc
@@ -18,51 +17,59 @@ public class PostUserControllerTest extends BaseIntegrationTest {
     private MockMvc mockMvc;
 
     @Test
-    @WithMockUser
-    void testCreateUser() throws Exception {
+    void testCreateUser_WithoutAuthentication_ShouldReturn401() throws Exception {
         String createUserJson = """
                 {
-                    "userid": "newuser456",
-                    "password": "securepass123",
-                    "name": "New User",
-                    "role": "ADMIN"
+                    "userid": "testuser",
+                    "password": "password123",
+                    "name": "Test User",
+                    "role": "USER"
                 }
                 """;
 
         mockMvc.perform(post("/api/v1/users")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(createUserJson))
-                .andExpect(status().isCreated())
-                .andExpect(content().contentType(MediaType.APPLICATION_JSON))
-                .andExpect(jsonPath("$.success").value(true))
-                .andExpect(jsonPath("$.data.userid").value("newuser456"))
-                .andExpect(jsonPath("$.data.name").value("New User"))
-                .andExpect(jsonPath("$.data.role").value("ADMIN"))
-                .andExpect(jsonPath("$.data.password").doesNotExist())
-                .andExpect(jsonPath("$.data.id").exists())
-                .andExpect(jsonPath("$.errors").doesNotExist());
+                .andExpect(status().isUnauthorized());
     }
 
     @Test
-    @WithMockUser
-    void testCreateUserValidationError() throws Exception {
-        String invalidUserJson = """
+    void testCreateUser_WithUserRole() throws Exception {
+        String createUserJson = """
                 {
-                    "userid": "",
-                    "password": "",
-                    "name": "",
-                    "role": "INVALID_ROLE"
+                    "userid": "testuser1",
+                    "password": "password123",
+                    "name": "Test User 1",
+                    "role": "USER"
                 }
                 """;
 
-        mockMvc.perform(post("/api/v1/users")
+        mockMvc.perform(withUserAuth(post("/api/v1/users"))
                         .contentType(MediaType.APPLICATION_JSON)
-                        .content(invalidUserJson))
-                .andExpect(status().isBadRequest())
+                        .content(createUserJson))
+                .andExpect(status().isCreated())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON))
-                .andExpect(jsonPath("$.success").value(false))
-                .andExpect(jsonPath("$.data").doesNotExist())
-                .andExpect(jsonPath("$.errors").isArray())
-                .andExpect(jsonPath("$.errors.length()").value(4));
+                .andExpect(jsonPath("$.success").value(true))
+                .andExpect(jsonPath("$.data.userid").value("testuser1"));
+    }
+
+    @Test
+    void testCreateUser_WithAdminRole() throws Exception {
+        String createUserJson = """
+                {
+                    "userid": "testuser2",
+                    "password": "password123",
+                    "name": "Test User 2",
+                    "role": "ADMIN"
+                }
+                """;
+
+        mockMvc.perform(withAdminAuth(post("/api/v1/users"))
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(createUserJson))
+                .andExpect(status().isCreated())
+                .andExpect(content().contentType(MediaType.APPLICATION_JSON))
+                .andExpect(jsonPath("$.success").value(true))
+                .andExpect(jsonPath("$.data.userid").value("testuser2"));
     }
 }

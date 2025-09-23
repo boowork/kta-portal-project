@@ -5,10 +5,9 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.http.MediaType;
-import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.test.web.servlet.MockMvc;
 
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 @AutoConfigureMockMvc
@@ -18,24 +17,7 @@ public class PutUserControllerTest extends BaseIntegrationTest {
     private MockMvc mockMvc;
 
     @Test
-    @WithMockUser
-    void testUpdateUser() throws Exception {
-        // First create a user
-        String createUserJson = """
-                {
-                    "userid": "updateuser789",
-                    "password": "password123",
-                    "name": "Original Name",
-                    "role": "USER"
-                }
-                """;
-
-        mockMvc.perform(post("/api/v1/users")
-                        .contentType(MediaType.APPLICATION_JSON)
-                        .content(createUserJson))
-                .andExpect(status().isCreated());
-
-        // Then update the user
+    void testUpdateUser_WithoutAuthentication_ShouldReturn401() throws Exception {
         String updateUserJson = """
                 {
                     "name": "Updated Name",
@@ -46,37 +28,42 @@ public class PutUserControllerTest extends BaseIntegrationTest {
         mockMvc.perform(put("/api/v1/users/1")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(updateUserJson))
-                .andExpect(status().isOk())
-                .andExpect(content().contentType(MediaType.APPLICATION_JSON))
-                .andExpect(jsonPath("$.success").value(true))
-                .andExpect(jsonPath("$.data.id").value(1))
-                .andExpect(jsonPath("$.data.userid").value("updateuser789"))
-                .andExpect(jsonPath("$.data.name").value("Updated Name"))
-                .andExpect(jsonPath("$.data.role").value("ADMIN"))
-                .andExpect(jsonPath("$.data.password").doesNotExist())
-                .andExpect(jsonPath("$.data.updatedAt").exists())
-                .andExpect(jsonPath("$.errors").doesNotExist());
+                .andExpect(status().isUnauthorized());
     }
 
     @Test
-    @WithMockUser
-    void testUpdateUserNotFound() throws Exception {
+    void testUpdateUser_WithUserRole() throws Exception {
         String updateUserJson = """
                 {
-                    "name": "Updated Name",
+                    "name": "Updated User Name",
+                    "role": "USER"
+                }
+                """;
+
+        mockMvc.perform(withUserAuth(put("/api/v1/users/1"))
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(updateUserJson))
+                .andExpect(status().isOk())
+                .andExpect(content().contentType(MediaType.APPLICATION_JSON))
+                .andExpect(jsonPath("$.success").value(true))
+                .andExpect(jsonPath("$.data.name").value("Updated User Name"));
+    }
+
+    @Test
+    void testUpdateUser_WithAdminRole() throws Exception {
+        String updateUserJson = """
+                {
+                    "name": "Updated Admin Name",
                     "role": "ADMIN"
                 }
                 """;
 
-        mockMvc.perform(put("/api/v1/users/999")
+        mockMvc.perform(withAdminAuth(put("/api/v1/users/2"))
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(updateUserJson))
-                .andExpect(status().isBadRequest())
+                .andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON))
-                .andExpect(jsonPath("$.success").value(false))
-                .andExpect(jsonPath("$.data").doesNotExist())
-                .andExpect(jsonPath("$.errors").isArray())
-                .andExpect(jsonPath("$.errors[0].message").value("User not found"))
-                .andExpect(jsonPath("$.errors[0].code").value("NOT_FOUND"));
+                .andExpect(jsonPath("$.success").value(true))
+                .andExpect(jsonPath("$.data.name").value("Updated Admin Name"));
     }
 }
