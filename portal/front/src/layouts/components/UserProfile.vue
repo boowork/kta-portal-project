@@ -35,7 +35,7 @@ const handleLogout = () => {
         offset="14px"
       >
         <VList>
-          <!-- 👉 User Avatar & Name -->
+          <!--  User Avatar & Name -->
           <VListItem>
             <template #prepend>
               <VListItemAction start>
@@ -64,7 +64,7 @@ const handleLogout = () => {
 
           <VDivider class="my-2" />
 
-          <!-- 👉 Profile -->
+          <!--  Profile -->
           <VListItem link>
             <template #prepend>
               <VIcon
@@ -77,7 +77,7 @@ const handleLogout = () => {
             <VListItemTitle>Profile</VListItemTitle>
           </VListItem>
 
-          <!-- 👉 Settings -->
+          <!--  Settings -->
           <VListItem link>
             <template #prepend>
               <VIcon
@@ -90,7 +90,7 @@ const handleLogout = () => {
             <VListItemTitle>Settings</VListItemTitle>
           </VListItem>
 
-          <!-- 👉 Pricing -->
+          <!--  Pricing -->
           <VListItem link>
             <template #prepend>
               <VIcon
@@ -103,7 +103,7 @@ const handleLogout = () => {
             <VListItemTitle>Pricing</VListItemTitle>
           </VListItem>
 
-          <!-- 👉 FAQ -->
+          <!--  FAQ -->
           <VListItem link>
             <template #prepend>
               <VIcon
@@ -119,7 +119,7 @@ const handleLogout = () => {
           <!-- Divider -->
           <VDivider class="my-2" />
 
-          <!-- 👉 Logout -->
+          <!--  Logout -->
           <VListItem @click="handleLogout">
             <template #prepend>
               <VIcon

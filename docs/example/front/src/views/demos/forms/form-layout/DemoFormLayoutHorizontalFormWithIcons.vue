@@ -9,7 +9,7 @@ const checkbox = ref(false)
 <template>
   <VForm @submit.prevent="() => {}">
     <VRow>
-      <!-- 👉 First Name -->
+      <!--  First Name -->
       <VCol cols="12">
         <VRow no-gutters>
           <VCol
@@ -38,7 +38,7 @@ const checkbox = ref(false)
         </VRow>
       </VCol>
 
-      <!-- 👉 Email -->
+      <!--  Email -->
       <VCol cols="12">
         <VRow no-gutters>
           <VCol
@@ -67,7 +67,7 @@ const checkbox = ref(false)
         </VRow>
       </VCol>
 
-      <!-- 👉 Mobile -->
+      <!--  Mobile -->
       <VCol cols="12">
         <VRow no-gutters>
           <VCol
@@ -97,7 +97,7 @@ const checkbox = ref(false)
         </VRow>
       </VCol>
 
-      <!-- 👉 Password -->
+      <!--  Password -->
       <VCol cols="12">
         <VRow no-gutters>
           <VCol
@@ -128,7 +128,7 @@ const checkbox = ref(false)
         </VRow>
       </VCol>
 
-      <!-- 👉 Checkbox -->
+      <!--  Checkbox -->
       <VCol cols="12">
         <VRow no-gutters>
           <VCol
@@ -147,7 +147,7 @@ const checkbox = ref(false)
         </VRow>
       </VCol>
 
-      <!-- 👉 submit and reset button -->
+      <!--  submit and reset button -->
       <VCol cols="12">
         <VRow no-gutters>
           <VCol

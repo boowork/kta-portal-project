@@ -43,10 +43,10 @@ const isPricingPlanDialogVisible = ref(false)
   <!-- eslint-disable vue/attribute-hyphenation -->
 
   <div class="payment-page">
-    <!-- 👉 Navbar -->
+    <!--  Navbar -->
     <Navbar />
 
-    <!-- 👉 Payment card  -->
+    <!--  Payment card  -->
     <VContainer>
       <div class="d-flex justify-center align-center payment-card">
         <VCard width="100%">
@@ -272,7 +272,7 @@ const isPricingPlanDialogVisible = ref(false)
       </div>
     </VContainer>
 
-    <!-- 👉 Footer -->
+    <!--  Footer -->
     <Footer />
 
     <PricingPlanDialog v-model:is-dialog-visible="isPricingPlanDialogVisible" />

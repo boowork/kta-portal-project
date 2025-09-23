@@ -126,7 +126,7 @@ watch(
     border
     class="d-flex flex-sm-row flex-column-reverse"
   >
-    <!-- 👉 Left Form -->
+    <!--  Left Form -->
     <div class="pa-6 flex-grow-1">
       <VRow>
         <VCol
@@ -204,7 +204,7 @@ watch(
       </VRow>
     </div>
 
-    <!-- 👉 Item Actions -->
+    <!--  Item Actions -->
     <div
       class="d-flex flex-column align-end item-actions"
       :class="$vuetify.display.smAndUp ? 'border-s' : 'border-b'"

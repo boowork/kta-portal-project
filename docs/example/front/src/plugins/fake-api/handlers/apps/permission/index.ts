@@ -5,7 +5,7 @@ import { db } from '@db/apps/permission/db'
 import { paginateArray } from '@api-utils/paginateArray'
 
 export const handlerAppsPermission = [
-  // 👉 Get Permission List
+  //  Get Permission List
   http.get(('/api/apps/permissions'), ({ request }) => {
     const url = new URL(request.url)
 

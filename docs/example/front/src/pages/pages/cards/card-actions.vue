@@ -25,7 +25,7 @@ const refetchData = (hideOverlay: () => void) => {
 <template>
   <VRow>
     <VCol cols="12">
-      <!-- 👉 Main Card  -->
+      <!--  Main Card  -->
       <AppCardActions
         title="Cards Actions"
         @refresh="refetchData"
@@ -73,7 +73,7 @@ const refetchData = (hideOverlay: () => void) => {
       cols="12"
       md="6"
     >
-      <!-- 👉 Initial Load -->
+      <!--  Initial Load -->
       <AppCardActions
         v-model:loading="isLoading"
         title="Initial Load"
@@ -90,7 +90,7 @@ const refetchData = (hideOverlay: () => void) => {
       cols="12"
       md="6"
     >
-      <!-- 👉 Collapsible -->
+      <!--  Collapsible -->
       <AppCardActions
         action-collapsed
         title="Collapsible"
@@ -109,7 +109,7 @@ const refetchData = (hideOverlay: () => void) => {
       cols="12"
       md="6"
     >
-      <!-- 👉 Refresh Content -->
+      <!--  Refresh Content -->
       <AppCardActions
         title="Refresh Content"
         action-refresh
@@ -129,7 +129,7 @@ const refetchData = (hideOverlay: () => void) => {
       cols="12"
       md="6"
     >
-      <!-- 👉 Remove Card -->
+      <!--  Remove Card -->
       <AppCardActions
         title="Remove Card"
         action-remove
@@ -148,7 +148,7 @@ const refetchData = (hideOverlay: () => void) => {
       cols="12"
       md="6"
     >
-      <!-- 👉 Slots -->
+      <!--  Slots -->
       <AppCardActions
         title="Slots"
         @refresh="refetchData"

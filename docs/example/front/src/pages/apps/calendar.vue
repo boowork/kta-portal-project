@@ -6,10 +6,10 @@ import { useCalendarStore } from '@/views/apps/calendar/useCalendarStore'
 // Components
 import CalendarEventHandler from '@/views/apps/calendar/CalendarEventHandler.vue'
 
-// 👉 Store
+//  Store
 const store = useCalendarStore()
 
-// 👉 Event
+//  Event
 const event = ref(structuredClone(blankEvent))
 const isEventHandlerSidebarActive = ref(false)
 
@@ -20,7 +20,7 @@ watch(isEventHandlerSidebarActive, val => {
 
 const { isLeftSidebarOpen } = useResponsiveLeftSidebar()
 
-// 👉 useCalendar
+//  useCalendar
 const {
   refCalendar,
   calendarOptions,
@@ -31,7 +31,7 @@ const {
 } = useCalendar(event, isEventHandlerSidebarActive, isLeftSidebarOpen)
 
 // SECTION Sidebar
-// 👉 Check all
+//  Check all
 const checkAll = computed({
   /*
     GET: Return boolean `true` => if length of options matches length of selected filters => Length matches when all events are selected
@@ -58,7 +58,7 @@ const jumpToDateFn = (date: string) => {
     <VCard>
       <!-- `z-index: 0` Allows overlapping vertical nav on calendar -->
       <VLayout style="z-index: 0">
-        <!-- 👉 Navigation drawer -->
+        <!--  Navigation drawer -->
         <VNavigationDrawer
           v-model="isLeftSidebarOpen"
           data-allow-mismatch

@@ -96,7 +96,7 @@ const resetForm = () => {
     class="category-navigation-drawer scrollable-content"
     @update:model-value="handleDrawerModelValueUpdate"
   >
-    <!-- 👉 Header -->
+    <!--  Header -->
     <AppDrawerHeaderSection
       title="Add Category"
       @cancel="$emit('update:isDrawerOpen', false)"

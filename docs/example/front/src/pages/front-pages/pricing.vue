@@ -131,7 +131,7 @@ const faqs = [
     <Navbar />
 
     <VCard class="pricing-card">
-      <!-- 👉 App Pricing components -->
+      <!--  App Pricing components -->
       <VContainer>
         <AppPricing md="4">
           <template #heading>
@@ -142,7 +142,7 @@ const faqs = [
         </AppPricing>
       </VContainer>
 
-      <!-- 👉 Free trial Banner -->
+      <!--  Free trial Banner -->
 
       <div class="page-pricing-free-trial-banner-bg">
         <VContainer>
@@ -168,7 +168,7 @@ const faqs = [
         </VContainer>
       </div>
 
-      <!-- 👉 Plans -->
+      <!--  Plans -->
       <VContainer>
         <VCardText class="text-center py-16 pricing-section">
           <h3 class="text-h3 mb-2">
@@ -177,9 +177,9 @@ const faqs = [
           <p class="text-body-1 mb-6">
             Stay cool, we have a 48-hour money back guarantee!
           </p>
-          <!-- 👉 Features & Tables -->
+          <!--  Features & Tables -->
           <VTable class="text-no-wrap border rounded pricing-table">
-            <!-- 👉 Table head -->
+            <!--  Table head -->
             <thead>
               <tr>
                 <th
@@ -226,7 +226,7 @@ const faqs = [
                 </th>
               </tr>
             </thead>
-            <!-- 👉 Table Body -->
+            <!--  Table Body -->
             <tbody>
               <tr
                 v-for="feature in features"
@@ -303,7 +303,7 @@ const faqs = [
                 </td>
               </tr>
             </tbody>
-            <!-- 👉 Table footer -->
+            <!--  Table footer -->
             <tfoot>
               <tr>
                 <td class="py-2" />
@@ -334,7 +334,7 @@ const faqs = [
         </VCardText>
       </VContainer>
 
-      <!-- 👉 FAQ -->
+      <!--  FAQ -->
       <div style="background-color: rgba(var(--v-theme-on-surface), var(--v-hover-opacity));">
         <VContainer>
           <VCardText class="py-10 py-sm-16 pricing-section">

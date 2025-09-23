@@ -45,14 +45,14 @@ const onSubmit = () => {
       cols="12"
       md="4"
     >
-      <!-- 👉 Stepper -->
+      <!--  Stepper -->
       <AppStepper
         v-model:current-step="currentStep"
         direction="vertical"
         :items="numberedSteps"
       />
     </VCol>
-    <!-- 👉 stepper content -->
+    <!--  stepper content -->
     <VCol
       cols="12"
       md="8"

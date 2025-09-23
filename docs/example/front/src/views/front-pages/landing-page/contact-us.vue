@@ -8,7 +8,7 @@ const message = ref('')
 
 <template>
   <VContainer id="contact-us">
-    <!-- 👉 Headers  -->
+    <!--  Headers  -->
     <div class="contact-us-section">
       <div class="headers d-flex justify-center flex-column align-center pb-16">
         <VChip

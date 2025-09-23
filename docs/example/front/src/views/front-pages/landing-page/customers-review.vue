@@ -133,7 +133,7 @@ const slide = (dir: string) => {
   >
     <div class="customer-reviews">
       <VContainer>
-        <!-- 👉 Headers  -->
+        <!--  Headers  -->
         <VRow>
           <VCol
             cols="12"
@@ -191,7 +191,7 @@ const slide = (dir: string) => {
             cols="12"
             md="9"
           >
-            <!-- 👉 Customer Review Swiper -->
+            <!--  Customer Review Swiper -->
             <div class="swiper-reviews-carousel">
               <!-- eslint-disable vue/attribute-hyphenation -->
               <swiper-container
@@ -282,7 +282,7 @@ const slide = (dir: string) => {
       <VDivider class="w-100 swiper-divider" />
 
       <VContainer>
-        <!-- 👉 Brand-logo Swiper  -->
+        <!--  Brand-logo Swiper  -->
         <div class="swiper-brands-carousel">
           <swiper-container
             slides-per-view="2"

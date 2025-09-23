@@ -29,7 +29,7 @@ const role = ref()
 const plan = ref()
 const status = ref()
 
-// 👉 drawer close
+//  drawer close
 const closeNavigationDrawer = () => {
   emit('update:isDrawerOpen', false)
 
@@ -80,7 +80,7 @@ const handleDrawerModelValueUpdate = (val: boolean) => {
     :model-value="props.isDrawerOpen"
     @update:model-value="handleDrawerModelValueUpdate"
   >
-    <!-- 👉 Title -->
+    <!--  Title -->
     <AppDrawerHeaderSection
       title="Add New User"
       @cancel="closeNavigationDrawer"
@@ -91,14 +91,14 @@ const handleDrawerModelValueUpdate = (val: boolean) => {
     <PerfectScrollbar :options="{ wheelPropagation: false }">
       <VCard flat>
         <VCardText>
-          <!-- 👉 Form -->
+          <!--  Form -->
           <VForm
             ref="refForm"
             v-model="isFormValid"
             @submit.prevent="onSubmit"
           >
             <VRow>
-              <!-- 👉 Full name -->
+              <!--  Full name -->
               <VCol cols="12">
                 <AppTextField
                   v-model="fullName"
@@ -108,7 +108,7 @@ const handleDrawerModelValueUpdate = (val: boolean) => {
                 />
               </VCol>
 
-              <!-- 👉 Username -->
+              <!--  Username -->
               <VCol cols="12">
                 <AppTextField
                   v-model="userName"
@@ -118,7 +118,7 @@ const handleDrawerModelValueUpdate = (val: boolean) => {
                 />
               </VCol>
 
-              <!-- 👉 Email -->
+              <!--  Email -->
               <VCol cols="12">
                 <AppTextField
                   v-model="email"
@@ -128,7 +128,7 @@ const handleDrawerModelValueUpdate = (val: boolean) => {
                 />
               </VCol>
 
-              <!-- 👉 company -->
+              <!--  company -->
               <VCol cols="12">
                 <AppTextField
                   v-model="company"
@@ -138,7 +138,7 @@ const handleDrawerModelValueUpdate = (val: boolean) => {
                 />
               </VCol>
 
-              <!-- 👉 Country -->
+              <!--  Country -->
               <VCol cols="12">
                 <AppSelect
                   v-model="country"
@@ -149,7 +149,7 @@ const handleDrawerModelValueUpdate = (val: boolean) => {
                 />
               </VCol>
 
-              <!-- 👉 Contact -->
+              <!--  Contact -->
               <VCol cols="12">
                 <AppTextField
                   v-model="contact"
@@ -160,7 +160,7 @@ const handleDrawerModelValueUpdate = (val: boolean) => {
                 />
               </VCol>
 
-              <!-- 👉 Role -->
+              <!--  Role -->
               <VCol cols="12">
                 <AppSelect
                   v-model="role"
@@ -171,7 +171,7 @@ const handleDrawerModelValueUpdate = (val: boolean) => {
                 />
               </VCol>
 
-              <!-- 👉 Plan -->
+              <!--  Plan -->
               <VCol cols="12">
                 <AppSelect
                   v-model="plan"
@@ -182,7 +182,7 @@ const handleDrawerModelValueUpdate = (val: boolean) => {
                 />
               </VCol>
 
-              <!-- 👉 Status -->
+              <!--  Status -->
               <VCol cols="12">
                 <AppSelect
                   v-model="status"
@@ -193,7 +193,7 @@ const handleDrawerModelValueUpdate = (val: boolean) => {
                 />
               </VCol>
 
-              <!-- 👉 Submit and Cancel -->
+              <!--  Submit and Cancel -->
               <VCol cols="12">
                 <VBtn
                   type="submit"

@@ -18,7 +18,7 @@ import CardWidgetsVehicleOverview from '@/views/pages/cards/card-widgets/CardWid
 
 <template>
   <VRow>
-    <!-- 👉 Customer Ratings Chart -->
+    <!--  Customer Ratings Chart -->
     <VCol
       cols="12"
       sm="6"
@@ -27,7 +27,7 @@ import CardWidgetsVehicleOverview from '@/views/pages/cards/card-widgets/CardWid
       <CardWidgetsCustomerRatings />
     </VCol>
 
-    <!-- 👉 Sales Stats Chart -->
+    <!--  Sales Stats Chart -->
     <VCol
       cols="12"
       sm="6"
@@ -36,7 +36,7 @@ import CardWidgetsVehicleOverview from '@/views/pages/cards/card-widgets/CardWid
       <CardWidgetsSalesStats />
     </VCol>
 
-    <!-- 👉 Sales Analytics Chart -->
+    <!--  Sales Analytics Chart -->
     <VCol
       cols="12"
       sm="6"
@@ -45,7 +45,7 @@ import CardWidgetsVehicleOverview from '@/views/pages/cards/card-widgets/CardWid
       <CardWidgetsSalesAnalytics />
     </VCol>
 
-    <!-- 👉 Sales Activity chart -->
+    <!--  Sales Activity chart -->
     <VCol
       cols="12"
       sm="6"
@@ -54,7 +54,7 @@ import CardWidgetsVehicleOverview from '@/views/pages/cards/card-widgets/CardWid
       <CardWidgetsSalesActivity />
     </VCol>
 
-    <!-- 👉 Total Income chart -->
+    <!--  Total Income chart -->
     <VCol
       cols="12"
       md="8"
@@ -62,7 +62,7 @@ import CardWidgetsVehicleOverview from '@/views/pages/cards/card-widgets/CardWid
       <CardWidgetsTotalIncome />
     </VCol>
 
-    <!-- 👉 Tabs chart -->
+    <!--  Tabs chart -->
     <VCol
       cols="12"
       sm="6"
@@ -71,7 +71,7 @@ import CardWidgetsVehicleOverview from '@/views/pages/cards/card-widgets/CardWid
       <CardWidgetsTabs />
     </VCol>
 
-    <!-- 👉 Performance chart -->
+    <!--  Performance chart -->
     <VCol
       cols="12"
       sm="6"
@@ -80,7 +80,7 @@ import CardWidgetsVehicleOverview from '@/views/pages/cards/card-widgets/CardWid
       <CardWidgetsPerformance />
     </VCol>
 
-    <!-- 👉 Total Balance chart -->
+    <!--  Total Balance chart -->
     <VCol
       cols="12"
       sm="6"
@@ -89,7 +89,7 @@ import CardWidgetsVehicleOverview from '@/views/pages/cards/card-widgets/CardWid
       <CardWidgetsTotalBalance />
     </VCol>
 
-    <!-- 👉 Score chart -->
+    <!--  Score chart -->
     <VCol
       cols="12"
       md="4"
@@ -99,7 +99,7 @@ import CardWidgetsVehicleOverview from '@/views/pages/cards/card-widgets/CardWid
       <CardWidgetsScore />
     </VCol>
 
-    <!-- 👉 Total Revenue chart -->
+    <!--  Total Revenue chart -->
     <VCol
       cols="12"
       md="8"
@@ -109,7 +109,7 @@ import CardWidgetsVehicleOverview from '@/views/pages/cards/card-widgets/CardWid
       <CardWidgetsTotalRevenue />
     </VCol>
 
-    <!-- 👉 Vehicle Overview -->
+    <!--  Vehicle Overview -->
     <VCol
       cols="12"
       lg="6"
@@ -117,7 +117,7 @@ import CardWidgetsVehicleOverview from '@/views/pages/cards/card-widgets/CardWid
       <CardWidgetsVehicleOverview />
     </VCol>
 
-    <!-- 👉 Shipment Statistics -->
+    <!--  Shipment Statistics -->
     <VCol
       cols="12"
       lg="6"
@@ -125,7 +125,7 @@ import CardWidgetsVehicleOverview from '@/views/pages/cards/card-widgets/CardWid
       <CardWidgetsShipmentStatistics />
     </VCol>
 
-    <!-- 👉 Topic You are Interested -->
+    <!--  Topic You are Interested -->
     <VCol
       cols="12"
       lg="8"
@@ -133,7 +133,7 @@ import CardWidgetsVehicleOverview from '@/views/pages/cards/card-widgets/CardWid
       <CardWidgetsTopicsInterested />
     </VCol>
 
-    <!-- 👉 Delivery Exceptions -->
+    <!--  Delivery Exceptions -->
     <VCol
       cols="12"
       lg="4"
@@ -141,7 +141,7 @@ import CardWidgetsVehicleOverview from '@/views/pages/cards/card-widgets/CardWid
       <CardWidgetsDeliveryExpectations />
     </VCol>
 
-    <!-- 👉 Sessions Overview chart -->
+    <!--  Sessions Overview chart -->
     <VCol
       cols="12"
       lg="6"

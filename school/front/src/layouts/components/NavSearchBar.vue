@@ -29,11 +29,11 @@ interface SuggestionGroup {
   content: Suggestion[]
 }
 
-// 👉 Is App Search Bar Visible
+//  Is App Search Bar Visible
 const isAppSearchBarVisible = ref(false)
 const isLoading = ref(false)
 
-// 👉 Default suggestions
+//  Default suggestions
 
 const suggestionGroups: SuggestionGroup[] = [
   {
@@ -74,7 +74,7 @@ const suggestionGroups: SuggestionGroup[] = [
   },
 ]
 
-// 👉 No Data suggestion
+//  No Data suggestion
 const noDataSuggestions: Suggestion[] = [
   {
     title: 'Analytics',
@@ -118,7 +118,7 @@ const closeSearchBar = () => {
   searchQuery.value = ''
 }
 
-// 👉 redirect the selected page
+//  redirect the selected page
 const redirectToSuggestedPage = (selected: Suggestion) => {
   router.push(selected.url as string)
   closeSearchBar()
@@ -134,7 +134,7 @@ const LazyAppBarSearch = defineAsyncComponent(() => import('@core/components/App
     style="user-select: none;"
     @click="isAppSearchBarVisible = !isAppSearchBarVisible"
   >
-    <!-- 👉 Search Trigger button -->
+    <!--  Search Trigger button -->
     <!-- close active tour while opening search bar using icon -->
     <IconBtn @click="Shepherd.activeTour?.cancel()">
       <VIcon icon="bx-search" />
@@ -150,7 +150,7 @@ const LazyAppBarSearch = defineAsyncComponent(() => import('@core/components/App
     </span>
   </div>
 
-  <!-- 👉 App Bar Search -->
+  <!--  App Bar Search -->
   <LazyAppBarSearch
     v-model:is-dialog-visible="isAppSearchBarVisible"
     :search-results="searchResult"

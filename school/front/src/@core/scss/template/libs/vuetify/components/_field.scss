@@ -20,9 +20,9 @@ $v-input-density: (
   ),
 );
 
-// 👉 VInput
+//  VInput
 .v-input {
-  // 👉 VField
+  //  VField
   .v-field {
     .v-field__loader {
       .v-progress-linear {
@@ -117,7 +117,7 @@ $v-input-density: (
   }
 }
 
-// 👉 TextField, Select, AutoComplete, ComboBox, Textarea
+//  TextField, Select, AutoComplete, ComboBox, Textarea
 // ℹ️ We added .v-application to increase the specificity of the selector
 
 // Styles related to our custom input components

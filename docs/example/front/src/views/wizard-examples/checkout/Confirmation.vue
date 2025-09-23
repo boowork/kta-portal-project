@@ -149,7 +149,7 @@ const resolveDeliveryMethod = computed(() => {
         cols="12"
         md="9"
       >
-        <!-- 👉 cart items -->
+        <!--  cart items -->
         <div class="border rounded">
           <template
             v-for="(item, index) in props.checkoutData.cartItems"

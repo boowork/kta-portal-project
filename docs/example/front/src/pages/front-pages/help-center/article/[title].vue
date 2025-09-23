@@ -39,10 +39,10 @@ else
 <template>
   <!-- eslint-disable vue/no-v-html -->
   <div class="bg-surface help-center-article">
-    <!-- 👉 Navbar  -->
+    <!--  Navbar  -->
     <Navbar />
 
-    <!-- 👉 Content -->
+    <!--  Content -->
     <VContainer>
       <div
         v-if="articleData && articleData?.title"
@@ -102,7 +102,7 @@ else
               class="mb-6"
             />
             <div>
-              <!-- 👉 Article List  -->
+              <!--  Article List  -->
               <h5
                 class="text-h5 px-6 py-2 mb-4 rounded"
                 style="background: rgba(var(--v-theme-on-surface), var(--v-hover-opacity));"
@@ -133,7 +133,7 @@ else
       </div>
     </VContainer>
 
-    <!-- 👉 Footer  -->
+    <!--  Footer  -->
     <Footer />
   </div>
 </template>

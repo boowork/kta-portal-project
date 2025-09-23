@@ -97,7 +97,7 @@ const timeSpendingChartSeries = [23, 35, 10, 20, 35, 23]
 <template>
   <div>
     <VRow class="py-6">
-      <!-- 👉 Welcome -->
+      <!--  Welcome -->
       <VCol
         cols="12"
         md="8"
@@ -155,7 +155,7 @@ const timeSpendingChartSeries = [23, 35, 10, 20, 35, 23]
         </div>
       </VCol>
 
-      <!-- 👉 Time Spending -->
+      <!--  Time Spending -->
       <VCol
         cols="12"
         md="4"
@@ -195,16 +195,16 @@ const timeSpendingChartSeries = [23, 35, 10, 20, 35, 23]
     </VRow>
 
     <VRow class="match-height">
-      <!-- 👉 Topics you are interested in -->
+      <!--  Topics you are interested in -->
       <VCol
         cols="12"
         md="8"
       >
-        <!-- 👉 Topic You are Interested in -->
+        <!--  Topic You are Interested in -->
         <AcademyTopicYouAreInterested />
       </VCol>
 
-      <!-- 👉 Popular Instructors  -->
+      <!--  Popular Instructors  -->
       <VCol
         cols="12"
         md="4"
@@ -213,7 +213,7 @@ const timeSpendingChartSeries = [23, 35, 10, 20, 35, 23]
         <AcademyCardPopularInstructors />
       </VCol>
 
-      <!-- 👉 Academy Top Courses  -->
+      <!--  Academy Top Courses  -->
       <VCol
         cols="12"
         md="4"
@@ -222,7 +222,7 @@ const timeSpendingChartSeries = [23, 35, 10, 20, 35, 23]
         <AcademyCardTopCourses />
       </VCol>
 
-      <!-- 👉 Academy Upcoming Webinar -->
+      <!--  Academy Upcoming Webinar -->
       <VCol
         cols="12"
         md="4"
@@ -231,7 +231,7 @@ const timeSpendingChartSeries = [23, 35, 10, 20, 35, 23]
         <AcademyUpcomingWebinar />
       </VCol>
 
-      <!-- 👉 Academy Assignment Progress  -->
+      <!--  Academy Assignment Progress  -->
       <VCol
         cols="12"
         md="4"
@@ -240,7 +240,7 @@ const timeSpendingChartSeries = [23, 35, 10, 20, 35, 23]
         <AcademyAssignmentProgress />
       </VCol>
 
-      <!-- 👉 Academy Course Table  -->
+      <!--  Academy Course Table  -->
       <VCol>
         <AcademyCourseTable />
       </VCol>

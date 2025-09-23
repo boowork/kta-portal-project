@@ -8,7 +8,7 @@ import { basic, checkboxValue, colors, density, icon, inlineTextField, labelSlot
       cols="12"
       md="6"
     >
-      <!-- 👉 Basic -->
+      <!--  Basic -->
       <AppCardCode
         title="Basic"
         :code="basic"
@@ -23,7 +23,7 @@ import { basic, checkboxValue, colors, density, icon, inlineTextField, labelSlot
       cols="12"
       md="6"
     >
-      <!-- 👉 Density -->
+      <!--  Density -->
       <AppCardCode
         title="Density"
         :code="density"
@@ -38,7 +38,7 @@ import { basic, checkboxValue, colors, density, icon, inlineTextField, labelSlot
       cols="12"
       md="6"
     >
-      <!-- 👉 Colors -->
+      <!--  Colors -->
       <AppCardCode
         title="Colors"
         :code="colors"
@@ -53,7 +53,7 @@ import { basic, checkboxValue, colors, density, icon, inlineTextField, labelSlot
       cols="12"
       md="6"
     >
-      <!-- 👉 Model as array -->
+      <!--  Model as array -->
       <AppCardCode
         title="Model as array"
         :code="modelAsArray"
@@ -68,7 +68,7 @@ import { basic, checkboxValue, colors, density, icon, inlineTextField, labelSlot
       cols="12"
       md="6"
     >
-      <!-- 👉 Icon -->
+      <!--  Icon -->
       <AppCardCode
         title="Icon"
         :code="icon"
@@ -83,7 +83,7 @@ import { basic, checkboxValue, colors, density, icon, inlineTextField, labelSlot
       cols="12"
       md="6"
     >
-      <!-- 👉 Checkbox Value -->
+      <!--  Checkbox Value -->
       <AppCardCode
         title="Checkbox Value"
         :code="checkboxValue"
@@ -98,7 +98,7 @@ import { basic, checkboxValue, colors, density, icon, inlineTextField, labelSlot
       cols="12"
       md="6"
     >
-      <!-- 👉 States -->
+      <!--  States -->
       <AppCardCode
         title="States"
         :code="states"
@@ -113,7 +113,7 @@ import { basic, checkboxValue, colors, density, icon, inlineTextField, labelSlot
       cols="12"
       md="6"
     >
-      <!-- 👉 Label Slot -->
+      <!--  Label Slot -->
       <AppCardCode
         title="Label Slot"
         :code="labelSlot"
@@ -128,7 +128,7 @@ import { basic, checkboxValue, colors, density, icon, inlineTextField, labelSlot
       cols="12"
       md="6"
     >
-      <!-- 👉 Inline text-field -->
+      <!--  Inline text-field -->
       <AppCardCode
         title="Inline text-field"
         :code="inlineTextField"

@@ -36,7 +36,7 @@ watch(formData, () => {
   <VForm>
     <VRow>
       <VCol cols="12">
-        <!-- 👉 Property Deal Type  -->
+        <!--  Property Deal Type  -->
         <CustomRadiosWithIcon
           v-model:selected-radio="formData.propertyDealType"
           :radio-content="radioContent"
@@ -48,7 +48,7 @@ watch(formData, () => {
         cols="12"
         sm="6"
       >
-        <!-- 👉 Property Type -->
+        <!--  Property Type -->
         <AppSelect
           v-model="formData.propertyType"
           label="Property type"
@@ -61,7 +61,7 @@ watch(formData, () => {
         cols="12"
         sm="6"
       >
-        <!-- 👉 Zip Code -->
+        <!--  Zip Code -->
         <AppTextField
           v-model="formData.zipCode"
           label="Zip Code"
@@ -74,7 +74,7 @@ watch(formData, () => {
         cols="12"
         sm="6"
       >
-        <!-- 👉 Country -->
+        <!--  Country -->
         <AppSelect
           v-model="formData.country"
           label="Country"
@@ -87,7 +87,7 @@ watch(formData, () => {
         cols="12"
         sm="6"
       >
-        <!-- 👉 State -->
+        <!--  State -->
         <AppTextField
           v-model="formData.state"
           label="State"
@@ -99,7 +99,7 @@ watch(formData, () => {
         cols="12"
         sm="6"
       >
-        <!-- 👉 City -->
+        <!--  City -->
         <AppTextField
           v-model="formData.city"
           label="City"
@@ -111,7 +111,7 @@ watch(formData, () => {
         cols="12"
         sm="6"
       >
-        <!-- 👉 Landmark -->
+        <!--  Landmark -->
         <AppTextField
           v-model="formData.landmark"
           label="Landmark"
@@ -120,7 +120,7 @@ watch(formData, () => {
       </VCol>
 
       <VCol>
-        <!-- 👉 Address -->
+        <!--  Address -->
         <AppTextarea
           v-model="formData.address"
           label="Address"

@@ -229,7 +229,7 @@ watch(
             <VIcon icon="bx-menu" />
           </IconBtn>
 
-          <!-- 👉 Search -->
+          <!--  Search -->
           <VTextField
             v-model="q"
             density="default"
@@ -246,7 +246,7 @@ watch(
           </VTextField>
         </div>
         <VDivider />
-        <!-- 👉 Action bar -->
+        <!--  Action bar -->
         <div class="py-2 px-4 d-flex align-center d-flex gap-x-1">
           <!-- TODO: Make checkbox primary on indeterminate state -->
           <VCheckbox
@@ -382,7 +382,7 @@ watch(
           </IconBtn>
         </div>
         <VDivider />
-        <!-- 👉 Emails list -->
+        <!--  Emails list -->
         <PerfectScrollbar
           tag="ul"
           :options="{ wheelPropagation: false }"
@@ -424,7 +424,7 @@ watch(
 
             <VSpacer />
 
-            <!-- 👉 Email meta -->
+            <!--  Email meta -->
             <div
               class="email-meta align-center gap-2"
               :class="$vuetify.display.xs ? 'd-none' : ''"
@@ -441,7 +441,7 @@ watch(
                 {{ formatDateToMonthShort(email.time) }}
               </span>
             </div>
-            <!-- 👉 Email actions -->
+            <!--  Email actions -->
             <div class="email-actions d-none">
               <IconBtn @click.stop="handleActionClick('trash', [email.id])">
                 <VIcon

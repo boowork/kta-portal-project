@@ -3,14 +3,14 @@ import { useShepherd } from 'vue-shepherd'
 
 const route = useRoute()
 
-// 👉 Hotkey
+//  Hotkey
 // eslint-disable-next-line camelcase
 const { ctrl_k, meta_k } = useMagicKeys()
 
-// 👉 Tour initialization
+//  Tour initialization
 let tour: any = null
 
-// 👉 watch command palette and route change
+//  watch command palette and route change
 /* eslint-disable camelcase */
 watch([
   ctrl_k,
@@ -38,7 +38,7 @@ onMounted(() => {
     },
   })
 
-  //  👉 Tour steps
+  //   Tour steps
   tour.addSteps([
     {
       id: 'welcome',

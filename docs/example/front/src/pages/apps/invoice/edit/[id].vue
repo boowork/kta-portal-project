@@ -9,7 +9,7 @@ import type { InvoiceData, PurchasedProduct } from '@/views/apps/invoice/types'
 const invoiceData = ref<InvoiceData>()
 const route = useRoute('apps-invoice-edit-id')
 
-// 👉 fetchInvoice
+//  fetchInvoice
 
 const { data: invoiceDetails } = await useApi<any>(
   `/apps/invoice/${route.params.id}`,
@@ -60,7 +60,7 @@ const paymentMethods = ['Bank Account', 'PayPal', 'UPI Transfer']
 
 <template>
   <VRow v-if="invoiceData && invoiceData?.invoice">
-    <!-- 👉 InvoiceEditable -->
+    <!--  InvoiceEditable -->
     <VCol
       cols="12"
       md="9"
@@ -73,14 +73,14 @@ const paymentMethods = ['Bank Account', 'PayPal', 'UPI Transfer']
       />
     </VCol>
 
-    <!-- 👉 Right Column: Invoice Action -->
+    <!--  Right Column: Invoice Action -->
     <VCol
       cols="12"
       md="3"
     >
       <VCard class="mb-6">
         <VCardText>
-          <!-- 👉 Send Invoice Trigger button -->
+          <!--  Send Invoice Trigger button -->
           <VBtn
             block
             prepend-icon="bx-paper-plane"
@@ -91,7 +91,7 @@ const paymentMethods = ['Bank Account', 'PayPal', 'UPI Transfer']
           </VBtn>
 
           <div class="d-flex flex-wrap gap-4 mb-4">
-            <!-- 👉  Preview button -->
+            <!--   Preview button -->
             <VBtn
               color="secondary"
               variant="tonal"
@@ -104,7 +104,7 @@ const paymentMethods = ['Bank Account', 'PayPal', 'UPI Transfer']
               Preview
             </VBtn>
 
-            <!-- 👉 Save button -->
+            <!--  Save button -->
             <VBtn
               color="secondary"
               variant="tonal"
@@ -114,7 +114,7 @@ const paymentMethods = ['Bank Account', 'PayPal', 'UPI Transfer']
             </VBtn>
           </div>
 
-          <!-- 👉 Add Payment trigger button -->
+          <!--  Add Payment trigger button -->
           <VBtn
             block
             color="success"
@@ -126,7 +126,7 @@ const paymentMethods = ['Bank Account', 'PayPal', 'UPI Transfer']
         </VCardText>
       </VCard>
 
-      <!-- 👉 Accept payment via  -->
+      <!--  Accept payment via  -->
       <AppSelect
         id="payment-method"
         v-model="selectedPaymentMethod"
@@ -136,7 +136,7 @@ const paymentMethods = ['Bank Account', 'PayPal', 'UPI Transfer']
       />
 
       <div class="d-flex flex-column gap-1">
-        <!-- 👉 Payment Terms -->
+        <!--  Payment Terms -->
         <div class="d-flex align-center justify-space-between">
           <VLabel
             for="payment-terms"
@@ -151,7 +151,7 @@ const paymentMethods = ['Bank Account', 'PayPal', 'UPI Transfer']
             />
           </div>
         </div>
-        <!-- 👉 Client Notes -->
+        <!--  Client Notes -->
         <div class="d-flex align-center justify-space-between">
           <VLabel
             for="client-notes"
@@ -166,7 +166,7 @@ const paymentMethods = ['Bank Account', 'PayPal', 'UPI Transfer']
             />
           </div>
         </div>
-        <!-- 👉 Payment Stub -->
+        <!--  Payment Stub -->
         <div class="d-flex align-center justify-space-between">
           <VLabel
             for="payment-stub"
@@ -184,10 +184,10 @@ const paymentMethods = ['Bank Account', 'PayPal', 'UPI Transfer']
       </div>
     </VCol>
 
-    <!-- 👉 Invoice send drawer -->
+    <!--  Invoice send drawer -->
     <InvoiceSendInvoiceDrawer v-model:is-drawer-open="isSendSidebarActive" />
 
-    <!-- 👉 Invoice add payment drawer -->
+    <!--  Invoice add payment drawer -->
     <InvoiceAddPaymentDrawer v-model:is-drawer-open="isAddPaymentSidebarActive" />
   </VRow>
 

@@ -1,84 +1,56 @@
 import { defineStore } from 'pinia'
+import { useAuth } from '@/composables/useAuth'
+import type { LoginResponse } from '@/api/types'
 
-export interface User {
-  id: number
-  email: string
+export interface AuthUser {
+  userid: string
   name: string
-  role: string
+  role: 'ADMIN' | 'USER'
 }
 
 export const useAuthStore = defineStore('auth', () => {
-  const user = ref<User | null>(null)
-  const isAuthenticated = ref(false)
-  const token = ref<string | null>(null)
+  const authComposable = useAuth()
 
-  // Initialize from localStorage
-  const initAuth = () => {
-    const savedToken = localStorage.getItem('auth_token')
-    const savedUser = localStorage.getItem('auth_user')
-
-    if (savedToken && savedUser) {
-      token.value = savedToken
-      user.value = JSON.parse(savedUser)
-      isAuthenticated.value = true
+  // Re-export authentication state and methods from composable
+  const user = computed<AuthUser | null>(() => {
+    if (!authComposable.user.value) return null
+    
+    return {
+      userid: authComposable.user.value.userid,
+      name: authComposable.user.value.name,
+      role: authComposable.user.value.role,
     }
-  }
+  })
 
-  // Login function - accepts any id/password
-  const login = async (email: string, password: string): Promise<boolean> => {
-    try {
-      // Simulate API call delay
-      await new Promise(resolve => setTimeout(resolve, 1000))
+  const isAuthenticated = authComposable.isAuthenticated
+  const isLoading = authComposable.isLoading
+  const userRole = authComposable.userRole
+  const userName = authComposable.userName
+  const isAdmin = authComposable.isAdmin
 
-      // Accept any credentials for demo purposes
-      if (email && password) {
-        const mockUser: User = {
-          id: 1,
-          email,
-          name: email.split('@')[0] || 'User',
-          role: 'admin',
-        }
-
-        const mockToken = `mock_token_${Date.now()}`
-
-        // Save to state
-        user.value = mockUser
-        token.value = mockToken
-        isAuthenticated.value = true
-
-        // Save to localStorage
-        localStorage.setItem('auth_token', mockToken)
-        localStorage.setItem('auth_user', JSON.stringify(mockUser))
-
-        return true
-      }
-
-      return false
-    }
-    catch (error) {
-      console.error('Login failed:', error)
-
-      return false
-    }
-  }
-
-  // Logout function
-  const logout = () => {
-    user.value = null
-    token.value = null
-    isAuthenticated.value = false
-
-    // Clear localStorage
-    localStorage.removeItem('auth_token')
-    localStorage.removeItem('auth_user')
-  }
+  // Authentication methods
+  const login = authComposable.login
+  const logout = authComposable.logout
+  const refreshToken = authComposable.refreshToken
+  const initAuth = authComposable.initAuth
+  const verifyToken = authComposable.verifyToken
+  const checkAuth = authComposable.checkAuth
 
   return {
-    user: readonly(user),
-    isAuthenticated: readonly(isAuthenticated),
-    token: readonly(token),
-    initAuth,
+    // State
+    user,
+    isAuthenticated,
+    isLoading,
+    userRole,
+    userName,
+    isAdmin,
+
+    // Methods
     login,
     logout,
+    refreshToken,
+    initAuth,
+    verifyToken,
+    checkAuth,
   }
 })

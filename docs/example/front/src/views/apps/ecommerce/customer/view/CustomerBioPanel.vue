@@ -36,7 +36,7 @@ const customerData = {
     <VCol cols="12">
       <VCard v-if="props.customerData">
         <VCardText class="text-center pt-12">
-          <!-- 👉 Avatar -->
+          <!--  Avatar -->
           <VAvatar
             rounded
             :size="120"
@@ -55,7 +55,7 @@ const customerData = {
             </span>
           </VAvatar>
 
-          <!-- 👉 Customer fullName -->
+          <!--  Customer fullName -->
           <h5 class="text-h5 mt-4">
             {{ props.customerData.customer }}
           </h5>
@@ -105,7 +105,7 @@ const customerData = {
           </div>
         </VCardText>
 
-        <!-- 👉 Customer Details -->
+        <!--  Customer Details -->
         <VCardText>
           <h5 class="text-h5">
             Details

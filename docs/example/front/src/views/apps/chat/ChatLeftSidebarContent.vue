@@ -24,7 +24,7 @@ const store = useChatStore()
 </script>
 
 <template>
-  <!-- 👉 Chat list header -->
+  <!--  Chat list header -->
   <div
     v-if="store.profileUser"
     class="chat-list-header"

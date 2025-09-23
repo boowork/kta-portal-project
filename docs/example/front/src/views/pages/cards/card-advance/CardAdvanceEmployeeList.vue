@@ -86,7 +86,7 @@ const moreList = [
           :key="employee.title"
           class="flex-wrap"
         >
-          <!-- 👉 Avatar  -->
+          <!--  Avatar  -->
           <template #prepend>
             <VAvatar
               rounded
@@ -95,7 +95,7 @@ const moreList = [
             />
           </template>
 
-          <!-- 👉 Title and Subtitle -->
+          <!--  Title and Subtitle -->
           <VListItemTitle>
             {{ employee.title }}
           </VListItemTitle>
@@ -104,7 +104,7 @@ const moreList = [
             <span>{{ employee.designation }}</span>
           </VListItemSubtitle>
 
-          <!-- 👉 Business Types -->
+          <!--  Business Types -->
           <template #append>
             <p class="d-sm-none d-md-block text-body-1 mb-0 me-4 ms-2">
               <span class="text-high-emphasis">{{ employee.completedHours }}h:</span>

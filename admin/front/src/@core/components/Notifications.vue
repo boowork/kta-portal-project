@@ -70,7 +70,7 @@ const toggleReadUnread = (isSeen: boolean, Id: number) => {
       :close-on-content-click="false"
     >
       <VCard class="d-flex flex-column">
-        <!-- 👉 Header -->
+        <!--  Header -->
         <VCardItem class="notification-section">
           <VCardTitle class="text-h6">
             Notifications
@@ -108,7 +108,7 @@ const toggleReadUnread = (isSeen: boolean, Id: number) => {
 
         <VDivider />
 
-        <!-- 👉 Notifications list -->
+        <!--  Notifications list -->
         <PerfectScrollbar
           :options="{ wheelPropagation: false }"
           style="max-block-size: 23.75rem;"
@@ -196,7 +196,7 @@ const toggleReadUnread = (isSeen: boolean, Id: number) => {
 
         <VDivider />
 
-        <!-- 👉 Footer -->
+        <!--  Footer -->
         <VCardText
           v-show="props.notifications.length"
           class="py-4 px-5"

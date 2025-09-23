@@ -5,7 +5,7 @@ import { simpleFormValidation, validatingMultipleRules, validationTypes } from '
 <template>
   <VRow>
     <VCol cols="12">
-      <!-- 👉 Simple Form Validation -->
+      <!--  Simple Form Validation -->
       <AppCardCode
         title="Simple Form Validation"
         :code="simpleFormValidation"
@@ -17,7 +17,7 @@ import { simpleFormValidation, validatingMultipleRules, validationTypes } from '
     </VCol>
 
     <VCol cols="12">
-      <!-- 👉 Validating Multiple Rules -->
+      <!--  Validating Multiple Rules -->
       <AppCardCode
         title="Validating Multiple Rules"
         :code="validatingMultipleRules"
@@ -27,7 +27,7 @@ import { simpleFormValidation, validatingMultipleRules, validationTypes } from '
     </VCol>
 
     <VCol cols="12">
-      <!-- 👉 Validation Types -->
+      <!--  Validation Types -->
       <AppCardCode
         title="Validation Types"
         :code="validationTypes"

@@ -13,7 +13,7 @@ import ApexChartStocksPrices from '@/views/charts/apex-chart/ApexChartStocksPric
 
 <template>
   <VRow id="apex-chart-wrapper">
-    <!-- 👉  Area chart -->
+    <!--   Area chart -->
     <VCol cols="12">
       <VCard>
         <VCardItem class="d-flex flex-wrap justify-space-between gap-4">
@@ -38,7 +38,7 @@ import ApexChartStocksPrices from '@/views/charts/apex-chart/ApexChartStocksPric
       </VCard>
     </VCol>
 
-    <!-- 👉 Data Science -->
+    <!--  Data Science -->
     <VCol cols="12">
       <VCard>
         <VCardItem class="d-flex flex-wrap justify-space-between gap-4">
@@ -62,7 +62,7 @@ import ApexChartStocksPrices from '@/views/charts/apex-chart/ApexChartStocksPric
       </VCard>
     </VCol>
 
-    <!-- 👉 New Technologies Data -->
+    <!--  New Technologies Data -->
     <VCol cols="12">
       <VCard>
         <VCardItem class="d-flex flex-wrap justify-space-between gap-4">
@@ -88,7 +88,7 @@ import ApexChartStocksPrices from '@/views/charts/apex-chart/ApexChartStocksPric
       </VCard>
     </VCol>
 
-    <!-- 👉 Balance Line Chart  -->
+    <!--  Balance Line Chart  -->
     <VCol cols="12">
       <VCard>
         <VCardItem class="d-flex flex-wrap justify-space-between gap-4">
@@ -121,7 +121,7 @@ import ApexChartStocksPrices from '@/views/charts/apex-chart/ApexChartStocksPric
       </VCard>
     </VCol>
 
-    <!-- 👉 Balance Horizontal Bar -->
+    <!--  Balance Horizontal Bar -->
     <VCol
       cols="12"
       md="6"
@@ -149,7 +149,7 @@ import ApexChartStocksPrices from '@/views/charts/apex-chart/ApexChartStocksPric
       </VCard>
     </VCol>
 
-    <!-- 👉 Stocks Prices -->
+    <!--  Stocks Prices -->
     <VCol
       cols="12"
       md="6"
@@ -177,7 +177,7 @@ import ApexChartStocksPrices from '@/views/charts/apex-chart/ApexChartStocksPric
       </VCard>
     </VCol>
 
-    <!-- 👉 Daily Sales States -->
+    <!--  Daily Sales States -->
     <VCol
       cols="12"
       md="6"
@@ -189,7 +189,7 @@ import ApexChartStocksPrices from '@/views/charts/apex-chart/ApexChartStocksPric
       </VCard>
     </VCol>
 
-    <!-- 👉 Statistics -->
+    <!--  Statistics -->
     <VCol
       cols="12"
       md="6"
@@ -201,7 +201,7 @@ import ApexChartStocksPrices from '@/views/charts/apex-chart/ApexChartStocksPric
       </VCard>
     </VCol>
 
-    <!-- 👉 Mobile Comparison -->
+    <!--  Mobile Comparison -->
     <VCol
       cols="12"
       md="6"
@@ -213,7 +213,7 @@ import ApexChartStocksPrices from '@/views/charts/apex-chart/ApexChartStocksPric
       </VCard>
     </VCol>
 
-    <!-- 👉 Expense Ratio Chart -->
+    <!--  Expense Ratio Chart -->
     <VCol
       cols="12"
       md="6"

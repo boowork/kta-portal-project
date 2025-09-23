@@ -24,7 +24,7 @@ import CardAdvanceUpgradeYourPlan from '@/views/pages/cards/card-advance/CardAdv
 
 <template>
   <VRow>
-    <!-- 👉 Employee List -->
+    <!--  Employee List -->
     <VCol
       cols="12"
       lg="4"
@@ -33,7 +33,7 @@ import CardAdvanceUpgradeYourPlan from '@/views/pages/cards/card-advance/CardAdv
       <CardAdvanceEmployeeList />
     </VCol>
 
-    <!-- 👉 Transactions -->
+    <!--  Transactions -->
     <VCol
       cols="12"
       lg="4"
@@ -42,7 +42,7 @@ import CardAdvanceUpgradeYourPlan from '@/views/pages/cards/card-advance/CardAdv
       <CardAdvanceTransactions />
     </VCol>
 
-    <!-- 👉 Event -->
+    <!--  Event -->
     <VCol
       cols="12"
       lg="4"
@@ -51,7 +51,7 @@ import CardAdvanceUpgradeYourPlan from '@/views/pages/cards/card-advance/CardAdv
       <CardAdvanceEvent />
     </VCol>
 
-    <!-- 👉 Payment Data -->
+    <!--  Payment Data -->
     <VCol
       cols="12"
       lg="4"
@@ -60,7 +60,7 @@ import CardAdvanceUpgradeYourPlan from '@/views/pages/cards/card-advance/CardAdv
       <CardAdvancePaymentData />
     </VCol>
 
-    <!-- 👉 Business Shark -->
+    <!--  Business Shark -->
     <VCol
       cols="12"
       lg="4"
@@ -69,7 +69,7 @@ import CardAdvanceUpgradeYourPlan from '@/views/pages/cards/card-advance/CardAdv
       <CardAdvanceBusinessShark />
     </VCol>
 
-    <!-- 👉 Upgrade Your Plan -->
+    <!--  Upgrade Your Plan -->
     <VCol
       cols="12"
       lg="4"
@@ -78,7 +78,7 @@ import CardAdvanceUpgradeYourPlan from '@/views/pages/cards/card-advance/CardAdv
       <CardAdvanceUpgradeYourPlan />
     </VCol>
 
-    <!-- 👉 Sales by Countries -->
+    <!--  Sales by Countries -->
     <VCol
       cols="12"
       lg="4"
@@ -87,7 +87,7 @@ import CardAdvanceUpgradeYourPlan from '@/views/pages/cards/card-advance/CardAdv
       <CardAdvanceSalesByCountries />
     </VCol>
 
-    <!-- 👉 Order Statistics -->
+    <!--  Order Statistics -->
     <VCol
       cols="12"
       lg="4"
@@ -96,7 +96,7 @@ import CardAdvanceUpgradeYourPlan from '@/views/pages/cards/card-advance/CardAdv
       <CardAdvanceOrderStatistics />
     </VCol>
 
-    <!-- 👉 Earning Report -->
+    <!--  Earning Report -->
     <VCol
       cols="12"
       lg="4"
@@ -105,7 +105,7 @@ import CardAdvanceUpgradeYourPlan from '@/views/pages/cards/card-advance/CardAdv
       <CardAdvanceEarningReport />
     </VCol>
 
-    <!-- 👉 Top Courses -->
+    <!--  Top Courses -->
     <VCol
       cols="12"
       lg="4"
@@ -114,7 +114,7 @@ import CardAdvanceUpgradeYourPlan from '@/views/pages/cards/card-advance/CardAdv
       <CardAdvanceTopCourses />
     </VCol>
 
-    <!-- 👉 Upcoming Webinar -->
+    <!--  Upcoming Webinar -->
     <VCol
       cols="12"
       lg="4"
@@ -123,7 +123,7 @@ import CardAdvanceUpgradeYourPlan from '@/views/pages/cards/card-advance/CardAdv
       <CardAdvanceUpcomingWebinar />
     </VCol>
 
-    <!-- 👉 Assignment Progress -->
+    <!--  Assignment Progress -->
     <VCol
       cols="12"
       lg="4"
@@ -132,7 +132,7 @@ import CardAdvanceUpgradeYourPlan from '@/views/pages/cards/card-advance/CardAdv
       <CardAdvanceAssignmentProgress />
     </VCol>
 
-    <!-- 👉 Team Members -->
+    <!--  Team Members -->
     <VCol
       cols="12"
       sm="6"
@@ -140,7 +140,7 @@ import CardAdvanceUpgradeYourPlan from '@/views/pages/cards/card-advance/CardAdv
       <CardAdvanceTeamMembers />
     </VCol>
 
-    <!-- 👉 Tabs -->
+    <!--  Tabs -->
     <VCol
       cols="12"
       sm="6"
@@ -148,7 +148,7 @@ import CardAdvanceUpgradeYourPlan from '@/views/pages/cards/card-advance/CardAdv
       <CardAdvanceTabs />
     </VCol>
 
-    <!-- 👉 Delivery Performance -->
+    <!--  Delivery Performance -->
     <VCol
       cols="12"
       lg="4"
@@ -157,7 +157,7 @@ import CardAdvanceUpgradeYourPlan from '@/views/pages/cards/card-advance/CardAdv
       <CardAdvanceDeliveryPerformance />
     </VCol>
 
-    <!-- 👉 Order -->
+    <!--  Order -->
     <VCol
       cols="12"
       lg="4"
@@ -166,7 +166,7 @@ import CardAdvanceUpgradeYourPlan from '@/views/pages/cards/card-advance/CardAdv
       <CardAdvanceOrder />
     </VCol>
 
-    <!-- 👉 Popular Instructor -->
+    <!--  Popular Instructor -->
     <VCol
       cols="12"
       lg="4"
@@ -175,7 +175,7 @@ import CardAdvanceUpgradeYourPlan from '@/views/pages/cards/card-advance/CardAdv
       <CardAdvancePopularInstructor />
     </VCol>
 
-    <!-- 👉 Conversion Rate -->
+    <!--  Conversion Rate -->
     <VCol
       cols="12"
       sm="6"
@@ -184,7 +184,7 @@ import CardAdvanceUpgradeYourPlan from '@/views/pages/cards/card-advance/CardAdv
       <CardAdvanceConversionRate />
     </VCol>
 
-    <!-- 👉 Top Products -->
+    <!--  Top Products -->
     <VCol
       cols="12"
       lg="8"
@@ -192,7 +192,7 @@ import CardAdvanceUpgradeYourPlan from '@/views/pages/cards/card-advance/CardAdv
       <CardAdvanceTopProducts />
     </VCol>
 
-    <!-- 👉 Activity Timeline -->
+    <!--  Activity Timeline -->
     <VCol
       cols="12"
       sm="6"
@@ -200,7 +200,7 @@ import CardAdvanceUpgradeYourPlan from '@/views/pages/cards/card-advance/CardAdv
       <CardAdvanceActivityTimeline />
     </VCol>
 
-    <!-- 👉 Finance Summary -->
+    <!--  Finance Summary -->
     <VCol
       cols="12"
       sm="6"

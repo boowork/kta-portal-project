@@ -8,7 +8,7 @@ const isPaymentProvidersDialogVisible = ref(false)
 
 <template>
   <div>
-    <!-- 👉 Payment Providers  -->
+    <!--  Payment Providers  -->
     <VCard
       class="mb-6"
       title="Payment providers"
@@ -30,7 +30,7 @@ const isPaymentProvidersDialogVisible = ref(false)
       </VCardText>
     </VCard>
 
-    <!-- 👉 Supported Payment Methods -->
+    <!--  Supported Payment Methods -->
     <VCard
       title="Supported payment methods"
       subtitle="Payment methods that are available with one of Sneat's approved payment providers."
@@ -110,7 +110,7 @@ const isPaymentProvidersDialogVisible = ref(false)
       </VCardText>
     </VCard>
 
-    <!-- 👉 Manual Payment Methods -->
+    <!--  Manual Payment Methods -->
     <VCard
       title="Manual payment methods"
       class="mb-6"

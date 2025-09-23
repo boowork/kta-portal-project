@@ -9,7 +9,7 @@ import DemoFormWizardIconsVertical from '@/views/demos/forms/form-wizard/form-wi
 
 <template>
   <VRow>
-    <!-- 👉 Basic -->
+    <!--  Basic -->
     <VCol cols="12">
       <AppCardCode
         variant="outlined"
@@ -20,7 +20,7 @@ import DemoFormWizardIconsVertical from '@/views/demos/forms/form-wizard/form-wi
       </AppCardCode>
     </VCol>
 
-    <!-- 👉 Validation -->
+    <!--  Validation -->
     <VCol cols="12">
       <AppCardCode
         variant="outlined"
@@ -31,7 +31,7 @@ import DemoFormWizardIconsVertical from '@/views/demos/forms/form-wizard/form-wi
       </AppCardCode>
     </VCol>
 
-    <!-- 👉 Vertical -->
+    <!--  Vertical -->
     <VCol cols="12">
       <AppCardCode
         variant="outlined"
@@ -49,7 +49,7 @@ import DemoFormWizardIconsVertical from '@/views/demos/forms/form-wizard/form-wi
   </h3>
 
   <VRow>
-    <!-- 👉 Modern Basic -->
+    <!--  Modern Basic -->
     <VCol cols="12">
       <AppCardCode
         variant="outlined"
@@ -60,7 +60,7 @@ import DemoFormWizardIconsVertical from '@/views/demos/forms/form-wizard/form-wi
       </AppCardCode>
     </VCol>
 
-    <!-- 👉 Modern Vertical -->
+    <!--  Modern Vertical -->
     <VCol cols="12">
       <AppCardCode
         variant="outlined"

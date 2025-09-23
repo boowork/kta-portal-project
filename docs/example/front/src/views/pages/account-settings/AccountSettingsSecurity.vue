@@ -97,13 +97,13 @@ const isOneTimePasswordDialogVisible = ref(false)
       <VCard title="Change Password">
         <VForm>
           <VCardText class="pt-0">
-            <!-- 👉 Current Password -->
+            <!--  Current Password -->
             <VRow>
               <VCol
                 cols="12"
                 md="6"
               >
-                <!-- 👉 current password -->
+                <!--  current password -->
                 <AppTextField
                   v-model="currentPassword"
                   :type="isCurrentPasswordVisible ? 'text' : 'password'"
@@ -116,13 +116,13 @@ const isOneTimePasswordDialogVisible = ref(false)
               </VCol>
             </VRow>
 
-            <!-- 👉 New Password -->
+            <!--  New Password -->
             <VRow>
               <VCol
                 cols="12"
                 md="6"
               >
-                <!-- 👉 new password -->
+                <!--  new password -->
                 <AppTextField
                   v-model="newPassword"
                   :type="isNewPasswordVisible ? 'text' : 'password'"
@@ -138,7 +138,7 @@ const isOneTimePasswordDialogVisible = ref(false)
                 cols="12"
                 md="6"
               >
-                <!-- 👉 confirm password -->
+                <!--  confirm password -->
                 <AppTextField
                   v-model="confirmPassword"
                   :type="isConfirmPasswordVisible ? 'text' : 'password'"
@@ -152,7 +152,7 @@ const isOneTimePasswordDialogVisible = ref(false)
             </VRow>
           </VCardText>
 
-          <!-- 👉 Password Requirements -->
+          <!--  Password Requirements -->
           <VCardText>
             <h6 class="text-h6 text-medium-emphasis mb-4">
               Password Requirements:
@@ -176,7 +176,7 @@ const isOneTimePasswordDialogVisible = ref(false)
             </VList>
           </VCardText>
 
-          <!-- 👉 Action Buttons -->
+          <!--  Action Buttons -->
           <VCardText class="d-flex flex-wrap gap-4">
             <VBtn>Save changes</VBtn>
 
@@ -221,7 +221,7 @@ const isOneTimePasswordDialogVisible = ref(false)
       <!-- SECTION: Create an API key -->
       <VCard title="Create an API key">
         <VRow no-gutters>
-          <!-- 👉 Choose API Key -->
+          <!--  Choose API Key -->
           <VCol
             cols="12"
             md="5"
@@ -231,7 +231,7 @@ const isOneTimePasswordDialogVisible = ref(false)
             <VCardText class="pt-0">
               <VForm @submit.prevent="() => { }">
                 <VRow>
-                  <!-- 👉 Choose API Key -->
+                  <!--  Choose API Key -->
                   <VCol cols="12">
                     <AppSelect
                       label="Choose the API key type you want to create"
@@ -240,7 +240,7 @@ const isOneTimePasswordDialogVisible = ref(false)
                     />
                   </VCol>
 
-                  <!-- 👉 Name the API Key -->
+                  <!--  Name the API Key -->
                   <VCol cols="12">
                     <AppTextField
                       label="Name the API key"
@@ -248,7 +248,7 @@ const isOneTimePasswordDialogVisible = ref(false)
                     />
                   </VCol>
 
-                  <!-- 👉 Create Key Button -->
+                  <!--  Create Key Button -->
                   <VCol cols="12">
                     <VBtn
                       type="submit"
@@ -262,7 +262,7 @@ const isOneTimePasswordDialogVisible = ref(false)
             </VCardText>
           </VCol>
 
-          <!-- 👉 Lady image -->
+          <!--  Lady image -->
           <VCol
             cols="12"
             md="7"
@@ -293,7 +293,7 @@ const isOneTimePasswordDialogVisible = ref(false)
           billing.
         </VCardText>
 
-        <!-- 👉 Server Status -->
+        <!--  Server Status -->
         <VCardText class="d-flex flex-column gap-y-6">
           <VCard
             v-for="serverKey in serverKeys"
@@ -338,7 +338,7 @@ const isOneTimePasswordDialogVisible = ref(false)
 
     <!-- SECTION Recent Devices -->
     <VCol cols="12">
-      <!-- 👉 Table -->
+      <!--  Table -->
       <VCard title="Recent Devices">
         <VDivider />
 

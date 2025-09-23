@@ -23,7 +23,7 @@ watch(formData, () => {
         cols="12"
         sm="6"
       >
-        <!-- 👉 Bedrooms -->
+        <!--  Bedrooms -->
         <AppTextField
           v-model="formData.bedroomCount"
           label="Bedrooms"
@@ -35,7 +35,7 @@ watch(formData, () => {
         cols="12"
         sm="6"
       >
-        <!-- 👉 Floor No -->
+        <!--  Floor No -->
         <AppTextField
           v-model="formData.floorNo"
           label="Floor No"
@@ -47,7 +47,7 @@ watch(formData, () => {
         cols="12"
         sm="6"
       >
-        <!-- 👉 Bathrooms -->
+        <!--  Bathrooms -->
         <AppTextField
           v-model="formData.bathroomCount"
           label="Bathroom"
@@ -59,7 +59,7 @@ watch(formData, () => {
         cols="12"
         sm="6"
       >
-        <!-- 👉 Furnished Status -->
+        <!--  Furnished Status -->
         <AppSelect
           v-model="formData.furnishedStatus"
           label="Furnished Status"
@@ -68,7 +68,7 @@ watch(formData, () => {
         />
       </VCol>
       <VCol cols="12">
-        <!-- 👉 Furnishing Details -->
+        <!--  Furnishing Details -->
         <AppSelect
           v-model="formData.furnishingDetails"
           label="Furnishing Details"
@@ -83,7 +83,7 @@ watch(formData, () => {
         cols="12"
         sm="6"
       >
-        <!-- 👉 xCommon Area? -->
+        <!--  xCommon Area? -->
         <VRadioGroup v-model="formData.isCommonArea1">
           <template #label>
             <div class="text-body-1">
@@ -104,7 +104,7 @@ watch(formData, () => {
         cols="12"
         sm="6"
       >
-        <!-- 👉 Common Area? -->
+        <!--  Common Area? -->
         <VRadioGroup v-model="formData.isCommonArea2">
           <template #label>
             <div class="text-body-1">

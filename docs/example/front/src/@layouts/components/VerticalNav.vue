@@ -71,7 +71,7 @@ const hideTitleAndIcon = configStore.isVerticalNavMini(isHovered)
       },
     ]"
   >
-    <!-- 👉 Header -->
+    <!--  Header -->
     <div class="nav-header">
       <slot name="nav-header">
         <RouterLink
@@ -89,7 +89,7 @@ const hideTitleAndIcon = configStore.isVerticalNavMini(isHovered)
             </h1>
           </Transition>
         </RouterLink>
-        <!-- 👉 Vertical nav actions -->
+        <!--  Vertical nav actions -->
         <!-- Show toggle collapsible in >md and close button in <md -->
         <div class="header-action">
           <Component
@@ -162,7 +162,7 @@ const hideTitleAndIcon = configStore.isVerticalNavMini(isHovered)
 @use "@configured-variables" as variables;
 @use "@layouts/styles/mixins";
 
-// 👉 Vertical Nav
+//  Vertical Nav
 .layout-vertical-nav {
   position: fixed;
   z-index: variables.$layout-vertical-nav-z-index;
@@ -214,7 +214,7 @@ const hideTitleAndIcon = configStore.isVerticalNavMini(isHovered)
     white-space: nowrap;
   }
 
-  // 👉 Collapsed
+  //  Collapsed
   .layout-vertical-nav-collapsed & {
     &:not(.hovered) {
       inline-size: variables.$layout-vertical-nav-collapsed-width;

@@ -49,7 +49,7 @@ watch(() => props.currentStep, updateCartData)
       cols="12"
       lg="8"
     >
-      <!-- 👉 Offers alert -->
+      <!--  Offers alert -->
       <VAlert
         type="success"
         variant="tonal"
@@ -70,7 +70,7 @@ watch(() => props.currentStep, updateCartData)
         My Shopping Bag ({{ checkoutCartDataLocal.cartItems.length }} Items)
       </h5>
 
-      <!-- 👉 Cart items -->
+      <!--  Cart items -->
       <div
         v-if="checkoutCartDataLocal.cartItems.length"
         class="border rounded"
@@ -165,12 +165,12 @@ watch(() => props.currentStep, updateCartData)
         </template>
       </div>
 
-      <!-- 👉 Empty Cart -->
+      <!--  Empty Cart -->
       <div v-else>
         <VImg :src="emptyCartImg" />
       </div>
 
-      <!-- 👉 Add more from wishlist -->
+      <!--  Add more from wishlist -->
       <div
         class="d-flex align-center justify-space-between rounded py-2 px-5 text-base mt-4"
         style="border: 1px solid rgb(var(--v-theme-primary));"
@@ -195,7 +195,7 @@ watch(() => props.currentStep, updateCartData)
         flat
         variant="outlined"
       >
-        <!-- 👉 payment offer -->
+        <!--  payment offer -->
         <VCardText>
           <h6 class="text-h6 mb-4">
             Offer
@@ -216,7 +216,7 @@ watch(() => props.currentStep, updateCartData)
             </VBtn>
           </div>
 
-          <!-- 👉 Gift wrap banner -->
+          <!--  Gift wrap banner -->
           <div class="bg-var-theme-background rounded pa-6 mt-4">
             <h6 class="text-h6 mb-2">
               Buying gift for a loved one?
@@ -233,7 +233,7 @@ watch(() => props.currentStep, updateCartData)
 
         <VDivider />
 
-        <!-- 👉 Price details -->
+        <!--  Price details -->
         <VCardText>
           <h6 class="text-h6 mb-4">
             Price Details

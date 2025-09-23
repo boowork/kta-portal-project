@@ -45,7 +45,7 @@ watch(formData, () => {
   <VForm>
     <VRow>
       <VCol cols="12">
-        <!-- 👉 User Type  -->
+        <!--  User Type  -->
         <CustomRadiosWithIcon
           v-model:selected-radio="formData.userType"
           :radio-content="propertyRadioContent"
@@ -57,7 +57,7 @@ watch(formData, () => {
         cols="12"
         sm="6"
       >
-        <!-- 👉 First Name -->
+        <!--  First Name -->
         <AppTextField
           v-model="formData.firstName"
           label="First Name"
@@ -69,7 +69,7 @@ watch(formData, () => {
         cols="12"
         sm="6"
       >
-        <!-- 👉 Last Name -->
+        <!--  Last Name -->
         <AppTextField
           v-model="formData.lastName"
           label="Last Name"
@@ -81,7 +81,7 @@ watch(formData, () => {
         cols="12"
         sm="6"
       >
-        <!-- 👉 Username -->
+        <!--  Username -->
         <AppTextField
           v-model="formData.username"
           label="Username"
@@ -93,7 +93,7 @@ watch(formData, () => {
         cols="12"
         sm="6"
       >
-        <!-- 👉 Password -->
+        <!--  Password -->
         <AppTextField
           v-model="formData.password"
           label="Password"
@@ -109,7 +109,7 @@ watch(formData, () => {
         cols="12"
         sm="6"
       >
-        <!-- 👉 Email -->
+        <!--  Email -->
         <AppTextField
           v-model="formData.email"
           type="email"
@@ -122,7 +122,7 @@ watch(formData, () => {
         cols="12"
         sm="6"
       >
-        <!-- 👉 Contact -->
+        <!--  Contact -->
         <AppTextField
           v-model="formData.contact"
           type="number"

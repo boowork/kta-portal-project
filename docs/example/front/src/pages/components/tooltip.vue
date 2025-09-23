@@ -5,7 +5,7 @@ import { delayOnHover, events, location, tooltipOnVariousElements, transition, v
 <template>
   <VRow>
     <VCol cols="12">
-      <!-- 👉 Location -->
+      <!--  Location -->
       <AppCardCode
         title="Location"
         :code="location"
@@ -17,7 +17,7 @@ import { delayOnHover, events, location, tooltipOnVariousElements, transition, v
     </VCol>
 
     <VCol cols="12">
-      <!-- 👉 Events -->
+      <!--  Events -->
       <AppCardCode
         title="Events"
         :code="events"
@@ -27,7 +27,7 @@ import { delayOnHover, events, location, tooltipOnVariousElements, transition, v
     </VCol>
 
     <VCol cols="12">
-      <!-- 👉 Delay On Hover -->
+      <!--  Delay On Hover -->
       <AppCardCode
         title="Delay On Hover"
         :code="delayOnHover"
@@ -39,7 +39,7 @@ import { delayOnHover, events, location, tooltipOnVariousElements, transition, v
     </VCol>
 
     <VCol cols="12">
-      <!-- 👉 V-model Support -->
+      <!--  V-model Support -->
       <AppCardCode
         title="V-Model Support"
         :code="vModelSupport"
@@ -51,7 +51,7 @@ import { delayOnHover, events, location, tooltipOnVariousElements, transition, v
     </VCol>
 
     <VCol cols="12">
-      <!-- 👉 Transition -->
+      <!--  Transition -->
       <AppCardCode
         title="Transition"
         :code="transition"
@@ -63,7 +63,7 @@ import { delayOnHover, events, location, tooltipOnVariousElements, transition, v
     </VCol>
 
     <VCol cols="12">
-      <!-- 👉 Tooltip on Various Elements -->
+      <!--  Tooltip on Various Elements -->
       <AppCardCode
         title="Tooltip on Various Elements"
         :code="tooltipOnVariousElements"

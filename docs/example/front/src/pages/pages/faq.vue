@@ -39,7 +39,7 @@ const contactUs = [
 
 <template>
   <section>
-    <!-- 👉 Search -->
+    <!--  Search -->
     <AppSearchHeader
       title="Hello, how can we help?"
       subtitle="or choose a category to quickly find the help you need"
@@ -49,7 +49,7 @@ const contactUs = [
       is-reverse
     />
 
-    <!-- 👉 Faq sections and questions -->
+    <!--  Faq sections and questions -->
     <VRow>
       <VCol
         v-show="faqs.length"
@@ -58,7 +58,7 @@ const contactUs = [
         lg="3"
         class="position-relative"
       >
-        <!-- 👉 Tabs -->
+        <!--  Tabs -->
         <VTabs
           v-model="activeTab"
           direction="vertical"
@@ -90,7 +90,7 @@ const contactUs = [
         sm="8"
         lg="9"
       >
-        <!-- 👉 Windows -->
+        <!--  Windows -->
         <VWindow
           v-model="activeTab"
           class="faq-v-window disable-tab-transition"
@@ -152,7 +152,7 @@ const contactUs = [
       </VCol>
     </VRow>
 
-    <!-- 👉 You still have a question? -->
+    <!--  You still have a question? -->
     <div class="text-center pt-16">
       <VChip
         label

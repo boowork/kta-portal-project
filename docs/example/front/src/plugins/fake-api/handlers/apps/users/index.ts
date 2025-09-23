@@ -149,7 +149,7 @@ export const handlerAppsUsers = [
     }
   }),
 
-  // 👉 Add user
+  //  Add user
   http.post(('/api/apps/users'), async ({ request }) => {
     const user = await request.json() as any
 

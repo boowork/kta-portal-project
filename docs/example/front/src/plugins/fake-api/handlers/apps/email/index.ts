@@ -4,7 +4,7 @@ import { db } from '@db/apps/email/db'
 import type { Email, EmailLabel } from '@db/apps/email/types'
 
 export const handlerAppsEmail = [
-  // 👉 Get Email List
+  //  Get Email List
   http.get(('/api/apps/email'), ({ request }) => {
     const url = new URL(request.url)
 
@@ -43,7 +43,7 @@ export const handlerAppsEmail = [
     return HttpResponse.json({ emails: filteredData, emailsMeta }, { status: 200 })
   }),
 
-  // 👉 Update Email Meta
+  //  Update Email Meta
   http.post(('/api/apps/email'), async ({ request }) => {
     const { ids, data, label } = await request.json() as { ids: Email['id'] | Email['id'][]; data: Partial<Email>; label: EmailLabel }
 

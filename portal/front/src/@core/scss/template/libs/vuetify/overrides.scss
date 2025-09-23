@@ -1,13 +1,13 @@
 @use "@core/scss/base/utils";
 @use "@configured-variables" as variables;
 
-// 👉 Body
+//  Body
 
 // set body font size 15px
 body {
   font-size: 15px !important;
 
-  // 👉 Button outline with default color border color
+  //  Button outline with default color border color
   .v-alert--variant-outlined,
   .v-avatar--variant-outlined,
   .v-btn.v-btn--variant-outlined,

@@ -57,7 +57,7 @@ const resolveStatusVariant = (status: number) => {
     return { color: 'info', text: 'Applied' }
 }
 
-// 👉 methods
+//  methods
 const editItem = (item: Data) => {
   editedIndex.value = userList.value.indexOf(item)
   editedItem.value = { ...item }
@@ -103,7 +103,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <!-- 👉 Datatable  -->
+  <!--  Datatable  -->
   <VDataTable
     :headers="headers"
     :items="userList"
@@ -156,7 +156,7 @@ onMounted(() => {
     </template>
   </VDataTable>
 
-  <!-- 👉 Edit Dialog  -->
+  <!--  Edit Dialog  -->
   <VDialog
     v-model="editDialog"
     max-width="600px"
@@ -280,7 +280,7 @@ onMounted(() => {
     </VCard>
   </VDialog>
 
-  <!-- 👉 Delete Dialog  -->
+  <!--  Delete Dialog  -->
   <VDialog
     v-model="deleteDialog"
     max-width="500px"

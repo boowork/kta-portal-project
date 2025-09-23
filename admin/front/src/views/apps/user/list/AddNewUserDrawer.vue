@@ -1,13 +1,14 @@
 <script setup lang="ts">
 import { PerfectScrollbar } from 'vue3-perfect-scrollbar'
-
 import type { VForm } from 'vuetify/components/VForm'
+import type { CreateUserRequest } from '@/api/types'
 
-import type { UserProperties } from '@/views/apps/user/useUserListStore'
+// Required validator
+const requiredValidator = (value: string) => !!value || '이 필드는 필수입니다'
 
 interface Emit {
   (e: 'update:isDrawerOpen', value: boolean): void
-  (e: 'userData', value: UserProperties): void
+  (e: 'user-data', value: CreateUserRequest): void
 }
 
 interface Props {
@@ -17,19 +18,26 @@ interface Props {
 const props = defineProps<Props>()
 const emit = defineEmits<Emit>()
 
+// Form fields
 const isFormValid = ref(false)
 const refForm = ref<VForm>()
-const fullName = ref('')
-const userName = ref('')
-const email = ref('')
-const company = ref('')
-const country = ref()
-const contact = ref('')
-const role = ref()
-const plan = ref()
-const status = ref()
+const name = ref('')
+const userid = ref('')
+const password = ref('')
+const role = ref<'ADMIN' | 'USER'>()
 
-// 👉 drawer close
+// Computed property for button state
+const isSubmitDisabled = computed(() => {
+  return !name.value?.trim() || !userid.value?.trim() || !password.value?.trim() || !role.value
+})
+
+// Role options
+const roleOptions = [
+  { title: 'Admin', value: 'ADMIN' as const },
+  { title: 'User', value: 'USER' as const },
+]
+
+// Close drawer
 const closeNavigationDrawer = () => {
   emit('update:isDrawerOpen', false)
 
@@ -39,31 +47,23 @@ const closeNavigationDrawer = () => {
   })
 }
 
+// Submit form
 const onSubmit = () => {
   refForm.value?.validate().then(({ valid }) => {
     if (valid) {
-      emit('userData', {
-        id: 0,
-        fullName: fullName.value,
-        company: company.value,
-        role: role.value,
-        country: country.value,
-        contact: contact.value,
-        email: email.value,
-        currentPlan: plan.value,
-        status: status.value,
-        avatar: '',
-        billing: 'Auto Debit',
+      emit('user-data', {
+        userid: userid.value,
+        name: name.value,
+        password: password.value,
+        role: role.value!,
       })
-      emit('update:isDrawerOpen', false)
-      nextTick(() => {
-        refForm.value?.reset()
-        refForm.value?.resetValidation()
-      })
+      
+      closeNavigationDrawer()
     }
   })
 }
 
+// Handle drawer model value update
 const handleDrawerModelValueUpdate = (val: boolean) => {
   emit('update:isDrawerOpen', val)
 }
@@ -71,7 +71,6 @@ const handleDrawerModelValueUpdate = (val: boolean) => {
 
 <template>
   <VNavigationDrawer
-    data-allow-mismatch
     temporary
     :width="400"
     location="end"
@@ -80,9 +79,9 @@ const handleDrawerModelValueUpdate = (val: boolean) => {
     :model-value="props.isDrawerOpen"
     @update:model-value="handleDrawerModelValueUpdate"
   >
-    <!-- 👉 Title -->
+    <!-- Title -->
     <AppDrawerHeaderSection
-      title="Add New User"
+      title="사용자 추가"
       @cancel="closeNavigationDrawer"
     />
 
@@ -91,123 +90,70 @@ const handleDrawerModelValueUpdate = (val: boolean) => {
     <PerfectScrollbar :options="{ wheelPropagation: false }">
       <VCard flat>
         <VCardText>
-          <!-- 👉 Form -->
+          <!-- Form -->
           <VForm
             ref="refForm"
             v-model="isFormValid"
             @submit.prevent="onSubmit"
           >
             <VRow>
-              <!-- 👉 Full name -->
+              <!-- 이름 -->
               <VCol cols="12">
                 <AppTextField
-                  v-model="fullName"
+                  v-model="name"
                   :rules="[requiredValidator]"
-                  label="Full Name"
-                  placeholder="John Doe"
+                  label="이름"
+                  placeholder="홍길동"
                 />
               </VCol>
 
-              <!-- 👉 Username -->
+              <!-- 사용자 ID -->
               <VCol cols="12">
                 <AppTextField
-                  v-model="userName"
+                  v-model="userid"
                   :rules="[requiredValidator]"
-                  label="Username"
-                  placeholder="Johndoe"
+                  label="사용자 ID"
+                  placeholder="hong123"
                 />
               </VCol>
 
-              <!-- 👉 Email -->
+              <!-- 비밀번호 -->
               <VCol cols="12">
                 <AppTextField
-                  v-model="email"
-                  :rules="[requiredValidator, emailValidator]"
-                  label="Email"
-                  placeholder="johndoe@email.com"
-                />
-              </VCol>
-
-              <!-- 👉 company -->
-              <VCol cols="12">
-                <AppTextField
-                  v-model="company"
+                  v-model="password"
                   :rules="[requiredValidator]"
-                  label="Company"
-                  placeholder="Themeselection"
+                  label="비밀번호"
+                  type="password"
+                  placeholder="비밀번호를 입력하세요"
                 />
               </VCol>
 
-              <!-- 👉 Country -->
-              <VCol cols="12">
-                <AppSelect
-                  v-model="country"
-                  label="Select Country"
-                  placeholder="Select Country"
-                  :rules="[requiredValidator]"
-                  :items="['USA', 'UK', 'India', 'Australia']"
-                />
-              </VCol>
-
-              <!-- 👉 Contact -->
-              <VCol cols="12">
-                <AppTextField
-                  v-model="contact"
-                  type="number"
-                  :rules="[requiredValidator]"
-                  label="Contact"
-                  placeholder="+1-541-754-3010"
-                />
-              </VCol>
-
-              <!-- 👉 Role -->
+              <!-- 역할 -->
               <VCol cols="12">
                 <AppSelect
                   v-model="role"
-                  label="Select Role"
-                  placeholder="Select Role"
+                  label="역할"
+                  placeholder="역할을 선택하세요"
                   :rules="[requiredValidator]"
-                  :items="['Admin', 'Author', 'Editor', 'Maintainer', 'Subscriber']"
+                  :items="roleOptions"
                 />
               </VCol>
 
-              <!-- 👉 Plan -->
-              <VCol cols="12">
-                <AppSelect
-                  v-model="plan"
-                  label="Select Plan"
-                  placeholder="Select Plan"
-                  :rules="[requiredValidator]"
-                  :items="['Basic', 'Company', 'Enterprise', 'Team']"
-                />
-              </VCol>
-
-              <!-- 👉 Status -->
-              <VCol cols="12">
-                <AppSelect
-                  v-model="status"
-                  label="Select Status"
-                  placeholder="Select Status"
-                  :rules="[requiredValidator]"
-                  :items="[{ title: 'Active', value: 'active' }, { title: 'Inactive', value: 'inactive' }, { title: 'Pending', value: 'pending' }]"
-                />
-              </VCol>
-
-              <!-- 👉 Submit and Cancel -->
+              <!-- Submit and Cancel -->
               <VCol cols="12">
                 <VBtn
                   type="submit"
                   class="me-4"
+                  :disabled="isSubmitDisabled"
                 >
-                  Submit
+                  추가
                 </VBtn>
                 <VBtn
-                  type="reset"
                   variant="tonal"
                   color="error"
                   @click="closeNavigationDrawer"
                 >
-                  Cancel
+                  취소
                 </VBtn>
               </VCol>
             </VRow>

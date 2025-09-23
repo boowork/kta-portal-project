@@ -9,7 +9,7 @@ import { formHint, formValidation, formWithTabs, horizontalForm, horizontalFormW
         cols="12"
         md="6"
       >
-        <!-- 👉 Horizontal Form -->
+        <!--  Horizontal Form -->
         <AppCardCode
           title="Horizontal Form"
           :code="horizontalForm"
@@ -22,7 +22,7 @@ import { formHint, formValidation, formWithTabs, horizontalForm, horizontalFormW
         cols="12"
         md="6"
       >
-        <!-- 👉 Horizontal Form with Icons -->
+        <!--  Horizontal Form with Icons -->
         <AppCardCode
           title="Horizontal Form with Icons"
           :code="horizontalFormWithIcons"
@@ -35,7 +35,7 @@ import { formHint, formValidation, formWithTabs, horizontalForm, horizontalFormW
         cols="12"
         md="6"
       >
-        <!-- 👉 Vertical Form -->
+        <!--  Vertical Form -->
         <AppCardCode
           title="Vertical Form"
           :code="verticalForm"
@@ -48,7 +48,7 @@ import { formHint, formValidation, formWithTabs, horizontalForm, horizontalFormW
         cols="12"
         md="6"
       >
-        <!-- 👉 Vertical Form with Icons -->
+        <!--  Vertical Form with Icons -->
         <AppCardCode
           title="Vertical Form with Icons"
           :code="verticalFormWithIcons"
@@ -58,7 +58,7 @@ import { formHint, formValidation, formWithTabs, horizontalForm, horizontalFormW
       </VCol>
 
       <VCol cols="12">
-        <!-- 👉 Multiple Column -->
+        <!--  Multiple Column -->
         <AppCardCode
           title="Multiple Column"
           :code="multipleColumn"
@@ -73,7 +73,7 @@ import { formHint, formValidation, formWithTabs, horizontalForm, horizontalFormW
         cols="12"
         md="6"
       >
-        <!-- 👉 Form Hint -->
+        <!--  Form Hint -->
         <AppCardCode
           title="Form Hint"
           :code="formHint"
@@ -85,7 +85,7 @@ import { formHint, formValidation, formWithTabs, horizontalForm, horizontalFormW
         cols="12"
         md="6"
       >
-        <!-- 👉 Form Validation -->
+        <!--  Form Validation -->
         <AppCardCode
           title="Form Validation"
           :code="formValidation"
@@ -97,7 +97,7 @@ import { formHint, formValidation, formWithTabs, horizontalForm, horizontalFormW
 
     <VRow>
       <VCol cols="12">
-        <!-- 👉 Form with Tabs -->
+        <!--  Form with Tabs -->
         <AppCardCode
           title="Form with Tabs"
           no-padding
@@ -108,7 +108,7 @@ import { formHint, formValidation, formWithTabs, horizontalForm, horizontalFormW
       </VCol>
 
       <VCol cols="12">
-        <!-- 👉 Collapsible Section -->
+        <!--  Collapsible Section -->
         <h6 class="text-h6 mb-6">
           Collapsible Section
         </h6>
@@ -117,7 +117,7 @@ import { formHint, formValidation, formWithTabs, horizontalForm, horizontalFormW
       </VCol>
 
       <VCol cols="12">
-        <!-- 👉 Collapsible Section -->
+        <!--  Collapsible Section -->
         <h6 class="text-h6 mb-6">
           Sticky Section
         </h6>

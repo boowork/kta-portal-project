@@ -118,7 +118,7 @@ const validateSocialLinkForm = () => {
 <template>
   <VCard>
     <VCardText>
-      <!-- 👉 Stepper -->
+      <!--  Stepper -->
       <AppStepper
         v-model:current-step="currentStep"
         :items="iconsSteps"
@@ -130,7 +130,7 @@ const validateSocialLinkForm = () => {
     <VDivider />
 
     <VCardText>
-      <!-- 👉 stepper content -->
+      <!--  stepper content -->
 
       <VWindow
         v-model="currentStep"

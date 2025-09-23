@@ -6,7 +6,7 @@ import { paginateArray } from '@api-utils/paginateArray'
 
 export const handlerAppsEcommerce = [
 
-  // 👉 Products
+  //  Products
   // Get Product List
   http.get('/api/apps/ecommerce/products', ({ request }) => {
     const url = new URL(request.url)
@@ -125,7 +125,7 @@ export const handlerAppsEcommerce = [
     )
   }),
 
-  // 👉 Delete Product
+  //  Delete Product
   http.delete('/api/apps/ecommerce/products/:id', ({ params }) => {
     const id = Number(params.id)
 
@@ -148,7 +148,7 @@ export const handlerAppsEcommerce = [
     })
   }),
 
-  // 👉 Orders
+  //  Orders
   // Get single Customer
   http.get(('/api/apps/ecommerce/orders/:id'), ({ params }) => {
     const orderId = Number(params.id)
@@ -269,7 +269,7 @@ export const handlerAppsEcommerce = [
     })
   }),
 
-  // 👉 Customers
+  //  Customers
   // Get single Customer
   http.get(('/api/apps/ecommerce/customers/:id'), ({ params }) => {
     const customerId = Number(params.id)
@@ -383,7 +383,7 @@ export const handlerAppsEcommerce = [
       })
   }),
 
-  // 👉 Manage Reviews.
+  //  Manage Reviews.
   // Get Reviews
   http.get(('/api/apps/ecommerce/reviews'), ({ request }) => {
     const url = new URL(request.url)
@@ -497,7 +497,7 @@ export const handlerAppsEcommerce = [
     })
   }),
 
-  // 👉 Referrals
+  //  Referrals
   // Get Referrals
   http.get(('/api/apps/ecommerce/referrals'), ({ request }) => {
     const url = new URL(request.url)

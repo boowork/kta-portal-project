@@ -8,7 +8,7 @@ import { autoGrow, basic, browserAutocomplete, clearable, counter, icons, noResi
       cols="12"
       md="6"
     >
-      <!-- 👉 Basic -->
+      <!--  Basic -->
       <AppCardCode
         title="Basic"
         :code="basic"
@@ -25,7 +25,7 @@ import { autoGrow, basic, browserAutocomplete, clearable, counter, icons, noResi
       cols="12"
       md="6"
     >
-      <!-- 👉 Auto Grow -->
+      <!--  Auto Grow -->
       <AppCardCode
         title="Auto Grow"
         :code="autoGrow"
@@ -37,7 +37,7 @@ import { autoGrow, basic, browserAutocomplete, clearable, counter, icons, noResi
     </VCol>
 
     <VCol cols="12">
-      <!-- 👉 Variant -->
+      <!--  Variant -->
       <AppCardCode
         title="Variant"
         :code="variant"
@@ -52,7 +52,7 @@ import { autoGrow, basic, browserAutocomplete, clearable, counter, icons, noResi
       cols="12"
       md="6"
     >
-      <!-- 👉 States -->
+      <!--  States -->
       <AppCardCode
         title="States"
         :code="states"
@@ -67,7 +67,7 @@ import { autoGrow, basic, browserAutocomplete, clearable, counter, icons, noResi
       cols="12"
       md="6"
     >
-      <!-- 👉 Browser autocomplete -->
+      <!--  Browser autocomplete -->
       <AppCardCode
         title="Browser autocomplete"
         :code="browserAutocomplete"
@@ -84,7 +84,7 @@ import { autoGrow, basic, browserAutocomplete, clearable, counter, icons, noResi
       cols="12"
       md="6"
     >
-      <!-- 👉 Clearable -->
+      <!--  Clearable -->
       <AppCardCode
         title="Clearable"
         :code="clearable"
@@ -99,7 +99,7 @@ import { autoGrow, basic, browserAutocomplete, clearable, counter, icons, noResi
       cols="12"
       md="6"
     >
-      <!-- 👉 Counter -->
+      <!--  Counter -->
       <AppCardCode
         title="Counter"
         :code="counter"
@@ -116,7 +116,7 @@ import { autoGrow, basic, browserAutocomplete, clearable, counter, icons, noResi
       cols="12"
       md="6"
     >
-      <!-- 👉 Icons -->
+      <!--  Icons -->
       <AppCardCode
         title="Icons"
         :code="icons"
@@ -131,7 +131,7 @@ import { autoGrow, basic, browserAutocomplete, clearable, counter, icons, noResi
       cols="12"
       md="6"
     >
-      <!-- 👉 Rows -->
+      <!--  Rows -->
       <AppCardCode
         title="Rows"
         :code="rows"
@@ -146,7 +146,7 @@ import { autoGrow, basic, browserAutocomplete, clearable, counter, icons, noResi
       cols="12"
       md="6"
     >
-      <!-- 👉 No resize -->
+      <!--  No resize -->
       <AppCardCode
         title="No resize"
         :code="noResize"
@@ -161,7 +161,7 @@ import { autoGrow, basic, browserAutocomplete, clearable, counter, icons, noResi
       cols="12"
       md="6"
     >
-      <!-- 👉 Validation -->
+      <!--  Validation -->
       <AppCardCode
         title="Validation"
         :code="validation"

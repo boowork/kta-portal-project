@@ -138,7 +138,7 @@ const statisticsTarget = [
 
 <template>
   <VRow class="match-height">
-    <!-- 👉 Horizontal Cards -->
+    <!--  Horizontal Cards -->
     <VCol
       v-for="statistics in statisticsHorizontal"
       :key="statistics.title"
@@ -149,12 +149,12 @@ const statisticsTarget = [
       <CardStatisticsHorizontal v-bind="statistics" />
     </VCol>
 
-    <!-- 👉 Card Statistics Vehicles Charts -->
+    <!--  Card Statistics Vehicles Charts -->
     <VCol cols="12">
       <CardStatisticsVehicleCharts />
     </VCol>
 
-    <!-- 👉 Target Cards -->
+    <!--  Target Cards -->
     <VCol
       v-for="statistics in statisticsTarget"
       :key="statistics.title"
@@ -165,7 +165,7 @@ const statisticsTarget = [
       <CardStatisticsTarget v-bind="statistics" />
     </VCol>
 
-    <!-- 👉 Vertical Cards -->
+    <!--  Vertical Cards -->
     <VCol
       v-for="statistics in statisticsVertical"
       :key="statistics.title"
@@ -176,7 +176,7 @@ const statisticsTarget = [
       <CardStatisticsVertical v-bind="statistics" />
     </VCol>
 
-    <!-- 👉 Total Growth Area Chart -->
+    <!--  Total Growth Area Chart -->
     <VCol
       cols="12"
       sm="6"
@@ -186,7 +186,7 @@ const statisticsTarget = [
       <CardStatisticsOrder />
     </VCol>
 
-    <!-- 👉 Total Revenue Bar Chart -->
+    <!--  Total Revenue Bar Chart -->
     <VCol
       cols="12"
       sm="6"
@@ -196,7 +196,7 @@ const statisticsTarget = [
       <CardStatisticsRevenue />
     </VCol>
 
-    <!-- 👉 Profit Bar Chart -->
+    <!--  Profit Bar Chart -->
     <VCol
       cols="12"
       sm="6"
@@ -206,7 +206,7 @@ const statisticsTarget = [
       <CardStatisticsProfit />
     </VCol>
 
-    <!-- 👉 Sessions Area Chart -->
+    <!--  Sessions Area Chart -->
     <VCol
       cols="12"
       sm="6"
@@ -216,7 +216,7 @@ const statisticsTarget = [
       <CardStatisticsSessions />
     </VCol>
 
-    <!-- 👉 Expenses Radial Bar Chart -->
+    <!--  Expenses Radial Bar Chart -->
     <VCol
       cols="12"
       sm="6"
@@ -226,7 +226,7 @@ const statisticsTarget = [
       <CardStatisticsExpenses />
     </VCol>
 
-    <!-- 👉 Sales -->
+    <!--  Sales -->
     <VCol
       cols="12"
       sm="6"
@@ -236,7 +236,7 @@ const statisticsTarget = [
       <CardStatisticsSales />
     </VCol>
 
-    <!-- 👉 Generated Leads -->
+    <!--  Generated Leads -->
     <VCol
       cols="12"
       md="4"
@@ -244,7 +244,7 @@ const statisticsTarget = [
       <CardStatisticsGeneratedLeads />
     </VCol>
 
-    <!-- 👉 Expenses Bar Chart -->
+    <!--  Expenses Bar Chart -->
     <VCol
       cols="12"
       md="4"
@@ -252,7 +252,7 @@ const statisticsTarget = [
       <CardStatisticsExpensesBar />
     </VCol>
 
-    <!-- 👉 Profit Report Chart -->
+    <!--  Profit Report Chart -->
     <VCol
       cols="12"
       md="4"
@@ -260,7 +260,7 @@ const statisticsTarget = [
       <CardStatisticsProfitReport />
     </VCol>
 
-    <!-- 👉 New Visitor -->
+    <!--  New Visitor -->
     <VCol
       cols="12"
       md="8"

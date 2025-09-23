@@ -20,7 +20,7 @@ if (invoiceData.value) {
   paymentDetails.value = invoiceData.value.paymentDetails
 }
 
-// 👉 Invoice Description
+//  Invoice Description
 // ℹ️ Your real data will contain this information
 const purchasedProducts = [
   {
@@ -53,7 +53,7 @@ const purchasedProducts = [
   },
 ]
 
-// 👉 Print Invoice
+//  Print Invoice
 const printInvoice = () => {
   window.print()
 }
@@ -69,19 +69,19 @@ const printInvoice = () => {
         <VCard class="invoice-preview-wrapper pa-6 pa-sm-12">
           <!-- SECTION Header -->
           <div class="invoice-header-preview d-flex flex-wrap justify-space-between flex-column flex-sm-row print-row bg-var-theme-background gap-6 rounded pa-6 mb-6">
-            <!-- 👉 Left Content -->
+            <!--  Left Content -->
             <div>
               <div class="d-flex align-center app-logo mb-6">
-                <!-- 👉 Logo -->
+                <!--  Logo -->
                 <VNodeRenderer :nodes="themeConfig.app.logo" />
 
-                <!-- 👉 Title -->
+                <!--  Title -->
                 <h6 class="app-logo-title">
                   {{ themeConfig.app.title }}
                 </h6>
               </div>
 
-              <!-- 👉 Address -->
+              <!--  Address -->
               <h6 class="text-h6 font-weight-regular">
                 Office 149, 450 South Brand Brooklyn
               </h6>
@@ -93,20 +93,20 @@ const printInvoice = () => {
               </h6>
             </div>
 
-            <!-- 👉 Right Content -->
+            <!--  Right Content -->
             <div>
-              <!-- 👉 Invoice ID -->
+              <!--  Invoice ID -->
               <h5 class="text-h5 mb-6">
                 Invoice #{{ invoice.id }}
               </h5>
 
-              <!-- 👉 Issue Date -->
+              <!--  Issue Date -->
               <h6 class="text-h6 mb-1">
                 <span class="font-weight-regular">Date Issued: </span>
                 <span>{{ new Date(invoice.issuedDate).toLocaleDateString('en-GB') }}</span>
               </h6>
 
-              <!-- 👉 Due Date -->
+              <!--  Due Date -->
               <h6 class="text-h6">
                 <span class="font-weight-regular">Due Date: </span>
                 <span>{{ new Date(invoice.dueDate).toLocaleDateString('en-GB') }}</span>
@@ -115,7 +115,7 @@ const printInvoice = () => {
           </div>
           <!-- !SECTION -->
 
-          <!-- 👉 Payment Details -->
+          <!--  Payment Details -->
           <VRow class="print-row mb-6">
             <VCol class="text-no-wrap">
               <h6 class="text-h6 mb-4">
@@ -190,7 +190,7 @@ const printInvoice = () => {
             </VCol>
           </VRow>
 
-          <!-- 👉 invoice Table -->
+          <!--  invoice Table -->
           <VTable class="invoice-preview-table border text-high-emphasis overflow-hidden mb-6">
             <thead>
               <tr>
@@ -245,7 +245,7 @@ const printInvoice = () => {
             </tbody>
           </VTable>
 
-          <!-- 👉 Total -->
+          <!--  Total -->
           <div class="d-flex justify-space-between flex-column flex-sm-row print-row">
             <div class="mb-2">
               <div class="d-flex align-center mb-1">
@@ -332,7 +332,7 @@ const printInvoice = () => {
       >
         <VCard>
           <VCardText>
-            <!-- 👉 Send Invoice Trigger button -->
+            <!--  Send Invoice Trigger button -->
             <VBtn
               block
               prepend-icon="bx-paper-plane"
@@ -371,7 +371,7 @@ const printInvoice = () => {
               </VBtn>
             </div>
 
-            <!-- 👉  Add Payment trigger button  -->
+            <!--   Add Payment trigger button  -->
             <VBtn
               block
               prepend-icon="bx-dollar"
@@ -385,10 +385,10 @@ const printInvoice = () => {
       </VCol>
     </VRow>
 
-    <!-- 👉 Add Payment Sidebar -->
+    <!--  Add Payment Sidebar -->
     <InvoiceAddPaymentDrawer v-model:is-drawer-open="isAddPaymentSidebarVisible" />
 
-    <!-- 👉 Send Invoice Sidebar -->
+    <!--  Send Invoice Sidebar -->
     <InvoiceSendInvoiceDrawer v-model:is-drawer-open="isSendPaymentSidebarVisible" />
   </section>
   <section v-else>

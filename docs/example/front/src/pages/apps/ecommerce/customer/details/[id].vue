@@ -28,7 +28,7 @@ const isAddCustomerDrawerOpen = ref(false)
 
 <template>
   <div>
-    <!-- 👉 Header  -->
+    <!--  Header  -->
     <div class="d-flex justify-space-between align-center flex-wrap gap-y-4 mb-6">
       <div>
         <h4 class="text-h4 mb-1">
@@ -47,7 +47,7 @@ const isAddCustomerDrawerOpen = ref(false)
         </VBtn>
       </div>
     </div>
-    <!-- 👉 Customer Profile  -->
+    <!--  Customer Profile  -->
     <VRow v-if="customerData">
       <VCol
         v-if="customerData"

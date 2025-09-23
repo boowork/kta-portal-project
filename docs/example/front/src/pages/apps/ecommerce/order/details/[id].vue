@@ -162,7 +162,7 @@ const orderDetail = [
         cols="12"
         md="8"
       >
-        <!-- 👉 Order Details -->
+        <!--  Order Details -->
         <VCard class="mb-6">
           <VCardItem>
             <template #title>
@@ -265,7 +265,7 @@ const orderDetail = [
           </VCardText>
         </VCard>
 
-        <!-- 👉 Shipping Activity -->
+        <!--  Shipping Activity -->
         <VCard title="Shipping Activity">
           <VCardText>
             <VTimeline
@@ -365,7 +365,7 @@ const orderDetail = [
         cols="12"
         md="4"
       >
-        <!-- 👉 Customer Details  -->
+        <!--  Customer Details  -->
         <VCard class="mb-6">
           <VCardText class="d-flex flex-column gap-y-6">
             <h5 class="text-h5">
@@ -433,7 +433,7 @@ const orderDetail = [
           </VCardText>
         </VCard>
 
-        <!-- 👉 Shipping Address -->
+        <!--  Shipping Address -->
         <VCard class="mb-6">
           <VCardItem>
             <VCardTitle>Shipping Address</VCardTitle>
@@ -461,7 +461,7 @@ const orderDetail = [
           </VCardText>
         </VCard>
 
-        <!-- 👉 Billing Address -->
+        <!--  Billing Address -->
         <VCard>
           <VCardText>
             <div class="d-flex align-center justify-space-between mb-2">

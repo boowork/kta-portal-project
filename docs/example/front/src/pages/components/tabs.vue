@@ -8,7 +8,7 @@ import { alignment, basic, basicPill, customIcons, dynamic, fixed, grow, paginat
       cols="12"
       md="6"
     >
-      <!-- 👉 Basic -->
+      <!--  Basic -->
       <AppCardCode
         title="Basic"
         variant="outlined"
@@ -24,7 +24,7 @@ import { alignment, basic, basicPill, customIcons, dynamic, fixed, grow, paginat
       cols="12"
       md="6"
     >
-      <!-- 👉 Stacked -->
+      <!--  Stacked -->
       <AppCardCode
         title="Stacked"
         variant="outlined"
@@ -40,7 +40,7 @@ import { alignment, basic, basicPill, customIcons, dynamic, fixed, grow, paginat
       cols="12"
       md="6"
     >
-      <!-- 👉 Vertical -->
+      <!--  Vertical -->
       <AppCardCode
         title="Vertical"
         variant="outlined"
@@ -56,7 +56,7 @@ import { alignment, basic, basicPill, customIcons, dynamic, fixed, grow, paginat
       cols="12"
       md="6"
     >
-      <!-- 👉 Alignment -->
+      <!--  Alignment -->
       <AppCardCode
         title="Alignment"
         variant="outlined"
@@ -72,7 +72,7 @@ import { alignment, basic, basicPill, customIcons, dynamic, fixed, grow, paginat
       cols="12"
       md="6"
     >
-      <!-- 👉 Pagination -->
+      <!--  Pagination -->
       <AppCardCode
         title="Pagination"
         variant="outlined"
@@ -88,7 +88,7 @@ import { alignment, basic, basicPill, customIcons, dynamic, fixed, grow, paginat
       cols="12"
       md="6"
     >
-      <!-- 👉 Custom Icons -->
+      <!--  Custom Icons -->
       <AppCardCode
         title="Custom Icons"
         variant="outlined"
@@ -104,7 +104,7 @@ import { alignment, basic, basicPill, customIcons, dynamic, fixed, grow, paginat
       cols="12"
       md="6"
     >
-      <!-- 👉 Fixed tabs -->
+      <!--  Fixed tabs -->
       <AppCardCode
         title="Fixed"
         variant="outlined"
@@ -120,7 +120,7 @@ import { alignment, basic, basicPill, customIcons, dynamic, fixed, grow, paginat
       cols="12"
       md="6"
     >
-      <!-- 👉 Grow -->
+      <!--  Grow -->
       <AppCardCode
         title="Grow"
         variant="outlined"
@@ -136,7 +136,7 @@ import { alignment, basic, basicPill, customIcons, dynamic, fixed, grow, paginat
       cols="12"
       md="6"
     >
-      <!-- 👉 Programmatic Navigation -->
+      <!--  Programmatic Navigation -->
       <AppCardCode
         title="Programmatic Navigation"
         variant="outlined"
@@ -150,7 +150,7 @@ import { alignment, basic, basicPill, customIcons, dynamic, fixed, grow, paginat
       cols="12"
       md="6"
     >
-      <!-- 👉 Dynamic Tabs -->
+      <!--  Dynamic Tabs -->
       <AppCardCode
         title="Dynamic"
         variant="outlined"
@@ -166,7 +166,7 @@ import { alignment, basic, basicPill, customIcons, dynamic, fixed, grow, paginat
       cols="12"
       md="6"
     >
-      <!-- 👉 Basic Pill -->
+      <!--  Basic Pill -->
       <AppCardCode
         title="Basic Pill"
         variant="outlined"
@@ -182,7 +182,7 @@ import { alignment, basic, basicPill, customIcons, dynamic, fixed, grow, paginat
       cols="12"
       md="6"
     >
-      <!-- 👉 Vertical Pill -->
+      <!--  Vertical Pill -->
       <AppCardCode
         title="Vertical Pill"
         variant="outlined"

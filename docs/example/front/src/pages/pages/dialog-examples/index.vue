@@ -33,7 +33,7 @@ const userData = {
 
 <template>
   <VRow>
-    <!-- 👉 Share Project Dialog -->
+    <!--  Share Project Dialog -->
     <VCol
       cols="12"
       sm="6"
@@ -64,7 +64,7 @@ const userData = {
       </VCard>
     </VCol>
 
-    <!-- 👉 Add New Card Dialog -->
+    <!--  Add New Card Dialog -->
     <VCol
       cols="12"
       sm="6"
@@ -95,7 +95,7 @@ const userData = {
       </VCard>
     </VCol>
 
-    <!-- 👉 Pricing Dialog -->
+    <!--  Pricing Dialog -->
     <VCol
       cols="12"
       sm="6"
@@ -122,12 +122,12 @@ const userData = {
           </VBtn>
         </VCardText>
 
-        <!-- 👉 plan and pricing dialog -->
+        <!--  plan and pricing dialog -->
         <PricingPlanDialog v-model:is-dialog-visible="isPricingPlanDialogVisible" />
       </VCard>
     </VCol>
 
-    <!-- 👉 Refer And Earn Dialog -->
+    <!--  Refer And Earn Dialog -->
     <VCol
       cols="12"
       sm="6"
@@ -154,12 +154,12 @@ const userData = {
           </VBtn>
         </VCardText>
 
-        <!-- 👉 plan and pricing dialog -->
+        <!--  plan and pricing dialog -->
         <ReferAndEarnDialog v-model:is-dialog-visible="isReferAndEarnDialogVisible" />
       </VCard>
     </VCol>
 
-    <!-- 👉 Add New Address Dialog -->
+    <!--  Add New Address Dialog -->
     <VCol
       cols="12"
       sm="6"
@@ -186,12 +186,12 @@ const userData = {
           </VBtn>
         </VCardText>
 
-        <!-- 👉 Edit Address dialog -->
+        <!--  Edit Address dialog -->
         <AddEditAddressDialog v-model:is-dialog-visible="isEditAddressDialogVisible" />
       </VCard>
     </VCol>
 
-    <!-- 👉 Create app dialog -->
+    <!--  Create app dialog -->
     <VCol
       cols="12"
       sm="6"
@@ -221,7 +221,7 @@ const userData = {
       <CreateAppDialog v-model:is-dialog-visible="isCreateAppVisible" />
     </VCol>
 
-    <!-- 👉 Two Factor Auth Dialog -->
+    <!--  Two Factor Auth Dialog -->
     <VCol
       cols="12"
       sm="6"
@@ -248,13 +248,13 @@ const userData = {
           </VBtn>
         </VCardText>
 
-        <!-- 👉 Enable One Time Password Dialog -->
+        <!--  Enable One Time Password Dialog -->
 
         <TwoFactorAuthDialog v-model:is-dialog-visible="isTwoFactorDialogOpen" />
       </VCard>
     </VCol>
 
-    <!-- 👉 Edit User Info Dialog -->
+    <!--  Edit User Info Dialog -->
     <VCol
       cols="12"
       sm="6"
@@ -281,7 +281,7 @@ const userData = {
           </VBtn>
         </VCardText>
 
-        <!-- 👉 Edit user info dialog -->
+        <!--  Edit user info dialog -->
         <UserInfoEditDialog
           v-model:is-dialog-visible="isUserInfoEditDialogVisible"
           :user-data="userData"
@@ -289,7 +289,7 @@ const userData = {
       </VCard>
     </VCol>
 
-    <!-- 👉 Payment Providers Dialog -->
+    <!--  Payment Providers Dialog -->
     <VCol
       cols="12"
       sm="6"
@@ -316,12 +316,12 @@ const userData = {
           </VBtn>
         </VCardText>
 
-        <!-- 👉 plan and pricing dialog -->
+        <!--  plan and pricing dialog -->
         <PaymentProvidersDialog v-model:is-dialog-visible="isPaymentProvidersDialogVisible" />
       </VCard>
     </VCol>
 
-    <!-- 👉 Add Payment Methods -->
+    <!--  Add Payment Methods -->
     <VCol
       cols="12"
       sm="6"
@@ -348,7 +348,7 @@ const userData = {
           </VBtn>
         </VCardText>
 
-        <!-- 👉 plan and pricing dialog -->
+        <!--  plan and pricing dialog -->
         <AddPaymentMethodDialog v-model:is-dialog-visible="isAddPaymentMethodsDialogVisible" />
       </VCard>
     </VCol>

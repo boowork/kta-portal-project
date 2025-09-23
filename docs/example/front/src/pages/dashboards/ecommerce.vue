@@ -17,7 +17,7 @@ import wallet from '@images/cards/wallet-info.png'
 
 <template>
   <VRow class="match-height">
-    <!-- 👉 Award card -->
+    <!--  Award card -->
     <VCol
       cols="12"
 
@@ -26,7 +26,7 @@ import wallet from '@images/cards/wallet-info.png'
       <ECommerceAward />
     </VCol>
 
-    <!-- 👉 New Visitors card -->
+    <!--  New Visitors card -->
     <VCol
       cols="12"
       md="8"
@@ -39,7 +39,7 @@ import wallet from '@images/cards/wallet-info.png'
       lg="4"
     >
       <VRow>
-        <!-- 👉 Statistics Vertical  -->
+        <!--  Statistics Vertical  -->
         <VCol
           cols="12"
           sm="6"
@@ -55,7 +55,7 @@ import wallet from '@images/cards/wallet-info.png'
           />
         </VCol>
 
-        <!-- 👉 Profit -->
+        <!--  Profit -->
         <VCol
           cols="12"
           sm="6"
@@ -65,7 +65,7 @@ import wallet from '@images/cards/wallet-info.png'
           <EcommerceProfit />
         </VCol>
 
-        <!-- 👉 Expenses -->
+        <!--  Expenses -->
         <VCol
           cols="12"
           sm="6"
@@ -75,7 +75,7 @@ import wallet from '@images/cards/wallet-info.png'
           <EcommerceExpenses />
         </VCol>
 
-        <!-- 👉 Transactions -->
+        <!--  Transactions -->
         <VCol
           cols="12"
           sm="6"
@@ -93,7 +93,7 @@ import wallet from '@images/cards/wallet-info.png'
       </VRow>
     </VCol>
 
-    <!-- 👉 Total Income -->
+    <!--  Total Income -->
     <VCol
       cols="12"
       lg="8"
@@ -101,7 +101,7 @@ import wallet from '@images/cards/wallet-info.png'
       <EcommerceTotalIncome />
     </VCol>
 
-    <!-- 👉 Performance -->
+    <!--  Performance -->
     <VCol
       cols="12"
       sm="6"
@@ -110,7 +110,7 @@ import wallet from '@images/cards/wallet-info.png'
       <EcommercePerformance />
     </VCol>
 
-    <!-- 👉 Conversion Rate -->
+    <!--  Conversion Rate -->
     <VCol
       cols="12"
       md="4"
@@ -124,7 +124,7 @@ import wallet from '@images/cards/wallet-info.png'
       md="4"
     >
       <VRow>
-        <!-- 👉 Revenue card -->
+        <!--  Revenue card -->
         <VCol
           cols="12"
           sm="6"
@@ -140,7 +140,7 @@ import wallet from '@images/cards/wallet-info.png'
           />
         </VCol>
 
-        <!-- 👉 Sales card -->
+        <!--  Sales card -->
         <VCol
           cols="12"
           sm="6"
@@ -148,14 +148,14 @@ import wallet from '@images/cards/wallet-info.png'
           <EcommerceSales />
         </VCol>
 
-        <!-- 👉 Expenses Bar -->
+        <!--  Expenses Bar -->
         <VCol cols="12">
           <EcommerceExpensesBar />
         </VCol>
       </VRow>
     </VCol>
 
-    <!-- 👉 Table -->
+    <!--  Table -->
     <VCol
       cols="12"
       md="8"
@@ -163,7 +163,7 @@ import wallet from '@images/cards/wallet-info.png'
       <EcommerceTable />
     </VCol>
 
-    <!-- 👉 Total Balance -->
+    <!--  Total Balance -->
     <VCol
       cols="12"
       md="4"

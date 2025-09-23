@@ -14,7 +14,7 @@ const email = ref('')
 <template>
   <div class="misc-wrapper">
     <div>
-      <!-- 👉 Title and subtitle -->
+      <!--  Title and subtitle -->
       <div class="text-center mb-4">
         <h3 class="text-h3 font-weight-medium mb-2">
           We are launching soon 🚀
@@ -24,7 +24,7 @@ const email = ref('')
         </p>
       </div>
 
-      <!-- 👉 Email input -->
+      <!--  Email input -->
       <VForm
         class="d-flex flex-wrap align-center justify-center gap-4 misc-form"
         @submit.prevent="() => {}"
@@ -41,7 +41,7 @@ const email = ref('')
       </VForm>
     </div>
 
-    <!-- 👉 Image -->
+    <!--  Image -->
     <div class="misc-avatar w-100">
       <VImg
         :src="miscComingSoon"

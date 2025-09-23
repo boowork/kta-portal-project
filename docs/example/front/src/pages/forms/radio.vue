@@ -8,7 +8,7 @@ import { basic, colors, density, icon, inline, labelSlot, validation } from '@/v
       cols="12"
       md="6"
     >
-      <!-- 👉 Basic -->
+      <!--  Basic -->
       <AppCardCode
         title="Basic"
         :code="basic"
@@ -23,7 +23,7 @@ import { basic, colors, density, icon, inline, labelSlot, validation } from '@/v
       cols="12"
       md="6"
     >
-      <!-- 👉 Colors -->
+      <!--  Colors -->
       <AppCardCode
         title="Colors"
         :code="colors"
@@ -38,7 +38,7 @@ import { basic, colors, density, icon, inline, labelSlot, validation } from '@/v
       cols="12"
       md="6"
     >
-      <!-- 👉 Inline -->
+      <!--  Inline -->
       <AppCardCode
         title="Inline"
         :code="inline"
@@ -53,7 +53,7 @@ import { basic, colors, density, icon, inline, labelSlot, validation } from '@/v
       cols="12"
       md="6"
     >
-      <!-- 👉 Density -->
+      <!--  Density -->
       <AppCardCode
         title="Density"
         :code="density"
@@ -68,7 +68,7 @@ import { basic, colors, density, icon, inline, labelSlot, validation } from '@/v
       cols="12"
       md="6"
     >
-      <!-- 👉 Label Slot -->
+      <!--  Label Slot -->
       <AppCardCode
         title="Label Slot"
         :code="labelSlot"
@@ -83,7 +83,7 @@ import { basic, colors, density, icon, inline, labelSlot, validation } from '@/v
       cols="12"
       md="6"
     >
-      <!-- 👉 Icon -->
+      <!--  Icon -->
       <AppCardCode
         title="Icon"
         :code="icon"
@@ -98,7 +98,7 @@ import { basic, colors, density, icon, inline, labelSlot, validation } from '@/v
       cols="12"
       md="6"
     >
-      <!-- 👉 Validation -->
+      <!--  Validation -->
       <AppCardCode
         title="Validation"
         :code="validation"

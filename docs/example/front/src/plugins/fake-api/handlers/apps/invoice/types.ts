@@ -1,4 +1,4 @@
-// 👉 Client
+//  Client
 export interface Client {
   address: string
   company: string
@@ -8,7 +8,7 @@ export interface Client {
   name: string
 }
 
-// 👉 Invoice
+//  Invoice
 export interface Invoice {
   id: number
   issuedDate: string

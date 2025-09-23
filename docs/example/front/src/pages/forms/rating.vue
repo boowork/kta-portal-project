@@ -8,7 +8,7 @@ import { basic, clearable, colors, density, hover, incremented, itemSlot, length
       cols="12"
       md="6"
     >
-      <!-- 👉 Basic -->
+      <!--  Basic -->
       <AppCardCode
         title="Basic"
         :code="basic"
@@ -23,7 +23,7 @@ import { basic, clearable, colors, density, hover, incremented, itemSlot, length
       cols="12"
       md="6"
     >
-      <!-- 👉 Density -->
+      <!--  Density -->
       <AppCardCode
         title="Density"
         :code="density"
@@ -38,7 +38,7 @@ import { basic, clearable, colors, density, hover, incremented, itemSlot, length
       cols="12"
       md="6"
     >
-      <!-- 👉 Colors -->
+      <!--  Colors -->
       <AppCardCode
         title="Colors"
         :code="colors"
@@ -53,7 +53,7 @@ import { basic, clearable, colors, density, hover, incremented, itemSlot, length
       cols="12"
       md="6"
     >
-      <!-- 👉 Size -->
+      <!--  Size -->
       <AppCardCode
         title="Size"
         :code="size"
@@ -68,7 +68,7 @@ import { basic, clearable, colors, density, hover, incremented, itemSlot, length
       cols="12"
       md="6"
     >
-      <!-- 👉 Length -->
+      <!--  Length -->
       <AppCardCode
         title="Length"
         :code="length"
@@ -83,7 +83,7 @@ import { basic, clearable, colors, density, hover, incremented, itemSlot, length
       cols="12"
       md="6"
     >
-      <!-- 👉 Clearable -->
+      <!--  Clearable -->
       <AppCardCode
         title="Clearable"
         :code="clearable"
@@ -98,7 +98,7 @@ import { basic, clearable, colors, density, hover, incremented, itemSlot, length
       cols="12"
       md="6"
     >
-      <!-- 👉 Readonly -->
+      <!--  Readonly -->
       <AppCardCode
         title="Readonly"
         :code="readonly"
@@ -113,7 +113,7 @@ import { basic, clearable, colors, density, hover, incremented, itemSlot, length
       cols="12"
       md="6"
     >
-      <!-- 👉 Hover -->
+      <!--  Hover -->
       <AppCardCode
         title="Hover"
         :code="hover"
@@ -128,7 +128,7 @@ import { basic, clearable, colors, density, hover, incremented, itemSlot, length
       cols="12"
       md="6"
     >
-      <!-- 👉 Incremented -->
+      <!--  Incremented -->
       <AppCardCode
         title="Incremented"
         :code="incremented"
@@ -143,7 +143,7 @@ import { basic, clearable, colors, density, hover, incremented, itemSlot, length
       cols="12"
       md="6"
     >
-      <!-- 👉 Item slot -->
+      <!--  Item slot -->
       <AppCardCode
         title="Item slot"
         :code="itemSlot"

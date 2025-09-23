@@ -71,7 +71,7 @@ const pricingPlans = [
   <div id="pricing-plan">
     <VContainer>
       <div class="pricing-plans">
-        <!-- 👉 Headers  -->
+        <!--  Headers  -->
         <div class="headers d-flex justify-center flex-column align-center flex-wrap">
           <VChip
             label
@@ -99,7 +99,7 @@ const pricingPlans = [
             </p>
           </div>
         </div>
-        <!-- 👉 Annual and monthly price toggler -->
+        <!--  Annual and monthly price toggler -->
         <div class="d-flex align-center justify-center mx-auto mt-6 mb-16">
           <VLabel
             for="pricing-plan-toggle"
@@ -166,7 +166,7 @@ const pricingPlans = [
                     <span class="text-disabled mb-2 font-weight-medium">/mo</span>
                   </div>
 
-                  <!-- 👉 Annual Price -->
+                  <!--  Annual Price -->
                   <span
                     v-show="annualMonthlyPlanPriceToggler"
                     class="annual-price-text position-absolute text-sm text-disabled"

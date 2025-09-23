@@ -21,10 +21,10 @@ const salesperson = ref(props.data.salesperson)
 const thanksNote = ref(props.data.thanksNote)
 const note = ref(props.data.note)
 
-// 👉 Clients
+//  Clients
 const clients = ref<Client[]>([])
 
-// 👉 fetchClients
+//  fetchClients
 const fetchClients = async () => {
   const { data, error } = await useApi<any>('/apps/invoice/clients')
 
@@ -35,7 +35,7 @@ const fetchClients = async () => {
 
 fetchClients()
 
-// 👉 Add item function
+//  Add item function
 const addItem = () => {
   emit('push', {
     title: 'App Design',
@@ -45,7 +45,7 @@ const addItem = () => {
   })
 }
 
-// 👉 Remove Product edit section
+//  Remove Product edit section
 const removeProduct = (id: number) => {
   emit('remove', id)
 }
@@ -55,19 +55,19 @@ const removeProduct = (id: number) => {
   <VCard class="pa-6 pa-sm-12">
     <!-- SECTION Header -->
     <div class="d-flex flex-wrap justify-space-between flex-column rounded bg-var-theme-background flex-sm-row gap-6 pa-6 mb-6">
-      <!-- 👉 Left Content -->
+      <!--  Left Content -->
       <div>
         <div class="d-flex align-center app-logo mb-6">
-          <!-- 👉 Logo -->
+          <!--  Logo -->
           <VNodeRenderer :nodes="themeConfig.app.logo" />
 
-          <!-- 👉 Title -->
+          <!--  Title -->
           <h6 class="app-logo-title">
             {{ themeConfig.app.title }}
           </h6>
         </div>
 
-        <!-- 👉 Address -->
+        <!--  Address -->
         <p class="text-high-emphasis mb-0 text-body-1">
           Office 149, 450 South Brand Brooklyn
         </p>
@@ -79,9 +79,9 @@ const removeProduct = (id: number) => {
         </p>
       </div>
 
-      <!-- 👉 Right Content -->
+      <!--  Right Content -->
       <div class="d-flex flex-column gap-2">
-        <!-- 👉 Invoice Id -->
+        <!--  Invoice Id -->
         <div class="d-flex align-start align-sm-center gap-x-4 font-weight-medium text-h5 flex-column flex-sm-row">
           <span
             class="text-high-emphasis text-sm-end"
@@ -98,7 +98,7 @@ const removeProduct = (id: number) => {
           </span>
         </div>
 
-        <!-- 👉 Issue Date -->
+        <!--  Issue Date -->
         <div class="d-flex gap-x-4 align-start align-sm-center flex-column flex-sm-row">
           <span
             class="text-high-emphasis text-body-1 text-sm-end"
@@ -115,7 +115,7 @@ const removeProduct = (id: number) => {
           </span>
         </div>
 
-        <!-- 👉 Due Date -->
+        <!--  Due Date -->
         <div class="d-flex gap-x-4 align-start align-sm-center flex-column flex-sm-row">
           <span
             class="text-high-emphasis text-body-1 text-sm-end"
@@ -218,7 +218,7 @@ const removeProduct = (id: number) => {
     </VRow>
 
     <VDivider class="my-6 border-dashed" />
-    <!-- 👉 Add purchased products -->
+    <!--  Add purchased products -->
     <div class="add-products-form">
       <div
         v-for="(product, index) in props.data.purchasedProducts"
@@ -243,7 +243,7 @@ const removeProduct = (id: number) => {
 
     <VDivider class="my-6 border-dashed" />
 
-    <!-- 👉 Total Amount -->
+    <!--  Total Amount -->
     <div class="d-flex justify-space-between flex-wrap flex-column flex-sm-row">
       <div class="mb-6 mb-sm-0">
         <div class="d-flex align-center mb-4">

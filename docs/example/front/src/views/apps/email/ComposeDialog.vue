@@ -131,7 +131,7 @@ const resetValues = () => {
 
     <VDivider />
 
-    <!-- 👉 Tiptap Editor  -->
+    <!--  Tiptap Editor  -->
     <TiptapEditor
       v-model="content"
       placeholder="Message"

@@ -85,7 +85,7 @@ const socialAccounts = ref([
         md="6"
         class="pe-md-0 pb-0 pb-md-3"
       >
-        <!-- 👉 Connected Accounts -->
+        <!--  Connected Accounts -->
         <VCard flat>
           <VCardItem>
             <VCardTitle class="mb-1">
@@ -136,7 +136,7 @@ const socialAccounts = ref([
         md="6"
         class="ps-md-0 pt-0 pt-md-3"
       >
-        <!-- 👉 Social Accounts -->
+        <!--  Social Accounts -->
         <VCard flat>
           <VCardItem>
             <VCardTitle class="mb-1">

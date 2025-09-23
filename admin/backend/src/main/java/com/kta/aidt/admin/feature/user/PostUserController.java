@@ -10,6 +10,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -40,6 +41,7 @@ public class PostUserController {
 class PostUserService {
     
     private final PostUserDao postUserDao;
+    private final PasswordEncoder passwordEncoder;
     
     @Transactional
     public PostUserHttpResponseDto createUser(PostUserHttpRequestDto requestDto) {
@@ -51,7 +53,7 @@ class PostUserService {
     private PostUserDaoRequestDto convertToDaoRequestDto(PostUserHttpRequestDto requestDto) {
         PostUserDaoRequestDto dto = new PostUserDaoRequestDto();
         dto.setUserid(requestDto.getUserid());
-        dto.setPassword(requestDto.getPassword());
+        dto.setPassword(passwordEncoder.encode(requestDto.getPassword())); // 비밀번호 인코딩
         dto.setName(requestDto.getName());
         dto.setRole(requestDto.getRole());
         return dto;

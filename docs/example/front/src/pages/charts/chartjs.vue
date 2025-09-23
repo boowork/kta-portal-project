@@ -33,7 +33,7 @@ const chartJsCustomColors: ChartJsCustomColors = {
 
 <template>
   <VRow id="chartjs-wrapper">
-    <!-- 👉 Statistics Line Chart  -->
+    <!--  Statistics Line Chart  -->
     <VCol cols="12">
       <VCard
         title="Statistics"
@@ -45,7 +45,7 @@ const chartJsCustomColors: ChartJsCustomColors = {
       </VCard>
     </VCol>
 
-    <!-- 👉 Radar Chart -->
+    <!--  Radar Chart -->
     <VCol
       cols="12"
       md="6"
@@ -57,7 +57,7 @@ const chartJsCustomColors: ChartJsCustomColors = {
       </VCard>
     </VCol>
 
-    <!-- 👉 Average Skills Polar Area Chart -->
+    <!--  Average Skills Polar Area Chart -->
     <VCol
       cols="12"
       md="6"
@@ -69,7 +69,7 @@ const chartJsCustomColors: ChartJsCustomColors = {
       </VCard>
     </VCol>
 
-    <!-- 👉  Bubble Chart -->
+    <!--   Bubble Chart -->
     <VCol cols="12">
       <VCard title="Bubble Chart">
         <template #append>
@@ -82,7 +82,7 @@ const chartJsCustomColors: ChartJsCustomColors = {
       </VCard>
     </VCol>
 
-    <!-- 👉 New Product Data Scatter Chart -->
+    <!--  New Product Data Scatter Chart -->
     <VCol cols="12">
       <VCard>
         <VCardItem class="d-flex flex-wrap justify-space-between gap-4">
@@ -107,7 +107,7 @@ const chartJsCustomColors: ChartJsCustomColors = {
       </VCard>
     </VCol>
 
-    <!-- 👉 Data Science Area Line Chart -->
+    <!--  Data Science Area Line Chart -->
     <VCol cols="12">
       <VCard>
         <VCardItem class="d-flex flex-wrap justify-space-between gap-4">
@@ -133,7 +133,7 @@ const chartJsCustomColors: ChartJsCustomColors = {
       </VCard>
     </VCol>
 
-    <!-- 👉 Latest Statistics -->
+    <!--  Latest Statistics -->
     <VCol
       cols="12"
       md="6"
@@ -160,7 +160,7 @@ const chartJsCustomColors: ChartJsCustomColors = {
       </VCard>
     </VCol>
 
-    <!-- 👉 Balance Horizontal Bar Chart -->
+    <!--  Balance Horizontal Bar Chart -->
     <VCol
       cols="12"
       md="6"

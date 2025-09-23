@@ -56,7 +56,7 @@ const updateMailLabel = async (label: Email['labels'][number]) => {
     class="email-view"
   >
     <template v-if="props.email">
-      <!-- 👉 header -->
+      <!--  header -->
 
       <div class="email-view-header d-flex align-center px-6 py-4">
         <IconBtn
@@ -115,7 +115,7 @@ const updateMailLabel = async (label: Email['labels'][number]) => {
 
       <VDivider />
 
-      <!-- 👉 Action bar -->
+      <!--  Action bar -->
       <div class="email-view-action-bar d-flex align-center text-medium-emphasis ps-6 pe-4 gap-x-1">
         <!-- Trash -->
         <IconBtn
@@ -249,7 +249,7 @@ const updateMailLabel = async (label: Email['labels'][number]) => {
 
       <VDivider />
 
-      <!-- 👉 Mail Content -->
+      <!--  Mail Content -->
       <PerfectScrollbar
         tag="div"
         class="mail-content-container flex-grow-1 pa-sm-12 pa-6"

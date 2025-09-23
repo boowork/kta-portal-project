@@ -8,7 +8,7 @@ import { basic, color, disabled, step, thumbLabel, vertical } from '@/views/demo
       cols="12"
       md="6"
     >
-      <!-- 👉 Basic -->
+      <!--  Basic -->
       <AppCardCode
         title="Basic"
         :code="basic"
@@ -23,7 +23,7 @@ import { basic, color, disabled, step, thumbLabel, vertical } from '@/views/demo
       cols="12"
       md="6"
     >
-      <!-- 👉 Disabled -->
+      <!--  Disabled -->
       <AppCardCode
         title="Disabled"
         :code="disabled"
@@ -38,7 +38,7 @@ import { basic, color, disabled, step, thumbLabel, vertical } from '@/views/demo
       cols="12"
       md="6"
     >
-      <!-- 👉 Color -->
+      <!--  Color -->
       <AppCardCode
         title="Color"
         :code="color"
@@ -53,7 +53,7 @@ import { basic, color, disabled, step, thumbLabel, vertical } from '@/views/demo
       cols="12"
       md="6"
     >
-      <!-- 👉 Step -->
+      <!--  Step -->
       <AppCardCode
         title="Step"
         :code="step"
@@ -68,7 +68,7 @@ import { basic, color, disabled, step, thumbLabel, vertical } from '@/views/demo
       cols="12"
       md="6"
     >
-      <!-- 👉 Thumb label -->
+      <!--  Thumb label -->
       <AppCardCode
         title="Thumb label"
         :code="thumbLabel"
@@ -85,7 +85,7 @@ import { basic, color, disabled, step, thumbLabel, vertical } from '@/views/demo
       cols="12"
       md="6"
     >
-      <!-- 👉 Vertical -->
+      <!--  Vertical -->
       <AppCardCode
         title="Vertical"
         :code="vertical"

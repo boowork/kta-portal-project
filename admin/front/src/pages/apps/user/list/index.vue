@@ -1,142 +1,204 @@
 <script setup lang="ts">
 import AddNewUserDrawer from '@/views/apps/user/list/AddNewUserDrawer.vue'
-import { type UserProperties, useUserListStore } from '@/views/apps/user/useUserListStore'
+import ErrorDialog from '@/components/dialogs/ErrorDialog.vue'
+import ToastContainer from '@/components/ToastContainer.vue'
+import { useErrorHandler } from '@/composables/useErrorHandler'
+import { userApi } from '@/api/user'
+import type { User, CreateUserRequest, PaginationParams } from '@/api/types'
 
-// 👉 Store
+//  Error handler
+const { handleApiError, showSuccessToast, clearErrors } = useErrorHandler()
+
+//  Component state
+const users = ref<User[]>([])
+const isLoading = ref(false)
+const isSubmitting = ref(false)
+
+//  Search and filter state
 const searchQuery = ref('')
 const selectedRole = ref()
-const selectedPlan = ref()
-const selectedStatus = ref()
+const selectedRows = ref([])
 
-// Data table options
+//  Data table options
 const itemsPerPage = ref(10)
 const page = ref(1)
 const sortBy = ref()
 const orderBy = ref()
-const selectedRows = ref([])
 
-// Update data table options
-const updateOptions = (options: any) => {
-  sortBy.value = options.sortBy[0]?.key
-  orderBy.value = options.sortBy[0]?.order
-}
-
-// Headers
+//  Table headers
 const headers = [
   { title: 'User', key: 'user' },
   { title: 'Role', key: 'role' },
-  { title: 'Plan', key: 'plan' },
-  { title: 'Billing', key: 'billing' },
-  { title: 'Status', key: 'status' },
+  { title: 'Created At', key: 'createdAt' },
   { title: 'Actions', key: 'actions', sortable: false },
 ]
 
-// 👉 User store
-const userStore = useUserListStore()
-
-// 👉 Fetching users
-const usersData = ref<any>({ users: [], totalUsers: 0 })
-
-const fetchUsers = async () => {
-  const result = await userStore.fetchUsers()
-
-  usersData.value = result
+//  Update data table options
+const updateOptions = (options: any) => {
+  sortBy.value = options.sortBy[0]?.key
+  orderBy.value = options.sortBy[0]?.order
+  fetchUsers()
 }
 
-// Initial fetch
+//  Fetch users from API
+const fetchUsers = async () => {
+  
+  try {
+    isLoading.value = true
+    clearErrors()
+
+    const params: PaginationParams = {
+      page: page.value,
+      size: itemsPerPage.value,
+      sort: sortBy.value || 'createdAt',
+      direction: orderBy.value === 'desc' ? 'DESC' : 'ASC',
+    }
+
+    const response = await userApi.getUsers(params)
+    
+    if (response.success && response.data) {
+      users.value = response.data
+    } else {
+      handleApiError({ response: { data: response } })
+    }
+  } catch (error) {
+    handleApiError(error)
+  } finally {
+    isLoading.value = false
+  }
+}
+
+//  Initial fetch
 await fetchUsers()
 
-const users = computed((): UserProperties[] => usersData.value?.users || [])
-const totalUsers = computed(() => usersData.value?.totalUsers || 0)
+//  Computed values
+const totalUsers = computed(() => users.value.length)
 
-// 👉 search filters
+//  search filters
 const roles = [
-  { title: 'Admin', value: 'admin' },
-  { title: 'Author', value: 'author' },
-  { title: 'Editor', value: 'editor' },
-  { title: 'Maintainer', value: 'maintainer' },
-  { title: 'Subscriber', value: 'subscriber' },
-]
-
-const plans = [
-  { title: 'Basic', value: 'basic' },
-  { title: 'Company', value: 'company' },
-  { title: 'Enterprise', value: 'enterprise' },
-  { title: 'Team', value: 'team' },
-]
-
-const status = [
-  { title: 'Pending', value: 'pending' },
-  { title: 'Active', value: 'active' },
-  { title: 'Inactive', value: 'inactive' },
+  { title: 'Admin', value: 'ADMIN' },
+  { title: 'User', value: 'USER' },
 ]
 
 const resolveUserRoleVariant = (role: string) => {
   const roleLowerCase = role.toLowerCase()
 
-  if (roleLowerCase === 'subscriber')
-    return { color: 'success', icon: 'bx-user' }
-  if (roleLowerCase === 'author')
-    return { color: 'error', icon: 'bx-desktop' }
-  if (roleLowerCase === 'maintainer')
-    return { color: 'info', icon: 'bx-pie-chart-alt' }
-  if (roleLowerCase === 'editor')
-    return { color: 'warning', icon: 'bx-edit' }
   if (roleLowerCase === 'admin')
     return { color: 'primary', icon: 'bx-crown' }
+  if (roleLowerCase === 'user')
+    return { color: 'success', icon: 'bx-user' }
 
   return { color: 'primary', icon: 'bx-user' }
 }
 
-const resolveUserStatusVariant = (stat: string) => {
-  const statLowerCase = stat.toLowerCase()
-  if (statLowerCase === 'pending')
-    return 'warning'
-  if (statLowerCase === 'active')
-    return 'success'
-  if (statLowerCase === 'inactive')
-    return 'secondary'
-
-  return 'primary'
-}
-
 const isAddNewUserDrawerVisible = ref(false)
 
-// 👉 Add new user
-const addNewUser = async (userData: UserProperties) => {
-  await $api('/apps/users', {
-    method: 'POST',
-    body: userData,
-  })
+//  Create new user
+const addNewUser = async (userData: CreateUserRequest) => {
+  try {
+    isSubmitting.value = true
+    clearErrors()
 
-  // Refetch User
-  fetchUsers()
+    const response = await userApi.createUser(userData)
+    
+    if (response.success) {
+      showSuccessToast('사용자가 생성되었습니다.')
+      isAddNewUserDrawerVisible.value = false
+      await fetchUsers() // Refresh list
+    } else {
+      handleApiError({ response: { data: response } })
+    }
+  } catch (error) {
+    handleApiError(error)
+  } finally {
+    isSubmitting.value = false
+  }
 }
 
-// 👉 Delete user
+//  Delete user with confirmation
 const deleteUser = async (id: number) => {
-  await userStore.deleteUser(id)
+  const user = users.value.find(u => u.id === id)
+  const userName = user ? user.name : `ID ${id}`
+  
+  if (confirm(`정말로 "${userName}" 사용자를 삭제하시겠습니까?`)) {
+    try {
+      isSubmitting.value = true
 
-  // Delete from selectedRows
-  const index = selectedRows.value.findIndex(row => row === id)
-  if (index !== -1)
-    selectedRows.value.splice(index, 1)
-
-  // refetch User
-  fetchUsers()
+      const response = await userApi.deleteUser(id)
+      
+      if (response.success) {
+        showSuccessToast('사용자가 삭제되었습니다.')
+        
+        // Remove from selected rows
+        const index = selectedRows.value.findIndex(row => row === id)
+        if (index !== -1) {
+          selectedRows.value.splice(index, 1)
+        }
+        
+        await fetchUsers() // Refresh list
+      } else {
+        handleApiError({ response: { data: response } })
+      }
+    } catch (error) {
+      handleApiError(error)
+    } finally {
+      isSubmitting.value = false
+    }
+  }
 }
 
-const widgetData = ref([
-  { title: 'Session', value: '21,459', change: 29, desc: 'Total Users', icon: 'bx-group', iconColor: 'primary' },
-  { title: 'Paid Users', value: '4,567', change: 18, desc: 'Last Week Analytics', icon: 'bx-user-plus', iconColor: 'error' },
-  { title: 'Active Users', value: '19,860', change: -14, desc: 'Last Week Analytics', icon: 'bx-user-check', iconColor: 'success' },
-  { title: 'Pending Users', value: '237', change: 42, desc: 'Last Week Analytics', icon: 'bx-user-voice', iconColor: 'warning' },
-])
+//  Search users
+const searchUsers = async () => {
+  try {
+    isLoading.value = true
+    clearErrors()
+
+    if (searchQuery.value.trim()) {
+      const response = await userApi.searchUsers(searchQuery.value)
+      
+      if (response.success && response.data) {
+        users.value = response.data
+      } else {
+        handleApiError({ response: { data: response } })
+      }
+    } else {
+      await fetchUsers()
+    }
+  } catch (error) {
+    handleApiError(error)
+  } finally {
+    isLoading.value = false
+  }
+}
+
+//  Watchers
+watch(searchQuery, async () => {
+  await searchUsers()
+})
+
+watch([page, itemsPerPage], async () => {
+  await fetchUsers()
+})
+
+//  Widget data
+const widgetData = computed(() => {
+  const allUsers = users.value || []
+  const totalUsersCount = allUsers.length
+  const adminCount = allUsers.filter(user => user.role === 'ADMIN').length
+  const userCount = allUsers.filter(user => user.role === 'USER').length
+  
+  return [
+    { title: 'Total Users', value: totalUsersCount.toString(), change: 0, desc: 'All registered users', icon: 'bx-group', iconColor: 'primary' },
+    { title: 'Administrators', value: adminCount.toString(), change: 0, desc: 'Admin users', icon: 'bx-crown', iconColor: 'error' },
+    { title: 'Regular Users', value: userCount.toString(), change: 0, desc: 'Standard users', icon: 'bx-user', iconColor: 'success' },
+    { title: 'Loading', value: isLoading.value ? 'Yes' : 'No', change: 0, desc: 'Current status', icon: 'bx-loader-alt', iconColor: 'warning' },
+  ]
+})
 </script>
 
 <template>
   <section>
-    <!-- 👉 Widgets -->
+    <!--  Widgets -->
     <div class="d-flex mb-6">
       <VRow>
         <template
@@ -196,7 +258,7 @@ const widgetData = ref([
 
       <VCardText>
         <VRow>
-          <!-- 👉 Select Role -->
+          <!--  Select Role -->
           <VCol
             cols="12"
             sm="4"
@@ -205,32 +267,6 @@ const widgetData = ref([
               v-model="selectedRole"
               placeholder="Select Role"
               :items="roles"
-              clearable
-              clear-icon="bx-x"
-            />
-          </VCol>
-          <!-- 👉 Select Plan -->
-          <VCol
-            cols="12"
-            sm="4"
-          >
-            <AppSelect
-              v-model="selectedPlan"
-              placeholder="Select Plan"
-              :items="plans"
-              clearable
-              clear-icon="bx-x"
-            />
-          </VCol>
-          <!-- 👉 Select Status -->
-          <VCol
-            cols="12"
-            sm="4"
-          >
-            <AppSelect
-              v-model="selectedStatus"
-              placeholder="Select Status"
-              :items="status"
               clearable
               clear-icon="bx-x"
             />
@@ -258,7 +294,7 @@ const widgetData = ref([
         <VSpacer />
 
         <div class="app-user-search-filter d-flex align-center flex-wrap gap-4">
-          <!-- 👉 Search  -->
+          <!--  Search  -->
           <div style="inline-size: 15.625rem;">
             <AppTextField
               v-model="searchQuery"
@@ -266,7 +302,7 @@ const widgetData = ref([
             />
           </div>
 
-          <!-- 👉 Export button -->
+          <!--  Export button -->
           <VBtn
             variant="tonal"
             color="secondary"
@@ -275,7 +311,7 @@ const widgetData = ref([
             Export
           </VBtn>
 
-          <!-- 👉 Add user button -->
+          <!--  Add user button -->
           <VBtn
             prepend-icon="bx-plus"
             @click="isAddNewUserDrawerVisible = true"
@@ -292,6 +328,7 @@ const widgetData = ref([
         v-model:model-value="selectedRows"
         v-model:page="page"
         :items="users"
+        :loading="isLoading"
         item-value="id"
         :items-length="totalUsers"
         :headers="headers"
@@ -305,14 +342,10 @@ const widgetData = ref([
           <div class="d-flex align-center gap-x-4">
             <VAvatar
               size="34"
-              :variant="!item.avatar ? 'tonal' : undefined"
-              :color="!item.avatar ? resolveUserRoleVariant(item.role).color : undefined"
+              variant="tonal"
+              :color="resolveUserRoleVariant(item.role).color"
             >
-              <VImg
-                v-if="item.avatar"
-                :src="item.avatar"
-              />
-              <span v-else>{{ avatarText(item.fullName) }}</span>
+              <span>{{ avatarText(item.name) }}</span>
             </VAvatar>
             <div class="d-flex flex-column">
               <h6 class="text-base">
@@ -320,17 +353,17 @@ const widgetData = ref([
                   :to="{ name: 'apps-user-view-id', params: { id: item.id } }"
                   class="font-weight-medium text-link"
                 >
-                  {{ item.fullName }}
+                  {{ item.name }}
                 </RouterLink>
               </h6>
-              <div class="text-sm">
-                {{ item.email }}
+              <div class="text-sm text-medium-emphasis">
+                {{ item.userid }}
               </div>
             </div>
           </div>
         </template>
 
-        <!-- 👉 Role -->
+        <!--  Role -->
         <template #item.role="{ item }">
           <div class="d-flex align-center gap-x-2">
             <VIcon
@@ -345,23 +378,11 @@ const widgetData = ref([
           </div>
         </template>
 
-        <!-- Plan -->
-        <template #item.plan="{ item }">
-          <div class="text-body-1 text-high-emphasis text-capitalize">
-            {{ item.currentPlan }}
+        <!-- Created At -->
+        <template #item.createdAt="{ item }">
+          <div class="text-body-2">
+            {{ new Date(item.createdAt).toLocaleDateString() }}
           </div>
-        </template>
-
-        <!-- Status -->
-        <template #item.status="{ item }">
-          <VChip
-            :color="resolveUserStatusVariant(item.status)"
-            size="small"
-            label
-            class="text-capitalize"
-          >
-            {{ item.status }}
-          </VChip>
         </template>
 
         <!-- Actions -->
@@ -370,7 +391,7 @@ const widgetData = ref([
             <VIcon icon="bx-trash" />
           </IconBtn>
 
-          <IconBtn>
+          <IconBtn @click="$router.push({ name: 'apps-user-view-id', params: { id: item.id } })">
             <VIcon icon="bx-show" />
           </IconBtn>
 
@@ -390,7 +411,7 @@ const widgetData = ref([
                   <VListItemTitle>View</VListItemTitle>
                 </VListItem>
 
-                <VListItem link>
+                <VListItem @click="$router.push({ name: 'apps-user-view-id', params: { id: item.id } })">
                   <template #prepend>
                     <VIcon icon="bx-pencil" />
                   </template>
@@ -412,10 +433,16 @@ const widgetData = ref([
       </VDataTableServer>
       <!-- SECTION -->
     </VCard>
-    <!-- 👉 Add New User -->
+    <!--  Add New User -->
     <AddNewUserDrawer
       v-model:is-drawer-open="isAddNewUserDrawerVisible"
       @user-data="addNewUser"
     />
+
+    <!--  Error Dialog -->
+    <ErrorDialog />
+
+    <!--  Toast Container -->
+    <ToastContainer />
   </section>
 </template>

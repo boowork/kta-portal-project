@@ -1,4 +1,4 @@
-// 👉 Help center
+//  Help center
 export interface HelpCenterSubcategoryArticles {
   slug: string
   title: string

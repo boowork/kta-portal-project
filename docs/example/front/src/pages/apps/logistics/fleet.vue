@@ -158,7 +158,7 @@ watch(activeIndex, () => {
             </IconBtn>
           </template>
         </VCardItem>
-        <!-- 👉 Perfect Scrollbar -->
+        <!--  Perfect Scrollbar -->
         <PerfectScrollbar
           :options="{ wheelPropagation: false, suppressScrollX: true }"
           style="block-size: calc(100% - 60px)"
@@ -306,7 +306,7 @@ watch(activeIndex, () => {
           <VIcon icon="bx-menu" />
         </IconBtn>
 
-        <!-- 👉 Fleet map  -->
+        <!--  Fleet map  -->
         <div
           id="mapContainer"
           class="basemap"

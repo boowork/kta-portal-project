@@ -2,7 +2,7 @@ import type { RouteNamedMap, _RouterTyped } from 'unplugin-vue-router'
 import { canNavigate } from '@layouts/plugins/casl'
 
 export const setupGuards = (router: _RouterTyped<RouteNamedMap & { [key: string]: any }>) => {
-  // 👉 router.beforeEach
+  //  router.beforeEach
   // Docs: https://router.vuejs.org/guide/advanced/navigation-guards.html#global-before-guards
   router.beforeEach(to => {
     /*

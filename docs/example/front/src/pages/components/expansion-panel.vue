@@ -8,7 +8,7 @@ import { accordion, basic, customIcon, inset, model, popout, withBorder } from '
       cols="12"
       md="6"
     >
-      <!-- 👉 Basic  -->
+      <!--  Basic  -->
       <AppCardCode
         title="Basic"
         variant="outlined"
@@ -24,7 +24,7 @@ import { accordion, basic, customIcon, inset, model, popout, withBorder } from '
       cols="12"
       md="6"
     >
-      <!-- 👉 Accordion -->
+      <!--  Accordion -->
       <AppCardCode
         title="Accordion"
         variant="outlined"
@@ -40,7 +40,7 @@ import { accordion, basic, customIcon, inset, model, popout, withBorder } from '
       cols="12"
       md="6"
     >
-      <!-- 👉 Inset -->
+      <!--  Inset -->
       <AppCardCode
         title="Inset"
         variant="outlined"
@@ -56,7 +56,7 @@ import { accordion, basic, customIcon, inset, model, popout, withBorder } from '
       cols="12"
       md="6"
     >
-      <!-- 👉 Popout -->
+      <!--  Popout -->
       <AppCardCode
         title="Popout"
         variant="outlined"
@@ -74,7 +74,7 @@ import { accordion, basic, customIcon, inset, model, popout, withBorder } from '
       cols="12"
       md="6"
     >
-      <!-- 👉 Custom Icon -->
+      <!--  Custom Icon -->
       <AppCardCode
         title="Custom Icon"
         variant="outlined"
@@ -90,7 +90,7 @@ import { accordion, basic, customIcon, inset, model, popout, withBorder } from '
       cols="12"
       md="6"
     >
-      <!-- 👉 Model -->
+      <!--  Model -->
       <AppCardCode
         title="Model"
         variant="outlined"
@@ -106,7 +106,7 @@ import { accordion, basic, customIcon, inset, model, popout, withBorder } from '
       cols="12"
       md="6"
     >
-      <!-- 👉 With Border -->
+      <!--  With Border -->
       <AppCardCode
         title="With Border"
         variant="outlined"

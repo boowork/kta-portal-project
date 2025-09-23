@@ -8,7 +8,7 @@ import { basic, clearable, counter, customColors, density, iconEvents, iconSlots
       cols="12"
       md="6"
     >
-      <!-- 👉 Basic -->
+      <!--  Basic -->
       <AppCardCode
         title="Basic"
         :code="basic"
@@ -23,7 +23,7 @@ import { basic, clearable, counter, customColors, density, iconEvents, iconSlots
       cols="12"
       md="6"
     >
-      <!-- 👉 Density -->
+      <!--  Density -->
       <AppCardCode
         title="Density"
         :code="density"
@@ -35,7 +35,7 @@ import { basic, clearable, counter, customColors, density, iconEvents, iconSlots
     </VCol>
 
     <VCol cols="12">
-      <!-- 👉 Variant -->
+      <!--  Variant -->
       <AppCardCode
         title="Variant"
         :code="variant"
@@ -50,7 +50,7 @@ import { basic, clearable, counter, customColors, density, iconEvents, iconSlots
       cols="12"
       md="6"
     >
-      <!-- 👉 State -->
+      <!--  State -->
       <AppCardCode
         title="State"
         :code="state"
@@ -65,7 +65,7 @@ import { basic, clearable, counter, customColors, density, iconEvents, iconSlots
       cols="12"
       md="6"
     >
-      <!-- 👉 Counter -->
+      <!--  Counter -->
       <AppCardCode
         title="Counter"
         :code="counter"
@@ -80,7 +80,7 @@ import { basic, clearable, counter, customColors, density, iconEvents, iconSlots
       cols="12"
       md="6"
     >
-      <!-- 👉 Clearable -->
+      <!--  Clearable -->
       <AppCardCode
         title="Clearable"
         :code="clearable"
@@ -95,7 +95,7 @@ import { basic, clearable, counter, customColors, density, iconEvents, iconSlots
       cols="12"
       md="6"
     >
-      <!-- 👉 Custom Colors -->
+      <!--  Custom Colors -->
       <AppCardCode
         title="Custom Colors"
         :code="customColors"
@@ -110,7 +110,7 @@ import { basic, clearable, counter, customColors, density, iconEvents, iconSlots
       cols="12"
       md="6"
     >
-      <!-- 👉 Icons -->
+      <!--  Icons -->
       <AppCardCode
         title="Icons"
         :code="icons"
@@ -125,7 +125,7 @@ import { basic, clearable, counter, customColors, density, iconEvents, iconSlots
       cols="12"
       md="6"
     >
-      <!-- 👉 Prefixes and suffixes -->
+      <!--  Prefixes and suffixes -->
       <AppCardCode
         title="Prefixes and suffixes"
         :code="prefixesAndSuffixes"
@@ -140,7 +140,7 @@ import { basic, clearable, counter, customColors, density, iconEvents, iconSlots
       cols="12"
       md="6"
     >
-      <!-- 👉 Single line  -->
+      <!--  Single line  -->
       <AppCardCode
         title="Single line"
         :code="singleLine"
@@ -155,7 +155,7 @@ import { basic, clearable, counter, customColors, density, iconEvents, iconSlots
       cols="12"
       md="6"
     >
-      <!-- 👉 Validation -->
+      <!--  Validation -->
       <AppCardCode
         title="Validation"
         :code="validation"
@@ -170,7 +170,7 @@ import { basic, clearable, counter, customColors, density, iconEvents, iconSlots
       cols="12"
       md="6"
     >
-      <!-- 👉 Icon events -->
+      <!--  Icon events -->
       <AppCardCode
         title="Icon events"
         :code="iconEvents"
@@ -185,7 +185,7 @@ import { basic, clearable, counter, customColors, density, iconEvents, iconSlots
       cols="12"
       md="6"
     >
-      <!-- 👉 Label Slot -->
+      <!--  Label Slot -->
       <AppCardCode
         title="Label Slot"
         :code="labelSlot"
@@ -200,7 +200,7 @@ import { basic, clearable, counter, customColors, density, iconEvents, iconSlots
       cols="12"
       md="6"
     >
-      <!-- 👉 Password input -->
+      <!--  Password input -->
       <AppCardCode
         title="Password input"
         :code="passwordInput"
@@ -215,7 +215,7 @@ import { basic, clearable, counter, customColors, density, iconEvents, iconSlots
       cols="12"
       md="6"
     >
-      <!-- 👉 Icon slots -->
+      <!--  Icon slots -->
       <AppCardCode
         title="Icon slots"
         :code="iconSlots"

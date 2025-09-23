@@ -116,7 +116,7 @@ const deleteProduct = async (id: number) => {
 
 <template>
   <div>
-    <!-- 👉 widgets -->
+    <!--  widgets -->
     <VCard class="mb-6">
       <VCardText class="px-3">
         <VRow>
@@ -189,14 +189,14 @@ const deleteProduct = async (id: number) => {
       </VCardText>
     </VCard>
 
-    <!-- 👉 products -->
+    <!--  products -->
     <VCard
       title="Filters"
       class="mb-6"
     >
       <VCardText class="pb-5">
         <VRow>
-          <!-- 👉 Select Status -->
+          <!--  Select Status -->
           <VCol
             cols="12"
             sm="4"
@@ -210,7 +210,7 @@ const deleteProduct = async (id: number) => {
             />
           </VCol>
 
-          <!-- 👉 Select Category -->
+          <!--  Select Category -->
           <VCol
             cols="12"
             sm="4"
@@ -224,7 +224,7 @@ const deleteProduct = async (id: number) => {
             />
           </VCol>
 
-          <!-- 👉 Select Stock Status -->
+          <!--  Select Stock Status -->
           <VCol
             cols="12"
             sm="4"
@@ -244,7 +244,7 @@ const deleteProduct = async (id: number) => {
 
       <div class="d-flex flex-wrap gap-4 pa-6">
         <div class="d-flex align-center">
-          <!-- 👉 Search  -->
+          <!--  Search  -->
           <AppTextField
             v-model="searchQuery"
             placeholder="Search Product"
@@ -259,7 +259,7 @@ const deleteProduct = async (id: number) => {
             v-model="itemsPerPage"
             :items="[5, 10, 20, 25, 50]"
           />
-          <!-- 👉 Export button -->
+          <!--  Export button -->
           <VBtn
             variant="tonal"
             color="secondary"
@@ -280,7 +280,7 @@ const deleteProduct = async (id: number) => {
 
       <VDivider />
 
-      <!-- 👉 Datatable  -->
+      <!--  Datatable  -->
       <VDataTableServer
         v-model:items-per-page="itemsPerPage"
         v-model:model-value="selectedRows"

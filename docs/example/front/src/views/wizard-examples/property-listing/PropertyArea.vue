@@ -23,7 +23,7 @@ watch(formData, () => {
         cols="12"
         sm="6"
       >
-        <!-- 👉 Total Area -->
+        <!--  Total Area -->
         <AppTextField
           v-model="formData.totalArea"
           label="Total Area"
@@ -36,7 +36,7 @@ watch(formData, () => {
         cols="12"
         sm="6"
       >
-        <!-- 👉 Carpet Area -->
+        <!--  Carpet Area -->
         <AppTextField
           v-model="formData.carpetArea"
           label="Carpet Area"
@@ -49,7 +49,7 @@ watch(formData, () => {
         cols="12"
         sm="6"
       >
-        <!-- 👉 Plot Area -->
+        <!--  Plot Area -->
         <AppTextField
           v-model="formData.plotArea"
           label="Plot Area"
@@ -62,7 +62,7 @@ watch(formData, () => {
         cols="12"
         sm="6"
       >
-        <!-- 👉 Available From -->
+        <!--  Available From -->
         <AppDateTimePicker
           v-model="formData.availableFrom"
           label="Available From"
@@ -75,7 +75,7 @@ watch(formData, () => {
         cols="12"
         sm="6"
       >
-        <!-- 👉 Possession Status -->
+        <!--  Possession Status -->
         <VRadioGroup v-model="formData.possessionStatus">
           <template #label>
             <div class="text-body-1">
@@ -96,7 +96,7 @@ watch(formData, () => {
         cols="12"
         sm="6"
       >
-        <!-- 👉 Transaction Type -->
+        <!--  Transaction Type -->
         <VRadioGroup v-model="formData.transactionType">
           <template #label>
             <div class="text-body-1">
@@ -117,7 +117,7 @@ watch(formData, () => {
         cols="12"
         sm="6"
       >
-        <!-- 👉 property Location -->
+        <!--  property Location -->
         <VRadioGroup v-model="formData.isOnMainRoad">
           <template #label>
             <div class="text-body-1">
@@ -138,7 +138,7 @@ watch(formData, () => {
         cols="12"
         sm="6"
       >
-        <!-- 👉 Gated Colony -->
+        <!--  Gated Colony -->
         <VRadioGroup v-model="formData.isGatedColony">
           <template #label>
             <div class="text-body-1">

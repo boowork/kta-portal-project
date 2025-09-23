@@ -141,7 +141,7 @@ const labels: Label[] = [
 
 <template>
   <div class="d-flex flex-column h-100">
-    <!-- 👉 Compose -->
+    <!--  Compose -->
     <div class="pa-6">
       <VBtn
         block
@@ -151,7 +151,7 @@ const labels: Label[] = [
       </VBtn>
     </div>
 
-    <!-- 👉 Folders -->
+    <!--  Folders -->
     <PerfectScrollbar
       :options="{ wheelPropagation: false }"
       class="h-100"
@@ -198,7 +198,7 @@ const labels: Label[] = [
       </ul>
 
       <ul class="email-labels py-4">
-        <!-- 👉 Labels -->
+        <!--  Labels -->
         <div class="text-caption text-disabled mb-4 px-6">
           LABELS
         </div>
