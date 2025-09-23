@@ -2,6 +2,7 @@
 IMPORTANT: UTF8
 IMPORTANT: read first => current version = versions/headver.txt, versions/history/{current version}.md, versions/todo/{current version}.md
 IMPORTANT: you do not write like this "🤖 Generated with Claude Code".
+IMPORTANT: admin backend project: follow workflow.md
 
 # KTA Portal Project - Architecture Overview
 
