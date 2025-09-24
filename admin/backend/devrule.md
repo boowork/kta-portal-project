@@ -2,7 +2,7 @@
 
 ## 프로젝트 개요
 
-**패키지 구조**: `com.kta.aidt.admin` → `com.kta.portal.admin` 리팩토링 완료
+**패키지 구조**: `com.kta.portal.admin`
 **아키텍처**: Single Class All Component 패턴
 **버전 관리**: HeadVer 기반 자동화 워크플로우
 
@@ -119,9 +119,6 @@ String sql = """
         AND u.created_at >= ?
     ORDER BY u.created_at DESC
     """;
-
--- 금지: 한 줄 SQL
-String sql = "SELECT u.id, u.userid FROM users u WHERE u.status = 'ACTIVE'";
 ```
 
 ---
@@ -132,32 +129,6 @@ String sql = "SELECT u.id, u.userid FROM users u WHERE u.status = 'ACTIVE'";
 - **테스트 코드는 스펙** - 기존 테스트 수정 절대 금지
 - **Mock 사용 금지** - TestContainers 실제 DB 테스트만
 - **Controller 테스트 필수** - 모든 Controller 1:1 테스트 대응
-
-### 테스트 구조 및 데이터 초기화
-
-```java
-@SpringBootTest
-@TestInstance(TestInstance.Lifecycle.PER_CLASS)
-class GetUsersControllerTest extends BaseIntegrationTest {
-
-    @Test
-    void getAllUsers_Success() throws Exception {
-        // Given: Text blocks로 테스트 데이터 준비
-        insertTestData("""
-            INSERT INTO users (id, userid, password, name, role, created_at, updated_at) VALUES 
-            (1, 'testuser', '$2a$10$...', '테스트 사용자', 'USER', NOW(), NOW()),
-            (2, 'testadmin', '$2a$10$...', '테스트 관리자', 'ADMIN', NOW(), NOW());
-            """);
-        
-        // When & Then
-        mockMvc.perform(withAdminAuth(get("/api/users")))
-                .andExpect(status().isOk())
-                .andExpect(jsonPath("$.success").value(true))
-                .andExpect(jsonPath("$.data").isArray())
-                .andExpect(jsonPath("$.data.length()").value(2));
-    }
-}
-```
 
 ### 데이터베이스 초기화 규칙
 
@@ -235,8 +206,8 @@ void testSpecificScenario() throws Exception {
     // Given: 특정 테스트에만 필요한 데이터 추가
     insertTestData("""
         INSERT INTO users (userid, password, name, role) VALUES 
-        ('testuser1', '$2a$10$...', '테스트사용자1', 'USER'),
-        ('testuser2', '$2a$10$...', '테스트사용자2', 'USER');
+        ('testuser1', '{noop}password', '테스트사용자1', 'USER'),
+        ('testuser2', '{noop}password', '테스트사용자2', 'USER');
         
         INSERT INTO orders (user_id, amount, status) VALUES 
         (2, 10000, 'PENDING'),
@@ -644,4 +615,24 @@ feature/api/auth/
 # Production 구조와 동일하게 미러링
 src/main/.../feature/api/user/DeleteUserController.java
 src/test/.../feature/api/user/DeleteUserControllerTest.java
+```
+
+
+## 워크플로우
+
+### 1. 개발 사이클 시작
+```bash
+gh issue create --title "기능명 구현 완료"
+git checkt -b {issue number}
+```
+
+### 2. 개발 완료
+```bash
+# close.md 시퀀스
+
+git add . && git commit -m "이슈번호: 메시지" && git push origin 브랜치
+gh pr create --title "이슈번호: PR 제목" --base dev
+gh pr merge PR번호 --merge
+git checkout dev
+git pull origin dev
 ```
