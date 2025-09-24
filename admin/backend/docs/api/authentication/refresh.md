@@ -1,6 +1,6 @@
 # Refresh Token API
 
-**POST** `/api/v1/refresh`
+**POST** `/api/refresh`
 
 Refresh Token을 사용하여 새로운 Access Token을 발급받습니다.
 
@@ -82,7 +82,7 @@ Content-Type: application/json
 
 ### cURL
 ```bash
-curl -X POST http://localhost:8080/api/v1/refresh \
+curl -X POST http://localhost:8080/api/refresh \
   -H "Content-Type: application/json" \
   -d '{
     "refreshToken": "your-refresh-token-here"
@@ -94,7 +94,7 @@ curl -X POST http://localhost:8080/api/v1/refresh \
 async function refreshAccessToken() {
   const refreshToken = localStorage.getItem('refreshToken');
   
-  const response = await fetch('/api/v1/refresh', {
+  const response = await fetch('/api/refresh', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'

@@ -1,7 +1,7 @@
 # PUT /users/{id}
 
 ## 개요
-- **엔드포인트**: `PUT /api/v1/users/{id}`
+- **엔드포인트**: `PUT /api/users/{id}`
 - **기능**: 사용자 정보 수정
 
 ## 요청
@@ -60,7 +60,7 @@
 
 ## cURL 예시
 ```bash
-curl -X PUT http://localhost:8080/api/v1/users/1 \
+curl -X PUT http://localhost:8080/api/users/1 \
   -H "Content-Type: application/json" \
   -d '{
     "name": "수정된 이름",

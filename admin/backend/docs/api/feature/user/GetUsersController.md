@@ -1,7 +1,7 @@
 # GET /users
 
 ## 개요
-- **엔드포인트**: `GET /api/v1/users`
+- **엔드포인트**: `GET /api/users`
 - **기능**: 모든 사용자 목록 조회
 
 ## 요청
@@ -29,5 +29,5 @@
 
 ## cURL 예시
 ```bash
-curl -X GET http://localhost:8080/api/v1/users
+curl -X GET http://localhost:8080/api/users
 ```

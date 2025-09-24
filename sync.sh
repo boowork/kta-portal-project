@@ -1,10 +1,9 @@
-cp -r admin ../kta-portal/
-cp -r docker ../kta-portal/
-cp -r portal ../kta-portal/
-cp -r scheool ../kta-portal/
-cp -r  ../kta-portal/
-cp -r  ../kta-portal/
-cp -r  ../kta-portal/
+rm -rf ../kta-portal/{docker,admin,portal,school,api}
+cp -r docker ../kta-portal/docker
+cp -r admin ../kta-portal/admin
+cp -r portal ../kta-portal/portal
+cp -r school ../kta-portal/school
+cp -r api ../kta-portal/api
 cp .gitignore ../kta-portal/
-mkdir ../kta-portal/docs/example/front
+mkdir -p ../kta-portal/docs/example/front
 cp -r docs/example/front ../kta-portal/docs/example/front
