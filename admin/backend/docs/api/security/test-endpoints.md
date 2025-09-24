@@ -4,7 +4,7 @@
 
 ## Public Endpoint
 
-**GET** `/api/v1/security-test/public`
+**GET** `/api/security-test/public`
 
 인증이 필요하지 않은 공개 엔드포인트입니다.
 
@@ -25,7 +25,7 @@
 
 ## User Endpoint
 
-**GET** `/api/v1/security-test/user`
+**GET** `/api/security-test/user`
 
 USER 권한이 필요한 엔드포인트입니다.
 
@@ -62,7 +62,7 @@ Authorization: Bearer {accessToken}
 
 ## Admin Endpoint
 
-**GET** `/api/v1/security-test/admin`
+**GET** `/api/security-test/admin`
 
 ADMIN 권한이 필요한 엔드포인트입니다.
 
@@ -110,17 +110,17 @@ USER 권한으로 접근시:
 
 ### cURL - Public
 ```bash
-curl -X GET http://localhost:8080/api/v1/security-test/public
+curl -X GET http://localhost:8080/api/security-test/public
 ```
 
 ### cURL - User (with token)
 ```bash
-curl -X GET http://localhost:8080/api/v1/security-test/user \
+curl -X GET http://localhost:8080/api/security-test/user \
   -H "Authorization: Bearer your-access-token-here"
 ```
 
 ### cURL - Admin (with token)
 ```bash
-curl -X GET http://localhost:8080/api/v1/security-test/admin \
+curl -X GET http://localhost:8080/api/security-test/admin \
   -H "Authorization: Bearer your-admin-access-token-here"
 ```

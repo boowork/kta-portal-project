@@ -1,6 +1,6 @@
 # Logout API
 
-**POST** `/api/v1/logout`
+**POST** `/api/logout`
 
 현재 사용자의 Refresh Token을 무효화하여 로그아웃을 수행합니다.
 
@@ -56,7 +56,7 @@ Content-Type: application/json
 
 ### cURL
 ```bash
-curl -X POST http://localhost:8080/api/v1/logout \
+curl -X POST http://localhost:8080/api/logout \
   -H "Authorization: Bearer your-access-token-here" \
   -H "Content-Type: application/json"
 ```
@@ -67,7 +67,7 @@ async function logout() {
   const accessToken = localStorage.getItem('accessToken');
   
   try {
-    const response = await fetch('/api/v1/logout', {
+    const response = await fetch('/api/logout', {
       method: 'POST',
       headers: {
         'Authorization': `Bearer ${accessToken}`,

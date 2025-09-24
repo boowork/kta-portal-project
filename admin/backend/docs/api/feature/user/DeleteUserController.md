@@ -1,7 +1,7 @@
 # DELETE /users/{id}
 
 ## 개요
-- **엔드포인트**: `DELETE /api/v1/users/{id}`
+- **엔드포인트**: `DELETE /api/users/{id}`
 - **기능**: 사용자 삭제
 
 ## 요청
@@ -37,5 +37,5 @@
 
 ## cURL 예시
 ```bash
-curl -X DELETE http://localhost:8080/api/v1/users/1
+curl -X DELETE http://localhost:8080/api/users/1
 ```

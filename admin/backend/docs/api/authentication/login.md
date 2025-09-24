@@ -1,6 +1,6 @@
 # Login API
 
-**POST** `/api/v1/login`
+**POST** `/api/login`
 
 로그인하여 Access Token과 Refresh Token을 발급받습니다.
 
@@ -83,7 +83,7 @@ Content-Type: application/json
 
 ### cURL
 ```bash
-curl -X POST http://localhost:8080/api/v1/login \
+curl -X POST http://localhost:8080/api/login \
   -H "Content-Type: application/json" \
   -d '{
     "userid": "admin",
@@ -93,7 +93,7 @@ curl -X POST http://localhost:8080/api/v1/login \
 
 ### JavaScript
 ```javascript
-const response = await fetch('/api/v1/login', {
+const response = await fetch('/api/login', {
   method: 'POST',
   headers: {
     'Content-Type': 'application/json'

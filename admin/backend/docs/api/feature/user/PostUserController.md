@@ -1,7 +1,7 @@
 # POST /users
 
 ## 개요
-- **엔드포인트**: `POST /api/v1/users`
+- **엔드포인트**: `POST /api/users`
 - **기능**: 새 사용자 생성
 
 ## 요청
@@ -57,7 +57,7 @@
 
 ## cURL 예시
 ```bash
-curl -X POST http://localhost:8080/api/v1/users \
+curl -X POST http://localhost:8080/api/users \
   -H "Content-Type: application/json" \
   -d '{
     "userid": "testuser",
