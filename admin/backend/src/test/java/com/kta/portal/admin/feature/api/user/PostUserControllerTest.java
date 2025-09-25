@@ -22,8 +22,7 @@ public class PostUserControllerTest extends BaseIntegrationTest {
                 {
                     "userid": "testuser",
                     "password": "password123",
-                    "name": "Test User",
-                    "role": "USER"
+                    "name": "Test User"
                 }
                 """;
 
@@ -39,8 +38,7 @@ public class PostUserControllerTest extends BaseIntegrationTest {
                 {
                     "userid": "testuser1",
                     "password": "password123",
-                    "name": "Test User 1",
-                    "role": "USER"
+                    "name": "Test User 1"
                 }
                 """;
 
@@ -59,8 +57,7 @@ public class PostUserControllerTest extends BaseIntegrationTest {
                 {
                     "userid": "testuser2",
                     "password": "password123",
-                    "name": "Test User 2",
-                    "role": "ADMIN"
+                    "name": "Test User 2"
                 }
                 """;
 

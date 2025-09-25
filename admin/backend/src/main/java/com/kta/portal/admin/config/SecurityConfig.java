@@ -37,7 +37,7 @@ public class SecurityConfig {
                 .requestMatchers("/api/refresh").permitAll()
                 .requestMatchers("/api/logout").permitAll()
                 .requestMatchers("/api/security-test/public").permitAll()
-                .requestMatchers("/api/**").hasAnyRole("USER", "ADMIN")
+                .requestMatchers("/api/**").authenticated()
                 .anyRequest().authenticated()
             )
             .exceptionHandling(exception -> exception

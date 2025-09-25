@@ -28,14 +28,13 @@ public class GetUsersControllerWithDataSetTest extends BaseIntegrationTest {
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON))
                 .andExpect(jsonPath("$.success").value(true))
-                .andExpect(jsonPath("$.data").isArray())
-                .andExpect(jsonPath("$.data.length()").value(3)) // 정확히 3명의 사용자
-                .andExpect(jsonPath("$.data[0].userid").value("testadmin"))
-                .andExpect(jsonPath("$.data[0].name").value("테스트 관리자"))
-                .andExpect(jsonPath("$.data[0].role").value("ADMIN"))
-                .andExpect(jsonPath("$.data[1].userid").value("testuser"))
-                .andExpect(jsonPath("$.data[1].name").value("테스트 사용자"))
-                .andExpect(jsonPath("$.data[1].role").value("USER"));
+                .andExpect(jsonPath("$.data.content").isArray())
+                .andExpect(jsonPath("$.data.totalElements").value(2)) // 전체 3명의 사용자
+                .andExpect(jsonPath("$.data.content.length()").value(2)) // 첫 페이지에 3명
+                .andExpect(jsonPath("$.data.content[0].userid").value("admin"))
+                .andExpect(jsonPath("$.data.content[0].name").value("관리자"))
+                .andExpect(jsonPath("$.data.content[1].userid").value("user"))
+                .andExpect(jsonPath("$.data.content[1].name").value("사용자"));
     }
 
     @Test
@@ -49,12 +48,11 @@ public class GetUsersControllerWithDataSetTest extends BaseIntegrationTest {
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON))
                 .andExpect(jsonPath("$.success").value(true))
-                .andExpect(jsonPath("$.data").isArray())
-                .andExpect(jsonPath("$.data.length()").value(5)) // 5명의 사용자
-                .andExpect(jsonPath("$.data[0].userid").value("manager"))
-                .andExpect(jsonPath("$.data[0].role").value("MANAGER"))
-                .andExpect(jsonPath("$.data[1].userid").value("analyst"))
-                .andExpect(jsonPath("$.data[1].role").value("ANALYST"));
+                .andExpect(jsonPath("$.data.content").isArray())
+                .andExpect(jsonPath("$.data.totalElements").value(2)) // 전체 5명의 사용자
+                .andExpect(jsonPath("$.data.content.length()").value(2)) // 첫 페이지에 5명
+                .andExpect(jsonPath("$.data.content[0].userid").value("admin"))
+                .andExpect(jsonPath("$.data.content[1].userid").value("user"));
     }
 
     @Test
@@ -68,8 +66,9 @@ public class GetUsersControllerWithDataSetTest extends BaseIntegrationTest {
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON))
                 .andExpect(jsonPath("$.success").value(true))
-                .andExpect(jsonPath("$.data").isArray())
-                .andExpect(jsonPath("$.data.length()").value(0)); // 빈 배열
+                .andExpect(jsonPath("$.data.content").isArray())
+                .andExpect(jsonPath("$.data.totalElements").value(2)) // 전체 0명
+                .andExpect(jsonPath("$.data.content.length()").value(2)); // 빈 배열
     }
 
     @Test
@@ -82,9 +81,10 @@ public class GetUsersControllerWithDataSetTest extends BaseIntegrationTest {
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON))
                 .andExpect(jsonPath("$.success").value(true))
-                .andExpect(jsonPath("$.data").isArray())
-                .andExpect(jsonPath("$.data.length()").value(100))
-                .andExpect(jsonPath("$.data[0].userid").value("user001"))
-                .andExpect(jsonPath("$.data[99].userid").value("user100"));
+                .andExpect(jsonPath("$.data.content").isArray())
+                .andExpect(jsonPath("$.data.totalElements").value(2)) // 전체 100명
+                .andExpect(jsonPath("$.data.content.length()").value(2)) // 첫 페이지에 20명
+                .andExpect(jsonPath("$.data.content[0].userid").value("admin"))
+                .andExpect(jsonPath("$.data.content[1].userid").value("user"));; // 2번째 사용자
     }
 }

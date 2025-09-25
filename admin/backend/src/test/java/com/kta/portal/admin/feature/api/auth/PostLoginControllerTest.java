@@ -3,6 +3,7 @@ package com.kta.portal.admin.feature.api.auth;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.kta.portal.admin.BaseIntegrationTest;
+import com.kta.portal.admin.support.TestUtils;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.security.Keys;
@@ -51,7 +52,6 @@ public class PostLoginControllerTest extends BaseIntegrationTest {
                 .andExpect(jsonPath("$.data.accessToken").exists())
                 .andExpect(jsonPath("$.data.userid").value("admin"))
                 .andExpect(jsonPath("$.data.name").value("관리자"))
-                .andExpect(jsonPath("$.data.role").value("ADMIN"))
                 .andReturn();
         
         String responseBody = result.getResponse().getContentAsString();
@@ -81,8 +81,7 @@ public class PostLoginControllerTest extends BaseIntegrationTest {
                 .andExpect(jsonPath("$.success").value(true))
                 .andExpect(jsonPath("$.data.accessToken").exists())
                 .andExpect(jsonPath("$.data.userid").value("user"))
-                .andExpect(jsonPath("$.data.name").value("사용자"))
-                .andExpect(jsonPath("$.data.role").value("USER"));
+                .andExpect(jsonPath("$.data.name").value("사용자"));
     }
 
     @Test
@@ -157,7 +156,6 @@ public class PostLoginControllerTest extends BaseIntegrationTest {
 
         assertEquals("admin", claims.get("userid"));
         assertEquals("관리자", claims.get("name"));
-        assertEquals("ADMIN", claims.get("role"));
         assertEquals("kta-portal-admin", claims.getIssuer());
         assertNotNull(claims.get("id"));
         assertNotNull(claims.getIssuedAt());

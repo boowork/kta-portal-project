@@ -1,11 +1,11 @@
-import { api } from './index'
-import type { 
-  ApiResponse, 
-  LoginRequest, 
-  LoginResponse, 
-  RefreshTokenRequest, 
-  RefreshTokenResponse 
+import type {
+  ApiResponse,
+  LoginRequest,
+  LoginResponse,
+  RefreshTokenRequest,
+  RefreshTokenResponse,
 } from './types'
+import { api } from './index'
 
 export const authApi = {
   /**
@@ -13,6 +13,7 @@ export const authApi = {
    */
   async login(credentials: LoginRequest): Promise<ApiResponse<LoginResponse>> {
     const response = await api.post<ApiResponse<LoginResponse>>('/login', credentials)
+
     return response.data
   },
 
@@ -21,6 +22,7 @@ export const authApi = {
    */
   async logout(): Promise<ApiResponse<null>> {
     const response = await api.post<ApiResponse<null>>('/logout')
+
     return response.data
   },
 
@@ -29,6 +31,7 @@ export const authApi = {
    */
   async refreshToken(refreshTokenData: RefreshTokenRequest): Promise<ApiResponse<RefreshTokenResponse>> {
     const response = await api.post<ApiResponse<RefreshTokenResponse>>('/refresh', refreshTokenData)
+
     return response.data
   },
 
@@ -37,6 +40,7 @@ export const authApi = {
    */
   async verifyToken(): Promise<ApiResponse<{ valid: boolean }>> {
     const response = await api.get<ApiResponse<{ valid: boolean }>>('/verify')
+
     return response.data
   },
 }

@@ -1,25 +1,24 @@
 # GET /users/{id}
 
-## 개요
-- **엔드포인트**: `GET /api/users/{id}`
-- **기능**: 특정 사용자 조회
+## Overview
+- **Endpoint**: `GET /api/users/{id}`
+- **Function**: Get specific user details
 
-## 요청
+## Request
 ### Path Parameters
-| 이름 | 타입 | 필수 | 설명 |
-|------|------|------|------|
-| id | Long | ✓ | 사용자 ID |
+| Name | Type | Required | Description |
+|------|------|----------|-------------|
+| id | Long | ✓ | User ID |
 
-## 응답
-### 성공 응답 (200 OK)
+## Response
+### Success Response (200 OK)
 ```json
 {
   "success": true,
   "data": {
     "id": 1,
     "userid": "user123",
-    "name": "홍길동",
-    "role": "USER",
+    "name": "John Doe",
     "createdAt": "2025-09-22T14:30:00",
     "updatedAt": "2025-09-22T14:30:00"
   },
@@ -27,7 +26,7 @@
 }
 ```
 
-### 에러 응답 (400 Bad Request)
+### Error Response (400 Bad Request)
 ```json
 {
   "success": false,
@@ -42,7 +41,9 @@
 }
 ```
 
-## cURL 예시
+## cURL Example
 ```bash
-curl -X GET http://localhost:8080/api/users/1
+curl -X GET \
+  -H "DEV_AUTH: 1:admin:관리자" \
+  http://localhost:8080/api/users/1
 ```

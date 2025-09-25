@@ -1,148 +1,43 @@
 <script setup lang="ts">
+import { useUserDetail } from './composables'
+import { avatarText } from '@core/utils/formatters'
 import ErrorDialog from '@/components/dialogs/ErrorDialog.vue'
 import ToastContainer from '@/components/ToastContainer.vue'
-import { useErrorHandler } from '@/composables/useErrorHandler'
-import { userApi } from '@/api/user'
-import type { User, UpdateUserRequest } from '@/api/types'
 
 const route = useRoute('apps-user-view-id')
 const router = useRouter()
 
-// Error handler
-const { handleApiError, showSuccessToast, clearErrors } = useErrorHandler()
+const {
+  // State
+  user,
+  isLoading,
+  isSubmitting,
+  isEditing,
+  editForm,
 
-// Component state
-const user = ref<User | null>(null)
-const isLoading = ref(false)
-const isEditing = ref(false)
-const isSubmitting = ref(false)
+  // Methods
+  fetchUser,
+  updateUser,
+  deleteUser,
+  cancelEdit,
+  resolveUserAvatarVariant,
+} = useUserDetail()
 
-// Form data for editing
-const editForm = ref({
-  name: '',
-  userid: '',
-  password: '',
-  role: ''
-})
-
-const roles = [
-  { title: 'Admin', value: 'ADMIN' },
-  { title: 'User', value: 'USER' },
-]
-
-// Fetch user data
-const fetchUser = async () => {
-  try {
-    isLoading.value = true
-    clearErrors()
-
-    const response = await userApi.getUser(Number(route.params.id))
-    
-    if (response.success && response.data) {
-      user.value = response.data
-      // Initialize edit form with current data
-      editForm.value = {
-        name: response.data.name,
-        userid: response.data.userid,
-        password: '', // 비밀번호는 빈 값으로 시작
-        role: response.data.role
-      }
-    } else {
-      handleApiError({ response: { data: response } })
-    }
-  } catch (error) {
-    handleApiError(error)
-  } finally {
-    isLoading.value = false
-  }
+const loadUser = async () => {
+  await fetchUser(Number(route.params.id))
 }
 
-// Update user
-const updateUser = async () => {
-  if (!user.value) return
-
-  try {
-    isSubmitting.value = true
-    clearErrors()
-
-    const updateData: Partial<UpdateUserRequest> = {
-      name: editForm.value.name,
-      userid: editForm.value.userid,
-      role: editForm.value.role
-    }
-
-    // 비밀번호가 입력된 경우에만 포함
-    if (editForm.value.password.trim()) {
-      updateData.password = editForm.value.password
-    }
-
-    const response = await userApi.updateUser(user.value.id, updateData)
-    
-    if (response.success && response.data) {
-      user.value = response.data
-      isEditing.value = false
-      showSuccessToast('사용자 정보가 수정되었습니다.')
-    } else {
-      handleApiError({ response: { data: response } })
-    }
-  } catch (error) {
-    handleApiError(error)
-  } finally {
-    isSubmitting.value = false
-  }
+const handleUpdateUser = async () => {
+  await updateUser()
 }
 
-// Delete user with confirmation
-const deleteUser = async () => {
-  if (!user.value) return
-
-  if (confirm('정말로 이 사용자를 삭제하시겠습니까?')) {
-    try {
-      isSubmitting.value = true
-
-      const response = await userApi.deleteUser(user.value.id)
-      
-      if (response.success) {
-        showSuccessToast('사용자가 삭제되었습니다.')
-        router.push('/apps/user/list')
-      } else {
-        handleApiError({ response: { data: response } })
-      }
-    } catch (error) {
-      handleApiError(error)
-    } finally {
-      isSubmitting.value = false
-    }
-  }
+const handleDeleteUser = async () => {
+  const success = await deleteUser()
+  if (success)
+    router.push('/apps/user/list')
 }
 
-// Cancel editing
-const cancelEdit = () => {
-  if (user.value) {
-    editForm.value = {
-      name: user.value.name,
-      userid: user.value.userid,
-      password: '', // 비밀번호는 항상 빈 값으로 초기화
-      role: user.value.role
-    }
-  }
-  isEditing.value = false
-}
-
-// Resolve user role variant for display
-const resolveUserRoleVariant = (role: string) => {
-  const roleLowerCase = role.toLowerCase()
-
-  if (roleLowerCase === 'admin')
-    return { color: 'primary', icon: 'bx-crown' }
-  if (roleLowerCase === 'user')
-    return { color: 'success', icon: 'bx-user' }
-
-  return { color: 'primary', icon: 'bx-user' }
-}
-
-// Initial fetch
-await fetchUser()
+onMounted(loadUser)
 </script>
 
 <template>
@@ -152,8 +47,13 @@ await fetchUser()
       <VCol cols="12">
         <VCard>
           <VCardText class="text-center">
-            <VProgressCircular indeterminate color="primary" />
-            <div class="mt-4">사용자 정보를 불러오는 중...</div>
+            <VProgressCircular
+              indeterminate
+              color="primary"
+            />
+            <div class="mt-4">
+              사용자 정보를 불러오는 중...
+            </div>
           </VCardText>
         </VCard>
       </VCol>
@@ -168,13 +68,19 @@ await fetchUser()
               <VAvatar
                 size="64"
                 variant="tonal"
-                :color="resolveUserRoleVariant(user.role).color"
+                :color="resolveUserAvatarVariant().color"
               >
-                <span class="text-2xl">{{ avatarText(user.name) }}</span>
+                <span class="text-2xl">
+                  {{ avatarText(user.name) }}
+                </span>
               </VAvatar>
               <div>
-                <h2 class="text-h4">{{ user.name }}</h2>
-                <div class="text-body-1 text-medium-emphasis">{{ user.userid }}</div>
+                <h2 class="text-h4">
+                  {{ user.name }}
+                </h2>
+                <div class="text-body-1 text-medium-emphasis">
+                  {{ user.userid }}
+                </div>
               </div>
               <VSpacer />
               <div class="d-flex gap-2">
@@ -192,7 +98,7 @@ await fetchUser()
                   variant="outlined"
                   prepend-icon="bx-trash"
                   :loading="isSubmitting"
-                  @click="deleteUser"
+                  @click="handleDeleteUser"
                 >
                   삭제
                 </VBtn>
@@ -212,64 +118,81 @@ await fetchUser()
           <VCardText>
             <!-- View Mode -->
             <div v-if="!isEditing">
-              <VRow>
-                <VCol cols="12" md="6">
-                  <div class="mb-4">
-                    <h6 class="text-h6 mb-2">사용자 정보</h6>
-                    <VList>
-                      <VListItem>
-                        <VListItemTitle>이름</VListItemTitle>
-                        <VListItemSubtitle>{{ user.name }}</VListItemSubtitle>
-                      </VListItem>
-                      <VListItem>
-                        <VListItemTitle>사용자 ID</VListItemTitle>
-                        <VListItemSubtitle>{{ user.userid }}</VListItemSubtitle>
-                      </VListItem>
-                      <VListItem>
-                        <VListItemTitle>역할</VListItemTitle>
-                        <VListItemSubtitle>
-                          <div class="d-flex align-center gap-2">
-                            <VIcon
-                              :icon="resolveUserRoleVariant(user.role).icon"
-                              :color="resolveUserRoleVariant(user.role).color"
-                            />
-                            {{ user.role }}
-                          </div>
-                        </VListItemSubtitle>
-                      </VListItem>
-                      <VListItem>
-                        <VListItemTitle>생성일</VListItemTitle>
-                        <VListItemSubtitle>{{ new Date(user.createdAt).toLocaleString() }}</VListItemSubtitle>
-                      </VListItem>
-                      <VListItem v-if="user.updatedAt">
-                        <VListItemTitle>수정일</VListItemTitle>
-                        <VListItemSubtitle>{{ new Date(user.updatedAt).toLocaleString() }}</VListItemSubtitle>
-                      </VListItem>
-                    </VList>
-                  </div>
-                </VCol>
-              </VRow>
+              <VList class="card-list text-medium-emphasis">
+                <VListItem>
+                  <VListItemTitle>
+                    <span class="d-flex align-center">
+                      <VIcon
+                        icon="bx-user"
+                        size="20"
+                        class="me-2"
+                      />
+                      <div class="text-body-1 font-weight-medium me-2">이름:</div>
+                      <div>{{ user.name }}</div>
+                    </span>
+                  </VListItemTitle>
+                </VListItem>
+                
+                <VListItem>
+                  <VListItemTitle>
+                    <span class="d-flex align-center">
+                      <VIcon
+                        icon="bx-id-card"
+                        size="20"
+                        class="me-2"
+                      />
+                      <div class="text-body-1 font-weight-medium me-2">사용자 ID:</div>
+                      <div>{{ user.userid }}</div>
+                    </span>
+                  </VListItemTitle>
+                </VListItem>
+                
+                <VListItem>
+                  <VListItemTitle>
+                    <span class="d-flex align-center">
+                      <VIcon
+                        icon="bx-calendar-plus"
+                        size="20"
+                        class="me-2"
+                      />
+                      <div class="text-body-1 font-weight-medium me-2">생성일:</div>
+                      <div>{{ new Date(user.createdAt).toLocaleDateString() }}</div>
+                    </span>
+                  </VListItemTitle>
+                </VListItem>
+                
+                <VListItem v-if="user.updatedAt">
+                  <VListItemTitle>
+                    <span class="d-flex align-center">
+                      <VIcon
+                        icon="bx-calendar-edit"
+                        size="20"
+                        class="me-2"
+                      />
+                      <div class="text-body-1 font-weight-medium me-2">수정일:</div>
+                      <div>{{ new Date(user.updatedAt).toLocaleDateString() }}</div>
+                    </span>
+                  </VListItemTitle>
+                </VListItem>
+              </VList>
             </div>
 
             <!-- Edit Mode -->
             <div v-else>
-              <VForm @submit.prevent="updateUser">
+              <VForm @submit.prevent="handleUpdateUser">
                 <VRow>
-                  <VCol cols="12" md="6">
-                    <h6 class="text-h6 mb-4">사용자 정보 편집</h6>
-                    
+                  <VCol
+                    cols="12"
+                    md="6"
+                  >
+                    <h6 class="text-h6 mb-4">
+                      사용자 정보 편집
+                    </h6>
+
                     <AppTextField
                       v-model="editForm.name"
                       label="이름"
                       placeholder="사용자 이름을 입력하세요"
-                      class="mb-4"
-                      required
-                    />
-
-                    <AppTextField
-                      v-model="editForm.userid"
-                      label="사용자 ID"
-                      placeholder="사용자 ID를 입력하세요"
                       class="mb-4"
                       required
                     />
@@ -280,15 +203,6 @@ await fetchUser()
                       type="password"
                       placeholder="새 비밀번호를 입력하세요 (변경하지 않으려면 비워두세요)"
                       class="mb-4"
-                    />
-
-                    <AppSelect
-                      v-model="editForm.role"
-                      label="역할"
-                      placeholder="역할을 선택하세요"
-                      :items="roles"
-                      class="mb-4"
-                      required
                     />
 
                     <div class="d-flex gap-2">
@@ -334,3 +248,9 @@ await fetchUser()
     <ToastContainer />
   </div>
 </template>
+
+<style lang="scss" scoped>
+.card-list {
+  --v-card-list-gap: 16px;
+}
+</style>

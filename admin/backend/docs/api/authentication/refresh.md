@@ -2,7 +2,7 @@
 
 **POST** `/api/refresh`
 
-Refresh Token을 사용하여 새로운 Access Token을 발급받습니다.
+Issues a new Access Token using the Refresh Token.
 
 ## Request
 
@@ -19,7 +19,7 @@ Content-Type: application/json
 ```
 
 #### Parameters
-- `refreshToken` (string, required): 로그인시 발급받은 Refresh Token
+- `refreshToken` (string, required): Refresh Token issued during login
 
 ## Response
 
@@ -36,8 +36,8 @@ Content-Type: application/json
 ```
 
 #### Response Fields
-- `accessToken`: 새로 발급된 JWT Access Token (24시간 유효)
-- `refreshToken`: 새로 발급된 Refresh Token (30일 유효)
+- `accessToken`: Newly issued JWT Access Token (valid for 24 hours)
+- `refreshToken`: Newly issued Refresh Token (valid for 30 days)
 
 ### Error Responses
 
@@ -71,14 +71,14 @@ Content-Type: application/json
 }
 ```
 
-## 토큰 갱신 로직
+## Token Refresh Logic
 
-1. **기존 Refresh Token 삭제**: 사용자의 기존 Refresh Token을 DB에서 삭제
-2. **새 토큰 발급**: 새로운 Access Token과 Refresh Token 생성
-3. **DB 저장**: 새 Refresh Token을 DB에 저장
-4. **응답 반환**: 새로 발급된 토큰들을 클라이언트에 전달
+1. **Delete Existing Refresh Token**: Remove user's existing Refresh Token from database
+2. **Issue New Tokens**: Generate new Access Token and Refresh Token
+3. **Database Storage**: Save new Refresh Token to database
+4. **Return Response**: Send newly issued tokens to client
 
-## 사용 예제
+## Usage Examples
 
 ### cURL
 ```bash

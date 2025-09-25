@@ -12,7 +12,7 @@ const { toastState } = useErrorHandler()
     :timeout="toastState.color === 'success' ? 3000 : 5000"
   >
     {{ toastState.message }}
-    
+
     <template #actions>
       <VBtn
         color="white"

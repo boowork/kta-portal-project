@@ -1,40 +1,28 @@
 package com.kta.portal.admin;
 
-import io.jsonwebtoken.Jwts;
-import io.jsonwebtoken.security.Keys;
+import com.kta.portal.admin.support.TestUtils;
 import org.junit.jupiter.api.BeforeEach;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.annotation.Import;
 import org.springframework.core.io.ClassPathResource;
-import org.springframework.http.HttpHeaders;
 import org.springframework.jdbc.datasource.init.ScriptUtils;
+import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit.jupiter.SpringJUnitConfig;
 import org.springframework.test.web.servlet.request.MockHttpServletRequestBuilder;
 
-import javax.crypto.SecretKey;
 import javax.sql.DataSource;
 import java.sql.Connection;
 import java.sql.SQLException;
-import java.util.Date;
 
 @SpringBootTest
 @SpringJUnitConfig
 @Import(TestContainerConfiguration.class)
+@ActiveProfiles("test")
 public abstract class BaseIntegrationTest {
 
     @Autowired
     private DataSource dataSource;
-    
-    @Value("${jwt.secret.key}")
-    private String secretKey;
-
-    @Value("${jwt.access.token.validity}")
-    private Long accessTokenValidity;
-    
-    @Value("${jwt.issuer}")
-    private String issuer;
 
     @BeforeEach
     void setUp() throws SQLException {
@@ -62,41 +50,30 @@ public abstract class BaseIntegrationTest {
         }
     }
     
-    // JWT Token Helper Methods
-    private SecretKey getSigningKey() {
-        return Keys.hmacShaKeyFor(secretKey.getBytes());
-    }
-
-    protected String generateTestToken(Long id, String userid, String name, String role) {
-        Date now = new Date();
-        Date expiryDate = new Date(now.getTime() + accessTokenValidity);
-
-        return Jwts.builder()
-                .claim("id", id)
-                .claim("userid", userid)
-                .claim("name", name)
-                .claim("role", role)
-                .setIssuer(issuer)
-                .setIssuedAt(now)
-                .setExpiration(expiryDate)
-                .signWith(getSigningKey())
-                .compact();
-    }
+    // Authentication helper methods using TestUtils
     
-    protected String generateAdminToken() {
-        return generateTestToken(1L, "admin", "관리자", "ADMIN");
-    }
-    
-    protected String generateUserToken() {
-        return generateTestToken(2L, "user", "사용자", "USER");
-    }
-    
-    // Helper method to add JWT Authorization header to MockMvc requests
     protected MockHttpServletRequestBuilder withAdminAuth(MockHttpServletRequestBuilder requestBuilder) {
-        return requestBuilder.header(HttpHeaders.AUTHORIZATION, "Bearer " + generateAdminToken());
+        return TestUtils.withAdminJwtAuth(requestBuilder);
     }
     
     protected MockHttpServletRequestBuilder withUserAuth(MockHttpServletRequestBuilder requestBuilder) {
-        return requestBuilder.header(HttpHeaders.AUTHORIZATION, "Bearer " + generateUserToken());
+        return TestUtils.withUserJwtAuth(requestBuilder);
+    }
+    
+    protected MockHttpServletRequestBuilder withDevAdminAuth(MockHttpServletRequestBuilder requestBuilder) {
+        return TestUtils.withAdminDevAuth(requestBuilder);
+    }
+    
+    protected MockHttpServletRequestBuilder withDevUserAuth(MockHttpServletRequestBuilder requestBuilder) {
+        return TestUtils.withUserDevAuth(requestBuilder);
+    }
+    
+    // Backward compatibility methods
+    protected String generateAdminToken() {
+        return TestUtils.generateAdminToken();
+    }
+    
+    protected String generateUserToken() {
+        return TestUtils.generateUserToken();
     }
 }

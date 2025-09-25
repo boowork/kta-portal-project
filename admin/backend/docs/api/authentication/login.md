@@ -2,7 +2,7 @@
 
 **POST** `/api/login`
 
-로그인하여 Access Token과 Refresh Token을 발급받습니다.
+Login to get Access Token and Refresh Token.
 
 ## Request
 
@@ -20,8 +20,8 @@ Content-Type: application/json
 ```
 
 #### Parameters
-- `userid` (string, required): 사용자 로그인 ID
-- `password` (string, required): 사용자 패스워드
+- `userid` (string, required): User login ID
+- `password` (string, required): User password
 
 ## Response
 
@@ -33,7 +33,7 @@ Content-Type: application/json
     "accessToken": "eyJhbGciOiJIUzUxMiJ9...",
     "refreshToken": "uuid-string",
     "userid": "admin",
-    "name": "관리자",
+    "name": "Administrator",
     "role": "ADMIN"
   },
   "timestamp": "2025-01-01T00:00:00"
@@ -41,11 +41,11 @@ Content-Type: application/json
 ```
 
 #### Response Fields
-- `accessToken`: JWT Access Token (24시간 유효)
-- `refreshToken`: UUID 형태의 Refresh Token (30일 유효)
-- `userid`: 사용자 로그인 ID
-- `name`: 사용자 이름
-- `role`: 사용자 권한 (ADMIN, USER)
+- `accessToken`: JWT Access Token (24h valid)
+- `refreshToken`: UUID format Refresh Token (30d valid)
+- `userid`: User login ID
+- `name`: User name
+- `role`: User role (ADMIN, USER)
 
 ### Error Responses
 
@@ -71,7 +71,7 @@ Content-Type: application/json
   "errors": [
     {
       "field": "",
-      "message": "ID 또는 password가 틀립니다",
+      "message": "Invalid ID or password",
       "code": "INVALID_CREDENTIALS"
     }
   ],
@@ -79,7 +79,7 @@ Content-Type: application/json
 }
 ```
 
-## 사용 예제
+## Usage Examples
 
 ### cURL
 ```bash

@@ -7,7 +7,6 @@ CREATE TABLE users (
     userid VARCHAR(50) NOT NULL,
     password VARCHAR(255) NOT NULL,
     name VARCHAR(100) NOT NULL,
-    role VARCHAR(20) NOT NULL CHECK (role IN ('ADMIN', 'USER')),
     created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
@@ -29,7 +28,7 @@ CREATE INDEX idx_refresh_tokens_token ON refresh_tokens(token);
 CREATE INDEX idx_refresh_tokens_expires_at ON refresh_tokens(expires_at);
 
 -- Insert test data for users table
-INSERT INTO users (userid, password, name, role, created_at, updated_at) 
+INSERT INTO users (userid, password, name, created_at, updated_at) 
 VALUES 
-('admin', '{noop}admin', '관리자', 'ADMIN', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
-('user', '{noop}user', '사용자', 'USER', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
+('admin', '{noop}admin', '관리자', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+('user', '{noop}user', '사용자', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);

@@ -24,7 +24,6 @@ export interface LoginResponse {
   refreshToken: string
   userid: string
   name: string
-  role: 'ADMIN' | 'USER'
 }
 
 export interface RefreshTokenRequest {
@@ -40,7 +39,6 @@ export interface User {
   id: number
   userid: string
   name: string
-  role: 'ADMIN' | 'USER'
   createdAt: string
   updatedAt: string
 }
@@ -49,29 +47,29 @@ export interface CreateUserRequest {
   userid: string
   name: string
   password: string
-  role: 'ADMIN' | 'USER'
 }
 
 export interface UpdateUserRequest {
-  userid?: string
   name?: string
   password?: string
-  role?: 'ADMIN' | 'USER'
 }
 
 export interface GetUsersResponse {
-  users: User[]
-  total?: number
-  page?: number
-  size?: number
+  content: User[]
+  page: number
+  size: number
+  totalElements: number
+  totalPages: number
+  first: boolean
+  last: boolean
 }
 
 // Pagination Types
 export interface PaginationParams {
   page?: number
   size?: number
-  sort?: string
-  direction?: 'ASC' | 'DESC'
+  sortBy?: string
+  sortDir?: 'asc' | 'desc'
 }
 
 // Error Codes

@@ -1,38 +1,35 @@
 # POST /users
 
-## 개요
-- **엔드포인트**: `POST /api/users`
-- **기능**: 새 사용자 생성
+## Overview
+- **Endpoint**: `POST /api/users`
+- **Function**: Create new user
 
-## 요청
+## Request
 ### Request Body
 ```json
 {
   "userid": "user123",
   "password": "password123",
-  "name": "홍길동",
-  "role": "USER"
+  "name": "John Doe"
 }
 ```
 
 ### Request Fields
-| 이름 | 타입 | 필수 | 제약사항 | 설명 |
-|------|------|------|----------|------|
-| userid | String | ✓ | NotBlank | 사용자 ID |
-| password | String | ✓ | NotBlank | 비밀번호 |
-| name | String | ✓ | NotBlank | 사용자 이름 |
-| role | String | ✓ | USER \| ADMIN | 사용자 역할 |
+| Name | Type | Required | Constraints | Description |
+|------|------|----------|-------------|-------------|
+| userid | String | ✓ | NotBlank | User ID |
+| password | String | ✓ | NotBlank | Password |
+| name | String | ✓ | NotBlank | User name |
 
-## 응답
-### 성공 응답 (201 Created)
+## Response
+### Success Response (201 Created)
 ```json
 {
   "success": true,
   "data": {
     "id": 1,
     "userid": "user123",
-    "name": "홍길동",
-    "role": "USER",
+    "name": "John Doe",
     "createdAt": "2025-09-22T14:30:00",
     "updatedAt": "2025-09-22T14:30:00"
   },
@@ -40,7 +37,7 @@
 }
 ```
 
-### 에러 응답 (400 Bad Request)
+### Error Response (400 Bad Request)
 ```json
 {
   "success": false,
@@ -55,14 +52,14 @@
 }
 ```
 
-## cURL 예시
+## cURL Example
 ```bash
 curl -X POST http://localhost:8080/api/users \
+  -H "DEV_AUTH: 1:admin:관리자" \
   -H "Content-Type: application/json" \
   -d '{
     "userid": "testuser",
     "password": "password123",
-    "name": "테스트 사용자",
-    "role": "USER"
+    "name": "Test User"
   }'
 ```
