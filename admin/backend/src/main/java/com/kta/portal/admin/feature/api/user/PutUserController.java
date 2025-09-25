@@ -51,9 +51,6 @@ class PutUserService {
         if (requestDto.getPassword() != null && !requestDto.getPassword().trim().isEmpty()) {
             user.setPassword(passwordEncoder.encode(requestDto.getPassword()));
         }
-        if (requestDto.getRole() != null) {
-            user.setRole(requestDto.getRole());
-        }
         user.setUpdatedAt(LocalDateTime.now());
         
         User savedUser = userRepository.save(user);
@@ -65,7 +62,6 @@ class PutUserService {
         dto.setId(user.getId());
         dto.setUserid(user.getUserid());
         dto.setName(user.getName());
-        dto.setRole(user.getRole());
         dto.setCreatedAt(user.getCreatedAt());
         dto.setUpdatedAt(user.getUpdatedAt());
         return dto;
@@ -76,7 +72,6 @@ class PutUserService {
 class PutUserHttpRequestDto {
     private String name;
     private String password;
-    private String role;
 }
 
 @Data
@@ -84,7 +79,6 @@ class PutUserHttpResponseDto {
     private Long id;
     private String userid;
     private String name;
-    private String role;
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
 }

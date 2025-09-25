@@ -1,8 +1,8 @@
 import axios, { type AxiosResponse } from 'axios'
-import type { ApiResponse, ApiError } from './types'
+import type { ApiResponse } from './types'
 
 const axiosInstance = axios.create({
-  baseURL: import.meta.env.VITE_API_BASE_URL || '/api/v1',
+  baseURL: import.meta.env.VITE_API_BASE_URL || '/api',
   timeout: 30000,
   headers: {
     'Content-Type': 'application/json',
@@ -11,14 +11,14 @@ const axiosInstance = axios.create({
 
 // Request interceptor
 axiosInstance.interceptors.request.use(
-  (config) => {
+  config => {
     const accessToken = useCookie('accessToken').value
-    if (accessToken) {
+    if (accessToken)
       config.headers.Authorization = `Bearer ${accessToken}`
-    }
+
     return config
   },
-  (error) => {
+  error => {
     return Promise.reject(error)
   },
 )
@@ -28,7 +28,7 @@ axiosInstance.interceptors.response.use(
   (response: AxiosResponse<ApiResponse<any>>) => {
     return response
   },
-  async (error) => {
+  async error => {
     const originalRequest = error.config
 
     // Handle 401 (Unauthorized) - attempt token refresh
@@ -38,24 +38,27 @@ axiosInstance.interceptors.response.use(
       try {
         const refreshToken = useCookie('refreshToken').value
         if (refreshToken) {
-          const response = await axios.post('/api/v1/refresh', {
+          const response = await axios.post('/api/refresh', {
             refreshToken,
           })
 
           if (response.data.success) {
             const { accessToken } = response.data.data
+
             useCookie('accessToken').value = accessToken
-            
+
             // Retry original request with new token
             originalRequest.headers.Authorization = `Bearer ${accessToken}`
+
             return axiosInstance(originalRequest)
           }
         }
-      } catch (refreshError) {
+      }
+      catch (refreshError) {
         // Refresh failed, redirect to login
         useCookie('accessToken').value = null
         useCookie('refreshToken').value = null
-        
+
         // Navigate to login page
         await navigateTo('/login')
       }
@@ -65,7 +68,7 @@ axiosInstance.interceptors.response.use(
     if (error.response?.status === 403) {
       useCookie('accessToken').value = null
       useCookie('refreshToken').value = null
-      
+
       // Navigate to login page
       await navigateTo('/login')
     }

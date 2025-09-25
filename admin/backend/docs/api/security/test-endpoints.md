@@ -1,16 +1,16 @@
 # Security Test Endpoints
 
-보안 기능 테스트를 위한 엔드포인트들입니다.
+Endpoints for testing security features.
 
 ## Public Endpoint
 
 **GET** `/api/security-test/public`
 
-인증이 필요하지 않은 공개 엔드포인트입니다.
+A public endpoint that does not require authentication.
 
 ### Request
-- Headers: 없음
-- Parameters: 없음
+- Headers: None
+- Parameters: None
 
 ### Response (200 OK)
 ```json
@@ -27,7 +27,7 @@
 
 **GET** `/api/security-test/user`
 
-USER 권한이 필요한 엔드포인트입니다.
+Endpoint that requires USER role.
 
 ### Request
 ```
@@ -64,7 +64,7 @@ Authorization: Bearer {accessToken}
 
 **GET** `/api/security-test/admin`
 
-ADMIN 권한이 필요한 엔드포인트입니다.
+Endpoint that requires ADMIN role.
 
 ### Request
 ```
@@ -83,7 +83,7 @@ Authorization: Bearer {accessToken}
 ```
 
 ### Error Response (403 Forbidden)
-USER 권한으로 접근시:
+When accessed with USER role:
 ```json
 {
   "success": false,
@@ -98,7 +98,7 @@ USER 권한으로 접근시:
 }
 ```
 
-## 권한 테스트 매트릭스
+## Permission Test Matrix
 
 | Endpoint | No Auth | USER Role | ADMIN Role |
 |----------|---------|-----------|------------|
@@ -106,7 +106,7 @@ USER 권한으로 접근시:
 | `/user` | ❌ 401 | ✅ 200 | ✅ 200 |
 | `/admin` | ❌ 401 | ❌ 403 | ✅ 200 |
 
-## 사용 예제
+## Usage Examples
 
 ### cURL - Public
 ```bash

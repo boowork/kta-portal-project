@@ -1,198 +1,51 @@
 <script setup lang="ts">
+import { useUserList } from './composables'
 import AddNewUserDrawer from '@/views/apps/user/list/AddNewUserDrawer.vue'
 import ErrorDialog from '@/components/dialogs/ErrorDialog.vue'
 import ToastContainer from '@/components/ToastContainer.vue'
-import { useErrorHandler } from '@/composables/useErrorHandler'
-import { userApi } from '@/api/user'
-import type { User, CreateUserRequest, PaginationParams } from '@/api/types'
+import type { CreateUserRequest, User } from '@/api/types'
 
-//  Error handler
-const { handleApiError, showSuccessToast, clearErrors } = useErrorHandler()
+const {
+  users, totalUsers, isLoading, isSubmitting, searchQuery, selectedRows,
+  itemsPerPage, page, sortBy, orderBy,
+  fetchUsers, searchUsers, createUser, deleteUser, updateOptions,
+  resolveUserAvatarVariant, widgetData,
+} = useUserList()
 
-//  Component state
-const users = ref<User[]>([])
-const isLoading = ref(false)
-const isSubmitting = ref(false)
-
-//  Search and filter state
-const searchQuery = ref('')
-const selectedRole = ref()
-const selectedRows = ref([])
-
-//  Data table options
-const itemsPerPage = ref(10)
-const page = ref(1)
-const sortBy = ref()
-const orderBy = ref()
-
-//  Table headers
 const headers = [
   { title: 'User', key: 'user' },
-  { title: 'Role', key: 'role' },
   { title: 'Created At', key: 'createdAt' },
   { title: 'Actions', key: 'actions', sortable: false },
 ]
 
-//  Update data table options
-const updateOptions = (options: any) => {
-  sortBy.value = options.sortBy[0]?.key
-  orderBy.value = options.sortBy[0]?.order
-  fetchUsers()
-}
-
-//  Fetch users from API
-const fetchUsers = async () => {
-  
-  try {
-    isLoading.value = true
-    clearErrors()
-
-    const params: PaginationParams = {
-      page: page.value,
-      size: itemsPerPage.value,
-      sort: sortBy.value || 'createdAt',
-      direction: orderBy.value === 'desc' ? 'DESC' : 'ASC',
-    }
-
-    const response = await userApi.getUsers(params)
-    
-    if (response.success && response.data) {
-      users.value = response.data
-    } else {
-      handleApiError({ response: { data: response } })
-    }
-  } catch (error) {
-    handleApiError(error)
-  } finally {
-    isLoading.value = false
-  }
-}
-
-//  Initial fetch
-await fetchUsers()
-
-//  Computed values
-const totalUsers = computed(() => users.value.length)
-
-//  search filters
-const roles = [
-  { title: 'Admin', value: 'ADMIN' },
-  { title: 'User', value: 'USER' },
-]
-
-const resolveUserRoleVariant = (role: string) => {
-  const roleLowerCase = role.toLowerCase()
-
-  if (roleLowerCase === 'admin')
-    return { color: 'primary', icon: 'bx-crown' }
-  if (roleLowerCase === 'user')
-    return { color: 'success', icon: 'bx-user' }
-
-  return { color: 'primary', icon: 'bx-user' }
-}
-
 const isAddNewUserDrawerVisible = ref(false)
 
-//  Create new user
 const addNewUser = async (userData: CreateUserRequest) => {
-  try {
-    isSubmitting.value = true
-    clearErrors()
-
-    const response = await userApi.createUser(userData)
-    
-    if (response.success) {
-      showSuccessToast('사용자가 생성되었습니다.')
-      isAddNewUserDrawerVisible.value = false
-      await fetchUsers() // Refresh list
-    } else {
-      handleApiError({ response: { data: response } })
-    }
-  } catch (error) {
-    handleApiError(error)
-  } finally {
-    isSubmitting.value = false
+  const success = await createUser(userData)
+  if (success) {
+    isAddNewUserDrawerVisible.value = false
   }
 }
 
-//  Delete user with confirmation
-const deleteUser = async (id: number) => {
-  const user = users.value.find(u => u.id === id)
-  const userName = user ? user.name : `ID ${id}`
-  
-  if (confirm(`정말로 "${userName}" 사용자를 삭제하시겠습니까?`)) {
-    try {
-      isSubmitting.value = true
+const handleDeleteUser = async (id: number) => {
+  const user = users.value.find((u: User) => u.id === id)
+  const success = await deleteUser(id, user?.name)
 
-      const response = await userApi.deleteUser(id)
-      
-      if (response.success) {
-        showSuccessToast('사용자가 삭제되었습니다.')
-        
-        // Remove from selected rows
-        const index = selectedRows.value.findIndex(row => row === id)
-        if (index !== -1) {
-          selectedRows.value.splice(index, 1)
-        }
-        
-        await fetchUsers() // Refresh list
-      } else {
-        handleApiError({ response: { data: response } })
-      }
-    } catch (error) {
-      handleApiError(error)
-    } finally {
-      isSubmitting.value = false
-    }
+  if (success) {
+    const index = selectedRows.value.findIndex((row: number) => row === id)
+    if (index !== -1)
+      selectedRows.value.splice(index, 1)
   }
 }
 
-//  Search users
-const searchUsers = async () => {
-  try {
-    isLoading.value = true
-    clearErrors()
-
-    if (searchQuery.value.trim()) {
-      const response = await userApi.searchUsers(searchQuery.value)
-      
-      if (response.success && response.data) {
-        users.value = response.data
-      } else {
-        handleApiError({ response: { data: response } })
-      }
-    } else {
-      await fetchUsers()
-    }
-  } catch (error) {
-    handleApiError(error)
-  } finally {
-    isLoading.value = false
+// 단일 watch로 모든 상태 변경 감지
+watch([searchQuery, page, itemsPerPage, sortBy, orderBy], async () => {
+  console.log('👀 Data fetch triggered by watch')
+  if (searchQuery.value.trim()) {
+    await searchUsers()
+  } else {
+    await fetchUsers()
   }
-}
-
-//  Watchers
-watch(searchQuery, async () => {
-  await searchUsers()
-})
-
-watch([page, itemsPerPage], async () => {
-  await fetchUsers()
-})
-
-//  Widget data
-const widgetData = computed(() => {
-  const allUsers = users.value || []
-  const totalUsersCount = allUsers.length
-  const adminCount = allUsers.filter(user => user.role === 'ADMIN').length
-  const userCount = allUsers.filter(user => user.role === 'USER').length
-  
-  return [
-    { title: 'Total Users', value: totalUsersCount.toString(), change: 0, desc: 'All registered users', icon: 'bx-group', iconColor: 'primary' },
-    { title: 'Administrators', value: adminCount.toString(), change: 0, desc: 'Admin users', icon: 'bx-crown', iconColor: 'error' },
-    { title: 'Regular Users', value: userCount.toString(), change: 0, desc: 'Standard users', icon: 'bx-user', iconColor: 'success' },
-    { title: 'Loading', value: isLoading.value ? 'Yes' : 'No', change: 0, desc: 'Current status', icon: 'bx-loader-alt', iconColor: 'warning' },
-  ]
 })
 </script>
 
@@ -203,6 +56,7 @@ const widgetData = computed(() => {
       <VRow>
         <template
           v-for="(data, id) in widgetData"
+          v-if="widgetData && widgetData.length > 0"
           :key="id"
         >
           <VCol
@@ -215,31 +69,31 @@ const widgetData = computed(() => {
                 <div class="d-flex justify-space-between">
                   <div class="d-flex flex-column gap-y-1">
                     <div class="text-body-1 text-high-emphasis">
-                      {{ data.title }}
+                      {{ data?.title || 'No Title' }}
                     </div>
                     <div class="d-flex gap-x-2 align-center">
                       <h4 class="text-h4">
-                        {{ data.value }}
+                        {{ data?.value || '0' }}
                       </h4>
                       <div
                         class="text-base"
-                        :class="data.change > 0 ? 'text-success' : 'text-error'"
+                        :class="(data?.change || 0) > 0 ? 'text-success' : 'text-error'"
                       >
-                        ({{ prefixWithPlus(data.change) }}%)
+                        ({{ prefixWithPlus(data?.change || 0) }}%)
                       </div>
                     </div>
                     <div class="text-sm">
-                      {{ data.desc }}
+                      {{ data?.desc || 'No description' }}
                     </div>
                   </div>
                   <VAvatar
-                    :color="data.iconColor"
+                    :color="data?.iconColor || 'primary'"
                     variant="tonal"
                     rounded
                     size="40"
                   >
                     <VIcon
-                      :icon="data.icon"
+                      :icon="data?.icon || 'bx-help-circle'"
                       size="24"
                     />
                   </VAvatar>
@@ -258,19 +112,7 @@ const widgetData = computed(() => {
 
       <VCardText>
         <VRow>
-          <!--  Select Role -->
-          <VCol
-            cols="12"
-            sm="4"
-          >
-            <AppSelect
-              v-model="selectedRole"
-              placeholder="Select Role"
-              :items="roles"
-              clearable
-              clear-icon="bx-x"
-            />
-          </VCol>
+          <!-- Filters will be added here if needed -->
         </VRow>
       </VCardText>
 
@@ -327,7 +169,7 @@ const widgetData = computed(() => {
         v-model:items-per-page="itemsPerPage"
         v-model:model-value="selectedRows"
         v-model:page="page"
-        :items="users"
+        :items="users || []"
         :loading="isLoading"
         item-value="id"
         :items-length="totalUsers"
@@ -335,7 +177,7 @@ const widgetData = computed(() => {
         class="text-no-wrap"
         show-select
         @update:options="updateOptions"
-        @click:row="(event, { item }) => $router.push({ name: 'apps-user-view-id', params: { id: item.id } })"
+        @click:row="(_: any, { item }: { item: User }) => $router.push({ name: 'apps-user-view-id', params: { id: item.id } })"
       >
         <!-- User -->
         <template #item.user="{ item }">
@@ -343,7 +185,7 @@ const widgetData = computed(() => {
             <VAvatar
               size="34"
               variant="tonal"
-              :color="resolveUserRoleVariant(item.role).color"
+              :color="resolveUserAvatarVariant().color"
             >
               <span>{{ avatarText(item.name) }}</span>
             </VAvatar>
@@ -363,21 +205,6 @@ const widgetData = computed(() => {
           </div>
         </template>
 
-        <!--  Role -->
-        <template #item.role="{ item }">
-          <div class="d-flex align-center gap-x-2">
-            <VIcon
-              :size="20"
-              :icon="resolveUserRoleVariant(item.role).icon"
-              :color="resolveUserRoleVariant(item.role).color"
-            />
-
-            <div class="text-capitalize text-high-emphasis text-body-1">
-              {{ item.role }}
-            </div>
-          </div>
-        </template>
-
         <!-- Created At -->
         <template #item.createdAt="{ item }">
           <div class="text-body-2">
@@ -387,7 +214,7 @@ const widgetData = computed(() => {
 
         <!-- Actions -->
         <template #item.actions="{ item }">
-          <IconBtn @click="deleteUser(item.id)">
+          <IconBtn @click="handleDeleteUser(item.id)">
             <VIcon icon="bx-trash" />
           </IconBtn>
 

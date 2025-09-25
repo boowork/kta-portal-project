@@ -1,8 +1,8 @@
 # Error Responses
 
-모든 API의 공통 에러 응답 형식입니다.
+Standard error response format for all APIs.
 
-## 표준 에러 형식
+## Standard Error Format
 
 ```json
 {
@@ -19,19 +19,19 @@
 }
 ```
 
-### 필드 설명
-- `success`: 항상 `false`
-- `message`: 에러 요약 메시지 (선택적)
-- `errors`: 에러 상세 정보 배열
-  - `field`: 에러가 발생한 필드명 (선택적)
-  - `message`: 에러 메시지
-  - `code`: 에러 코드
-- `timestamp`: 에러 발생 시간
+### Field Descriptions
+- `success`: Always `false`
+- `message`: Error summary message (optional)
+- `errors`: Error details array
+  - `field`: Field name where error occurred (optional)
+  - `message`: Error message
+  - `code`: Error code
+- `timestamp`: Error occurrence time
 
 ## HTTP Status Codes
 
 ### 400 Bad Request
-요청 데이터 검증 실패
+Request data validation failed
 
 ```json
 {
@@ -53,7 +53,7 @@
 ```
 
 ### 401 Unauthorized
-인증 실패
+Authentication failed
 
 ```json
 {
@@ -71,7 +71,7 @@
 ```
 
 ### 403 Forbidden
-권한 부족
+Insufficient permissions
 
 ```json
 {
@@ -89,7 +89,7 @@
 ```
 
 ### 404 Not Found
-리소스를 찾을 수 없음
+Resource not found
 
 ```json
 {
@@ -106,7 +106,7 @@
 ```
 
 ### 500 Internal Server Error
-서버 내부 오류
+Internal server error
 
 ```json
 {
@@ -121,9 +121,9 @@
 }
 ```
 
-## 인증 관련 에러
+## Authentication Related Errors
 
-### 로그인 실패
+### Login Failed
 ```json
 {
   "success": false,
@@ -138,7 +138,7 @@
 }
 ```
 
-### 사용자 없음
+### User Not Found
 ```json
 {
   "success": false,
@@ -168,21 +168,21 @@
 }
 ```
 
-## 에러 코드 목록
+## Error Code List
 
 | Code | Description |
 |------|-------------|
-| `VALIDATION_ERROR` | 입력 데이터 검증 실패 |
-| `UNAUTHORIZED` | 인증 토큰 누락 또는 무효 |
-| `FORBIDDEN` | 권한 부족 |
-| `NOT_FOUND` | 리소스를 찾을 수 없음 |
-| `INVALID_CREDENTIALS` | 로그인 정보 오류 |
-| `INVALID_TOKEN` | Refresh Token 오류 |
-| `INTERNAL_SERVER_ERROR` | 서버 내부 오류 |
+| `VALIDATION_ERROR` | Input data validation failed |
+| `UNAUTHORIZED` | Auth token missing or invalid |
+| `FORBIDDEN` | Insufficient permissions |
+| `NOT_FOUND` | Resource not found |
+| `INVALID_CREDENTIALS` | Login credentials error |
+| `INVALID_TOKEN` | Refresh token error |
+| `INTERNAL_SERVER_ERROR` | Internal server error |
 
-## 클라이언트 처리 가이드
+## Client Handling Guide
 
-### JavaScript 예제
+### JavaScript Example
 ```javascript
 async function handleApiResponse(response) {
   const result = await response.json();
@@ -198,7 +198,7 @@ async function handleApiResponse(response) {
         break;
       case 403:
         // Show access denied message
-        showError('접근 권한이 없습니다.');
+        showError('Access denied.');
         break;
       case 400:
         // Show validation errors
@@ -208,7 +208,7 @@ async function handleApiResponse(response) {
         break;
       default:
         // Show general error
-        showError('오류가 발생했습니다. 다시 시도해주세요.');
+        showError('An error occurred. Please try again.');
     }
     throw new Error(result.errors[0]?.message || 'API Error');
   }

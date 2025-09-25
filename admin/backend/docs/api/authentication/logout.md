@@ -2,7 +2,7 @@
 
 **POST** `/api/logout`
 
-현재 사용자의 Refresh Token을 무효화하여 로그아웃을 수행합니다.
+Invalidates the current user's Refresh Token to perform logout.
 
 ## Request
 
@@ -13,7 +13,7 @@ Content-Type: application/json
 ```
 
 ### Body
-없음 (Empty body)
+None (Empty body)
 
 ## Response
 
@@ -39,20 +39,20 @@ Content-Type: application/json
 }
 ```
 
-## 로그아웃 로직
+## Logout Logic
 
-1. **토큰 검증**: Authorization 헤더에서 Access Token 추출 및 검증
-2. **사용자 식별**: JWT 토큰에서 사용자 정보 추출
-3. **Refresh Token 삭제**: 해당 사용자의 모든 Refresh Token을 DB에서 삭제
-4. **응답 반환**: 로그아웃 성공 메시지 반환
+1. **Token Validation**: Extract and validate Access Token from Authorization header
+2. **User Identification**: Extract user information from JWT token
+3. **Delete Refresh Token**: Remove all Refresh Tokens for the user from database
+4. **Return Response**: Return logout success message
 
-## 보안 고려사항
+## Security Considerations
 
-- Access Token은 서버에서 무효화할 수 없으므로 클라이언트에서 삭제 필요
-- Refresh Token은 서버 DB에서 삭제되어 재사용 불가
-- 이미 로그아웃된 상태에서도 에러 없이 성공 응답 반환
+- Access Token cannot be invalidated on server side, must be deleted on client side
+- Refresh Token is deleted from server database preventing reuse
+- Returns success response without error even when already logged out
 
-## 사용 예제
+## Usage Examples
 
 ### cURL
 ```bash

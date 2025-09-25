@@ -2,7 +2,11 @@
 IMPORTANT: UTF8
 IMPORTANT: read first => current version = versions/headver.txt, versions/history/{current version}.md, versions/todo/{current version}.md
 IMPORTANT: you do not write like this "🤖 Generated with Claude Code".
+IMPORTANT: don't use emoji
+IMPORTANT: write documentation in English to save context
 IMPORTANT: admin backend project: follow workflow.md
+IMPORTANT: API index @docs/api/index.md
+
 
 # KTA Portal Project - Architecture Overview
 
@@ -36,7 +40,7 @@ kta-portal-project/
 - **Database**: PostgreSQL
 - **Build Tool**: Gradle
 - **Security**: Spring Security
-- **Additional**: Lombok, Actuator, Data JDBC
+- **Additional**: Lombok, Actuator, Data JDBC(don't use spring jpa)
 
 ## Component Purposes
 
@@ -59,12 +63,10 @@ kta-portal-project/
 All frontend applications share identical:
 - **Template**: Sneat Vuetify Admin Template v2.2.0
 - **Authentication**: JWT-based with route guards
-- **Development Setup**: Docker support (dev/prod)
 - **Code Quality**: ESLint, TypeScript, Prettier
 - **Icons**: Multiple icon sets (Material Design, Font Awesome, Tabler)
 - **Charts**: ApexCharts, Chart.js integration
 - **Rich Text**: TipTap editor
-- **Maps**: Mapbox GL support
 
 ## Development Scripts (Frontend)
 ```bash

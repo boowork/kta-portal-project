@@ -1,5 +1,5 @@
-import { ref, reactive } from 'vue'
-import type { ApiError, ValidationError, ErrorCode } from '@/api/types'
+import { reactive, ref } from 'vue'
+import type { ApiError, ValidationError } from '@/api/types'
 
 export interface ErrorState {
   hasError: boolean
@@ -31,7 +31,6 @@ const globalDialogTitle = ref('오류')
 const globalDialogMessage = ref('')
 
 export const useErrorHandler = () => {
-
   /**
    * 에러 상태 초기화
    */
@@ -64,51 +63,50 @@ export const useErrorHandler = () => {
 
     if (error.response?.data) {
       const apiResponse = error.response.data
-      
+
       if (apiResponse.errors && Array.isArray(apiResponse.errors)) {
         const hasFieldErrors = apiResponse.errors.some((err: ApiError) => err.field && err.field.trim() !== '')
 
         if (hasFieldErrors) {
           // 필드 레벨 에러는 입력 필드 하단에 표시
           apiResponse.errors.forEach((err: ApiError) => {
-            if (err.field && err.field.trim() !== '') {
+            if (err.field && err.field.trim() !== '')
               setFieldError(err.field, err.message)
-            }
           })
         }
-        
+
         // field가 비어있는 에러나 일반 에러는 공통 메시지로 처리
         const generalErrors = apiResponse.errors.filter((err: ApiError) => !err.field || err.field.trim() === '')
         if (generalErrors.length > 0) {
           globalErrorState.message = generalErrors[0].message
           globalErrorState.hasError = true
         }
-        
+
         // 일반 에러가 있고 다이얼로그 표시가 요청된 경우
-        if (generalErrors.length > 0 && showDialog) {
+        if (generalErrors.length > 0 && showDialog)
           showErrorDialog('오류', generalErrors[0].message)
-        }
-      } else if (apiResponse.message) {
+      }
+      else if (apiResponse.message) {
         globalErrorState.message = apiResponse.message
         globalErrorState.hasError = true
-        
-        if (showDialog) {
+
+        if (showDialog)
           showErrorDialog('오류', apiResponse.message)
-        } else {
+        else
           showErrorToast(apiResponse.message)
-        }
       }
-    } else {
+    }
+    else {
       // 네트워크 에러나 기타 에러
       const defaultMessage = '네트워크 오류가 발생했습니다. 다시 시도해주세요.'
+
       globalErrorState.message = defaultMessage
       globalErrorState.hasError = true
-      
-      if (showDialog) {
+
+      if (showDialog)
         showErrorDialog('네트워크 오류', defaultMessage)
-      } else {
+      else
         showErrorToast(defaultMessage)
-      }
     }
   }
 
@@ -117,14 +115,15 @@ export const useErrorHandler = () => {
    */
   const handleHttpError = (status: number, showDialog = false) => {
     let message = '알 수 없는 오류가 발생했습니다.'
-    
+
     switch (status) {
       case 400:
         message = '잘못된 요청입니다.'
         break
       case 401:
         message = '인증이 필요합니다. 다시 로그인해주세요.'
-        // 로그인 페이지로 리다이렉트
+
+      // 로그인 페이지로 리다이렉트
         navigateTo('/login')
         return
       case 403:
@@ -141,11 +140,10 @@ export const useErrorHandler = () => {
         break
     }
 
-    if (showDialog) {
+    if (showDialog)
       showErrorDialog('오류', message)
-    } else {
+    else
       showErrorToast(message)
-    }
   }
 
   /**
@@ -164,7 +162,7 @@ export const useErrorHandler = () => {
     globalToastState.message = message
     globalToastState.color = 'error'
     globalToastState.show = true
-    
+
     // Auto hide after 5 seconds
     setTimeout(() => {
       globalToastState.show = false
@@ -178,7 +176,7 @@ export const useErrorHandler = () => {
     globalToastState.message = message
     globalToastState.color = 'success'
     globalToastState.show = true
-    
+
     // Auto hide after 3 seconds
     setTimeout(() => {
       globalToastState.show = false
@@ -192,7 +190,7 @@ export const useErrorHandler = () => {
     globalToastState.message = message
     globalToastState.color = 'info'
     globalToastState.show = true
-    
+
     // Auto hide after 4 seconds
     setTimeout(() => {
       globalToastState.show = false
@@ -204,7 +202,7 @@ export const useErrorHandler = () => {
    */
   const handleValidationErrors = (errors: ValidationError[]) => {
     clearErrors()
-    
+
     errors.forEach(error => {
       setFieldError(error.field, error.message)
     })

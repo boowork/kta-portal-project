@@ -1,17 +1,17 @@
 # DELETE /users/{id}
 
-## 개요
-- **엔드포인트**: `DELETE /api/users/{id}`
-- **기능**: 사용자 삭제
+## Overview
+- **Endpoint**: `DELETE /api/users/{id}`
+- **Function**: Delete user
 
-## 요청
+## Request
 ### Path Parameters
-| 이름 | 타입 | 필수 | 설명 |
-|------|------|------|------|
-| id | Long | ✓ | 사용자 ID |
+| Name | Type | Required | Description |
+|------|------|----------|-------------|
+| id | Long | ✓ | User ID |
 
-## 응답
-### 성공 응답 (200 OK)
+## Response
+### Success Response (200 OK)
 ```json
 {
   "success": true,
@@ -20,7 +20,7 @@
 }
 ```
 
-### 에러 응답 (400 Bad Request)
+### Error Response (400 Bad Request)
 ```json
 {
   "success": false,
@@ -35,7 +35,8 @@
 }
 ```
 
-## cURL 예시
+## cURL Example
 ```bash
-curl -X DELETE http://localhost:8080/api/users/1
+curl -X DELETE http://localhost:8080/api/users/1 \
+  -H "DEV_AUTH: 1:admin:관리자"
 ```

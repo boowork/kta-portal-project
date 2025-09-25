@@ -310,6 +310,9 @@ void initInsert() throws SQLException {
 - **에러 코드**: `jsonPath("$.errors[0].code").value("ERROR_CODE")`
 - **Content-Type**: `content().contentType(MediaType.APPLICATION_JSON)`
 
+**자주 틀리는 Typo 주의**
+- `andExpected` (틀림) -> `andExpect` (올바름) - MockMvc 메서드
+
 #### 5. 실제 적용 예시
 **DeleteUserControllerTest 패턴 적용**
 - 클래스명: `DeleteUserControllerTest`

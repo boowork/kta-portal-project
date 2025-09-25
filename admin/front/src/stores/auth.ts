@@ -1,6 +1,5 @@
 import { defineStore } from 'pinia'
 import { useAuth } from '@/composables/useAuth'
-import type { LoginResponse } from '@/api/types'
 
 export interface AuthUser {
   userid: string
@@ -13,8 +12,9 @@ export const useAuthStore = defineStore('auth', () => {
 
   // Re-export authentication state and methods from composable
   const user = computed<AuthUser | null>(() => {
-    if (!authComposable.user.value) return null
-    
+    if (!authComposable.user.value)
+      return null
+
     return {
       userid: authComposable.user.value.userid,
       name: authComposable.user.value.name,

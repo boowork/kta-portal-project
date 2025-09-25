@@ -29,9 +29,8 @@ const isPasswordVisible = ref(false)
 
 // Handle login
 const handleLogin = async () => {
-  if (!form.value.userid || !form.value.password) {
+  if (!form.value.userid || !form.value.password)
     return
-  }
 
   clearErrors()
 

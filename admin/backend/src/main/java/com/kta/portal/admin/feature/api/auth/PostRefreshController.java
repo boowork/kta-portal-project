@@ -44,7 +44,7 @@ class PostRefreshService {
                     PostRefreshDaoResponseDto user = postRefreshDao.findUserById(token.getUserId());
                     
                     String newAccessToken = jwtTokenProvider.generateToken(
-                        user.getId(), user.getUserid(), user.getName(), user.getRole());
+                        user.getId(), user.getUserid(), user.getName());
                     
                     RefreshToken newRefreshToken = refreshTokenService.createRefreshToken(user.getId());
                     
@@ -72,14 +72,13 @@ class PostRefreshDao {
     private final JdbcTemplate jdbcTemplate;
     
     public PostRefreshDaoResponseDto findUserById(Long userId) {
-        String sql = "SELECT id, userid, name, role FROM users WHERE id = ?";
+        String sql = "SELECT id, userid, name FROM users WHERE id = ?";
         Map<String, Object> row = jdbcTemplate.queryForMap(sql, userId);
         
         return PostRefreshDaoResponseDto.builder()
             .id(((Number) row.get("id")).longValue())
             .userid((String) row.get("userid"))
             .name((String) row.get("name"))
-            .role((String) row.get("role"))
             .build();
     }
 }
@@ -103,5 +102,4 @@ class PostRefreshDaoResponseDto {
     private Long id;
     private String userid;
     private String name;
-    private String role;
 }

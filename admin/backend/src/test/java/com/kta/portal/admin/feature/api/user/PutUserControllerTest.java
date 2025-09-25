@@ -20,8 +20,7 @@ public class PutUserControllerTest extends BaseIntegrationTest {
     void testUpdateUser_WithoutAuthentication_ShouldReturn401() throws Exception {
         String updateUserJson = """
                 {
-                    "name": "Updated Name",
-                    "role": "ADMIN"
+                    "name": "Updated Name"
                 }
                 """;
 
@@ -35,8 +34,7 @@ public class PutUserControllerTest extends BaseIntegrationTest {
     void testUpdateUser_WithUserRole() throws Exception {
         String updateUserJson = """
                 {
-                    "name": "Updated User Name",
-                    "role": "USER"
+                    "name": "Updated User Name"
                 }
                 """;
 
@@ -53,8 +51,7 @@ public class PutUserControllerTest extends BaseIntegrationTest {
     void testUpdateUser_WithAdminRole() throws Exception {
         String updateUserJson = """
                 {
-                    "name": "Updated Admin Name",
-                    "role": "ADMIN"
+                    "name": "Updated Admin Name"
                 }
                 """;
 

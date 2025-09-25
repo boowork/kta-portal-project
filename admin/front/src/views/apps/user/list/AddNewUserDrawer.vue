@@ -3,6 +3,10 @@ import { PerfectScrollbar } from 'vue3-perfect-scrollbar'
 import type { VForm } from 'vuetify/components/VForm'
 import type { CreateUserRequest } from '@/api/types'
 
+const props = defineProps<Props>()
+
+const emit = defineEmits<Emit>()
+
 // Required validator
 const requiredValidator = (value: string) => !!value || '이 필드는 필수입니다'
 
@@ -14,9 +18,6 @@ interface Emit {
 interface Props {
   isDrawerOpen: boolean
 }
-
-const props = defineProps<Props>()
-const emit = defineEmits<Emit>()
 
 // Form fields
 const isFormValid = ref(false)
@@ -57,7 +58,7 @@ const onSubmit = () => {
         password: password.value,
         role: role.value!,
       })
-      
+
       closeNavigationDrawer()
     }
   })

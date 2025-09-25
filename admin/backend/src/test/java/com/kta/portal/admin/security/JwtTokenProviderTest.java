@@ -33,10 +33,9 @@ public class JwtTokenProviderTest {
         Long id = 1L;
         String userid = "testuser";
         String name = "Test User";
-        String role = "USER";
         
         // When
-        String token = jwtTokenProvider.generateToken(id, userid, name, role);
+        String token = jwtTokenProvider.generateToken(id, userid, name);
         
         // Then
         assertNotNull(token);
@@ -53,13 +52,12 @@ public class JwtTokenProviderTest {
         assertEquals(id, claims.get("id", Long.class));
         assertEquals(userid, claims.get("userid"));
         assertEquals(name, claims.get("name"));
-        assertEquals(role, claims.get("role"));
     }
 
     @Test
     void testValidateToken_WithCorrectIssuer_ReturnsTrue() {
         // Given
-        String token = jwtTokenProvider.generateToken(1L, "user", "User", "USER");
+        String token = jwtTokenProvider.generateToken(1L, "user", "User");
         
         // When
         boolean isValid = jwtTokenProvider.validateToken(token);
@@ -76,7 +74,6 @@ public class JwtTokenProviderTest {
                 .claim("id", 1L)
                 .claim("userid", "user")
                 .claim("name", "User")
-                .claim("role", "USER")
                 .setIssuer("kta-portal-school") // Wrong issuer
                 .signWith(key)
                 .compact();
@@ -96,7 +93,6 @@ public class JwtTokenProviderTest {
                 .claim("id", 1L)
                 .claim("userid", "user")
                 .claim("name", "User")
-                .claim("role", "USER")
                 // No issuer set
                 .signWith(key)
                 .compact();
@@ -111,7 +107,7 @@ public class JwtTokenProviderTest {
     @Test
     void testGetIssuerFromToken_ReturnsCorrectIssuer() {
         // Given
-        String token = jwtTokenProvider.generateToken(1L, "user", "User", "USER");
+        String token = jwtTokenProvider.generateToken(1L, "user", "User");
         
         // When
         String extractedIssuer = jwtTokenProvider.getIssuerFromToken(token);
@@ -124,7 +120,7 @@ public class JwtTokenProviderTest {
     void testValidateToken_WithExpiredToken_ReturnsFalse() {
         // Given - Create expired token
         ReflectionTestUtils.setField(jwtTokenProvider, "accessTokenValidity", -1000L); // Negative means expired
-        String expiredToken = jwtTokenProvider.generateToken(1L, "user", "User", "USER");
+        String expiredToken = jwtTokenProvider.generateToken(1L, "user", "User");
         
         // Reset to normal validity for validation
         ReflectionTestUtils.setField(jwtTokenProvider, "accessTokenValidity", accessTokenValidity);
@@ -144,7 +140,6 @@ public class JwtTokenProviderTest {
                 .claim("id", 1L)
                 .claim("userid", "user")
                 .claim("name", "User")
-                .claim("role", "USER")
                 .setIssuer(issuer)
                 .signWith(wrongKey)
                 .compact();
@@ -160,7 +155,7 @@ public class JwtTokenProviderTest {
     void testGetUserIdFromToken() {
         // Given
         String expectedUserId = "testuser123";
-        String token = jwtTokenProvider.generateToken(1L, expectedUserId, "Test User", "USER");
+        String token = jwtTokenProvider.generateToken(1L, expectedUserId, "Test User");
         
         // When
         String actualUserId = jwtTokenProvider.getUserIdFromToken(token);
@@ -169,18 +164,6 @@ public class JwtTokenProviderTest {
         assertEquals(expectedUserId, actualUserId);
     }
 
-    @Test
-    void testGetRoleFromToken() {
-        // Given
-        String expectedRole = "ADMIN";
-        String token = jwtTokenProvider.generateToken(1L, "admin", "Admin User", expectedRole);
-        
-        // When
-        String actualRole = jwtTokenProvider.getRoleFromToken(token);
-        
-        // Then
-        assertEquals(expectedRole, actualRole);
-    }
 
     @Test
     void testMultipleServiceIssuers() {
@@ -199,7 +182,6 @@ public class JwtTokenProviderTest {
                     .claim("id", 1L)
                     .claim("userid", "user")
                     .claim("name", "User")
-                    .claim("role", "USER")
                     .setIssuer(serviceIssuer)
                     .signWith(key)
                     .compact();

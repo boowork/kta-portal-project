@@ -48,7 +48,6 @@ class PostLoginHttpResponseDto {
     private String refreshToken;
     private String userid;
     private String name;
-    private String role;
 }
 
 
@@ -59,7 +58,6 @@ class PostLoginDaoResponseDto {
     private String userid;
     private String password;
     private String name;
-    private String role;
 }
 
 @Service
@@ -86,7 +84,7 @@ class PostLoginService {
             }
 
             String accessToken = jwtTokenProvider.generateToken(
-                    user.getId(), user.getUserid(), user.getName(), user.getRole());
+                    user.getId(), user.getUserid(), user.getName());
             RefreshToken refreshToken = refreshTokenService.createRefreshToken(user.getId());
 
             PostLoginHttpResponseDto response = PostLoginHttpResponseDto.builder()
@@ -94,7 +92,6 @@ class PostLoginService {
                     .refreshToken(refreshToken.getToken())
                     .userid(user.getUserid())
                     .name(user.getName())
-                    .role(user.getRole())
                     .build();
 
             return ResponseDto.success(response);
@@ -118,7 +115,7 @@ class PostLoginDao {
     private final JdbcTemplate jdbcTemplate;
 
     public PostLoginDaoResponseDto findUserByUserid(String userid) {
-        String sql = "SELECT id, userid, password, name, role FROM users WHERE userid = ?";
+        String sql = "SELECT id, userid, password, name FROM users WHERE userid = ?";
         Map<String, Object> row = jdbcTemplate.queryForMap(sql, userid);
 
         return PostLoginDaoResponseDto.builder()
@@ -126,7 +123,6 @@ class PostLoginDao {
                 .userid((String) row.get("userid"))
                 .password((String) row.get("password"))
                 .name((String) row.get("name"))
-                .role((String) row.get("role"))
                 .build();
     }
 }

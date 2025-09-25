@@ -47,7 +47,6 @@ class GetUserService {
         dto.setId(user.getId());
         dto.setUserid(user.getUserid());
         dto.setName(user.getName());
-        dto.setRole(user.getRole());
         dto.setCreatedAt(user.getCreatedAt());
         dto.setUpdatedAt(user.getUpdatedAt());
         return dto;
@@ -59,7 +58,6 @@ class GetUserHttpResponseDto {
     private Long id;
     private String userid;
     private String name;
-    private String role;
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
 }

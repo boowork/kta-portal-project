@@ -1,6 +1,6 @@
 import { defineStore } from 'pinia'
 import { useUser } from '@/composables/useUser'
-import type { User, CreateUserRequest, UpdateUserRequest } from '@/api/types'
+import type { User } from '@/api/types'
 
 export const useUserStore = defineStore('user', () => {
   const userComposable = useUser()
@@ -36,18 +36,25 @@ export const useUserStore = defineStore('user', () => {
 
   // Additional store-specific methods
   const getUserById = (id: number): User | undefined => {
-    if (!users.value || !Array.isArray(users.value)) return undefined
+    if (!users.value || !Array.isArray(users.value))
+      return undefined
+
     return users.value.find(user => user.id === id)
   }
 
   const getUserByUserid = (userid: string): User | undefined => {
-    if (!users.value || !Array.isArray(users.value)) return undefined
+    if (!users.value || !Array.isArray(users.value))
+      return undefined
+
     return users.value.find(user => user.userid === userid)
   }
 
   const getFilteredUsers = (role?: 'ADMIN' | 'USER'): User[] => {
-    if (!users.value || !Array.isArray(users.value)) return []
-    if (!role) return users.value
+    if (!users.value || !Array.isArray(users.value))
+      return []
+    if (!role)
+      return users.value
+
     return users.value.filter(user => user.role === role)
   }
 

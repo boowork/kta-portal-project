@@ -6,7 +6,6 @@ import com.kta.portal.admin.feature.repository.UserRepository;
 import com.kta.portal.admin.feature.repository.model.User;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.Pattern;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -51,7 +50,6 @@ class PostUserService {
         user.setUserid(requestDto.getUserid());
         user.setPassword(passwordEncoder.encode(requestDto.getPassword()));
         user.setName(requestDto.getName());
-        user.setRole(requestDto.getRole());
         user.setCreatedAt(LocalDateTime.now());
         user.setUpdatedAt(LocalDateTime.now());
         
@@ -64,7 +62,6 @@ class PostUserService {
         dto.setId(user.getId());
         dto.setUserid(user.getUserid());
         dto.setName(user.getName());
-        dto.setRole(user.getRole());
         dto.setCreatedAt(user.getCreatedAt());
         dto.setUpdatedAt(user.getUpdatedAt());
         return dto;
@@ -81,10 +78,6 @@ class PostUserHttpRequestDto {
     
     @NotBlank(message = "사용자 이름은 필수입니다")
     private String name;
-    
-    @NotBlank(message = "사용자 역할은 필수입니다")
-    @Pattern(regexp = "^(USER|ADMIN)$", message = "사용자 역할은 USER 또는 ADMIN이어야 합니다")
-    private String role;
 }
 
 @Data
@@ -92,7 +85,6 @@ class PostUserHttpResponseDto {
     private Long id;
     private String userid;
     private String name;
-    private String role;
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
 }

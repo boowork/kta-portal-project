@@ -1,13 +1,13 @@
-import { ref, computed } from 'vue'
+import { computed, ref } from 'vue'
 import { useRouter } from 'vue-router'
-import { authApi } from '@/api/auth'
 import { useErrorHandler } from './useErrorHandler'
+import { authApi } from '@/api/auth'
 import type { LoginRequest, LoginResponse } from '@/api/types'
 
 export const useAuth = () => {
   const router = useRouter()
   const { handleApiError, showSuccessToast, clearErrors } = useErrorHandler()
-  
+
   const isLoading = ref(false)
   const isAuthenticated = ref(false)
   const user = ref<LoginResponse | null>(null)
@@ -28,7 +28,7 @@ export const useAuth = () => {
       sameSite: 'strict',
       maxAge: 60 * 60 * 24, // 24 hours
     })
-    
+
     const refreshTokenCookie = useCookie('refreshToken', {
       default: () => null,
       httpOnly: false,
@@ -47,7 +47,7 @@ export const useAuth = () => {
   const removeTokens = () => {
     const accessTokenCookie = useCookie('accessToken')
     const refreshTokenCookie = useCookie('refreshToken')
-    
+
     accessTokenCookie.value = null
     refreshTokenCookie.value = null
   }
@@ -58,7 +58,7 @@ export const useAuth = () => {
   const saveUserInfo = (userData: LoginResponse) => {
     user.value = userData
     isAuthenticated.value = true
-    
+
     // localStorage에도 저장 (새로고침 시 복원용)
     localStorage.setItem('user', JSON.stringify(userData))
   }
@@ -81,27 +81,30 @@ export const useAuth = () => {
       isLoading.value = true
 
       const response = await authApi.login(credentials)
-      
+
       if (response.success && response.data) {
         const { accessToken, refreshToken, ...userData } = response.data
-        
+
         // 토큰 저장
         saveTokens(accessToken, refreshToken)
-        
+
         // 사용자 정보 저장
         saveUserInfo(response.data)
-        
+
         showSuccessToast('로그인되었습니다.')
-        
+
         // 대시보드로 이동
         await router.push('/dashboards/analytics')
-        
+
         return true
-      } else {
+      }
+      else {
         handleApiError({ response: { data: response } })
+
         return false
       }
-    } catch (error: any) {
+    }
+    catch (error: any) {
       if (error.code === 'ERR_NETWORK' || error.message?.includes('fetch')) {
         handleApiError({
           response: {
@@ -109,16 +112,19 @@ export const useAuth = () => {
               success: false,
               errors: [{
                 message: '백엔드 서버에 연결할 수 없습니다. 서버가 실행 중인지 확인해주세요.',
-                code: 'NETWORK_ERROR'
-              }]
-            }
-          }
+                code: 'NETWORK_ERROR',
+              }],
+            },
+          },
         })
-      } else {
+      }
+      else {
         handleApiError(error)
       }
+
       return false
-    } finally {
+    }
+    finally {
       isLoading.value = false
     }
   }
@@ -129,24 +135,26 @@ export const useAuth = () => {
   const logout = async () => {
     try {
       isLoading.value = true
-      
+
       await authApi.logout()
-      
+
       // 토큰 및 사용자 정보 제거
       removeTokens()
       removeUserInfo()
-      
+
       showSuccessToast('로그아웃되었습니다.')
-      
+
       // 로그인 페이지로 이동
       await router.push('/login')
-    } catch (error) {
+    }
+    catch (error) {
       // 로그아웃 실패해도 로컬 정보는 제거
       removeTokens()
       removeUserInfo()
-      
+
       await router.push('/login')
-    } finally {
+    }
+    finally {
       isLoading.value = false
     }
   }
@@ -157,10 +165,9 @@ export const useAuth = () => {
   const refreshToken = async (): Promise<boolean> => {
     try {
       const refreshTokenCookie = useCookie('refreshToken')
-      
-      if (!refreshTokenCookie.value) {
+
+      if (!refreshTokenCookie.value)
         return false
-      }
 
       const response = await authApi.refreshToken({
         refreshToken: refreshTokenCookie.value,
@@ -169,13 +176,15 @@ export const useAuth = () => {
       if (response.success && response.data) {
         // 새로운 Access Token 저장
         const accessTokenCookie = useCookie('accessToken')
+
         accessTokenCookie.value = response.data.accessToken
-        
+
         return true
       }
-      
+
       return false
-    } catch (error) {
+    }
+    catch (error) {
       return false
     }
   }
@@ -190,8 +199,10 @@ export const useAuth = () => {
     if (accessTokenCookie.value && savedUser) {
       try {
         const userData = JSON.parse(savedUser) as LoginResponse
+
         saveUserInfo(userData)
-      } catch (error) {
+      }
+      catch (error) {
         console.error('Failed to parse saved user data:', error)
         removeTokens()
         removeUserInfo()
@@ -205,8 +216,10 @@ export const useAuth = () => {
   const verifyToken = async (): Promise<boolean> => {
     try {
       const response = await authApi.verifyToken()
+
       return response.success && response.data?.valid === true
-    } catch (error) {
+    }
+    catch (error) {
       return false
     }
   }
@@ -216,20 +229,20 @@ export const useAuth = () => {
    */
   const checkAuth = async (): Promise<boolean> => {
     const accessTokenCookie = useCookie('accessToken')
-    
-    if (!accessTokenCookie.value) {
+
+    if (!accessTokenCookie.value)
       return false
-    }
 
     const isValid = await verifyToken()
-    
+
     if (!isValid) {
       // Access Token이 만료된 경우 Refresh Token으로 갱신 시도
       const refreshed = await refreshToken()
-      
+
       if (!refreshed) {
         // Refresh도 실패한 경우 로그아웃
         await logout()
+
         return false
       }
     }
@@ -243,8 +256,10 @@ export const useAuth = () => {
   const requireAuth = () => {
     if (!isAuthenticated.value) {
       router.push('/login')
+
       return false
     }
+
     return true
   }
 
