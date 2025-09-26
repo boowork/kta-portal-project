@@ -1,0 +1,78 @@
+<template>
+  <VCard>
+    <!-- Header -->
+    <VCardTitle class="d-flex align-center">
+      <span>{{Domain}} List</span>
+      <VSpacer />
+      <VBtn 
+        color="primary" 
+        @click="create{{Domain}}"
+      >
+        <VIcon start>tabler-plus</VIcon>
+        New {{Domain}}
+      </VBtn>
+    </VCardTitle>
+
+    <!-- Filters -->
+    <VCardText>
+      <VRow>
+        <VCol cols="12" md="4">
+          <AppTextField
+            v-model="searchQuery"
+            placeholder="Search {{domains}}..."
+            clearable
+          />
+        </VCol>
+        <!-- TODO: Add more filters as needed -->
+      </VRow>
+    </VCardText>
+
+    <!-- Table -->
+    <VDataTableServer
+      v-model:page="currentPage"
+      v-model:items-per-page="itemsPerPage"
+      :headers="headers"
+      :items="{{domains}}"
+      :items-length="total{{Domain}}s"
+      :loading="isLoading"
+      @update:options="fetch{{Domain}}s"
+    >
+      <!-- TODO: Customize table columns -->
+      <template #item.actions="{ item }">
+        <IconBtn @click="view{{Domain}}(item)">
+          <VIcon>tabler-eye</VIcon>
+        </IconBtn>
+        <IconBtn @click="edit{{Domain}}(item)">
+          <VIcon>tabler-pencil</VIcon>
+        </IconBtn>
+        <IconBtn @click="delete{{Domain}}(item)">
+          <VIcon color="error">tabler-trash</VIcon>
+        </IconBtn>
+      </template>
+    </VDataTableServer>
+  </VCard>
+</template>
+
+<script setup lang="ts">
+import { use{{Domain}}List } from './composables'
+
+const {
+  // State
+  {{domains}},
+  currentPage,
+  itemsPerPage,
+  searchQuery,
+  isLoading,
+  total{{Domain}}s,
+  
+  // Computed
+  headers,
+  
+  // Actions
+  fetch{{Domain}}s,
+  create{{Domain}},
+  view{{Domain}},
+  edit{{Domain}},
+  delete{{Domain}},
+} = use{{Domain}}List()
+</script>

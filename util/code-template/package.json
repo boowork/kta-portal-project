@@ -1,0 +1,21 @@
+{
+  "name": "code-template",
+  "version": "1.0.0",
+  "description": "KTA Portal boilerplate code generator",
+  "main": "index.js",
+  "bin": {
+    "code-template": "./index.js"
+  },
+  "scripts": {
+    "test": "node index.js --help"
+  },
+  "keywords": ["kta", "boilerplate", "generator"],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "commander": "^11.0.0",
+    "handlebars": "^4.7.8",
+    "fs-extra": "^11.1.0",
+    "chalk": "^4.1.2"
+  }
+}

@@ -1,0 +1,53 @@
+# {{METHOD}} {{endpoint}}
+
+## Overview
+- **Endpoint**: `{{METHOD}} /api{{endpoint}}`
+- **Function**: {{description}}
+
+## Request
+{{#if isPaginated}}
+### Query Parameters
+- `page` (optional): Page number (0-based, default: 0)
+- `size` (optional): Page size (default: 20)
+- `sortBy` (optional): Field to sort by (default: "id")
+- `sortDir` (optional): Sort direction "asc" or "desc" (default: "asc")
+{{/if}}
+
+{{#unless isPaginated}}
+### Path Parameters
+- `id`: Resource ID
+
+### Request Body
+```json
+{
+  // TODO: Add request body example
+}
+```
+{{/unless}}
+
+## Response
+### Success Response (200 OK)
+```json
+{
+  "success": true,
+  "data": {{#if isPaginated}}{
+    "content": [...],
+    "page": 0,
+    "size": 20,
+    "totalElements": 100,
+    "totalPages": 5,
+    "first": true,
+    "last": false
+  }{{else}}{
+    // TODO: Add response data structure
+  }{{/if}},
+  "errors": null
+}
+```
+
+## cURL Example
+```bash
+curl -X {{METHOD}} \
+  -H "DEV_AUTH: 1:admin:관리자" \
+  "http://localhost:8080/api{{endpoint}}"
+```

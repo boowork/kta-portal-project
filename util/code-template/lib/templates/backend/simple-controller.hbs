@@ -1,0 +1,46 @@
+package com.kta.portal.admin.feature.api.{{package}};
+
+import com.kta.portal.admin.dto.ResponseDto;
+import lombok.Data;
+import lombok.RequiredArgsConstructor;
+import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.*;
+
+import javax.validation.Valid;
+import java.time.LocalDateTime;
+
+@RestController
+@RequiredArgsConstructor
+public class {{controllerName}} {
+
+    private final {{serviceName}} service;
+
+    // TODO: Implement appropriate endpoint based on operation
+    // GET /api/{{domain}}/{id}
+    // POST /api/{{domains}}
+    // PUT /api/{{domain}}/{id}
+    // DELETE /api/{{domain}}/{id}
+}
+
+@Service
+@RequiredArgsConstructor
+class {{serviceName}} {
+
+    private final {{Domain}}Repository {{domain}}Repository;
+
+    // TODO: Implement service methods
+}
+
+@Data
+class {{controllerName}}HttpRequestDto {
+    // TODO: Add request fields
+}
+
+@Data
+class {{controllerName}}HttpResponseDto {
+    private Long id;
+    // TODO: Add response fields
+    private LocalDateTime createdAt;
+    private LocalDateTime updatedAt;
+}

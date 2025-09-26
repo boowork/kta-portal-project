@@ -1,0 +1,45 @@
+package com.kta.portal.admin.feature.api.{{package}};
+
+import com.kta.portal.admin.BaseIntegrationTest;
+import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
+import org.springframework.http.MediaType;
+import org.springframework.test.web.servlet.MockMvc;
+
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
+
+@AutoConfigureMockMvc
+public class {{controllerName}}Test extends BaseIntegrationTest {
+
+    @Autowired
+    private MockMvc mockMvc;
+
+    @Test
+    void test{{controllerName}}_WithoutAuthentication_ShouldReturn401() throws Exception {
+        mockMvc.perform({{method}}("/api{{endpoint}}"))
+                .andExpect(status().isUnauthorized());
+    }
+
+    @Test
+    void test{{controllerName}}_WithUserRole_ShouldReturn200() throws Exception {
+        // TODO: Add test data if needed
+        
+        mockMvc.perform(withUserAuth({{method}}("/api{{endpoint}}")))
+                .andExpect(status().isOk())
+                .andExpect(content().contentType(MediaType.APPLICATION_JSON))
+                .andExpect(jsonPath("$.success").value(true));
+    }
+
+    @Test
+    void test{{controllerName}}_WithAdminRole_ShouldReturn200() throws Exception {
+        // TODO: Add test data if needed
+        
+        mockMvc.perform(withAdminAuth({{method}}("/api{{endpoint}}")))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.success").value(true));
+    }
+
+    // TODO: Add specific test cases for error scenarios
+}

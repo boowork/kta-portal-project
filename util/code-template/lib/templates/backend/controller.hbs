@@ -1,0 +1,93 @@
+package com.kta.portal.admin.feature.api.{{package}};
+
+import com.kta.portal.admin.dto.ResponseDto;
+import lombok.Data;
+import lombok.RequiredArgsConstructor;
+import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.*;
+
+import java.time.LocalDateTime;
+
+@RestController
+@RequiredArgsConstructor
+public class {{controllerName}} {
+
+    private final {{serviceName}} service;
+
+    @GetMapping("/api/{{domain}}/{id}")
+    public ResponseEntity<ResponseDto<{{controllerName}}HttpResponseDto>> get{{Domain}}(@PathVariable Long id) {
+        {{controllerName}}HttpResponseDto result = service.get{{Domain}}(id);
+        return ResponseEntity.ok(ResponseDto.success(result));
+    }
+    {{/if}}
+    {{#if (eq method 'POST')}}
+    @PostMapping("/api/{{domains}}")
+    public ResponseEntity<ResponseDto<{{controllerName}}HttpResponseDto>> create{{Domain}}(
+            @RequestBody @Valid {{controllerName}}HttpRequestDto request) {
+        {{controllerName}}HttpResponseDto result = service.create{{Domain}}(request);
+        return ResponseEntity.ok(ResponseDto.success(result));
+    }
+    {{/if}}
+    {{#if (eq method 'PUT')}}
+    @PutMapping("/api/{{domain}}/{id}")
+    public ResponseEntity<ResponseDto<{{controllerName}}HttpResponseDto>> update{{Domain}}(
+            @PathVariable Long id,
+            @RequestBody @Valid {{controllerName}}HttpRequestDto request) {
+        {{controllerName}}HttpResponseDto result = service.update{{Domain}}(id, request);
+        return ResponseEntity.ok(ResponseDto.success(result));
+    }
+    {{/if}}
+    {{#if (eq method 'DELETE')}}
+    @DeleteMapping("/api/{{domain}}/{id}")
+    public ResponseEntity<ResponseDto<Void>> delete{{Domain}}(@PathVariable Long id) {
+        service.delete{{Domain}}(id);
+        return ResponseEntity.ok(ResponseDto.success(null));
+    }
+    {{/if}}
+}
+
+@Service
+@RequiredArgsConstructor
+class {{serviceName}} {
+
+    {{#if (eq method 'GET')}}
+    public {{controllerName}}HttpResponseDto get{{Domain}}(Long id) {
+        // TODO: Implement get logic
+        throw new UnsupportedOperationException("Not implemented yet");
+    }
+    {{/if}}
+    {{#if (eq method 'POST')}}
+    public {{controllerName}}HttpResponseDto create{{Domain}}({{controllerName}}HttpRequestDto request) {
+        // TODO: Implement create logic
+        throw new UnsupportedOperationException("Not implemented yet");
+    }
+    {{/if}}
+    {{#if (eq method 'PUT')}}
+    public {{controllerName}}HttpResponseDto update{{Domain}}(Long id, {{controllerName}}HttpRequestDto request) {
+        // TODO: Implement update logic
+        throw new UnsupportedOperationException("Not implemented yet");
+    }
+    {{/if}}
+    {{#if (eq method 'DELETE')}}
+    public void delete{{Domain}}(Long id) {
+        // TODO: Implement delete logic
+        throw new UnsupportedOperationException("Not implemented yet");
+    }
+    {{/if}}
+}
+
+{{#unless (eq method 'DELETE')}}
+@Data
+class {{controllerName}}HttpRequestDto {
+    // TODO: Add request fields
+}
+
+@Data
+class {{controllerName}}HttpResponseDto {
+    private Long id;
+    // TODO: Add response fields
+    private LocalDateTime createdAt;
+    private LocalDateTime updatedAt;
+}
+{{/unless}}

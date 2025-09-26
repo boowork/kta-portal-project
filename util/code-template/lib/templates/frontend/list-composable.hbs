@@ -1,0 +1,105 @@
+import { ref, computed, watch, onMounted } from 'vue'
+import { useRouter } from 'vue-router'
+import { useErrorHandler } from '@/composables/useErrorHandler'
+// TODO: Import API functions
+// import { get{{Domain}}sApi, delete{{Domain}}Api } from '@/api/{{domain}}'
+import type { {{Domain}} } from '@/api/types'
+
+export function use{{Domain}}List() {
+  const router = useRouter()
+  const { handleError, clearErrors } = useErrorHandler()
+  
+  // State
+  const {{domains}} = ref<{{Domain}}[]>([])
+  const currentPage = ref(1)
+  const itemsPerPage = ref(10)
+  const total{{Domain}}s = ref(0)
+  const searchQuery = ref('')
+  const isLoading = ref(false)
+  
+  // Computed
+  const headers = computed(() => [
+    { title: 'ID', key: 'id' },
+    // TODO: Add more columns
+    { title: 'Created', key: 'createdAt' },
+    { title: 'Actions', key: 'actions', sortable: false },
+  ])
+  
+  // Actions
+  const fetch{{Domain}}s = async () => {
+    isLoading.value = true
+    clearErrors()
+    
+    try {
+      // TODO: Implement API call
+      // const response = await get{{Domain}}sApi({
+      //   page: currentPage.value - 1, // API uses 0-based pagination
+      //   size: itemsPerPage.value,
+      //   search: searchQuery.value,
+      // })
+      // 
+      // {{domains}}.value = response.data.content
+      // total{{Domain}}s.value = response.data.totalElements
+      
+      // Temporary mock data
+      {{domains}}.value = []
+      total{{Domain}}s.value = 0
+    } catch (error) {
+      handleError(error)
+    } finally {
+      isLoading.value = false
+    }
+  }
+  
+  const create{{Domain}} = () => {
+    router.push('/apps/{{domain}}/create')
+  }
+  
+  const view{{Domain}} = (item: {{Domain}}) => {
+    router.push(`/apps/{{domain}}/view/${item.id}`)
+  }
+  
+  const edit{{Domain}} = (item: {{Domain}}) => {
+    router.push(`/apps/{{domain}}/edit/${item.id}`)
+  }
+  
+  const delete{{Domain}} = async (item: {{Domain}}) => {
+    // TODO: Add confirmation dialog
+    // TODO: Implement delete API call
+    // if (confirm(`Delete {{domain}} ${item.id}?`)) {
+    //   await delete{{Domain}}Api(item.id)
+    //   await fetch{{Domain}}s()
+    // }
+    console.log('Delete {{domain}}:', item)
+  }
+  
+  // Watchers
+  watch([searchQuery, currentPage, itemsPerPage], () => {
+    fetch{{Domain}}s()
+  })
+  
+  // Lifecycle
+  onMounted(() => {
+    fetch{{Domain}}s()
+  })
+  
+  return {
+    // State
+    {{domains}}: readonly({{domains}}),
+    currentPage,
+    itemsPerPage,
+    total{{Domain}}s: readonly(total{{Domain}}s),
+    searchQuery,
+    isLoading: readonly(isLoading),
+    
+    // Computed
+    headers,
+    
+    // Actions
+    fetch{{Domain}}s,
+    create{{Domain}},
+    view{{Domain}},
+    edit{{Domain}},
+    delete{{Domain}},
+  }
+}

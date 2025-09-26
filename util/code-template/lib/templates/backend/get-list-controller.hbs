@@ -1,0 +1,82 @@
+package com.kta.portal.admin.feature.api.{{package}};
+
+import com.kta.portal.admin.dto.ResponseDto;
+import com.kta.portal.admin.feature.repository.model.{{Domain}};
+import lombok.Data;
+import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
+import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+
+import java.time.LocalDateTime;
+import java.util.List;
+import java.util.stream.Collectors;
+
+@RestController
+@RequiredArgsConstructor
+public class {{controllerName}} {
+
+    private final {{serviceName}} service;
+
+    @GetMapping("/api/{{domains}}")
+    public ResponseEntity<ResponseDto<Get{{Domain}}sPageResponseDto>> getAll{{Domain}}s(
+            @RequestParam(defaultValue = "0") int page,
+            @RequestParam(defaultValue = "20") int size,
+            @RequestParam(defaultValue = "id") String sortBy,
+            @RequestParam(defaultValue = "asc") String sortDir) {
+        Get{{Domain}}sPageResponseDto result = service.getAll{{Domain}}s(page, size, sortBy, sortDir);
+        return ResponseEntity.ok(ResponseDto.success(result));
+    }
+}
+
+@Service
+@RequiredArgsConstructor
+class {{serviceName}} {
+
+    public Get{{Domain}}sPageResponseDto getAll{{Domain}}s(int page, int size, String sortBy, String sortDir) {
+        Sort sort = sortDir.equalsIgnoreCase("desc") ?
+                Sort.by(sortBy).descending() : Sort.by(sortBy).ascending();
+        Pageable pageable = PageRequest.of(page, size, sort);
+
+        // TODO: Implement data fetching logic
+        // Page<{{Domain}}> {{domain}}Page = {{domain}}Repository.findAll(pageable);
+        // List<Get{{Domain}}sHttpResponseDto> {{domains}} = {{domain}}Page.getContent().stream()
+        //         .map(this::convertToHttpResponseDto)
+        //         .collect(Collectors.toList());
+
+        // TODO: Return response
+        throw new UnsupportedOperationException("Not implemented yet");
+    }
+
+    private Get{{Domain}}sHttpResponseDto convertToHttpResponseDto({{Domain}} {{domain}}) {
+        Get{{Domain}}sHttpResponseDto dto = new Get{{Domain}}sHttpResponseDto();
+        // TODO: Map entity fields to DTO
+        dto.setId({{domain}}.getId());
+        return dto;
+    }
+}
+
+@Data
+class Get{{Domain}}sHttpResponseDto {
+    private Long id;
+    // TODO: Add response fields
+    private LocalDateTime createdAt;
+    private LocalDateTime updatedAt;
+}
+
+@Data
+class Get{{Domain}}sPageResponseDto {
+    private List<Get{{Domain}}sHttpResponseDto> content;
+    private int page;
+    private int size;
+    private long totalElements;
+    private int totalPages;
+    private boolean first;
+    private boolean last;
+}

@@ -1,0 +1,91 @@
+<template>
+  <VCard>
+    <!-- Header -->
+    <VCardTitle class="d-flex align-center">
+      <VBtn
+        icon
+        variant="text"
+        @click="goBack"
+      >
+        <VIcon>tabler-arrow-left</VIcon>
+      </VBtn>
+      <span>{{Domain}} Details</span>
+      <VSpacer />
+      <VBtn
+        v-if="!isEditMode"
+        color="primary"
+        @click="toggleEditMode"
+      >
+        <VIcon start>tabler-pencil</VIcon>
+        Edit
+      </VBtn>
+    </VCardTitle>
+
+    <!-- Content -->
+    <VCardText>
+      <VRow v-if="{{domain}}">
+        <VCol cols="12" md="6">
+          <AppTextField
+            v-model="{{domain}}Form.id"
+            label="ID"
+            readonly
+          />
+        </VCol>
+        <!-- TODO: Add more fields -->
+      </VRow>
+
+      <!-- Loading State -->
+      <div
+        v-else-if="isLoading"
+        class="text-center pa-4"
+      >
+        <VProgressCircular indeterminate />
+      </div>
+
+      <!-- Error State -->
+      <VAlert
+        v-else
+        type="error"
+        title="{{Domain}} not found"
+        text="The requested {{domain}} could not be found."
+      />
+    </VCardText>
+
+    <!-- Actions -->
+    <VCardActions v-if="isEditMode && {{domain}}">
+      <VSpacer />
+      <VBtn
+        variant="text"
+        @click="cancelEdit"
+      >
+        Cancel
+      </VBtn>
+      <VBtn
+        color="primary"
+        :loading="isSaving"
+        @click="save{{Domain}}"
+      >
+        Save
+      </VBtn>
+    </VCardActions>
+  </VCard>
+</template>
+
+<script setup lang="ts">
+import { use{{Domain}}Detail } from './composables'
+
+const {
+  // State
+  {{domain}},
+  {{domain}}Form,
+  isLoading,
+  isSaving,
+  isEditMode,
+  
+  // Actions
+  toggleEditMode,
+  cancelEdit,
+  save{{Domain}},
+  goBack,
+} = use{{Domain}}Detail()
+</script>
