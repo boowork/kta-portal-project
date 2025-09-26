@@ -16,7 +16,7 @@ const shortcuts = [
     icon: 'bx-user',
     title: 'Users',
     subtitle: 'Manage Users',
-    to: { name: 'apps-user-list' },
+    to: { name: 'user-list' },
   },
   {
     icon: 'bx-group',

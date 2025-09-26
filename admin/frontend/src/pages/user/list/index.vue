@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { useUserList } from './composables'
-import AddNewUserDrawer from '@/views/apps/user/list/AddNewUserDrawer.vue'
+import AddNewUserDrawer from './AddNewUserDrawer.vue'
 import ErrorDialog from '@/components/dialogs/ErrorDialog.vue'
 import ToastContainer from '@/components/ToastContainer.vue'
 import type { CreateUserRequest, User } from '@/api/types'
@@ -177,7 +177,7 @@ watch([searchQuery, page, itemsPerPage, sortBy, orderBy], async () => {
         class="text-no-wrap"
         show-select
         @update:options="updateOptions"
-        @click:row="(_: any, { item }: { item: User }) => $router.push({ name: 'apps-user-view-id', params: { id: item.id } })"
+        @click:row="(_: any, { item }: { item: User }) => $router.push({ name: 'user-view-id', params: { id: item.id } })"
       >
         <!-- User -->
         <template #item.user="{ item }">
@@ -192,7 +192,7 @@ watch([searchQuery, page, itemsPerPage, sortBy, orderBy], async () => {
             <div class="d-flex flex-column">
               <h6 class="text-base">
                 <RouterLink
-                  :to="{ name: 'apps-user-view-id', params: { id: item.id } }"
+                  :to="{ name: 'user-view-id', params: { id: item.id } }"
                   class="font-weight-medium text-link"
                 >
                   {{ item.name }}
@@ -218,7 +218,7 @@ watch([searchQuery, page, itemsPerPage, sortBy, orderBy], async () => {
             <VIcon icon="bx-trash" />
           </IconBtn>
 
-          <IconBtn @click="$router.push({ name: 'apps-user-view-id', params: { id: item.id } })">
+          <IconBtn @click="$router.push({ name: 'user-view-id', params: { id: item.id } })">
             <VIcon icon="bx-show" />
           </IconBtn>
 
@@ -230,7 +230,7 @@ watch([searchQuery, page, itemsPerPage, sortBy, orderBy], async () => {
             <VIcon icon="bx-dots-vertical-rounded" />
             <VMenu activator="parent">
               <VList>
-                <VListItem :to="{ name: 'apps-user-view-id', params: { id: item.id } }">
+                <VListItem :to="{ name: 'user-view-id', params: { id: item.id } }">
                   <template #prepend>
                     <VIcon icon="bx-show" />
                   </template>
@@ -238,7 +238,7 @@ watch([searchQuery, page, itemsPerPage, sortBy, orderBy], async () => {
                   <VListItemTitle>View</VListItemTitle>
                 </VListItem>
 
-                <VListItem @click="$router.push({ name: 'apps-user-view-id', params: { id: item.id } })">
+                <VListItem @click="$router.push({ name: 'user-view-id', params: { id: item.id } })">
                   <template #prepend>
                     <VIcon icon="bx-pencil" />
                   </template>

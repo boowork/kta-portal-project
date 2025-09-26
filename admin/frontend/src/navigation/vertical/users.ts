@@ -1,7 +1,7 @@
 export default [
   {
     title: 'User List',
-    to: 'apps-user-list',
+    to: 'user-list',
     icon: { icon: 'bx-user' },
   },
 ]

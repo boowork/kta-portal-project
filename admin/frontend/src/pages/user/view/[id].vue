@@ -4,7 +4,7 @@ import { avatarText } from '@core/utils/formatters'
 import ErrorDialog from '@/components/dialogs/ErrorDialog.vue'
 import ToastContainer from '@/components/ToastContainer.vue'
 
-const route = useRoute('apps-user-view-id')
+const route = useRoute('user-view-id')
 const router = useRouter()
 
 const {
@@ -34,7 +34,7 @@ const handleUpdateUser = async () => {
 const handleDeleteUser = async () => {
   const success = await deleteUser()
   if (success)
-    router.push('/apps/user/list')
+    router.push('/user/list')
 }
 
 onMounted(loadUser)
@@ -105,7 +105,7 @@ onMounted(loadUser)
                 <VBtn
                   variant="outlined"
                   prepend-icon="bx-arrow-back"
-                  @click="$router.push('/apps/user/list')"
+                  @click="$router.push('/user/list')"
                 >
                   목록으로
                 </VBtn>
