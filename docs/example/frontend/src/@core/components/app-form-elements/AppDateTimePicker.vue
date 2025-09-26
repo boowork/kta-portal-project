@@ -3,13 +3,13 @@ import FlatPickr from 'vue-flatpickr-component'
 import { useTheme } from 'vuetify'
 
 // @ts-expect-error There won't be declaration file for it
-import { VField, makeVFieldProps } from 'vuetify/lib/components/VField/VField'
+import { VField, makeVFieldProps } from 'vuetify/lib/components/VField/VField.mjs'
 
 // @ts-expect-error There won't be declaration file for it
-import { VInput, makeVInputProps } from 'vuetify/lib/components/VInput/VInput'
+import { VInput, makeVInputProps } from 'vuetify/lib/components/VInput/VInput.mjs'
 
 // @ts-expect-error There won't be declaration file for it
-import { filterInputAttrs } from 'vuetify/lib/util/helpers'
+import { filterInputAttrs } from 'vuetify/lib/util/helpers.mjs'
 
 import { useConfigStore } from '@core/stores/config'
 
