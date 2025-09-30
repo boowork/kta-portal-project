@@ -90,15 +90,6 @@ watch([searchQuery, page, itemsPerPage, sortBy, orderBy], async () => {
             />
           </div>
 
-          <!--  Export button -->
-          <VBtn
-            variant="tonal"
-            color="secondary"
-            prepend-icon="bx-export"
-          >
-            Export
-          </VBtn>
-
           <!--  Add user button -->
           <VBtn
             prepend-icon="bx-plus"
