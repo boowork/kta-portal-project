@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Optional;
+import java.util.UUID;
 
 @RestController
 @RequiredArgsConstructor
@@ -21,7 +22,7 @@ public class DeleteUserController {
     private final DeleteUserService deleteUserService;
     
     @DeleteMapping("/api/users/{id}")
-    public ResponseEntity<ResponseDto<Void>> deleteUser(@PathVariable Long id) {
+    public ResponseEntity<ResponseDto<Void>> deleteUser(@PathVariable UUID id) {
         deleteUserService.deleteUser(id);
         return ResponseEntity.ok(ResponseDto.success(null));
     }
@@ -35,7 +36,7 @@ class DeleteUserService {
     private final UserRepository userRepository;
     
     @Transactional
-    public void deleteUser(Long id) {
+    public void deleteUser(UUID id) {
         Optional<User> userOpt = userRepository.findById(id);
         if (userOpt.isEmpty()) {
             throw new ResourceNotFoundException("User not found");

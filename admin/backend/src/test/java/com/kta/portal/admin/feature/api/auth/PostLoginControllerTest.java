@@ -7,6 +7,7 @@ import com.kta.portal.admin.support.TestUtils;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.security.Keys;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -16,6 +17,7 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.MvcResult;
 
 import javax.crypto.SecretKey;
+import java.sql.SQLException;
 import java.util.Map;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -33,6 +35,16 @@ public class PostLoginControllerTest extends BaseIntegrationTest {
 
     @Value("${jwt.secret.key}")
     private String secretKey;
+
+    @BeforeEach
+    void initInsert() throws SQLException {
+        insertTestData("""
+            INSERT INTO portal_users (id, userid, password, name, created_at, updated_at)
+            VALUES 
+            ('0199987d-8798-7a79-be6d-c1aa9449d8aa'::uuid, 'admin', '{noop}admin', '관리자', now(), now()),
+            ('0199987e-0fa0-748d-af0f-37970e02e326'::uuid, 'user', '{noop}user', '사용자', now(), now());
+            """);
+    }
 
     @Test
     void testLoginSuccess_WithAdminCredentials() throws Exception {

@@ -7,14 +7,15 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.relational.core.mapping.Table;
 
 import java.time.LocalDateTime;
+import java.util.UUID;
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Table("users")
+@Table("portal_users")
 public class User {
     @Id
-    private Long id;
+    private UUID id;
     private String userid;
     private String password;
     private String name;

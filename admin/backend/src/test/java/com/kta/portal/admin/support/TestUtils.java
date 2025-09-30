@@ -7,6 +7,7 @@ import org.springframework.test.web.servlet.request.MockHttpServletRequestBuilde
 
 import javax.crypto.SecretKey;
 import java.util.Date;
+import java.util.UUID;
 
 /**
  * Comprehensive test utilities for admin backend testing
@@ -19,11 +20,11 @@ public class TestUtils {
     public static final long TEST_TOKEN_VALIDITY = 86400000L; // 24 hours
     
     // Test user data
-    public static final Long ADMIN_USER_ID = 1L;
+    public static final UUID ADMIN_USER_ID = UUID.fromString("0199987d-8798-7a79-be6d-c1aa9449d8aa");
     public static final String ADMIN_USER_ID_STR = "admin";
     public static final String ADMIN_USER_NAME = "관리자";
     
-    public static final Long REGULAR_USER_ID = 2L;
+    public static final UUID REGULAR_USER_ID = UUID.fromString("0199987e-0fa0-748d-af0f-37970e02e326");
     public static final String REGULAR_USER_ID_STR = "user";
     public static final String REGULAR_USER_NAME = "사용자";
     
@@ -34,20 +35,20 @@ public class TestUtils {
     /**
      * Generate JWT token for testing
      */
-    public static String generateTestToken(Long id, String userid, String name) {
+    public static String generateTestToken(UUID id, String userid, String name) {
         return generateTestToken(id, userid, name, TEST_ISSUER, TEST_TOKEN_VALIDITY);
     }
     
     /**
      * Generate JWT token with custom parameters
      */
-    public static String generateTestToken(Long id, String userid, String name, String issuer, long validity) {
+    public static String generateTestToken(UUID id, String userid, String name, String issuer, long validity) {
         SecretKey key = Keys.hmacShaKeyFor(TEST_SECRET_KEY.getBytes());
         Date now = new Date();
         Date expiryDate = new Date(now.getTime() + validity);
 
         return Jwts.builder()
-                .claim("id", id)
+                .claim("id", id.toString())
                 .claim("userid", userid)
                 .claim("name", name)
                 .setIssuer(issuer)
@@ -74,14 +75,14 @@ public class TestUtils {
     /**
      * Generate expired token for testing
      */
-    public static String generateExpiredToken(Long id, String userid, String name) {
+    public static String generateExpiredToken(UUID id, String userid, String name) {
         return generateTestToken(id, userid, name, TEST_ISSUER, -1000L);
     }
     
     /**
      * Generate token with wrong issuer
      */
-    public static String generateWrongIssuerToken(Long id, String userid, String name, String wrongIssuer) {
+    public static String generateWrongIssuerToken(UUID id, String userid, String name, String wrongIssuer) {
         return generateTestToken(id, userid, name, wrongIssuer, TEST_TOKEN_VALIDITY);
     }
     
@@ -112,7 +113,7 @@ public class TestUtils {
      * Add DEV_AUTH header to request
      */
     public static MockHttpServletRequestBuilder withDevAuth(MockHttpServletRequestBuilder builder, 
-                                                           Long id, String userid, String name) {
+                                                           UUID id, String userid, String name) {
         return builder.header("DEV_AUTH", id + ":" + userid + ":" + name);
     }
     
@@ -135,7 +136,7 @@ public class TestUtils {
     /**
      * Build DEV_AUTH header string
      */
-    public static String buildDevAuthHeader(Long id, String userid, String name) {
+    public static String buildDevAuthHeader(UUID id, String userid, String name) {
         return id + ":" + userid + ":" + name;
     }
     

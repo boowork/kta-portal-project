@@ -16,6 +16,7 @@ import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotBlank;
 import java.util.Collections;
 import java.util.Map;
+import java.util.UUID;
 
 @RestController
 @RequiredArgsConstructor
@@ -71,12 +72,12 @@ class PostRefreshDao {
     
     private final JdbcTemplate jdbcTemplate;
     
-    public PostRefreshDaoResponseDto findUserById(Long userId) {
-        String sql = "SELECT id, userid, name FROM users WHERE id = ?";
+    public PostRefreshDaoResponseDto findUserById(UUID userId) {
+        String sql = "SELECT id, userid, name FROM portal_users WHERE id = ?";
         Map<String, Object> row = jdbcTemplate.queryForMap(sql, userId);
         
         return PostRefreshDaoResponseDto.builder()
-            .id(((Number) row.get("id")).longValue())
+            .id((UUID) row.get("id"))
             .userid((String) row.get("userid"))
             .name((String) row.get("name"))
             .build();
@@ -99,7 +100,7 @@ class PostRefreshHttpResponseDto {
 @Data
 @Builder
 class PostRefreshDaoResponseDto {
-    private Long id;
+    private UUID id;
     private String userid;
     private String name;
 }

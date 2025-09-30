@@ -55,6 +55,14 @@ dependencies {
 	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 }
 
+sourceSets {
+    test {
+        resources {
+            srcDirs = ['src/test/resources', '../../docker/ddl']
+        }
+    }
+}
+
 tasks.named('test') {
 	useJUnitPlatform()
 }

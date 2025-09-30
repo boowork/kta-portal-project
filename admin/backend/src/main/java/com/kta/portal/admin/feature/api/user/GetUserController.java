@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.time.LocalDateTime;
 import java.util.Optional;
+import java.util.UUID;
 
 @RestController
 @RequiredArgsConstructor
@@ -22,7 +23,7 @@ public class GetUserController {
     private final GetUserService getUserService;
     
     @GetMapping("/api/users/{id}")
-    public ResponseEntity<ResponseDto<GetUserHttpResponseDto>> getUserById(@PathVariable Long id) {
+    public ResponseEntity<ResponseDto<GetUserHttpResponseDto>> getUserById(@PathVariable UUID id) {
         GetUserHttpResponseDto user = getUserService.getUserById(id);
         return ResponseEntity.ok(ResponseDto.success(user));
     }
@@ -34,7 +35,7 @@ class GetUserService {
     
     private final UserRepository userRepository;
     
-    public GetUserHttpResponseDto getUserById(Long id) {
+    public GetUserHttpResponseDto getUserById(UUID id) {
         Optional<User> userOpt = userRepository.findById(id);
         if (userOpt.isEmpty()) {
             throw new ResourceNotFoundException("User not found");
@@ -55,7 +56,7 @@ class GetUserService {
 
 @Data
 class GetUserHttpResponseDto {
-    private Long id;
+    private UUID id;
     private String userid;
     private String name;
     private LocalDateTime createdAt;

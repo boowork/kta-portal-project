@@ -4,16 +4,14 @@ import com.kta.portal.admin.feature.api.auth.model.RefreshToken;
 import lombok.RequiredArgsConstructor;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
-import org.springframework.jdbc.support.GeneratedKeyHolder;
-import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Repository;
 
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
 import java.util.Optional;
+import java.util.UUID;
 
 @Repository
 @RequiredArgsConstructor
@@ -32,19 +30,16 @@ public class RefreshTokenRepository {
     }
     
     private RefreshToken insert(RefreshToken refreshToken) {
-        String sql = "INSERT INTO refresh_tokens (user_id, token, expires_at, created_at) VALUES (?, ?, ?, ?)";
+        String sql = "INSERT INTO refresh_tokens (id, user_id, token, expires_at, created_at) VALUES (?, ?, ?, ?, ?)";
         
-        KeyHolder keyHolder = new GeneratedKeyHolder();
-        jdbcTemplate.update(connection -> {
-            PreparedStatement ps = connection.prepareStatement(sql, new String[]{"id"});
-            ps.setLong(1, refreshToken.getUserId());
-            ps.setString(2, refreshToken.getToken());
-            ps.setTimestamp(3, Timestamp.valueOf(refreshToken.getExpiresAt()));
-            ps.setTimestamp(4, Timestamp.valueOf(refreshToken.getCreatedAt()));
-            return ps;
-        }, keyHolder);
+        UUID id = UUID.randomUUID();
+        jdbcTemplate.update(sql,
+            id,
+            refreshToken.getUserId(),
+            refreshToken.getToken(),
+            Timestamp.valueOf(refreshToken.getExpiresAt()),
+            Timestamp.valueOf(refreshToken.getCreatedAt()));
         
-        Long id = keyHolder.getKey().longValue();
         return RefreshToken.builder()
                 .id(id)
                 .userId(refreshToken.getUserId())
@@ -75,7 +70,7 @@ public class RefreshTokenRepository {
                 .findFirst();
     }
     
-    public Optional<RefreshToken> findByUserId(Long userId) {
+    public Optional<RefreshToken> findByUserId(UUID userId) {
         String sql = "SELECT * FROM refresh_tokens WHERE user_id = ?";
         
         return jdbcTemplate.query(sql, rowMapper, userId)
@@ -83,7 +78,7 @@ public class RefreshTokenRepository {
                 .findFirst();
     }
     
-    public void deleteByUserId(Long userId) {
+    public void deleteByUserId(UUID userId) {
         String sql = "DELETE FROM refresh_tokens WHERE user_id = ?";
         jdbcTemplate.update(sql, userId);
     }
@@ -102,8 +97,8 @@ public class RefreshTokenRepository {
         @Override
         public RefreshToken mapRow(ResultSet rs, int rowNum) throws SQLException {
             return RefreshToken.builder()
-                    .id(rs.getLong("id"))
-                    .userId(rs.getLong("user_id"))
+                    .id((UUID) rs.getObject("id"))
+                    .userId((UUID) rs.getObject("user_id"))
                     .token(rs.getString("token"))
                     .expiresAt(rs.getTimestamp("expires_at").toLocalDateTime())
                     .createdAt(rs.getTimestamp("created_at").toLocalDateTime())

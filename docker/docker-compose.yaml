@@ -1,25 +1,24 @@
-version: '3.8'
-
 services:
   postgres:
-    image: postgres:17
+    image: postgres:18
     environment:
       POSTGRES_DB: kta
       POSTGRES_USER: kta
       POSTGRES_PASSWORD: kta
+      PGDATA: /var/lib/postgresql/18/docker
     ports:
       - "5432:5432"
     volumes:
-      - postgres_data:/var/lib/postgresql/data
-      - ./00.init.sql:/docker-entrypoint-initdb.d/00.init.sql
-
+      # - postgres_data:/var/lib/postgresql
+      - ./ddl/250930.sql:/docker-entrypoint-initdb.d/00.sql
+      - ./dml/250930.sql:/docker-entrypoint-initdb.d/01.sql
   redis:
     image: redis:8.2
     ports:
       - "6379:6379"
-    volumes:
-      - redis_data:/data
+  #   volumes:
+  #     - redis_data:/data
 
-volumes:
-  postgres_data:
-  redis_data:
+  # volumes:
+  # postgres_data:
+  # redis_data:

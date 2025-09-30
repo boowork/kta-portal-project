@@ -8,8 +8,9 @@ import org.springframework.data.repository.ListPagingAndSortingRepository;
 import org.springframework.lang.NonNull;
 
 import java.util.List;
+import java.util.UUID;
 
-public interface UserRepository extends CrudRepository<User, Long>, ListPagingAndSortingRepository<User, Long> {
+public interface UserRepository extends CrudRepository<User, UUID>, ListPagingAndSortingRepository<User, UUID> {
     @Override
     @NonNull
     List<User> findAll();

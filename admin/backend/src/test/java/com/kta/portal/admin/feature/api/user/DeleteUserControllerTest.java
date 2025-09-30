@@ -22,28 +22,20 @@ public class DeleteUserControllerTest extends BaseIntegrationTest {
     @BeforeEach
     void initInsert() throws SQLException {
         insertTestData("""
-            INSERT INTO users (userid, password, name, role, created_at, updated_at)
-            VALUES ('test', '{nohup}password', '테스트', 'USER', now(), now());
+            INSERT INTO portal_users (id, userid, password, name, created_at, updated_at)
+            VALUES ('01999999-0000-7000-8000-000000000001'::uuid, 'test', '{noop}password', '테스트', now(), now());
             """);
     }
 
     @Test
     void testDeleteUser_WithoutAuthentication_ShouldReturn401() throws Exception {
-        mockMvc.perform(delete("/api/users/1"))
+        mockMvc.perform(delete("/api/users/01999999-0000-7000-8000-000000000001"))
                 .andExpect(status().isUnauthorized());
     }
 
     @Test
     void testDeleteUser_WithUserRole() throws Exception {
-        mockMvc.perform(withUserAuth(delete("/api/users/1")))
-                .andExpect(status().isOk())
-                .andExpect(content().contentType(MediaType.APPLICATION_JSON))
-                .andExpect(jsonPath("$.success").value(true));
-    }
-
-    @Test
-    void testDeleteUser_WithAdminRole() throws Exception {
-        mockMvc.perform(withAdminAuth(delete("/api/users/1")))
+        mockMvc.perform(withUserAuth(delete("/api/users/01999999-0000-7000-8000-000000000001")))
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON))
                 .andExpect(jsonPath("$.success").value(true));
@@ -51,7 +43,7 @@ public class DeleteUserControllerTest extends BaseIntegrationTest {
 
     @Test
     void testDeleteUserNotFound_WithUserRole() throws Exception {
-        mockMvc.perform(withUserAuth(delete("/api/users/999")))
+        mockMvc.perform(withUserAuth(delete("/api/users/01999999-9999-7999-8999-999999999999")))
                 .andExpect(status().isBadRequest())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON))
                 .andExpect(jsonPath("$.success").value(false))

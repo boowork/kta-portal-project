@@ -1,10 +1,48 @@
--- PostgreSQL 18 DDL for AIDT Portal System
--- Using UUIDv7 for time-ordered primary keys (PG18+ feature)
--- Minimal design based ONLY on APIs in curl.md
+-- Initialize database schema for testing
+-- PostgreSQL 18+ with UUIDv7 support for time-ordered primary keys
 
--- Create schema
-CREATE SCHEMA IF NOT EXISTS aidt;
-SET search_path TO aidt, public;
+-- Drop all tables in reverse dependency order (child tables first)
+DROP TABLE IF EXISTS api_access_logs;
+DROP TABLE IF EXISTS user_auth;
+DROP TABLE IF EXISTS class_members;
+DROP TABLE IF EXISTS classes;
+DROP TABLE IF EXISTS schedules;
+DROP TABLE IF EXISTS teacher_lectures;
+DROP TABLE IF EXISTS lectures;
+DROP TABLE IF EXISTS school_users;
+DROP TABLE IF EXISTS schools;
+DROP TABLE IF EXISTS partners_users;
+DROP TABLE IF EXISTS partners;
+DROP TABLE IF EXISTS refresh_tokens;
+DROP TABLE IF EXISTS portal_users;
+
+-- Create portal users table
+CREATE TABLE portal_users (
+    id UUID PRIMARY KEY DEFAULT uuidv7(),
+    userid VARCHAR(50) NOT NULL,
+    password VARCHAR(255) NOT NULL,
+    name VARCHAR(100) NOT NULL,
+    created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
+-- Create unique index on userid
+CREATE UNIQUE INDEX idx_portal_users_userid ON portal_users(userid);
+
+-- Create refresh tokens table
+CREATE TABLE refresh_tokens (
+    id UUID PRIMARY KEY DEFAULT uuidv7(),
+    user_id UUID NOT NULL,
+    token VARCHAR(500) NOT NULL UNIQUE,
+    expires_at TIMESTAMP NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (user_id) REFERENCES portal_users(id) ON DELETE CASCADE
+);
+
+CREATE INDEX idx_refresh_tokens_user_id ON refresh_tokens(user_id);
+CREATE INDEX idx_refresh_tokens_token ON refresh_tokens(token);
+CREATE INDEX idx_refresh_tokens_expires_at ON refresh_tokens(expires_at);
+
+
 
 -- ============================================
 -- 1. Partners Table (연동 인증키 관리)
@@ -168,66 +206,3 @@ CREATE TABLE api_access_logs (
 
 CREATE INDEX idx_api_logs_partner ON api_access_logs(partner_id);
 CREATE INDEX idx_api_logs_time ON api_access_logs(request_time);
-
--- ============================================
--- INSERT SAMPLE DATA (from curl.md)
--- ============================================
-
--- 1. Insert partner (from curl.md headers)
-INSERT INTO partners (partner_id, partner_name, is_active) VALUES
-('fa1f5e94-7f48-563d-aa6f-a9c975f145f8', 'AI 디지털교과서 개발사', true);
-
--- 2. Insert school
-INSERT INTO schools (school_id, school_name) VALUES
-('V100000030', '천재교과서학교');
-
--- 3. Insert school users
-INSERT INTO school_users (user_id, user_name, user_type, school_id) VALUES
-('26af6255-e8af-57c7-8cd3-bd4981ba5ce3', 'aidtpbt10', 'T', 'V100000030'),
-('5d267a28-3ce9-5441-bb5a-cb0219de6301', 'aidtpbs10', 'S', 'V100000030');
-
--- Update student with number
-UPDATE school_users SET user_number = '1' WHERE user_id = '5d267a28-3ce9-5441-bb5a-cb0219de6301';
-
--- 4. Insert lecture
-INSERT INTO lectures (lecture_code, subject_name, classroom_name) VALUES
-('4V100000030_20251_00001001', '영어 3', '1-1 교실');
-
--- 5. Insert teacher lecture info (from teacher/all response)
-INSERT INTO teacher_lectures (
-    user_id, lecture_code, user_division, school_id, school_name,
-    user_grade, user_order, user_subject, user_dyng, user_class,
-    lecture_room_code, lecture_room_name, subject_name
-) VALUES (
-    '26af6255-e8af-57c7-8cd3-bd4981ba5ce3',
-    '4V100000030_20251_00001001',
-    '4', 'V100000030', '천재교과서학교',
-    '1', '00', '00000', '0', '001',
-    '001', '1-1 교실', '영어 3(김태은)'
-);
-
--- 6. Insert schedule (from teacher/all schedule_info - 7 days)
-INSERT INTO schedules (lecture_code, day_week, class_period, subject_name, classroom_name, school_name) VALUES
-('4V100000030_20251_00001001', '0', '01', '영어 3', '1-1 교실', '천재교과서학교'),
-('4V100000030_20251_00001001', '1', '01', '영어 3', '1-1 교실', '천재교과서학교'),
-('4V100000030_20251_00001001', '2', '01', '영어 3', '1-1 교실', '천재교과서학교'),
-('4V100000030_20251_00001001', '3', '01', '영어 3', '1-1 교실', '천재교과서학교'),
-('4V100000030_20251_00001001', '4', '01', '영어 3', '1-1 교실', '천재교과서학교'),
-('4V100000030_20251_00001001', '5', '01', '영어 3', '1-1 교실', '천재교과서학교'),
-('4V100000030_20251_00001001', '6', '01', '영어 3', '1-1 교실', '천재교과서학교');
-
--- 7. Insert class info (from teacher/all class_info)
-INSERT INTO classes (class_code, school_name, user_grade, user_class) VALUES
-('4V100000030_2025_00000000_1001', '천재교과서학교', '1', '1');
-
--- 8. Insert class member (from teacher/class_member response)
-INSERT INTO class_members (class_code, lecture_code, user_id, user_name, user_number) VALUES
-('4V100000030_2025_00000000_1001', '4V100000030_20251_00001001', 
- '5d267a28-3ce9-5441-bb5a-cb0219de6301', 'aidtpbs10', '1');
-
--- 9. Insert user authentication (from /api/v1/at/token request)
--- Note: In production, password should be properly hashed
-INSERT INTO user_auth (user_id, login_id, password_hash) VALUES
-('26af6255-e8af-57c7-8cd3-bd4981ba5ce3', 
- '4V100000030_20251_00001001-26af6255-e8af-57c7-8cd3-bd4981ba5ce3',
- '4V100000030_20251_00001001-26af6255-e8af-57c7-8cd3-bd4981ba5ce3_!@12');

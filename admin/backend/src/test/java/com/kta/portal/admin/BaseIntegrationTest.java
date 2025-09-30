@@ -29,7 +29,7 @@ public abstract class BaseIntegrationTest {
         try (Connection connection = dataSource.getConnection()) {
             // Execute init SQL script (schema + basic test data)
             try {
-                ScriptUtils.executeSqlScript(connection, new ClassPathResource("db/init.sql"));
+                ScriptUtils.executeSqlScript(connection, new ClassPathResource("250930.sql"));
             } catch (Exception e) {
                 // Log and continue
                 System.out.println("Warning: Error executing init script: " + e.getMessage());
@@ -49,30 +49,30 @@ public abstract class BaseIntegrationTest {
             }
         }
     }
-    
+
     // Authentication helper methods using TestUtils
-    
+
     protected MockHttpServletRequestBuilder withAdminAuth(MockHttpServletRequestBuilder requestBuilder) {
         return TestUtils.withAdminJwtAuth(requestBuilder);
     }
-    
+
     protected MockHttpServletRequestBuilder withUserAuth(MockHttpServletRequestBuilder requestBuilder) {
         return TestUtils.withUserJwtAuth(requestBuilder);
     }
-    
+
     protected MockHttpServletRequestBuilder withDevAdminAuth(MockHttpServletRequestBuilder requestBuilder) {
         return TestUtils.withAdminDevAuth(requestBuilder);
     }
-    
+
     protected MockHttpServletRequestBuilder withDevUserAuth(MockHttpServletRequestBuilder requestBuilder) {
         return TestUtils.withUserDevAuth(requestBuilder);
     }
-    
+
     // Backward compatibility methods
     protected String generateAdminToken() {
         return TestUtils.generateAdminToken();
     }
-    
+
     protected String generateUserToken() {
         return TestUtils.generateUserToken();
     }

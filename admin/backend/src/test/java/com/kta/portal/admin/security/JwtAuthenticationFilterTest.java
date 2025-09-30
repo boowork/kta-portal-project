@@ -23,6 +23,7 @@ import javax.crypto.SecretKey;
 import java.util.Date;
 
 import static org.junit.jupiter.api.Assertions.*;
+import java.util.UUID;
 import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
@@ -66,7 +67,7 @@ public class JwtAuthenticationFilterTest {
     @Test
     void testDoFilterInternal_WithValidToken_SetsAuthentication() throws Exception {
         // Given
-        String token = jwtTokenProvider.generateToken(1L, "testuser", "Test User");
+        String token = jwtTokenProvider.generateToken(UUID.randomUUID(), "testuser", "Test User");
         when(request.getHeader("Authorization")).thenReturn("Bearer " + token);
         when(request.getHeader("DEV_AUTH")).thenReturn(null); // No DEV_AUTH header
         

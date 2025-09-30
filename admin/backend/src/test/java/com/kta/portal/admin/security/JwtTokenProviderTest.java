@@ -8,6 +8,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.test.util.ReflectionTestUtils;
 
 import javax.crypto.SecretKey;
+import java.util.UUID;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -30,7 +31,7 @@ public class JwtTokenProviderTest {
     @Test
     void testGenerateToken_ContainsCorrectIssuer() {
         // Given
-        Long id = 1L;
+        UUID id = UUID.randomUUID();
         String userid = "testuser";
         String name = "Test User";
         
@@ -49,7 +50,7 @@ public class JwtTokenProviderTest {
                 .getPayload();
         
         assertEquals(issuer, claims.getIssuer());
-        assertEquals(id, claims.get("id", Long.class));
+        assertEquals(id.toString(), claims.get("id", String.class));
         assertEquals(userid, claims.get("userid"));
         assertEquals(name, claims.get("name"));
     }
@@ -57,7 +58,7 @@ public class JwtTokenProviderTest {
     @Test
     void testValidateToken_WithCorrectIssuer_ReturnsTrue() {
         // Given
-        String token = jwtTokenProvider.generateToken(1L, "user", "User");
+        String token = jwtTokenProvider.generateToken(UUID.randomUUID(), "user", "User");
         
         // When
         boolean isValid = jwtTokenProvider.validateToken(token);
@@ -71,7 +72,7 @@ public class JwtTokenProviderTest {
         // Given - Create token with different issuer
         SecretKey key = Keys.hmacShaKeyFor(secretKey.getBytes());
         String tokenWithWrongIssuer = Jwts.builder()
-                .claim("id", 1L)
+                .claim("id", UUID.randomUUID().toString())
                 .claim("userid", "user")
                 .claim("name", "User")
                 .setIssuer("kta-portal-school") // Wrong issuer
@@ -90,7 +91,7 @@ public class JwtTokenProviderTest {
         // Given - Create token without issuer
         SecretKey key = Keys.hmacShaKeyFor(secretKey.getBytes());
         String tokenWithoutIssuer = Jwts.builder()
-                .claim("id", 1L)
+                .claim("id", UUID.randomUUID().toString())
                 .claim("userid", "user")
                 .claim("name", "User")
                 // No issuer set
@@ -107,7 +108,7 @@ public class JwtTokenProviderTest {
     @Test
     void testGetIssuerFromToken_ReturnsCorrectIssuer() {
         // Given
-        String token = jwtTokenProvider.generateToken(1L, "user", "User");
+        String token = jwtTokenProvider.generateToken(UUID.randomUUID(), "user", "User");
         
         // When
         String extractedIssuer = jwtTokenProvider.getIssuerFromToken(token);
@@ -120,7 +121,7 @@ public class JwtTokenProviderTest {
     void testValidateToken_WithExpiredToken_ReturnsFalse() {
         // Given - Create expired token
         ReflectionTestUtils.setField(jwtTokenProvider, "accessTokenValidity", -1000L); // Negative means expired
-        String expiredToken = jwtTokenProvider.generateToken(1L, "user", "User");
+        String expiredToken = jwtTokenProvider.generateToken(UUID.randomUUID(), "user", "User");
         
         // Reset to normal validity for validation
         ReflectionTestUtils.setField(jwtTokenProvider, "accessTokenValidity", accessTokenValidity);
@@ -137,7 +138,7 @@ public class JwtTokenProviderTest {
         // Given - Create token with different secret
         SecretKey wrongKey = Keys.hmacShaKeyFor("AnotherSecretKeyThatIsCompletelyDifferentFromOriginal123456789".getBytes());
         String tokenWithWrongSignature = Jwts.builder()
-                .claim("id", 1L)
+                .claim("id", UUID.randomUUID().toString())
                 .claim("userid", "user")
                 .claim("name", "User")
                 .setIssuer(issuer)
@@ -155,7 +156,7 @@ public class JwtTokenProviderTest {
     void testGetUserIdFromToken() {
         // Given
         String expectedUserId = "testuser123";
-        String token = jwtTokenProvider.generateToken(1L, expectedUserId, "Test User");
+        String token = jwtTokenProvider.generateToken(UUID.randomUUID(), expectedUserId, "Test User");
         
         // When
         String actualUserId = jwtTokenProvider.getUserIdFromToken(token);
@@ -179,7 +180,7 @@ public class JwtTokenProviderTest {
         for (String serviceIssuer : serviceIssuers) {
             // Create token with different service issuer
             String token = Jwts.builder()
-                    .claim("id", 1L)
+                    .claim("id", UUID.randomUUID().toString())
                     .claim("userid", "user")
                     .claim("name", "User")
                     .setIssuer(serviceIssuer)
