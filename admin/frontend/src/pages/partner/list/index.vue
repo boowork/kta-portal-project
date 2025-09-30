@@ -41,27 +41,25 @@ const handleDeletePartner = (id: string) => {
 
 const confirmDelete = async () => {
   if (!partnerToDelete.value) return
-  
+
   const success = await deletePartner(partnerToDelete.value.id, partnerToDelete.value.partnerName)
 
   if (success) {
     const index = selectedRows.value.findIndex((row: string) => row === partnerToDelete.value?.id)
     if (index !== -1)
       selectedRows.value.splice(index, 1)
-    
+
     partnerToDelete.value = null
   }
 }
 
 // Initial data fetch on component mount
 onMounted(async () => {
-  console.log('Component mounted - fetching initial partners')
   await fetchPartners()
 })
 
 // 단일 watch로 모든 상태 변경 감지
 watch([searchQuery, page, itemsPerPage, sortBy], async () => {
-  console.log('👀 Data fetch triggered by watch')
   if (searchQuery.value.trim()) {
     await searchPartners()
   } else {

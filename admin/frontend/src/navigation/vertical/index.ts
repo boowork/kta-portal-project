@@ -6,9 +6,4 @@ export default [
   ...dashboard,
   ...users,
   ...partners,
-  {
-    title: 'Second page',
-    to: { name: 'second-page' },
-    icon: { icon: 'bx-file-blank' },
-  },
 ]

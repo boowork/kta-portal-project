@@ -6,9 +6,9 @@
 
 ### Path Parameters
 
-| Parameter | Type   | Required | Description |
-|-----------|--------|----------|-------------|
-| id        | UUID   | Yes      | 파트너 고유 ID |
+| Parameter | Type | Required | Description    |
+| --------- | ---- | -------- | -------------- |
+| id        | UUID | Yes      | 파트너 고유 ID |
 
 ### Headers
 

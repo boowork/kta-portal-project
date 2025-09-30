@@ -23,10 +23,9 @@ Content-Type: application/json
 
 ### Body Parameters
 
-| Parameter    | Type    | Required | Description |
-|-------------|---------|----------|-------------|
-| partnerId   | UUID    | Yes      | 파트너 인증 ID |
-| partnerName | string  | Yes      | 파트너명 |
+| Parameter   | Type    | Required | Description              |
+| ----------- | ------- | -------- | ------------------------ |
+| partnerName | string  | Yes      | 파트너명                 |
 | isActive    | boolean | No       | 활성 상태 (기본값: true) |
 
 ## Response

@@ -6,9 +6,9 @@
 
 ### Path Parameters
 
-| Parameter | Type   | Required | Description |
-|-----------|--------|----------|-------------|
-| id        | UUID   | Yes      | 파트너 고유 ID |
+| Parameter | Type | Required | Description    |
+| --------- | ---- | -------- | -------------- |
+| id        | UUID | Yes      | 파트너 고유 ID |
 
 ### Headers
 
@@ -25,7 +25,6 @@ Authorization: Bearer {accessToken}
   "success": true,
   "data": {
     "id": "01999880-0000-7000-8000-000000000001",
-    "partnerId": "fa1f5e94-7f48-563d-aa6f-a9c975f145f8",
     "partnerName": "AI 디지털교과서 개발사",
     "isActive": true,
     "createdAt": "2025-09-30T12:00:00"

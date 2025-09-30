@@ -6,12 +6,12 @@
 
 ### Query Parameters
 
-| Parameter | Type   | Default | Description |
-|-----------|--------|---------|-------------|
+| Parameter | Type   | Default | Description              |
+| --------- | ------ | ------- | ------------------------ |
 | page      | int    | 0       | 페이지 번호 (0부터 시작) |
-| size      | int    | 20      | 페이지 크기 |
-| sortBy    | string | id      | 정렬 필드 |
-| sortDir   | string | asc     | 정렬 방향 (asc/desc) |
+| size      | int    | 20      | 페이지 크기              |
+| sortBy    | string | id      | 정렬 필드                |
+| sortDir   | string | asc     | 정렬 방향 (asc/desc)     |
 
 ### Headers
 
@@ -30,7 +30,6 @@ Authorization: Bearer {accessToken}
     "content": [
       {
         "id": "01999880-0000-7000-8000-000000000001",
-        "partnerId": "fa1f5e94-7f48-563d-aa6f-a9c975f145f8",
         "partnerName": "AI 디지털교과서 개발사",
         "isActive": true,
         "createdAt": "2025-09-30T12:00:00"
