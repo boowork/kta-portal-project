@@ -5,8 +5,13 @@ export default [
     icon: { icon: 'bx-home-alt' },
   },
   {
-    title: 'Second page',
-    to: { name: 'second-page' },
-    icon: { icon: 'bx-file-blank' },
+    title: 'Users',
+    to: { name: 'user-list' },
+    icon: { icon: 'bx-group' },
+  },
+  {
+    title: 'Partners',
+    to: { name: 'partner-list' },
+    icon: { icon: 'bx-buildings' },
   },
 ]
