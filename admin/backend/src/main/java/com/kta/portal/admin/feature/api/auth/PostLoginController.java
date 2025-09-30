@@ -19,6 +19,7 @@ import jakarta.validation.constraints.NotBlank;
 
 import java.util.Collections;
 import java.util.Map;
+import java.util.UUID;
 
 @RestController
 @RequiredArgsConstructor
@@ -54,7 +55,7 @@ class PostLoginHttpResponseDto {
 @Data
 @lombok.Builder
 class PostLoginDaoResponseDto {
-    private Long id;
+    private UUID id;
     private String userid;
     private String password;
     private String name;
@@ -115,11 +116,11 @@ class PostLoginDao {
     private final JdbcTemplate jdbcTemplate;
 
     public PostLoginDaoResponseDto findUserByUserid(String userid) {
-        String sql = "SELECT id, userid, password, name FROM users WHERE userid = ?";
+        String sql = "SELECT id, userid, password, name FROM portal_users WHERE userid = ?";
         Map<String, Object> row = jdbcTemplate.queryForMap(sql, userid);
 
         return PostLoginDaoResponseDto.builder()
-                .id(((Number) row.get("id")).longValue())
+                .id((UUID) row.get("id"))
                 .userid((String) row.get("userid"))
                 .password((String) row.get("password"))
                 .name((String) row.get("name"))

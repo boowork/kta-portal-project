@@ -8,6 +8,7 @@ import org.springframework.stereotype.Component;
 
 import javax.crypto.SecretKey;
 import java.util.Date;
+import java.util.UUID;
 
 @Component
 public class JwtTokenProvider {
@@ -28,12 +29,12 @@ public class JwtTokenProvider {
         return Keys.hmacShaKeyFor(secretKey.getBytes());
     }
 
-    public String generateToken(Long id, String userid, String name) {
+    public String generateToken(UUID id, String userid, String name) {
         Date now = new Date();
         Date expiryDate = new Date(now.getTime() + accessTokenValidity);
 
         return Jwts.builder()
-                .claim("id", id)
+                .claim("id", id.toString())
                 .claim("userid", userid)
                 .claim("name", name)
                 .setIssuer(issuer)

@@ -83,6 +83,34 @@ export enum ErrorCode {
   INTERNAL_SERVER_ERROR = 'INTERNAL_SERVER_ERROR',
 }
 
+// Partner Management Types
+export interface Partner {
+  id: string
+  partnerName: string
+  isActive: boolean
+  createdAt: string
+}
+
+export interface CreatePartnerRequest {
+  partnerName: string
+  isActive?: boolean
+}
+
+export interface UpdatePartnerRequest {
+  partnerName?: string
+  isActive?: boolean
+}
+
+export interface GetPartnersResponse {
+  content: Partner[]
+  page: number
+  size: number
+  totalElements: number
+  totalPages: number
+  first: boolean
+  last: boolean
+}
+
 // Form Validation Types
 export interface ValidationError {
   field: string

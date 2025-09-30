@@ -1,4 +1,4 @@
-import { computed, ref } from 'vue'
+import { ref } from 'vue'
 import { userApi } from '@/api/user'
 import { useErrorHandler } from '@/composables/useErrorHandler'
 import type { CreateUserRequest, PaginationParams, User } from '@/api/types'
@@ -22,7 +22,6 @@ export const useUserList = () => {
 
   // API calls
   const fetchUsers = async () => {
-    console.log('🔥 fetchUsers called from:', new Error().stack)
     try {
       isLoading.value = true
       clearErrors()
@@ -53,8 +52,6 @@ export const useUserList = () => {
   }
 
   const searchUsers = async () => {
-    console.log('🔍 searchUsers called from:', new Error().stack)
-    
     try {
       isLoading.value = true
       clearErrors()
@@ -140,7 +137,6 @@ export const useUserList = () => {
 
   // UI helpers
   const updateOptions = (options: any) => {
-    console.log('⚙️ updateOptions called from:', new Error().stack)
     const newSortBy = options.sortBy[0]?.key
     const newOrderBy = options.sortBy[0]?.order
     
@@ -152,23 +148,6 @@ export const useUserList = () => {
   }
 
   const resolveUserAvatarVariant = () => ({ color: 'primary' as const, icon: 'bx-user' })
-
-  // Widget data - always initialized with safe fallbacks
-  const widgetData = computed(() => {
-    try {
-      return [
-        { title: 'Total Users', value: totalUsers.value?.toString() || '0', change: 0, desc: 'All registered users', icon: 'bx-group', iconColor: 'primary' },
-        { title: 'Current Page', value: users.value?.length?.toString() || '0', change: 0, desc: 'Users on current page', icon: 'bx-user', iconColor: 'success' },
-        { title: 'Page Number', value: page.value?.toString() || '1', change: 0, desc: 'Current page number', icon: 'bx-file', iconColor: 'info' },
-        { title: 'Loading', value: isLoading.value ? 'Yes' : 'No', change: 0, desc: 'Current status', icon: 'bx-loader-alt', iconColor: 'warning' },
-      ]
-    }
-    catch (error) {
-      console.error('Error in widgetData computed:', error)
-
-      return []
-    }
-  })
 
   return {
     // State refs - direct return for proper reactivity
@@ -194,6 +173,5 @@ export const useUserList = () => {
 
     // UI helpers
     resolveUserAvatarVariant,
-    widgetData,
   }
 }

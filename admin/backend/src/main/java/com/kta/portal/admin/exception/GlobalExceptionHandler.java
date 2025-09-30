@@ -2,6 +2,7 @@ package com.kta.portal.admin.exception;
 
 import com.kta.portal.admin.dto.ErrorDetail;
 import com.kta.portal.admin.dto.ResponseDto;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.FieldError;
@@ -13,10 +14,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 @RestControllerAdvice
+@Slf4j
 public class GlobalExceptionHandler {
 
     @ExceptionHandler(BadRequestException.class)
     public ResponseEntity<ResponseDto<Object>> handleBadRequest(BadRequestException e) {
+        log.warn("Bad request error occurred: message={}", e.getMessage(), e);
         List<ErrorDetail> errors = List.of(ErrorDetail.builder()
                 .message(e.getMessage())
                 .code("BAD_REQUEST")
@@ -27,6 +30,7 @@ public class GlobalExceptionHandler {
 
     @ExceptionHandler(UnauthorizedException.class)
     public ResponseEntity<ResponseDto<Object>> handleUnauthorized(UnauthorizedException e) {
+        log.warn("Unauthorized access attempt: message={}", e.getMessage());
         List<ErrorDetail> errors = List.of(ErrorDetail.builder()
                 .message(e.getMessage())
                 .code("UNAUTHORIZED")
@@ -37,6 +41,7 @@ public class GlobalExceptionHandler {
 
     @ExceptionHandler(ForbiddenException.class)
     public ResponseEntity<ResponseDto<Object>> handleForbidden(ForbiddenException e) {
+        log.warn("Forbidden access attempt: message={}", e.getMessage());
         List<ErrorDetail> errors = List.of(ErrorDetail.builder()
                 .message(e.getMessage())
                 .code("FORBIDDEN")
@@ -47,11 +52,12 @@ public class GlobalExceptionHandler {
 
     @ExceptionHandler(ResourceNotFoundException.class)
     public ResponseEntity<ResponseDto<Object>> handleNotFound(ResourceNotFoundException e) {
+        log.info("Resource not found: message={}", e.getMessage());
         List<ErrorDetail> errors = List.of(ErrorDetail.builder()
                 .message(e.getMessage())
                 .code("NOT_FOUND")
                 .build());
-        return ResponseEntity.status(HttpStatus.BAD_REQUEST)
+        return ResponseEntity.status(HttpStatus.NOT_FOUND)
                 .body(ResponseDto.error(errors));
     }
 
@@ -65,12 +71,14 @@ public class GlobalExceptionHandler {
                     .code("VALIDATION_ERROR")
                     .build());
         }
+        log.warn("Validation failed: errors={}", errors);
         return ResponseEntity.status(HttpStatus.BAD_REQUEST)
                 .body(ResponseDto.error(errors));
     }
 
     @ExceptionHandler(Exception.class)
     public ResponseEntity<ResponseDto<Object>> handleGenericException(Exception e) {
+        log.error("Unexpected error occurred: type={}, message={}", e.getClass().getSimpleName(), e.getMessage(), e);
         List<ErrorDetail> errors = List.of(ErrorDetail.builder()
                 .message("Internal server error")
                 .code("INTERNAL_SERVER_ERROR")

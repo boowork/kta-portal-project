@@ -20,7 +20,7 @@ public class RefreshTokenService {
     @Value("${jwt.refresh.token.validity}")
     private Long refreshTokenValidity;
     
-    public RefreshToken createRefreshToken(Long userId) {
+    public RefreshToken createRefreshToken(UUID userId) {
         // Delete existing refresh token for this user
         refreshTokenRepository.deleteByUserId(userId);
         
@@ -39,7 +39,7 @@ public class RefreshTokenService {
         return refreshTokenRepository.findByToken(token);
     }
     
-    public void deleteByUserId(Long userId) {
+    public void deleteByUserId(UUID userId) {
         refreshTokenRepository.deleteByUserId(userId);
     }
     

@@ -23,6 +23,7 @@ import javax.crypto.SecretKey;
 import java.util.Date;
 
 import static org.junit.jupiter.api.Assertions.*;
+import java.util.UUID;
 import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
@@ -66,7 +67,7 @@ public class JwtAuthenticationFilterTest {
     @Test
     void testDoFilterInternal_WithValidToken_SetsAuthentication() throws Exception {
         // Given
-        String token = jwtTokenProvider.generateToken(1L, "testuser", "Test User");
+        String token = jwtTokenProvider.generateToken(UUID.randomUUID(), "testuser", "Test User");
         when(request.getHeader("Authorization")).thenReturn("Bearer " + token);
         when(request.getHeader("DEV_AUTH")).thenReturn(null); // No DEV_AUTH header
         
@@ -236,7 +237,7 @@ public class JwtAuthenticationFilterTest {
     @Test
     void testDoFilterInternal_WithDevAuthHeader_SetsAuthentication() throws Exception {
         // Given
-        when(request.getHeader("DEV_AUTH")).thenReturn(TestUtils.buildAdminDevAuthHeader());
+        when(request.getHeader("DEV_AUTH")).thenReturn(TestUtils.buildDevAuthHeader());
         
         // When
         jwtAuthenticationFilter.doFilterInternal(request, response, filterChain);
@@ -244,7 +245,7 @@ public class JwtAuthenticationFilterTest {
         // Then
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         assertNotNull(authentication);
-        assertEquals(TestUtils.ADMIN_USER_ID_STR, authentication.getName());
+        assertEquals(TestUtils.DEFAULT_USER_ID_STR, authentication.getName());
         assertTrue(authentication.getAuthorities().isEmpty());
         
         verify(filterChain, times(1)).doFilter(request, response);
@@ -268,7 +269,7 @@ public class JwtAuthenticationFilterTest {
     @Test
     void testDoFilterInternal_WithDevAuthInTestProfile_SetsAuthentication() throws Exception {
         // Given - Test profile is active (DEV_AUTH should work)
-        when(request.getHeader("DEV_AUTH")).thenReturn(TestUtils.buildUserDevAuthHeader());
+        when(request.getHeader("DEV_AUTH")).thenReturn(TestUtils.buildDevAuthHeader());
         
         // When
         jwtAuthenticationFilter.doFilterInternal(request, response, filterChain);
@@ -276,7 +277,7 @@ public class JwtAuthenticationFilterTest {
         // Then
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         assertNotNull(authentication);
-        assertEquals(TestUtils.REGULAR_USER_ID_STR, authentication.getName());
+        assertEquals(TestUtils.DEFAULT_USER_ID_STR, authentication.getName());
         
         verify(filterChain, times(1)).doFilter(request, response);
     }

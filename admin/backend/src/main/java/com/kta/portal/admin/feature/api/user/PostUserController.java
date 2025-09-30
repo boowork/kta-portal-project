@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.time.LocalDateTime;
+import java.util.UUID;
 
 @RestController
 @RequiredArgsConstructor
@@ -82,7 +83,7 @@ class PostUserHttpRequestDto {
 
 @Data
 class PostUserHttpResponseDto {
-    private Long id;
+    private UUID id;
     private String userid;
     private String name;
     private LocalDateTime createdAt;

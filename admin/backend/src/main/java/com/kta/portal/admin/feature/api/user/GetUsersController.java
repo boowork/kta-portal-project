@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.UUID;
 import java.util.stream.Collectors;
 
 @RestController
@@ -78,7 +79,7 @@ class GetUsersService {
 
 @Data
 class GetUsersHttpResponseDto {
-    private Long id;
+    private UUID id;
     private String userid;
     private String name;
     private LocalDateTime createdAt;

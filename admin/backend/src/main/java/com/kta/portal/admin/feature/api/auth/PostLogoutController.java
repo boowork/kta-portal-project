@@ -68,11 +68,11 @@ class PostLogoutDao {
     private final JdbcTemplate jdbcTemplate;
     
     public PostLogoutDaoResponseDto findUserByUserid(String userid) {
-        String sql = "SELECT id FROM users WHERE userid = ?";
+        String sql = "SELECT id FROM portal_users WHERE userid = ?";
         Map<String, Object> row = jdbcTemplate.queryForMap(sql, userid);
         
         return PostLogoutDaoResponseDto.builder()
-            .id(((Number) row.get("id")).longValue())
+            .id((java.util.UUID) row.get("id"))
             .build();
     }
 }
@@ -86,5 +86,5 @@ class PostLogoutHttpResponseDto {
 @Data
 @Builder
 class PostLogoutDaoResponseDto {
-    private Long id;
+    private java.util.UUID id;
 }

@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDateTime;
 import java.util.Optional;
+import java.util.UUID;
 
 @RestController
 @RequiredArgsConstructor
@@ -23,7 +24,7 @@ public class PutUserController {
     private final PutUserService putUserService;
     
     @PutMapping("/api/users/{id}")
-    public ResponseEntity<ResponseDto<PutUserHttpResponseDto>> updateUser(@PathVariable Long id, @Valid @RequestBody PutUserHttpRequestDto requestDto) {
+    public ResponseEntity<ResponseDto<PutUserHttpResponseDto>> updateUser(@PathVariable UUID id, @Valid @RequestBody PutUserHttpRequestDto requestDto) {
         PutUserHttpResponseDto user = putUserService.updateUser(id, requestDto);
         return ResponseEntity.ok(ResponseDto.success(user));
     }
@@ -38,7 +39,7 @@ class PutUserService {
     private final PasswordEncoder passwordEncoder;
     
     @Transactional
-    public PutUserHttpResponseDto updateUser(Long id, PutUserHttpRequestDto requestDto) {
+    public PutUserHttpResponseDto updateUser(UUID id, PutUserHttpRequestDto requestDto) {
         Optional<User> userOpt = userRepository.findById(id);
         if (userOpt.isEmpty()) {
             throw new ResourceNotFoundException("User not found");
@@ -76,7 +77,7 @@ class PutUserHttpRequestDto {
 
 @Data
 class PutUserHttpResponseDto {
-    private Long id;
+    private UUID id;
     private String userid;
     private String name;
     private LocalDateTime createdAt;
