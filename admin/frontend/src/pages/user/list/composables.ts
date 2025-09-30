@@ -22,7 +22,6 @@ export const useUserList = () => {
 
   // API calls
   const fetchUsers = async () => {
-    console.log('🔥 fetchUsers called from:', new Error().stack)
     try {
       isLoading.value = true
       clearErrors()
@@ -53,8 +52,6 @@ export const useUserList = () => {
   }
 
   const searchUsers = async () => {
-    console.log('🔍 searchUsers called from:', new Error().stack)
-    
     try {
       isLoading.value = true
       clearErrors()
@@ -140,7 +137,6 @@ export const useUserList = () => {
 
   // UI helpers
   const updateOptions = (options: any) => {
-    console.log('⚙️ updateOptions called from:', new Error().stack)
     const newSortBy = options.sortBy[0]?.key
     const newOrderBy = options.sortBy[0]?.order
     

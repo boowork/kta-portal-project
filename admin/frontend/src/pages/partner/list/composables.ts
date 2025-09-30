@@ -21,7 +21,6 @@ export const usePartnerList = () => {
 
   // API calls
   const fetchPartners = async () => {
-    console.log('🔥 fetchPartners called from:', new Error().stack)
     try {
       isLoading.value = true
       clearErrors()
@@ -52,8 +51,6 @@ export const usePartnerList = () => {
   }
 
   const searchPartners = async () => {
-    console.log('🔍 searchPartners called from:', new Error().stack)
-
     try {
       isLoading.value = true
       clearErrors()
@@ -135,8 +132,6 @@ export const usePartnerList = () => {
   }
 
   const updateOptions = (options: any) => {
-    console.log('✅ updateOptions called with:', options)
-
     if (options.page !== undefined)
       page.value = options.page
 
