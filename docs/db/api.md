@@ -1,8 +1,12 @@
 # AIDT Portal API Documentation
 
 ## Base URLs
-- Authentication Service: `https://e3engl0sk3.aitextbook.co.kr`
-- API Service: `https://api.aidtbook.kr`
+- real
+  - Authentication Service: `https://e3engl0sk3.aitextbook.co.kr`
+  - API Service: `https://api.aidtbook.kr`
+- local
+  - Authentication Service: `http://localhost:8082`
+  - API Service: `http://localhost:8082`
 
 ## Common Headers
 ```
@@ -16,7 +20,7 @@ Content-Type: application/json
 ## 1. Authentication API
 
 ### 1.1 Get Access Token
-**Endpoint:** `POST /api/v1/at/token`  
+**Endpoint:** `POST /api/v1/at/token`
 **Description:** Authenticate user and obtain JWT tokens
 
 **Request:**
@@ -45,7 +49,7 @@ Content-Type: application/json
 ## 2. Teacher APIs
 
 ### 2.1 Get Teacher All Information
-**Endpoint:** `POST /aidt_userinfo/teacher/all`  
+**Endpoint:** `POST /aidt_userinfo/teacher/all`
 **Description:** Get teacher's complete information including lectures, schedules, and classes
 
 **Request:**
@@ -107,7 +111,7 @@ Content-Type: application/json
 ```
 
 ### 2.2 Get Class Members
-**Endpoint:** `POST /aidt_userinfo/teacher/class_member`  
+**Endpoint:** `POST /aidt_userinfo/teacher/class_member`
 **Description:** Get list of students in a specific class and lecture
 
 **Request:**
@@ -144,7 +148,7 @@ Content-Type: application/json
 ## 3. Student API
 
 ### 3.1 Get Student All Information
-**Endpoint:** `POST /aidt_userinfo/student/all`  
+**Endpoint:** `POST /aidt_userinfo/student/all`
 **Description:** Get student's complete information
 
 **Request:**
@@ -181,9 +185,9 @@ Content-Type: application/json
 
 ## Error Codes
 
-| Code | Message | Description |
-|------|---------|-------------|
-| 00000 | 성공 | Success |
+| Code  | Message              | Description    |
+| ----- | -------------------- | -------------- |
+| 00000 | 성공                 | Success        |
 | 40401 | 존재하지 않은 데이타 | Data not found |
 
 ---

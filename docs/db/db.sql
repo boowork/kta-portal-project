@@ -114,7 +114,26 @@ CREATE INDEX idx_class_members_class ON class_members(class_code);
 CREATE INDEX idx_class_members_lecture ON class_members(lecture_code);
 
 -- ============================================
--- 9. API Access Logs (Partner API usage tracking)
+-- 9. User Authentication (로그인 인증 정보)
+-- ============================================
+CREATE TABLE user_auth (
+    id SERIAL PRIMARY KEY,
+    user_id UUID REFERENCES users(user_id),
+    login_id VARCHAR(256) UNIQUE NOT NULL,  -- lecture_code-user_id format
+    password_hash VARCHAR(256) NOT NULL,     -- Encrypted password
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+COMMENT ON TABLE user_auth IS '사용자 인증 정보';
+COMMENT ON COLUMN user_auth.login_id IS '로그인 ID (lecture_code-user_id 형식)';
+COMMENT ON COLUMN user_auth.password_hash IS '암호화된 비밀번호';
+
+CREATE INDEX idx_user_auth_user ON user_auth(user_id);
+CREATE INDEX idx_user_auth_login ON user_auth(login_id);
+
+-- ============================================
+-- 10. API Access Logs (Partner API usage tracking)
 -- ============================================
 CREATE TABLE api_access_logs (
     id SERIAL PRIMARY KEY,
@@ -183,3 +202,10 @@ INSERT INTO classes (class_code, school_name, user_grade, user_class) VALUES
 INSERT INTO class_members (class_code, lecture_code, user_id, user_name, user_number) VALUES
 ('4V100000030_2025_00000000_1001', '4V100000030_20251_00001001', 
  '5d267a28-3ce9-5441-bb5a-cb0219de6301', 'aidtpbs10', '1');
+
+-- 9. Insert user authentication (from /api/v1/at/token request)
+-- Note: In production, password should be properly hashed
+INSERT INTO user_auth (user_id, login_id, password_hash) VALUES
+('26af6255-e8af-57c7-8cd3-bd4981ba5ce3', 
+ '4V100000030_20251_00001001-26af6255-e8af-57c7-8cd3-bd4981ba5ce3',
+ '4V100000030_20251_00001001-26af6255-e8af-57c7-8cd3-bd4981ba5ce3_!@12');
