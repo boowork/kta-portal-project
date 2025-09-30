@@ -6,8 +6,8 @@ VALUES
 
 
 -- 1. Insert partner (from curl.md headers)
-INSERT INTO partners (partner_id, partner_name, is_active) VALUES
-('fa1f5e94-7f48-563d-aa6f-a9c975f145f8', 'AI 디지털교과서 개발사', true);
+INSERT INTO partners (id, partner_name, is_active) VALUES
+('01999880-0000-7000-8000-000000000001', 'AI 디지털교과서 개발사', true);
 
 -- 2. Insert school
 INSERT INTO schools (school_id, school_name) VALUES

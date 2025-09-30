@@ -5,9 +5,9 @@ HeadVer 기반 자동화된 개발 사이클과 Single Class All Component 아�
 ## 핵심 워크플로우
 
 ### 1. 개발 사이클 시작
-```bash
+<!-- ```bash
 ./new.sh  # HeadVer 증가 + 워크트리 생성 + 문서 구조 자동 생성
-```
+``` -->
 
 ### 2. 개발 완료
 ```bash
@@ -34,8 +34,8 @@ feature/{domain}/
 @RestController
 public class GetUsersController { /* Controller 구현 */ }
 
-@Service  
-class GetUsersService { 
+@Service
+class GetUsersService {
     private final GetUsersRepository repository;  // 정적 쿼리
     private final GetUsersDao dao;                 // 동적 쿼리
 }
@@ -43,10 +43,10 @@ class GetUsersService {
 // Repository - 정적 SQL (Spring Data JDBC)
 interface GetUsersRepository extends CrudRepository<User, Long> {
     List<User> findByStatus(String status);
-    
+
     @Query("""
-        SELECT u.*, r.role_name FROM users u 
-        JOIN roles r ON u.role_id = r.id 
+        SELECT u.*, r.role_name FROM users u
+        JOIN roles r ON u.role_id = r.id
         WHERE u.department = :dept
         """)
     List<UserWithRole> findUsersWithRole(@Param("dept") String department);
@@ -56,7 +56,7 @@ interface GetUsersRepository extends CrudRepository<User, Long> {
 @Repository
 class GetUsersDao {
     private final JdbcTemplate jdbcTemplate;
-    
+
     public List<UserReportDto> getDynamicReport(FilterDto filter) {
         // Text Blocks + StringBuilder로 동적 쿼리 구성
     }

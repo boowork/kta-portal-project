@@ -48,22 +48,21 @@ CREATE INDEX idx_refresh_tokens_expires_at ON refresh_tokens(expires_at);
 -- 1. Partners Table (연동 인증키 관리)
 -- ============================================
 CREATE TABLE partners (
-    id UUID PRIMARY KEY DEFAULT uuidv7(),
-    partner_id UUID UNIQUE NOT NULL,  -- Partner-ID from API headers
+    id UUID PRIMARY KEY DEFAULT uuidv7(),  -- Partner-ID from API headers
     partner_name VARCHAR(256) NOT NULL,
     is_active BOOLEAN DEFAULT true,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
 COMMENT ON TABLE partners IS '파트너(AI 디지털교과서 개발사) 정보';
-COMMENT ON COLUMN partners.partner_id IS '연동 인증키 (Partner-ID)';
+COMMENT ON COLUMN partners.id IS '연동 인증키 (Partner-ID)';
 
 -- ============================================
 -- 2. Partners Users Table
 -- ============================================
 CREATE TABLE partners_users (
     id UUID PRIMARY KEY DEFAULT uuidv7(),
-    partner_id UUID REFERENCES partners(partner_id),
+    partner_id UUID REFERENCES partners(id),
     user_id UUID UNIQUE NOT NULL,
     user_name VARCHAR(128) NOT NULL,
     email VARCHAR(256),
@@ -197,7 +196,7 @@ CREATE INDEX idx_user_auth_login ON user_auth(login_id);
 -- ============================================
 CREATE TABLE api_access_logs (
     id UUID PRIMARY KEY DEFAULT uuidv7(),
-    partner_id UUID REFERENCES partners(partner_id),
+    partner_id UUID REFERENCES partners(id),
     user_id UUID,
     api_endpoint VARCHAR(256),
     request_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP,

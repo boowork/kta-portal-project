@@ -50,30 +50,22 @@ public abstract class BaseIntegrationTest {
         }
     }
 
-    // Authentication helper methods using TestUtils
+    // Simplified authentication helper method
+    protected MockHttpServletRequestBuilder withAuth(MockHttpServletRequestBuilder requestBuilder) {
+        return TestUtils.withJwtAuth(requestBuilder);
+    }
 
+    // Backward compatibility - all methods now use same auth
     protected MockHttpServletRequestBuilder withAdminAuth(MockHttpServletRequestBuilder requestBuilder) {
-        return TestUtils.withAdminJwtAuth(requestBuilder);
+        return withAuth(requestBuilder);
     }
 
     protected MockHttpServletRequestBuilder withUserAuth(MockHttpServletRequestBuilder requestBuilder) {
-        return TestUtils.withUserJwtAuth(requestBuilder);
+        return withAuth(requestBuilder);
     }
 
-    protected MockHttpServletRequestBuilder withDevAdminAuth(MockHttpServletRequestBuilder requestBuilder) {
-        return TestUtils.withAdminDevAuth(requestBuilder);
-    }
-
-    protected MockHttpServletRequestBuilder withDevUserAuth(MockHttpServletRequestBuilder requestBuilder) {
-        return TestUtils.withUserDevAuth(requestBuilder);
-    }
-
-    // Backward compatibility methods
-    protected String generateAdminToken() {
-        return TestUtils.generateAdminToken();
-    }
-
-    protected String generateUserToken() {
-        return TestUtils.generateUserToken();
+    // Token generation for testing
+    protected String generateToken() {
+        return TestUtils.generateToken();
     }
 }

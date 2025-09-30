@@ -58,7 +58,7 @@ public class GetUserControllerTest extends BaseIntegrationTest {
     @Test
     void testGetUserByIdNotFound_WithUserRole() throws Exception {
         mockMvc.perform(withUserAuth(get("/api/users/01999999-9999-7999-8999-999999999999")))
-                .andExpect(status().isBadRequest())
+                .andExpect(status().isNotFound())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON))
                 .andExpect(jsonPath("$.success").value(false))
                 .andExpect(jsonPath("$.errors[0].code").value("NOT_FOUND"));

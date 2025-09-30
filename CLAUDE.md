@@ -6,6 +6,7 @@ IMPORTANT: don't use emoji
 IMPORTANT: write documentation in English to save context
 IMPORTANT: admin backend project: follow workflow.md
 IMPORTANT: API index @docs/api/index.md
+IMPORTANT: backend database is PostgreSQL. Table ID must be UUID type. Always use uuidv7() function in SQL for UUID generation
 
 
 # KTA Portal Project - Architecture Overview

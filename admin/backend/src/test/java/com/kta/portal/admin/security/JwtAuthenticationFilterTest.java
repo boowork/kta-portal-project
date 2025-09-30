@@ -237,7 +237,7 @@ public class JwtAuthenticationFilterTest {
     @Test
     void testDoFilterInternal_WithDevAuthHeader_SetsAuthentication() throws Exception {
         // Given
-        when(request.getHeader("DEV_AUTH")).thenReturn(TestUtils.buildAdminDevAuthHeader());
+        when(request.getHeader("DEV_AUTH")).thenReturn(TestUtils.buildDevAuthHeader());
         
         // When
         jwtAuthenticationFilter.doFilterInternal(request, response, filterChain);
@@ -245,7 +245,7 @@ public class JwtAuthenticationFilterTest {
         // Then
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         assertNotNull(authentication);
-        assertEquals(TestUtils.ADMIN_USER_ID_STR, authentication.getName());
+        assertEquals(TestUtils.DEFAULT_USER_ID_STR, authentication.getName());
         assertTrue(authentication.getAuthorities().isEmpty());
         
         verify(filterChain, times(1)).doFilter(request, response);
@@ -269,7 +269,7 @@ public class JwtAuthenticationFilterTest {
     @Test
     void testDoFilterInternal_WithDevAuthInTestProfile_SetsAuthentication() throws Exception {
         // Given - Test profile is active (DEV_AUTH should work)
-        when(request.getHeader("DEV_AUTH")).thenReturn(TestUtils.buildUserDevAuthHeader());
+        when(request.getHeader("DEV_AUTH")).thenReturn(TestUtils.buildDevAuthHeader());
         
         // When
         jwtAuthenticationFilter.doFilterInternal(request, response, filterChain);
@@ -277,7 +277,7 @@ public class JwtAuthenticationFilterTest {
         // Then
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         assertNotNull(authentication);
-        assertEquals(TestUtils.REGULAR_USER_ID_STR, authentication.getName());
+        assertEquals(TestUtils.DEFAULT_USER_ID_STR, authentication.getName());
         
         verify(filterChain, times(1)).doFilter(request, response);
     }
