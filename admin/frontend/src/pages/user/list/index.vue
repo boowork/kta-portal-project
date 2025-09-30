@@ -9,7 +9,7 @@ const {
   users, totalUsers, isLoading, isSubmitting, searchQuery, selectedRows,
   itemsPerPage, page, sortBy, orderBy,
   fetchUsers, searchUsers, createUser, deleteUser, updateOptions,
-  resolveUserAvatarVariant, widgetData,
+  resolveUserAvatarVariant,
 } = useUserList()
 
 const headers = [
@@ -51,60 +51,6 @@ watch([searchQuery, page, itemsPerPage, sortBy, orderBy], async () => {
 
 <template>
   <section>
-    <!--  Widgets -->
-    <div class="d-flex mb-6">
-      <VRow>
-        <template
-          v-for="(data, id) in widgetData"
-          v-if="widgetData && widgetData.length > 0"
-          :key="id"
-        >
-          <VCol
-            cols="12"
-            md="3"
-            sm="6"
-          >
-            <VCard>
-              <VCardText>
-                <div class="d-flex justify-space-between">
-                  <div class="d-flex flex-column gap-y-1">
-                    <div class="text-body-1 text-high-emphasis">
-                      {{ data?.title || 'No Title' }}
-                    </div>
-                    <div class="d-flex gap-x-2 align-center">
-                      <h4 class="text-h4">
-                        {{ data?.value || '0' }}
-                      </h4>
-                      <div
-                        class="text-base"
-                        :class="(data?.change || 0) > 0 ? 'text-success' : 'text-error'"
-                      >
-                        ({{ prefixWithPlus(data?.change || 0) }}%)
-                      </div>
-                    </div>
-                    <div class="text-sm">
-                      {{ data?.desc || 'No description' }}
-                    </div>
-                  </div>
-                  <VAvatar
-                    :color="data?.iconColor || 'primary'"
-                    variant="tonal"
-                    rounded
-                    size="40"
-                  >
-                    <VIcon
-                      :icon="data?.icon || 'bx-help-circle'"
-                      size="24"
-                    />
-                  </VAvatar>
-                </div>
-              </VCardText>
-            </VCard>
-          </VCol>
-        </template>
-      </VRow>
-    </div>
-
     <VCard class="mb-6">
       <VCardItem class="pb-4">
         <VCardTitle>Filters</VCardTitle>
